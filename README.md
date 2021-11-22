@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Güttlein Gareis, Alexis](https://github.com/alexguttlein)
 * **Integrante 2** - [Chen, Nicolas](https://github.com/nichen710)
 * **Integrante 3** - [Kisinovsky, Diego](https://github.com/dkisi)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 4** - [Sicca, Fabio](https://github.com/FabioSicca)
 * **Integrante 5** - [integrante5](https://github.com/integrante5)
 
 Corrector: **{Corrector}**
