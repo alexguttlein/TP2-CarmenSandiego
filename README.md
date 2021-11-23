@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 2** - [Chen, Nicolas](https://github.com/nichen710)
 * **Integrante 3** - [Kisinovsky, Diego](https://github.com/dkisi)
 * **Integrante 4** - [Sicca, Fabio](https://github.com/FabioSicca)
-* **Integrante 5** - [integrante5](https://github.com/integrante5)
+* **Integrante 5** - [Valdivia Wong, Angie Isabella](https://github.com/GiaWong)
 
 Corrector: **{Corrector}**
 
