@@ -1,0 +1,23 @@
+@startuml
+
+autonumber
+title jugadorVisitaEdificio
+activate Testcase
+Testcase -> Jugador:
+activate Jugador
+Jugador -> Partida: visitarEdificio(edificio, ciudadActual)
+activate Partida
+Partida -> Ciudad: visitarEdificio(edificio)
+activate Ciudad
+Ciudad -> Edificio: visitar()
+activate Edificio
+Edificio --> Ciudad: tiempo
+deactivate Edificio
+Ciudad --> Partida: tiempo
+
+deactivate Ciudad
+deactivate Partida
+deactivate Jugador
+deactivate Testcase
+
+@enduml

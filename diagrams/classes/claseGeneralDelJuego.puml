@@ -1,0 +1,27 @@
+@startuml Juego
+
+class Juego{}
+
+class Partida{}
+
+class Jugador{}
+
+class Objeto{}
+
+class Ciudad{}
+
+class Ladron{}
+
+class Edificio{}
+
+class Rango{}
+
+Juego -down-> Partida
+Partida "1"-down->"1" Jugador
+Partida "1"-down->"1..." Ciudad
+Partida "1"-down->"1" Ladron
+Partida "1"-down->"1" Objeto
+Ciudad "1"*-down->"3" Edificio
+Jugador "1"*-down->"1" Rango
+
+@enduml
