@@ -4,7 +4,7 @@
 Cancel changes
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 12
 
 * **Integrante 1** - [Güttlein Gareis, Alexis](https://github.com/alexguttlein)
 * **Integrante 2** - [Chen, Nicolas](https://github.com/nichen710)
@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Sicca, Fabio](https://github.com/FabioSicca)
 * **Integrante 5** - [Valdivia Wong, Angie Isabella](https://github.com/GiaWong)
 
-Corrector: **{Corrector}**
+Corrector: **Pablo Suarez**
 
 ## Aplicación
 
