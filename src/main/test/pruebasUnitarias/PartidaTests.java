@@ -2,7 +2,7 @@ package pruebasUnitarias;
 
 import carmenSandiego.modelo.*;
 import org.junit.jupiter.api.Test;
-
+import carmenSandiego.modelo.Partida;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +19,8 @@ public class PartidaTests {
     }
 
 
-    @Test void detectiveDuermeYPasan8Horas(){
+    @Test
+    public void detectiveDuermeYPasan8Horas(){
         Partida nuevaPartida = new Partida();
 
         nuevaPartida.dormir();
