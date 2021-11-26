@@ -1,12 +1,19 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.Jugador;
+import carmenSandiego.modelo.Ciudad;
+
 import org.junit.jupiter.api.Test;
 
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class JugadorTest {
     Jugador jugador= new Jugador("Alex");
+    Ciudad ciudadMock = mock(Ciudad.class);
 
     @Test
     public void porDefectoUnJugadorTieneCeroArrestos(){
@@ -58,5 +65,13 @@ public class JugadorTest {
         for(int i = 0; i < 25; i++)
             jugador.addArresto();
         assertEquals("Sargento", jugador.getRango());
+    }
+
+    @Test
+    public void seAsignaUnaCiudadAJugador(){
+        when(ciudadMock.getNombre()).thenReturn("Buenos Aires");
+        jugador.setCiudadActual(ciudadMock);
+
+        assertEquals("Buenos Aires", jugador.getCiudadActual().getNombre());
     }
 }
