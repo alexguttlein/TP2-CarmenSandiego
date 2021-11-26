@@ -3,19 +3,19 @@ package carmenSandiego.modelo;
 import java.util.ArrayList;
 
 public class Ciudad {
-    public String nombre;
-    public String bandera;
-    public String moneda;
-    public String geografia;
-    public String hitos;
-    public String industria;
-    public String animales;
-    public String personalidades;
-    public String idioma;
-    public String arte;
-    public String religion;
-    public String gobierno;
-    public String varios;
+    private String nombre;
+    private String bandera;
+    private String moneda;
+    private String geografia;
+    private String hitos;
+    private String industria;
+    private String animales;
+    private String personalidades;
+    private String idioma;
+    private String arte;
+    private String religion;
+    private String gobierno;
+    private String varios;
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
