@@ -1,0 +1,19 @@
+@startuml
+
+autonumber
+title casoUso1
+activate Partida
+Partida -> "montreal: Ciudad": visitarEdificio(edificio)
+activate "montreal: Ciudad"
+"montreal: Ciudad" -> "montreal: Ciudad": pasoLadron()
+"montreal: Ciudad" -> "banco: Edificio": obtenerPista(ciudadSig, true)
+activate "banco: Edificio"
+"banco: Edificio" -> "banco: Edificio": mostrarPista()
+
+"banco: Edificio" --> "montreal: Ciudad": tiempo
+"montreal: Ciudad" --> Partida: tiempo
+
+deactivate "banco: Edificio"
+deactivate "montreal: Ciudad"
+deactivate Partida
+@enduml

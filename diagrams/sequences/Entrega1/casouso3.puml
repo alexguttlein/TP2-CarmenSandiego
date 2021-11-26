@@ -1,0 +1,13 @@
+@startuml
+
+autonumber
+title jugadorViajaAMexico
+activate Partida
+Partida -> Jugador: calcularTiempoViaje(distancia)
+activate Jugador
+Jugador --> Partida: tiempoViaje
+
+deactivate Jugador
+deactivate Partida
+
+@enduml
