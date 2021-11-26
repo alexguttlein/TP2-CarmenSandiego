@@ -3,8 +3,9 @@
 autonumber
 title jugadorViajaAMexico
 activate Partida
-Partida -> Jugador: calcularTiempoViaje(distancia)
+Partida -> Jugador: setCiudadActual(mexico)
 activate Jugador
+Partida -> Jugador: calcularTiempoViaje(distancia)
 Jugador --> Partida: tiempoViaje
 
 deactivate Jugador
