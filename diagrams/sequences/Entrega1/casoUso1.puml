@@ -3,13 +3,11 @@
 autonumber
 title casoUso1
 activate Partida
-Partida -> "montreal: Ciudad": visitarEdificio(edificio)
+Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, banco)
 activate "montreal: Ciudad"
-"montreal: Ciudad" -> "montreal: Ciudad": pasoLadron()
-"montreal: Ciudad" -> "banco: Edificio": obtenerPista(ciudadSig, true)
+"montreal: Ciudad" -> "banco: Edificio": getPista(ciudadSig)
 activate "banco: Edificio"
 "banco: Edificio" -> "banco: Edificio": mostrarPista()
-
 "banco: Edificio" --> "montreal: Ciudad": tiempo
 "montreal: Ciudad" --> Partida: tiempo
 

@@ -17,6 +17,8 @@ public class Ciudad {
     private String gobierno;
     private String varios;
 
+    public ArrayList<Edificio> edificios;
+
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
         this.bandera = pistasCiudad.get(1);
@@ -46,4 +48,8 @@ public class Ciudad {
     public String getReligion(){return this.religion;}
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
+
+    public int visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
+        return unEdificio.getPista(ciudadSig);
+    }
 }
