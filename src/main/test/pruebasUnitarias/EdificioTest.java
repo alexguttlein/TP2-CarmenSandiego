@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EdificioTest {
-    String unaPistaCorrecta = "Si, vino a cambiar un poco de pesos";
+/*    String unaPistaCorrecta = "Si, vino a cambiar un poco de pesos";
     String unaPistaIncorrecta = "Disculpa no lo vimos por aca";
     ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
@@ -94,5 +94,5 @@ public class EdificioTest {
         }
         assertEquals(55, edificio.getVecesVisitados());
     }
-
+*/
 }
