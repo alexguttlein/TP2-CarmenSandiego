@@ -74,4 +74,27 @@ public class JugadorTest {
 
         assertEquals("Buenos Aires", jugador.getCiudadActual().getNombre());
     }
+
+    @Test
+    public void jugadorDuermePor8Horas(){
+        assertEquals(8, jugador.dormir());
+    }
+
+    @Test
+    public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
+        assertEquals(2, jugador.serHeridoPorCuchillo());
+    }
+
+    @Test
+    public void jugadorEsHeridoPorCuchillo3VecesYPasan4Horas(){
+        int horas = 0;
+        for(int i = 0; i < 3; i++)
+            horas += jugador.serHeridoPorCuchillo();
+        assertEquals(4, horas);
+    }
+
+    @Test
+    public void jugadorEsHeridoPorArmaDeFuegoYPasan4Horas(){
+        assertEquals(4, jugador.serHeridoPorArmaDeFuego());
+    }
 }
