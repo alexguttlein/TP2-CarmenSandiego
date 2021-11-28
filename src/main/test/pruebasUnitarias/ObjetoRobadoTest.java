@@ -12,12 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ObjetoRobadoTest {
     Ciudad ciudadMock = mock(Ciudad.class);
-    ObjetoRobado objetoRobado = new ObjetoRobado(ciudadMock, "Comun");
+    ObjetoRobado objetoRobado = new ObjetoRobado("Espada de San Martin", ciudadMock, "Comun");
 
     @Test
     public void seRobaUnObjetoDeLaCiudadDeBuenosAires(){
         when(ciudadMock.getNombre()).thenReturn("Buenos Aires");
 
+        assertEquals("Espada de San Martin", objetoRobado.getNombre());
         assertEquals("Buenos Aires", objetoRobado.getCiudadOrigen().getNombre());
     }
 

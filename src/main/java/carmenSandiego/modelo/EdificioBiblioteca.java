@@ -1,12 +1,12 @@
 package carmenSandiego.modelo;
 
-public class Aeropuerto extends Edificio {
+public class EdificioBiblioteca extends Edificio{
     private String pistaCorrecta;
     private String pistaIncorrecta;
     private boolean pasoLadron;
     private int vecesVisitados;
 
-    public Aeropuerto(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
+    public EdificioBiblioteca(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
         this.pistaCorrecta = unaPistaCorrecta;
         this.pistaIncorrecta = unaPistaIncorrecta;
         this.pasoLadron = pasoLadron;

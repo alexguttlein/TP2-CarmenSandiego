@@ -39,4 +39,6 @@ public class Jugador {
     }
 
     public int serHeridoPorArmaDeFuego(){return 4;}
+
+
 }

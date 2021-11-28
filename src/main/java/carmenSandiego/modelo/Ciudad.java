@@ -17,7 +17,9 @@ public class Ciudad {
     private String gobierno;
     private String varios;
 
-    public ArrayList<Edificio> edificios;
+    private ArrayList<Edificio> edificios;
+    private Ciudad ciudadSiguiente;
+    private boolean pasoLadron;
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
@@ -33,6 +35,7 @@ public class Ciudad {
         this.religion = pistasCiudad.get(10);
         this.gobierno = pistasCiudad.get(11);
         this.varios = pistasCiudad.get(12);
+        this.pasoLadron = false;
     }
 
     public String getNombre(){return this.nombre;}
@@ -52,6 +55,17 @@ public class Ciudad {
     public int visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
         return unEdificio.getPista(ciudadSig);
     }
+
+    public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
+        this.ciudadSiguiente = ciudadSiguiente;
+        this.setPasoLadron();
+    }
+
+    public Ciudad getCiudadSiguiente(){return this.ciudadSiguiente;}
+
+    private void setPasoLadron(){this.pasoLadron = true;}
+
+    public boolean getPasoLadron(){return this.pasoLadron;}
 }
 
 

@@ -1,12 +1,5 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Banco;
-import carmenSandiego.modelo.Ciudad;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EdificioTest {

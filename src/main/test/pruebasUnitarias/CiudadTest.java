@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class CiudadTest {
     ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
@@ -14,6 +16,7 @@ public class CiudadTest {
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola"));
 
     Ciudad ciudad = new Ciudad(pistasCiudad);
+    Ciudad ciudadMock = mock(Ciudad.class);
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
@@ -30,5 +33,20 @@ public class CiudadTest {
         assertEquals("Cristianismo", ciudad.getReligion());
         assertEquals("Presidente", ciudad.getGobierno());
         assertEquals("Antigua Colonia Espaniola", ciudad.getVarios());
+    }
+
+    @Test
+    public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
+        when(ciudadMock.getNombre()).thenReturn("Londres");
+        ciudad.setCiudadSiguiente(ciudadMock);
+
+        assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
+        assertTrue(ciudad.getPasoLadron());
+    }
+
+    @Test
+    public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
+        assertFalse(ciudad.getPasoLadron());
+        assertNull(ciudad.getCiudadSiguiente());
     }
 }
