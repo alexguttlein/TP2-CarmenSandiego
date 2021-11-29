@@ -1,6 +1,9 @@
 package carmenSandiego.modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Ciudad {
     private String nombre;
@@ -20,6 +23,7 @@ public class Ciudad {
     private ArrayList<Edificio> edificios;
     private Ciudad ciudadSiguiente;
     private boolean pasoLadron;
+    private final Map<Ciudad, Integer> mapaDistancias = new HashMap<>();
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
@@ -52,7 +56,7 @@ public class Ciudad {
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
 
-    public int visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
+    public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
         return unEdificio.getPista(ciudadSig);
     }
 
@@ -66,6 +70,11 @@ public class Ciudad {
     private void setPasoLadron(){this.pasoLadron = true;}
 
     public boolean getPasoLadron(){return this.pasoLadron;}
+
+    public int obtenerTiempoDeViajeHasta(Ciudad ciudad, Rango rango){
+        int tiempo = 0;
+        return tiempo;
+    }
 }
 
 

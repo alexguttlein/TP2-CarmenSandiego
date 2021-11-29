@@ -1,27 +1,60 @@
 package pruebasUnitarias;
 
+import carmenSandiego.modelo.Ciudad;
+import carmenSandiego.modelo.EdificioBanco;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class EdificioTest {
-/*    String unaPistaCorrecta = "Si, vino a cambiar un poco de pesos";
+    String unaPistaCorrecta = "Si, vino a cambiar un poco de pesos";
     String unaPistaIncorrecta = "Disculpa no lo vimos por aca";
-    ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
-            "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
-            "Cristianismo", "Presidente", "Antigua Colonia Espaniola"));
 
-    Banco edificio = new Banco(unaPistaCorrecta, unaPistaIncorrecta, true);
-    Ciudad ciudadSig = new Ciudad(pistasCiudad);
+    EdificioBanco banco = new EdificioBanco(unaPistaCorrecta, unaPistaIncorrecta, true);
+    EdificioBanco biblioteca = new EdificioBanco(unaPistaCorrecta, unaPistaIncorrecta, false);
+    Ciudad ciudadMock = mock(Ciudad.class);
 
     @Test
-    public void muestraPistaCorrectaBanco(){
-        assertEquals("Si, vino a cambiar un poco de pesos", edificio.getPistaCorrecta());
+    public void muestraPistaEdificioPorDondePasoElLadron(){
+        assertEquals("Si, vino a cambiar un poco de pesos", banco.getPista(ciudadMock));
     }
 
     @Test
-    public void muestraPistaIncorrectaBanco(){
-        assertEquals("Disculpa no lo vimos por aca", edificio.getPistaIncorrecta());
+    public void muestraPistaEdificioPorDondeNoPasoElLadron(){
+        assertEquals("Disculpa no lo vimos por aca", biblioteca.getPista(ciudadMock));
     }
 
+    @Test
+    public void seVisitaUnEdificioUnaVez(){
+        banco.visitar();
+        assertEquals(1, banco.getVecesVisitado());
+    }
+
+    @Test
+    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora1(){
+        banco.visitar();
+        assertEquals(1, banco.getDemora());
+    }
+
+    @Test
+    public void seVisitaUnBancoPorSegundaVezYSeDemoran2Horas(){
+        for(int i = 0; i < 2; i++)
+            banco.visitar();
+        assertEquals(2, banco.getDemora());
+    }
+
+    @Test
+    public void seVisitaUnBancoPorDecimaVezYSeDemoran3Horas(){
+        for(int i = 0; i < 10; i++)
+            banco.visitar();
+        assertEquals(3, banco.getDemora());
+    }
+
+/*
     @Test
     public void muestraPistaCorrectaBiblioteca(){
         assertEquals("Otra pista", edificio.getPista(ciudadSig));
