@@ -1,7 +1,7 @@
 @startuml
 
 autonumber
-title casoUso1
+title "Jugador visita banco de Montreal"
 activate Partida
 Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, banco)
 activate "montreal: Ciudad"

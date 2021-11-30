@@ -1,7 +1,7 @@
 @startuml
 
 autonumber
-title jugadorViajaAMexico
+title "JugadorViajaAMexico"
 activate Partida
 Partida -> Jugador: setCiudadActual(mexico)
 activate Jugador
