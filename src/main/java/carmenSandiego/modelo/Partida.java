@@ -1,7 +1,7 @@
 package carmenSandiego.modelo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import carmenSandiego.modelo.Ciudad;
 
 public class Partida {
 
@@ -35,9 +35,9 @@ public class Partida {
 
     public Ciudad buscarCiudad(String nombreNuevaCiudad){
         Ciudad ciudadBuscada = ciudades.get(0);
-        for (int i = 0; i < ciudades.size(); i++){
-            if (ciudades.get(i).getNombre() == nombreNuevaCiudad) {
-                ciudadBuscada = ciudades.get(i);
+        for (Ciudad ciudadActual : ciudades){
+            if (ciudadActual.getNombre() == nombreNuevaCiudad) {
+                ciudadBuscada = ciudadActual;
             }
         }
         return ciudadBuscada;
