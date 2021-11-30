@@ -79,6 +79,32 @@ public class Ciudad {
         int tiempo = 0;
         return tiempo;
     }
+
+    public double obtenerDistancia(Ciudad ciudadDestino) {
+        double latitudCiudadDestino = ciudadDestino.getLatitud();
+        double longitudCiudadDestino = ciudadDestino.getLongitud();
+        double radioTierra = 6371;//en kilómetros
+        double dLat = Math.toRadians(latitudCiudadDestino - this.latitud);
+        double dLng = Math.toRadians(longitudCiudadDestino - this.longitud);
+        double sindLat = Math.sin(dLat / 2);
+        double sindLng = Math.sin(dLng / 2);
+        double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
+                * Math.cos(Math.toRadians(this.latitud)) * Math.cos(Math.toRadians(latitudCiudadDestino));
+        double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
+        double distancia = radioTierra * va2;
+
+        return distancia;
+    }
+
+    public double getLatitud() {
+        return this.latitud;
+    }
+
+    public double getLongitud(){
+        return this.longitud;
+    }
+
+
 }
 
 

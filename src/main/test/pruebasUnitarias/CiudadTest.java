@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 public class CiudadTest {
     ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
-            "Cristianismo", "Presidente", "Antigua Colonia Espaniola"));
+            "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
     Ciudad ciudad = new Ciudad(pistasCiudad);
     Ciudad ciudadMock = mock(Ciudad.class);

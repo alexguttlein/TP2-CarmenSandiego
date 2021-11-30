@@ -95,14 +95,18 @@ public class JugadorTest {
     public void jugadorEsHeridoPorCuchillo3VecesYPasan4Horas(){
         int horarioAnterior = jugador.getHorario().getHoraActual();
         for(int i = 0; i < 3; i++)
-            horas += jugador.serHeridoPorCuchillo();
-        assertEquals(4, horas);
+            jugador.serHeridoPorCuchillo();
+        int horarioActual = jugador.getHorario().getHoraActual();
+        assertEquals(4, (horarioActual-horarioAnterior));
     }
 
 
     @Test
     public void jugadorEsHeridoPorArmaDeFuegoYPasan4Horas(){
-        assertEquals(4, jugador.serHeridoPorArmaDeFuego());
+        int horarioAnterior = jugador.getHorario().getHoraActual();
+        jugador.serHeridoPorArmaDeFuego();
+        int horarioActual = jugador.getHorario().getHoraActual();
+        assertEquals(4, (horarioActual-horarioAnterior));
     }
 
 
