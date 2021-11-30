@@ -1,0 +1,17 @@
+@startuml
+
+class Jugador {
+    -nombre: String
+    -rango: Rango
+    -ciudadActual: Ciudad
+    -horasDeSuenio: int
+    -vecesHeridosPorCuchillo: int
+    --
+    +Jugador(nombre: String)
+    +addArresto(): void
+    +dormir(): int
+    +serHeridoPorCuchillo(): int
+    +serHeridoPorArmaDeFuego(): int
+}
+
+@enduml

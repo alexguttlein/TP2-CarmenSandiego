@@ -1,0 +1,13 @@
+@startuml
+
+class Rango {
+    -rangoActual: String
+    -cantidadDeArrestos: int
+    --
+    +Rango()
+    +addArresto(): void
+    -verificarRango(): void
+    -aumentarRango(): void
+}
+
+@enduml
