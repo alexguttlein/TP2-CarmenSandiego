@@ -8,14 +8,16 @@ public class Horario {
             "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"));
     int diaActual;
     int horaActual;
+    final int horaDeDormirInicial = 22;
+    final int horaDeDromirFinal = 7;
 
     public Horario(){
-        this.diaActual = 0;
-        this.horaActual = 7;
+        this.diaActual = 0;    //empieza un lunes
+        this.horaActual = 7;  //empieza a las 7 AM
     }
 
     public void addHoras(int horas){
-        if (this.horaActual + horas >= 24){
+        if (this.horaActual + horas >= 24){  //if (this.horaActual + horas >= 22) horas += 8
             this.diaActual = ((this.diaActual + 1) % dias.size());
         }
         this.horaActual = ((this.horaActual + horas) % 24);
@@ -30,4 +32,9 @@ public class Horario {
         return diaYHoraActual;
     }
 
+    public void esHorarioDeDormir(Jugador jugador) {
+        if (horaActual >= horaDeDormirInicial || horaActual <= horaDeDromirFinal){
+            addHoras(jugador.dormir());
+        }
+    }
 }

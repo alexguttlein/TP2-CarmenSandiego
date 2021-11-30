@@ -19,6 +19,8 @@ public class Ciudad {
     private String religion;
     private String gobierno;
     private String varios;
+    private Double latitud;
+    private Double longitud;
 
     private ArrayList<Edificio> edificios;
     private Ciudad ciudadSiguiente;
@@ -39,6 +41,8 @@ public class Ciudad {
         this.religion = pistasCiudad.get(10);
         this.gobierno = pistasCiudad.get(11);
         this.varios = pistasCiudad.get(12);
+        this.latitud = Double.parseDouble(pistasCiudad.get(13));
+        this.longitud = Double.parseDouble(pistasCiudad.get(14));
         this.pasoLadron = false;
     }
 

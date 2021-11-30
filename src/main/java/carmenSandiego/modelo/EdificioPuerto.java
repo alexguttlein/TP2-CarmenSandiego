@@ -4,12 +4,9 @@ public class EdificioPuerto extends Edificio{
     private int vecesVisitados;
 
     public EdificioPuerto(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
-        this.vecesVisitados = 0;
-        super.setPasoLadron(pasoLadron);
-        super.setPistaCorrecta(unaPistaCorrecta);
-        super.setPistaIncorrecta(unaPistaIncorrecta);
+        super(unaPistaCorrecta, unaPistaIncorrecta, pasoLadron);
     }
-
+/*
     @Override
     public String getPista(Ciudad ciudadSig) {
         return super.getPista(ciudadSig);
@@ -29,4 +26,6 @@ public class EdificioPuerto extends Edificio{
     public void visitar(){
         super.visitar();
     }
+
+ */
 }

@@ -5,6 +5,49 @@ import java.util.Arrays;
 
 public class Partida {
 
+    private Jugador jugador;
+    private ObjetoRobado objetoRobado;
+    private final ArrayList<Ciudad> ciudades;
+
+    public Partida(Jugador nuevoJugador, ObjetoRobado objetoRobado, ArrayList<Ciudad> ciudades){
+        this.jugador = nuevoJugador;
+        this.objetoRobado = objetoRobado;
+        this.ciudades = ciudades;
+    }
+
+    //public void dormir(){
+    //    horario.addHoras(jugador.dormir());
+    //}
+
+    //public void herirConCuchillo(){
+    //    horario.addHoras(jugador.serHeridoPorCuchillo());
+    //}
+
+
+
+    public void cambiarCiudad(String nombreNuevaCiudad) {
+        Ciudad ciudadActual = jugador.getCiudadActual();
+        Ciudad nuevaCiudad = buscarCiudad(nombreNuevaCiudad);
+        double distanciaEntreCiudades = ciudadActual.obtenerDistancia(nuevaCiudad);
+        //Pasar el tiempo y cambiar la hora
+        jugador.setCiudadActual(nuevaCiudad);
+    }
+
+    public Ciudad buscarCiudad(String nombreNuevaCiudad){
+        Ciudad ciudadBuscada = ciudades.get(0);
+        for (int i = 0; i < ciudades.size(); i++){
+            if (ciudades.get(i).getNombre() == nombreNuevaCiudad) {
+                ciudadBuscada = ciudades.get(i);
+            }
+        }
+        return ciudadBuscada;
+    }
+
+    //public void jugadorDebeDormir(){
+    //    horario.esHorarioDeDormir(jugador);
+    //}
+}
+    /*
     private final ArrayList<String> dias = new ArrayList<>(Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"));
 
     private int dia;
@@ -39,4 +82,6 @@ public class Partida {
     public void dormir() {
         modificarHora(8);
     }
-}
+
+     */
+

@@ -8,12 +8,14 @@ public class Jugador {
     private Ciudad ciudadActual;
     private int horasDeSuenio;
     private int vecesHeridoPorCuchillo;
+    private Horario horario;
 
     public Jugador(String nombre){
         this.nombre = nombre;
         this.rango = new Rango();
         this.horasDeSuenio = 8;
         this.vecesHeridoPorCuchillo = 0;
+        this.horario = new Horario();
     }
 
     public String getNombre(){return this.nombre;}
@@ -32,13 +34,21 @@ public class Jugador {
 
     public int dormir(){return this.horasDeSuenio;}
 
-    public int serHeridoPorCuchillo(){
+    public void serHeridoPorCuchillo(){
         this.vecesHeridoPorCuchillo++;
-        if(this.vecesHeridoPorCuchillo == 1) return 2;
-        return 1;
+        if(this.vecesHeridoPorCuchillo == 1) {
+            horario.addHoras(2);
+        }
+        else {
+            horario.addHoras(1);
+        }
     }
 
-    public int serHeridoPorArmaDeFuego(){return 4;}
+    public Horario getHorario(){
+        return this.horario;
+    }
+
+    public void serHeridoPorArmaDeFuego(){horario.addHoras(4);}
 
 
 }
