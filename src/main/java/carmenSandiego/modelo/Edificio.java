@@ -7,6 +7,12 @@ public abstract class Edificio {
     private int vecesVisitados;
     private int demora;
 
+    public Edificio(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
+        this.vecesVisitados = 0;
+        this.pasoLadron = pasoLadron;
+        this.pistaCorrecta = unaPistaCorrecta;
+        this.pistaIncorrecta = unaPistaIncorrecta;
+    }
 
     public String getPista(Ciudad ciudadSig){
         if (pasoLadron)

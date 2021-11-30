@@ -2,11 +2,15 @@ package pruebasUnitarias;
 
 import carmenSandiego.modelo.Horario;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import carmenSandiego.modelo.Jugador;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HorarioTest {
     Horario horario = new Horario();
+    Jugador mockJugador = mock(Jugador.class);
 
     @Test
     public void porDefectoSeIniciaUnLunesALas7Hs(){
@@ -32,6 +36,5 @@ public class HorarioTest {
         assertEquals(7, horario.getHoraActual());
         assertEquals("Martes - 7:00 HS", horario.getDiaYHoraActual());
     }
-
 
 }

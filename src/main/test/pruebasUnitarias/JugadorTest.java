@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import carmenSandiego.modelo.Horario;
+
 public class JugadorTest {
     Jugador jugador= new Jugador("Alex");
     Ciudad ciudadMock = mock(Ciudad.class);
@@ -80,21 +82,33 @@ public class JugadorTest {
         assertEquals(8, jugador.dormir());
     }
 
+
     @Test
     public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
-        assertEquals(2, jugador.serHeridoPorCuchillo());
+        int horarioAnterior = jugador.getHorario().getHoraActual();
+        jugador.serHeridoPorCuchillo();
+        int horarioActual = jugador.getHorario().getHoraActual();
+        assertEquals(2, (horarioActual-horarioAnterior));
     }
 
     @Test
     public void jugadorEsHeridoPorCuchillo3VecesYPasan4Horas(){
-        int horas = 0;
+        int horarioAnterior = jugador.getHorario().getHoraActual();
         for(int i = 0; i < 3; i++)
-            horas += jugador.serHeridoPorCuchillo();
-        assertEquals(4, horas);
+            jugador.serHeridoPorCuchillo();
+        int horarioActual = jugador.getHorario().getHoraActual();
+        assertEquals(4, (horarioActual-horarioAnterior));
     }
+
 
     @Test
     public void jugadorEsHeridoPorArmaDeFuegoYPasan4Horas(){
-        assertEquals(4, jugador.serHeridoPorArmaDeFuego());
+        int horarioAnterior = jugador.getHorario().getHoraActual();
+        jugador.serHeridoPorArmaDeFuego();
+        int horarioActual = jugador.getHorario().getHoraActual();
+        assertEquals(4, (horarioActual-horarioAnterior));
     }
+
+
+
 }
