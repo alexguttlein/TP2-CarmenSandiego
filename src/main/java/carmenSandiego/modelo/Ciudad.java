@@ -73,12 +73,12 @@ public class Ciudad {
     private void setPasoLadron(){this.pasoLadron = true;}
 
     public boolean getPasoLadron(){return this.pasoLadron;}
-
+/*
     public int obtenerTiempoDeViajeHasta(Ciudad ciudad, Rango rango){
         int tiempo = 0;
         return tiempo;
     }
-
+*/
     public int visitar(Edificio edificio){
         return edificio.visitar();
     }
