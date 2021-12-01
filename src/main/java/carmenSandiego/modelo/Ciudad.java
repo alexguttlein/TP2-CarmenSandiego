@@ -2,7 +2,6 @@ package carmenSandiego.modelo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Ciudad {
@@ -78,6 +77,10 @@ public class Ciudad {
     public int obtenerTiempoDeViajeHasta(Ciudad ciudad, Rango rango){
         int tiempo = 0;
         return tiempo;
+    }
+
+    public int visitar(Edificio edificio){
+        return edificio.visitar();
     }
 
     public double obtenerDistancia(Ciudad ciudadDestino) {

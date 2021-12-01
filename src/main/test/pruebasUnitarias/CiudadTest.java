@@ -1,6 +1,8 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.Ciudad;
+import carmenSandiego.modelo.Edificio;
+import carmenSandiego.modelo.EdificioBanco;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class CiudadTest {
 
     Ciudad ciudad = new Ciudad(pistasCiudad);
     Ciudad ciudadMock = mock(Ciudad.class);
+    Edificio bancoMock = mock(EdificioBanco.class);
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
@@ -48,5 +51,11 @@ public class CiudadTest {
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
         assertFalse(ciudad.getPasoLadron());
         assertNull(ciudad.getCiudadSiguiente());
+    }
+
+    @Test
+    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora(){
+        when(bancoMock.visitar()).thenReturn(1);
+        assertEquals(1, ciudad.visitar(bancoMock));
     }
 }
