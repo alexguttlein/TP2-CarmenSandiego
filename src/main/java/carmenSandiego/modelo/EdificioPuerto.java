@@ -1,7 +1,25 @@
 package carmenSandiego.modelo;
 
-public class EdificioPuerto implements Edificio {
+public class EdificioPuerto extends Edificio{
 
+    public EdificioPuerto(){
+        comportamientoPistas = new ConPista();
+        noHayPista = "Disculpa no lo vimos por aca";
+    }
+    public void mostrarNombreDelEdificio(){
+        System.out.println("Puerto");
+    }
+    public String getPista(Ciudad ciudadSig){
+
+        if(comportamientoPistas.tienePista()){
+            return comportamientoPistas.getPista(ciudadSig.getBandera());
+        }
+        return comportamientoPistas.getPista(this.noHayPista);
+    }
+
+}
+
+/*
     private String pistaIncorrecta;
     private String pista;
     private boolean pasoLadron;
@@ -10,6 +28,7 @@ public class EdificioPuerto implements Edificio {
     private String nombre;
 
     public EdificioPuerto(String nombre, String pistaIncorrecta, boolean pasoLadron){
+        comportamientoPistas = new ConPista();
         this.vecesVisitado = 0;
         this.pasoLadron = pasoLadron;
         this.nombre = nombre;
@@ -25,10 +44,6 @@ public class EdificioPuerto implements Edificio {
         return this.pista;
     }
 
-    @Override
-    public void mostrarPista(Ciudad ciudadSig, String unaPista) {
-
-    }
 
     @Override
     public int getDemora() {
@@ -73,5 +88,4 @@ public class EdificioPuerto implements Edificio {
     @Override
     public String getNombre(){
         return this.nombre;
-    }
-}
+    }*/

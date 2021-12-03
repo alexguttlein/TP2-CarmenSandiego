@@ -53,9 +53,9 @@ public class CiudadTest {
         assertNull(ciudad.getCiudadSiguiente());
     }
 
-    @Test
+   /* @Test
     public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora(){
         when(bancoMock.visitar()).thenReturn(1);
         assertEquals(1, ciudad.visitar(bancoMock));
-    }
+    }*/
 }
