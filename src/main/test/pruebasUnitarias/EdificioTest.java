@@ -217,7 +217,6 @@ public class EdificioTest {
     public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora(){
 
         banco.entrarAlEdificio(0);//se cuenta desde el cero, ver clase Demora
-        banco.setComportamientoPistas(new ConPista());
         assertEquals(1, banco.getDemora());
 
     }
@@ -225,7 +224,6 @@ public class EdificioTest {
     public void seVisitaUnBancoPorSegundaVezYSeDemoran2Horas(){
 
         banco.entrarAlEdificio(1); //se cuenta desde el cero, ver clase Demora
-        banco.setComportamientoPistas(new ConPista());
         assertEquals(2, banco.getDemora());
 
     }
@@ -283,112 +281,3 @@ public class EdificioTest {
 }
 
 
-
-  /*
-
-    @Test
-    public void seVisitaUnBancoUnaVez(){
-        bancoPasoLadron.visitar();
-        assertEquals(1, bancoPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora1(){
-        assertEquals(1, bancoPasoLadron.visitar());
-    }
-
-    @Test
-    public void seVisitaUnBancoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            bancoPasoLadron.visitar();
-        assertEquals(2, bancoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnBancoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            bancoPasoLadron.visitar();
-        assertEquals(3, bancoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaDosVeces(){
-        for(int i = 0; i < 2; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(2, bibliotecaPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorPrimeraVezYSeDemora1Hora1(){
-        bibliotecaPasoLadron.visitar();
-        assertEquals(1, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(2, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(3, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoCincoVeces(){
-        for(int i = 0; i < 5; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(5, aeropuertoPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorPrimeraVezYSeDemora1Hora1(){
-        aeropuertoPasoLadron.visitar();
-        assertEquals(1, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(2, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(3, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoOchoVeces(){
-        for(int i = 0; i < 8; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(8, puertoPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorPrimeraVezYSeDemora1Hora1(){
-        puertoPasoLadron.visitar();
-        assertEquals(1, puertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(2, puertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(3, puertoPasoLadron.getDemora());
-    }
-}*/
