@@ -2,16 +2,39 @@
 
 autonumber
 title "Jugador visita banco de Montreal"
-activate Partida
-Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, banco)
+activate Jugador
+Jugador -> "montreal: Ciudad": visitarEdificio(banco)
 activate "montreal: Ciudad"
 "montreal: Ciudad" -> "banco: Edificio": getPista(ciudadSig)
 activate "banco: Edificio"
 "banco: Edificio" -> "banco: Edificio": mostrarPista()
-"banco: Edificio" --> "montreal: Ciudad": tiempo
-"montreal: Ciudad" --> Partida: tiempo
 
-deactivate "banco: Edificio"
 deactivate "montreal: Ciudad"
-deactivate Partida
+deactivate "banco: Edificio"
+
+'Jugador tiene la ciudad actual como atributo
+
+/'
+ClaseJugador
+visitarEdificio(Edificio edificio){
+        ciudadActual.visitarEdificio(edificio);
+}
+
+ClaseCiudad
+visitarEdificio(Ciudad ciudadSig, Edificio edificio){
+    edificio.visitar(ciudadSig);
+}
+
+ClaseEdificio
+visitar(Ciuadad ciudadSig){
+    Reloj reloj = Reloj.getInstance();
+    reloj.agregarHoras(obtenerCantidadHoras());
+    mostrarPista(ciudadSig);
+}
+
+obtenerCantidadHoras(){if else, if else...}
+
+mostrarPista(Ciudad ciudadSig){}
+
+'/
 @enduml

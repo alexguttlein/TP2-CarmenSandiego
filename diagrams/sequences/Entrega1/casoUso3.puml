@@ -2,13 +2,27 @@
 
 autonumber
 title "JugadorViajaAMexico"
-activate Partida
-Partida -> Jugador: setCiudadActual(mexico)
 activate Jugador
-Partida -> Jugador: calcularTiempoViaje(distancia)
-Jugador --> Partida: tiempoViaje
+'Jugador -> Jugador: viajar(ciudadMexico)  jugador.viajar(ciudadSig)
+activate "Montreal : Ciudad"
+Jugador -> "Montreal : Ciudad": obtenerDistancia(velocidad, ciudadSig)
+activate "Mexico : Ciudad"
+"Montreal : Ciudad" -> "Mexico : Ciudad": obtenerDistanciaDesde(lat1, long1, velocidad)
+activate CalculadorTiempoViaje
+"Mexico : Ciudad" -> CalculadorTiempoViaje: calcularTiempoViaje(lat1, long1, lat2, long2, velocidad)
+activate Reloj
+CalculadorTiempoViaje -> Reloj: agregarHoras(horasDeViaje)
+'Calcula y lo cambia de acuerdo a su velocidad
+Jugador -> Jugador: cambiarCiudadActual(nuevaCiudad)
+
 
 deactivate Jugador
-deactivate Partida
+
+
+/'
+En realidad en vez de pedir la cantidad de km, podemos pasarle la velocidad
+a la ciudad y que calcule el tiempo de viaje
+Delegar a una nueva clase CalculadorTiempoViaje(lat1, long1, lat2, long2, valocidad)
+'/
 
 @enduml

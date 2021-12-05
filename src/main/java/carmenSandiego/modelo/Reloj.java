@@ -1,22 +1,29 @@
 package carmenSandiego.modelo;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Horario {
+public class Reloj {
+    static final int HORA_INICIAL = 7;
+    static final int DIA_INICIAL = 0;
+
+    private static Reloj instance = new Reloj();
     private final ArrayList<String> dias = new ArrayList<>(Arrays.asList("Lunes", "Martes",
             "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"));
-    int diaActual;
-    int horaActual;
-    final int horaDeDormirInicial = 22;
-    final int horaDeDromirFinal = 7;
+    private int horaActual;
+    private int diaActual;
 
-    public Horario(){
-        this.diaActual = 0;    //empieza un lunes
-        this.horaActual = 7;  //empieza a las 7 AM
+    private Reloj(){
+        horaActual = HORA_INICIAL;
+        diaActual = DIA_INICIAL;
     }
 
-    public void addHoras(int horas){
+    public static Reloj getInstance(){
+        return instance;
+    }
+
+    public void agregarHoras(int horas){
         if (this.horaActual + horas >= 24){  //if (this.horaActual + horas >= 22) horas += 8
             this.diaActual = ((this.diaActual + 1) % dias.size());
         }
@@ -32,12 +39,9 @@ public class Horario {
         return diaYHoraActual;
     }
 
-    /*
-    public void esHorarioDeDormir(Jugador jugador) {
-        if (horaActual >= horaDeDormirInicial || horaActual <= horaDeDromirFinal){
-            addHoras(jugador.dormir());
-        }
+    public void reiniciar(){
+        horaActual = HORA_INICIAL;
+        diaActual = DIA_INICIAL;
     }
 
-     */
 }

@@ -1,6 +1,8 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.Horario;
+import carmenSandiego.modelo.Reloj;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -35,6 +37,25 @@ public class HorarioTest {
         assertEquals(1, horario.getDiaActual());
         assertEquals(7, horario.getHoraActual());
         assertEquals("Martes - 7:00 HS", horario.getDiaYHoraActual());
+    }
+
+    //Test de reloj con Singleton
+    @Test
+    public void seAgregarDosHorasAReloj(){
+        Reloj reloj = Reloj.getInstance();
+        reloj.reiniciar();
+        reloj.agregarHoras(2);
+        assertEquals(9, reloj.getHoraActual());
+    }
+
+    @Test
+    public void seAgregan30HorasYPasaASerMartesALas13(){
+        Reloj reloj = Reloj.getInstance();  //Ojo que cada vez que se modifica queda modificado siempre!!!
+        reloj.reiniciar();
+        reloj.agregarHoras(30);
+
+        assertEquals(1, reloj.getDiaActual());
+        assertEquals(13, reloj.getHoraActual());
     }
 
 }
