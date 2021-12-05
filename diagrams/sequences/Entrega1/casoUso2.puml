@@ -1,4 +1,27 @@
 @startuml
 
+autonumber
+title "Jugador visita banco y biblioteca de Montreal"
+activate Partida
+Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, banco)
+activate "montreal: Ciudad"
+"montreal: Ciudad" -> "banco: Edificio": getPista(ciudadSig)
+activate "banco: Edificio"
+"banco: Edificio" -> "banco: Edificio": mostrarPista()
+"banco: Edificio" --> "montreal: Ciudad": tiempo
+"montreal: Ciudad" --> Partida: tiempo
+deactivate "banco: Edificio"
+
+Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, biblioteca)
+"montreal: Ciudad" -> "biblioteca: Edificio": getPista(ciudadSig)
+activate "biblioteca: Edificio"
+"biblioteca: Edificio" -> "biblioteca: Edificio": mostrarPista()
+"biblioteca: Edificio" --> "montreal: Ciudad": tiempo
+"montreal: Ciudad" --> Partida: tiempo
+
+deactivate "biblioteca: Edificio"
+deactivate "montreal: Ciudad"
+deactivate Partida
+
 
 @enduml

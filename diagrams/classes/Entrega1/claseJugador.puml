@@ -1,0 +1,21 @@
+@startuml
+
+class Jugador {
+    -nombre: String
+    -rango: Rango
+    -ciudadActual: Ciudad
+    '-horasDeSuenio: int
+    -vecesHeridosPorCuchillo: int
+    -estadoJugador : EstadoJugador
+    --
+    +Jugador(nombre: String, ciudadInicio: Ciudad)
+    +addArresto(): void
+    +dormir(): int
+    +serHeridoPorCuchillo(): int
+    +serHeridoPorArmaDeFuego(): int
+    +pasarTiempo(): void
+}
+
+'El horario no va más
+
+@enduml

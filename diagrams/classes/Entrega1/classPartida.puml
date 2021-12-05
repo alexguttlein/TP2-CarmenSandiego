@@ -1,0 +1,15 @@
+@startuml
+
+class Partida {
+    -dias: ArrayList<string>
+    -dia: int
+    -hora: int
+    --
+    +Partida()
+    +moverseDeCiudad(): void
+    +atacarConCuchillo(): void
+    +modificarHora(cantidadHora: int): void
+    +dormir(): void
+}
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+
+autonumber
+title "Jugador visita 3 veces Aeropuerto y 55 veces Puerto"
+
+activate Partida
+loop    i >= 3
+    Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, aeropuerto)
+    activate "montreal: Ciudad"
+    "montreal: Ciudad" -> "aeropuerto: Edificio": getPista(ciudadSig)
+    activate "aeropuerto: Edificio"
+    "aeropuerto: Edificio" -> "aeropuerto: Edificio": mostrarPista()
+    "aeropuerto: Edificio" --> "montreal: Ciudad": tiempo
+    "montreal: Ciudad" --> Partida: tiempo
+    deactivate "aeropuerto: Edificio"
+end loop
+loop    i >= 55
+    Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, puerto)
+    activate "puerto: Edificio"
+    "montreal: Ciudad" -> "puerto: Edificio": getPista(ciudadSig)
+    "puerto: Edificio" -> "puerto: Edificio": mostrarPista()
+    "puerto: Edificio" --> "montreal: Ciudad": tiempo
+    "montreal: Ciudad" --> Partida: tiempo
+    deactivate "puerto: Edificio"
+    deactivate "montreal: Ciudad"
+    deactivate Partida
+end loop
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+class Ladron {
+    -nombre: String
+    -genero: String
+    -hobby: String
+    -cabello: String
+    -senia: String
+    -vehiculo: String
+    --
+    +Ladron(datosLadron: ArrayList<String>)
+}
+
+
+@enduml

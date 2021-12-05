@@ -1,0 +1,24 @@
+@startuml
+
+class Ciudad {
+    -nombre: String
+    -bandera: String
+    -moneda: String
+    -geografia: String
+    -hitos: String
+    -industria: String
+    -animales: String
+    -personalidades: String
+    -idioma: String
+    -arte: String
+    -religion: String
+    -gobierno: String
+    -varios: String
+    -ciudadSiguiente: Ciudad
+    -pasoLadron: boolean
+    --
+    +Ciudad(pistaCiudad: ArrayList<String>)
+    +visitarEdicifio(ciudadSiguiente: Ciudad, unEdificio: Edificio): String
+    +obtenerTiempoDeViajeHasta(ciudad: Ciudad, rango: Rango): int
+}
+@enduml

@@ -76,13 +76,16 @@ public class JugadorTest {
 
         assertEquals("Buenos Aires", jugador.getCiudadActual().getNombre());
     }
-
+/*
     @Test
     public void jugadorDuermePor8Horas(){
         assertEquals(8, jugador.dormir());
     }
 
 
+ */
+
+    /*
     @Test
     public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
         int horarioAnterior = jugador.getHorario().getHoraActual();
@@ -109,6 +112,8 @@ public class JugadorTest {
         assertEquals(4, (horarioActual-horarioAnterior));
     }
 
+
+     */
 
 
 }
