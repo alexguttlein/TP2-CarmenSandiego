@@ -8,7 +8,7 @@ public class Jugador {
     private Ciudad ciudadActual;
     private int horasDeSuenio;
     private int vecesHeridoPorCuchillo;
-    private Horario horario;
+    //private Horario horario;
     private EstadoJugador estadoJugador;
 
     public Jugador(String nombre){
@@ -16,7 +16,7 @@ public class Jugador {
         this.rango = new Rango();
         this.horasDeSuenio = 8;
         this.vecesHeridoPorCuchillo = 0;
-        this.horario = new Horario();
+        //this.horario = new Horario();
     }
 
     public String getNombre(){return this.nombre;}
@@ -49,9 +49,9 @@ public class Jugador {
         //estadoJugador.pasarTiempo();
     }
 
-    public Horario getHorario(){
-        return this.horario;
-    }
+    //public Horario getHorario(){
+    //    return this.horario;
+    //}
 
     public void serHeridoPorArmaDeFuego(){
         estadoJugador = new EstadoHeridoPorArmaDeFuego();

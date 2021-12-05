@@ -85,6 +85,7 @@ public class JugadorTest {
 
  */
 
+    /*
     @Test
     public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
         int horarioAnterior = jugador.getHorario().getHoraActual();
@@ -111,6 +112,8 @@ public class JugadorTest {
         assertEquals(4, (horarioActual-horarioAnterior));
     }
 
+
+     */
 
 
 }
