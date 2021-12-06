@@ -2,31 +2,39 @@ package carmenSandiego.modelo;
 
 public abstract class Edificio{
 
-    ComportamientoPistas comportamientoPistas;
-    ComportamientoDeDemora comportamientoDeDemora;
-    ComportamientoVisita comportamientoVisita;
-    protected String noHayPista;
+    protected ComportamientoPistas comportamientoPistas;
+    protected ComportamientoDeDemora comportamientoDeDemora;
+    protected ComportamientoVisita comportamientoVisita;
 
-    public Edificio(){
+    protected Edificio(){
         comportamientoDeDemora = new Demora();
-        comportamientoVisita = new Acceder();
+        comportamientoVisita = new Visita();
     }
     public abstract void mostrarNombreDelEdificio();
-    public abstract String getPista(Ciudad ciudadSig);
-
-    public void mostrarPista(String unaPista){
-        this.comportamientoPistas.mostrarPistas(unaPista);
+    public String getPista() {
+        return comportamientoPistas.getPista();
+    };
+    public void mostrarPista(){
+        this.comportamientoPistas.mostrarPistas();
     }
-    public void setComportamientoPistas(ComportamientoPistas pista){
-        this.comportamientoPistas =  pista;
-    }
-    public void entrarAlEdificio(int veces){
-        comportamientoVisita.entrarAlEdificio(veces, comportamientoDeDemora);
+    public void entrarAlEdificio(){
+        comportamientoVisita.entrarAlEdificio();
     }
     public int getCantidadDeVisitas() {
         return comportamientoVisita.getTotalVisitas();
     }
     public int getDemora(){
-        return comportamientoDeDemora.getDemora( comportamientoVisita.getTotalVisitas());
+        int visitas = comportamientoVisita.getTotalVisitas();
+        return comportamientoDeDemora.calcularDemora(visitas);
+    }
+    public abstract void setPistas(Ciudad ciudadSig);
+
+    public void setComportamientoPistas(ComportamientoPistas pista){
+        this.comportamientoPistas =  pista;
+    }
+
+    public void setSinPista(){
+        ComportamientoPistas sinPista = new SinPista();
+        setComportamientoPistas(sinPista);
     }
 }

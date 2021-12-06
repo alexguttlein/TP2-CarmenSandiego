@@ -63,7 +63,7 @@ public class Ciudad {
     public String getSinPista(){return this.sinPista;};
 
     public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
-        return unEdificio.getPista(ciudadSig);
+        return unEdificio.getPista();
     }
 
     public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
@@ -76,16 +76,6 @@ public class Ciudad {
     private void setPasoLadron(){this.pasoLadron = true;}
 
     public boolean getPasoLadron(){return this.pasoLadron;}
-/*
-    public int obtenerTiempoDeViajeHasta(Ciudad ciudad, Rango rango){
-        int tiempo = 0;
-        return tiempo;
-    }
-*/
-    /*public int visitar(Edificio edificio){
-        return edificio.visitar();
-    }*/
-
 
     public double obtenerDistancia(Ciudad ciudadDestino) {
         double latitudCiudadDestino = ciudadDestino.getLatitud();
@@ -111,7 +101,16 @@ public class Ciudad {
         return this.longitud;
     }
 
-
+    public void setPistasEdificio(){
+        if (ciudadSiguiente == null){
+            for (Edificio edificio: edificios){
+                edificio.setSinPista();
+            }
+        }
+        for (Edificio edificio: edificios){
+            edificio.setPistas(ciudadSiguiente);
+        }
+    }
 }
 
 

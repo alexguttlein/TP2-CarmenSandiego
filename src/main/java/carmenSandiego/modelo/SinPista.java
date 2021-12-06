@@ -1,18 +1,16 @@
 package carmenSandiego.modelo;
 
 public class SinPista implements ComportamientoPistas{//ver que no sea una clase anemica
-    private boolean estado;
+    private String base = "Disculpa no lo vimos por aca";
 
-    public SinPista(){
-        estado=false;
+    public SinPista(){}
+
+    public void mostrarPistas(){
+        System.out.println(base);
     }
-    public void mostrarPistas(String sinPista){
-        System.out.println("Disculpa no lo vimos por aca");
+
+    public String getPista() {
+        return base;
     }
-    public String getPista(String pista) {
-        return pista;
-    }
-    public boolean tienePista(){
-        return estado;
-    }
+
 }

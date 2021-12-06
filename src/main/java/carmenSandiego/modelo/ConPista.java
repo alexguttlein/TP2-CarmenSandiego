@@ -1,18 +1,18 @@
 package carmenSandiego.modelo;
 
-public class ConPista implements ComportamientoPistas{
-    private boolean estado;
+public abstract class ConPista implements ComportamientoPistas{
+    protected String base;
+    protected String pista;
 
-    public ConPista(){
-        estado=true;
+    public void mostrarPistas(){
+        System.out.println(base + " " + pista);
+    };
+
+    public String getPista() {
+        return (base + " " + pista);
     }
-    public void mostrarPistas(String pista){
-        System.out.println(" " + pista);
-    }
-    public String getPista(String pista) {
-        return pista;
-    }
-    public boolean tienePista(){
-        return estado;
+
+    public void setPista(String unaPista) {
+        this.pista = unaPista;
     }
 }
