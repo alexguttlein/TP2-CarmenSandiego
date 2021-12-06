@@ -44,4 +44,5 @@ public class Rango {
         this.rangoActual = rangoActual;
     }
 
+    public int getVelocidad(){return 1100;} //Está hardcodeado, hay que cambiarlo
 }

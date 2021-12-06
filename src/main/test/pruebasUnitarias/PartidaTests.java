@@ -20,21 +20,22 @@ public class PartidaTests {
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "46.27068001656241", "-72.94882925379466"));
 
-    Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasCiudadMontreal);
+    Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     ArrayList ciudades = new ArrayList(Arrays.asList(ciudadMontreal, ciudadMexico));
 
-    Jugador jugador = new Jugador("Ivan");
+    Jugador jugador = new Jugador("Ivan", ciudadMontreal);
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Partida partida = new Partida(jugador, objetoRobadoMock, ciudades);
 
+    /*
     @Test
     public void jugadorViajaDeMontrealAMexico() {
         jugador.setCiudadActual(ciudadMontreal);
         partida.cambiarCiudad("Mexico");
         assertEquals(ciudadMexico.getNombre(), jugador.getCiudadActual().getNombre());
     }
-
+*/
 
 
 

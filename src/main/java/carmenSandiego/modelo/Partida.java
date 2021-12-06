@@ -24,7 +24,7 @@ public class Partida {
     //}
 
 
-
+/*
     public void cambiarCiudad(String nombreNuevaCiudad) {
         Ciudad ciudadActual = jugador.getCiudadActual();
         Ciudad nuevaCiudad = buscarCiudad(nombreNuevaCiudad);
@@ -32,6 +32,8 @@ public class Partida {
         //Pasar el tiempo y cambiar la hora
         jugador.setCiudadActual(nuevaCiudad);
     }
+
+ */
 
     public Ciudad buscarCiudad(String nombreNuevaCiudad){
         Ciudad ciudadBuscada = ciudades.get(0);
