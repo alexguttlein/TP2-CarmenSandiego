@@ -9,4 +9,5 @@ public interface Rango {
     double getTiempoDeViaje(double distancia);
     Rango verificarRango();
 
+    public int getVelocidad();
 }

@@ -1,0 +1,14 @@
+@startuml
+
+class Reloj{
+    -intance: Reloj
+    -dias: ArrayList<String>
+    -horaActual: int
+    -diaActual: int
+    --
+    -Reloj()
+    +agregarHoras(horas: int): void
+    +reiniciar(): void
+}
+
+@enduml

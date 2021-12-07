@@ -3,189 +3,129 @@ package pruebasUnitarias;
 import carmenSandiego.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class EdificioTest {
-    String pistaIncorrecta = "Disculpa no lo vimos por aca";
 
-    Edificio bancoPasoLadron = new EdificioBanco("Banco", pistaIncorrecta, true);
-    Edificio bibliotecaPasoLadron = new EdificioBiblioteca("Biblioteca", pistaIncorrecta, true);
-    Edificio aeropuertoPasoLadron = new EdificioAeropuerto("Aeropuerto", pistaIncorrecta, true);
-    Edificio puertoPasoLadron = new EdificioPuerto("Puerto", pistaIncorrecta, true);
+    Edificio banco = new EdificioBanco();
+    Edificio aeropuerto = new EdificioAeropuerto();
+    Edificio biblioteca = new EdificioBiblioteca();
+    Edificio puerto = new EdificioPuerto();
 
-    Edificio bancoNoPasoLadron = new EdificioBanco("Banco", pistaIncorrecta, false);
-    Edificio bibliotecaNoPasoLadron = new EdificioBiblioteca("Biblioteca", pistaIncorrecta, false);
-    Edificio aeropuertoNoPasoLadron = new EdificioAeropuerto("Aeropuerto", pistaIncorrecta, false);
-    Edificio puertoNoPasoLadron = new EdificioPuerto("Puerto", pistaIncorrecta, false);
-
-    Ciudad ciudadMock = mock(Ciudad.class);
+    PistaBanco pistaBanco = new PistaBanco();
+    PistaAeropuerto pistaAeropuerto = new PistaAeropuerto();
+    PistaBiblioteca pistaBiblioteca = new PistaBiblioteca();
+    PistaPuerto pistaPuerto = new PistaPuerto();
 
     @Test
-    public void muestraPistaBancoPorDondePasoElLadron(){
-        when(ciudadMock.getMoneda()).thenReturn("Pesos");
-
-        assertTrue(bancoPasoLadron.getPasoLadron());
-        assertEquals("Banco", bancoPasoLadron.getNombre());
-        assertEquals("Pesos", bancoPasoLadron.getPista(ciudadMock));
+    public void seIngresa1SolaVezAlEdificio(){
+        banco.entrarAlEdificio();
+        aeropuerto.entrarAlEdificio();
+        biblioteca.entrarAlEdificio();
+        puerto.entrarAlEdificio();
+        assertEquals(1, banco.getCantidadDeVisitas());
+        assertEquals(1, aeropuerto.getCantidadDeVisitas());
+        assertEquals(1, biblioteca.getCantidadDeVisitas());
+        assertEquals(1, puerto.getCantidadDeVisitas());
     }
-
     @Test
-    public void muestraPistaBancoPorDondeNoPasoElLadron(){
-        assertFalse(bancoNoPasoLadron.getPasoLadron());
-
-        assertEquals("Disculpa no lo vimos por aca", bancoNoPasoLadron.getPista(ciudadMock));
+    public void seIngresa2VecesAlEdificio(){
+        for (int i = 0; i < 2; i++) {
+            banco.entrarAlEdificio();
+            aeropuerto.entrarAlEdificio();
+            biblioteca.entrarAlEdificio();
+            puerto.entrarAlEdificio();
+        }
+        assertEquals(2, banco.getCantidadDeVisitas());
+        assertEquals(2, aeropuerto.getCantidadDeVisitas());
+        assertEquals(2, biblioteca.getCantidadDeVisitas());
+        assertEquals(2, puerto.getCantidadDeVisitas());
     }
-
     @Test
-    public void muestraPistaBibliotecaPorDondePasoElLadron(){
-        when(ciudadMock.getGeografia()).thenReturn("Campos");
-
-        assertTrue(bibliotecaPasoLadron.getPasoLadron());
-        assertEquals("Campos", bibliotecaPasoLadron.getPista(ciudadMock));
+    public void seIngresaNVecesAlEdificio(){
+        for(int i = 0; i < 55; i++){
+            banco.entrarAlEdificio();
+            aeropuerto.entrarAlEdificio();
+            biblioteca.entrarAlEdificio();
+            puerto.entrarAlEdificio();
+        }
+        assertEquals(55, banco.getCantidadDeVisitas());
+        assertEquals(55, aeropuerto.getCantidadDeVisitas());
+        assertEquals(55, biblioteca.getCantidadDeVisitas());
+        assertEquals(55, puerto.getCantidadDeVisitas());
     }
-
     @Test
-    public void muestraPistaBibliotecaPorDondeNoPasoElLadron(){
-        assertFalse(bibliotecaNoPasoLadron.getPasoLadron());
-        assertEquals("Biblioteca", bibliotecaNoPasoLadron.getNombre());
-        assertEquals("Disculpa no lo vimos por aca", bibliotecaNoPasoLadron.getPista(ciudadMock));
+    public void seIngresa1SolaVezAlBancoYSeObtieneUnaPista(){
+        pistaBanco.setPista("pesos");
+        banco.setComportamientoPistas(pistaBanco);
+        banco.entrarAlEdificio();
+        banco.mostrarPista();
+        assertEquals("Vino a cambiar un poco de pesos", banco.getPista());
     }
-
     @Test
-    public void muestraPistaAeropuertoPorDondePasoElLadron(){
-        when(ciudadMock.getBandera()).thenReturn("Sol en el centro");
-        assertEquals("Aeropuerto", aeropuertoPasoLadron.getNombre());
-        assertEquals("Sol en el centro", aeropuertoPasoLadron.getPista(ciudadMock));
+    public void seIngresa1SolaVezAlAeropuertoYSeObtieneUnaPista(){
+        pistaAeropuerto.setPista("celeste y blanca con un sol en el centro");
+        aeropuerto.setComportamientoPistas(pistaAeropuerto);
+        aeropuerto.entrarAlEdificio();
+        aeropuerto.mostrarPista();
+        assertEquals("Se subio a un avion celeste y blanca con un sol en el centro", aeropuerto.getPista());
     }
-
     @Test
-    public void muestraPistaAeropuertoPorDondeNoPasoElLadron(){
-        assertFalse(aeropuertoNoPasoLadron.getPasoLadron());
-
-        assertEquals("Disculpa no lo vimos por aca", aeropuertoNoPasoLadron.getPista(ciudadMock));
+    public void seIngresa1SolaVezAlBibliotecaYSeObtieneUnaPista(){
+        pistaBiblioteca.setPista("espaniol");
+        biblioteca.setComportamientoPistas(pistaBiblioteca);
+        biblioteca.entrarAlEdificio();
+        biblioteca.mostrarPista();
+        assertEquals("Agarro un diccionario espaniol", biblioteca.getPista());
     }
-
     @Test
-    public void muestraPistaPuertoPorDondePasoElLadron(){
-        when(ciudadMock.getBandera()).thenReturn("Sol en el centro");
-        assertEquals("Puerto", puertoPasoLadron.getNombre());
-        assertEquals("Sol en el centro", puertoPasoLadron.getPista(ciudadMock));
+    public void seIngresa1SolaVezAlPuertoYSeObtieneUnaPista(){
+        pistaPuerto.setPista("ganaderia");
+        puerto.setComportamientoPistas(pistaPuerto);
+        puerto.entrarAlEdificio();
+        puerto.mostrarPista();
+        assertEquals("Al lugar que iba exportaban mucho ganaderia", puerto.getPista());
     }
-
     @Test
-    public void muestraPistaPuertoPorDondeNoPasoElLadron(){
-        assertEquals("Puerto", puertoNoPasoLadron.getNombre());
-        assertEquals("Disculpa no lo vimos por aca", puertoNoPasoLadron.getPista(ciudadMock));
+    public void elEdificioNoTienePista(){
+        banco.setSinPista();
+        biblioteca.setSinPista();
+        aeropuerto.setSinPista();
+        puerto.setSinPista();
+        assertEquals("Disculpa no lo vimos por aca", banco.getPista());
+        assertEquals("Disculpa no lo vimos por aca", biblioteca.getPista());
+        assertEquals("Disculpa no lo vimos por aca", aeropuerto.getPista());
+        assertEquals("Disculpa no lo vimos por aca", puerto.getPista());
     }
-
     @Test
-    public void seVisitaUnBancoUnaVez(){
-        bancoPasoLadron.visitar();
-        assertEquals(1, bancoPasoLadron.getVecesVisitado());
+    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora(){
+        banco.entrarAlEdificio();
+        assertEquals(1, banco.getDemora());
     }
-
-    @Test
-    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora1(){
-        assertEquals(1, bancoPasoLadron.visitar());
-    }
-
     @Test
     public void seVisitaUnBancoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            bancoPasoLadron.visitar();
-        assertEquals(2, bancoPasoLadron.getDemora());
+        banco.entrarAlEdificio();
+        banco.entrarAlEdificio();
+        assertEquals(2, banco.getDemora());
     }
-
     @Test
     public void seVisitaUnBancoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            bancoPasoLadron.visitar();
-        assertEquals(3, bancoPasoLadron.getDemora());
+        for (int i = 0; i < 10; i++){
+            banco.entrarAlEdificio();
+        }
+        assertEquals(3, banco.getDemora());
     }
-
     @Test
-    public void seVisitaUnaBibliotecaDosVeces(){
-        for(int i = 0; i < 2; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(2, bibliotecaPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorPrimeraVezYSeDemora1Hora1(){
-        bibliotecaPasoLadron.visitar();
-        assertEquals(1, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(2, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnaBibliotecaPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            bibliotecaPasoLadron.visitar();
-        assertEquals(3, bibliotecaPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoCincoVeces(){
-        for(int i = 0; i < 5; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(5, aeropuertoPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorPrimeraVezYSeDemora1Hora1(){
-        aeropuertoPasoLadron.visitar();
-        assertEquals(1, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(2, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnAeropuertoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            aeropuertoPasoLadron.visitar();
-        assertEquals(3, aeropuertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoOchoVeces(){
-        for(int i = 0; i < 8; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(8, puertoPasoLadron.getVecesVisitado());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorPrimeraVezYSeDemora1Hora1(){
-        puertoPasoLadron.visitar();
-        assertEquals(1, puertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorSegundaVezYSeDemoran2Horas(){
-        for(int i = 0; i < 2; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(2, puertoPasoLadron.getDemora());
-    }
-
-    @Test
-    public void seVisitaUnPuertoPorDecimaVezYSeDemoran3Horas(){
-        for(int i = 0; i < 10; i++)
-            puertoPasoLadron.visitar();
-        assertEquals(3, puertoPasoLadron.getDemora());
+    public void seVisita5vecesUnBancoYSeDemoraEnTotal12Horas(){
+        int demoraTotal = 0;
+        for (int i = 0; i < 5; i++){
+            banco.entrarAlEdificio();
+            demoraTotal += banco.getDemora();
+        }
+        assertEquals(12, demoraTotal);
     }
 }
+
+

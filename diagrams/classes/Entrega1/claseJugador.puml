@@ -4,16 +4,17 @@ class Jugador {
     -nombre: String
     -rango: Rango
     -ciudadActual: Ciudad
-    '-horasDeSuenio: int
     -vecesHeridosPorCuchillo: int
     -estadoJugador : EstadoJugador
     --
-    +Jugador(nombre: String, ciudadInicio: Ciudad)
+    +Jugador(nombre: String, ciudadInicial: Ciudad)
     +addArresto(): void
     +dormir(): int
     +serHeridoPorCuchillo(): int
     +serHeridoPorArmaDeFuego(): int
     +pasarTiempo(): void
+    +sanar(): void
+    +viajar(ciudadSiguiente: Ciudad)
 }
 
 'El horario no va más

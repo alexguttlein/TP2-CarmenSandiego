@@ -37,4 +37,6 @@ public class RangoInvestigador implements Rango {
             return new RangoSargento(this.getCantidadDeArrestos());
         return this;
     }
+
+    public int getVelocidad(){return 1300;}
 }

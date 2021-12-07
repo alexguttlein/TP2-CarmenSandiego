@@ -1,0 +1,13 @@
+@startuml
+
+class CalculadorTiempoViaje{
+    -velocidad: int
+    -latitudSalida: Double
+    -longitudSalidad: Double
+    -latitudDestino: Double
+    -longitudDestino: Double
+    --
+    +CalculadorTiempoViaje(velocidad: int, latitudSalida: Double, longitudSalidad: Double, latitudDestino: Double, longitudDestino: Double)
+}
+
+@enduml

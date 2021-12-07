@@ -1,0 +1,13 @@
+@startuml
+
+interface ComportamientoDeDemora {
+    calcularDemora(vecesVisita: int): int
+}
+
+class Demora{
+    +calcularDemora((vecesVisita: int): int
+}
+
+ComportamientoDeDemora <|.. Demora
+
+@enduml

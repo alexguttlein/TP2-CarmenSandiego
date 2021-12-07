@@ -5,36 +5,12 @@ title "Jugador visita banco de Montreal"
 activate Jugador
 Jugador -> "montreal: Ciudad": visitarEdificio(banco)
 activate "montreal: Ciudad"
-"montreal: Ciudad" -> "banco: Edificio": getPista(ciudadSig)
+"montreal: Ciudad" -> "banco: Edificio": getPista()
 activate "banco: Edificio"
 "banco: Edificio" -> "banco: Edificio": mostrarPista()
-
-deactivate "montreal: Ciudad"
+"banco: Edificio" --> "montreal: Ciudad"
 deactivate "banco: Edificio"
+"montreal: Ciudad" --> Jugador
+deactivate "montreal: Ciudad"
 
-'Jugador tiene la ciudad actual como atributo
-
-/'
-ClaseJugador
-visitarEdificio(Edificio edificio){
-        ciudadActual.visitarEdificio(edificio);
-}
-
-ClaseCiudad
-visitarEdificio(Ciudad ciudadSig, Edificio edificio){
-    edificio.visitar(ciudadSig);
-}
-
-ClaseEdificio
-visitar(Ciuadad ciudadSig){
-    Reloj reloj = Reloj.getInstance();
-    reloj.agregarHoras(obtenerCantidadHoras());
-    mostrarPista(ciudadSig);
-}
-
-obtenerCantidadHoras(){if else, if else...}
-
-mostrarPista(Ciudad ciudadSig){}
-
-'/
 @enduml

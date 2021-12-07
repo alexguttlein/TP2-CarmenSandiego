@@ -2,6 +2,7 @@ package carmenSandiego.modelo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Ciudad {
@@ -21,10 +22,9 @@ public class Ciudad {
     private Double latitud;
     private Double longitud;
 
-    private ArrayList<Edificio> edificios;
+    private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;
     private boolean pasoLadron;
-    private final Map<Ciudad, Integer> mapaDistancias = new HashMap<>();
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
@@ -59,8 +59,8 @@ public class Ciudad {
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
 
-    public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
-        return unEdificio.getPista(ciudadSig);
+    public String visitarEdificio(Edificio unEdificio){
+        return unEdificio.getPista();
     }
 
     public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
@@ -73,31 +73,6 @@ public class Ciudad {
     private void setPasoLadron(){this.pasoLadron = true;}
 
     public boolean getPasoLadron(){return this.pasoLadron;}
-/*
-    public int obtenerTiempoDeViajeHasta(Ciudad ciudad, Rango rango){
-        int tiempo = 0;
-        return tiempo;
-    }
-*/
-    public int visitar(Edificio edificio){
-        return edificio.visitar();
-    }
-
-    public double obtenerDistancia(Ciudad ciudadDestino) {
-        double latitudCiudadDestino = ciudadDestino.getLatitud();
-        double longitudCiudadDestino = ciudadDestino.getLongitud();
-        double radioTierra = 6371;//en kilómetros
-        double dLat = Math.toRadians(latitudCiudadDestino - this.latitud);
-        double dLng = Math.toRadians(longitudCiudadDestino - this.longitud);
-        double sindLat = Math.sin(dLat / 2);
-        double sindLng = Math.sin(dLng / 2);
-        double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
-                * Math.cos(Math.toRadians(this.latitud)) * Math.cos(Math.toRadians(latitudCiudadDestino));
-        double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
-        double distancia = radioTierra * va2;
-
-        return distancia;
-    }
 
     public double getLatitud() {
         return this.latitud;
@@ -107,6 +82,31 @@ public class Ciudad {
         return this.longitud;
     }
 
+    public void setPistasEdificio(){
+        if (ciudadSiguiente == null){
+            for (Edificio edificio: edificios){
+                edificio.setSinPista();
+            }
+        }
+        for (Edificio edificio: edificios){
+            edificio.setPistas(ciudadSiguiente);
+        }
+    }
+
+    public void viajarDesde(int velocidad, Ciudad ciudadSiguiente) {
+        ciudadSiguiente.viajarHasta(velocidad, latitud, longitud);
+    }
+
+    private void viajarHasta(int velocidad, Double latitud, Double longitud) {
+        Reloj reloj = Reloj.getInstance();
+        CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, latitud, longitud, this.latitud, this.longitud);
+        int horasDeViaje = calculadorTiempoViaje.obtenerHorasDeViaje();
+        reloj.agregarHoras(horasDeViaje);
+    }
+
+    public void setEdificios(Edificio unEdificio){
+        this.edificios.add(unEdificio);
+    }
 
 }
 
