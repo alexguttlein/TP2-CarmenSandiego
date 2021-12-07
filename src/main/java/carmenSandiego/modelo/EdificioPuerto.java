@@ -1,31 +1,16 @@
 package carmenSandiego.modelo;
 
 public class EdificioPuerto extends Edificio{
-    private int vecesVisitados;
 
-    public EdificioPuerto(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
-        super(unaPistaCorrecta, unaPistaIncorrecta, pasoLadron);
-    }
-/*
-    @Override
-    public String getPista(Ciudad ciudadSig) {
-        return super.getPista(ciudadSig);
+    public EdificioPuerto(){}
+    public void mostrarNombreDelEdificio(){
+        System.out.println("Puerto");
     }
 
-    @Override
-    public int getVecesVisitado(){
-        return super.getVecesVisitado();
+    public void setPistas(Ciudad ciudadSig) {
+        ConPista pista = new PistaPuerto();
+        pista.setPista(ciudadSig.getIndustria());
+        super.setComportamientoPistas(pista);
     }
 
-    @Override
-    public int getDemora(){
-        return super.getDemora();
-    }
-
-    @Override
-    public void visitar(){
-        super.visitar();
-    }
-
- */
 }

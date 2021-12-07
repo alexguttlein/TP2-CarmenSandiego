@@ -1,31 +1,16 @@
 package carmenSandiego.modelo;
 
-public class EdificioBiblioteca extends Edificio{
-    private int vecesVisitados;
+public class EdificioBiblioteca extends Edificio {
 
-    public EdificioBiblioteca(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
-        super(unaPistaCorrecta, unaPistaIncorrecta, pasoLadron);
-    }
-/*
-    @Override
-    public String getPista(Ciudad ciudadSig) {
-        return super.getPista(ciudadSig);
+    public EdificioBiblioteca(){}
+
+    public void mostrarNombreDelEdificio(){
+        System.out.println("Biblioteca");
     }
 
-    @Override
-    public int getVecesVisitado(){
-        return super.getVecesVisitado();
+    public void setPistas(Ciudad ciudadSig) {
+        ConPista pista = new PistaBiblioteca();
+        pista.setPista(ciudadSig.getIdioma());
+        super.setComportamientoPistas(pista);
     }
-
-    @Override
-    public int getDemora(){
-        return super.getDemora();
-    }
-
-    @Override
-    public void visitar(){
-        super.visitar();
-    }
-
- */
 }

@@ -1,78 +1,40 @@
 package carmenSandiego.modelo;
 
-public abstract class Edificio {
-    private String pistaCorrecta; // Bandera {rojo blanco y azul}
-    private String pistaIncorrecta; // No lo vimos x aca
-    private boolean pasoLadron;
-    private int vecesVisitados;
-    private int demora;
+public abstract class Edificio{
 
-    public Edificio(String unaPistaCorrecta, String unaPistaIncorrecta, boolean pasoLadron){
-        this.vecesVisitados = 0;
-        this.pasoLadron = pasoLadron;
-        this.pistaCorrecta = unaPistaCorrecta;
-        this.pistaIncorrecta = unaPistaIncorrecta;
-    }
+    protected ComportamientoPistas comportamientoPistas;
+    protected ComportamientoDeDemora comportamientoDeDemora;
+    protected ComportamientoVisita comportamientoVisita;
 
-    public String getPista(Ciudad ciudadSig){
-        if (pasoLadron)
-            return this.getPistaCorrecta();
-        else
-            return this.getPistaIncorrecta();
+    protected Edificio(){
+        comportamientoDeDemora = new Demora();
+        comportamientoVisita = new Visita();
     }
-/*
-    protected void mostrarPista(Ciudad ciudadSig, String unaPista){
-        System.out.println(unaPista);
+    public abstract void mostrarNombreDelEdificio();
+    public String getPista() {
+        return comportamientoPistas.getPista();
+    };
+    public void mostrarPista(){
+        this.comportamientoPistas.mostrarPistas();
     }
-*/
-    protected void calcularDemora(){
-        switch (vecesVisitados){
-            case 1:
-                this.demora = 1;
-                break;
-            case 2:
-                this.demora = 2;
-                break;
-            default:
-                this.demora = 3;
-                break;
-        }
+    public void entrarAlEdificio(){
+        comportamientoVisita.entrarAlEdificio();
     }
-
+    public int getCantidadDeVisitas() {
+        return comportamientoVisita.getTotalVisitas();
+    }
     public int getDemora(){
-        return this.demora;
+        int visitas = comportamientoVisita.getTotalVisitas();
+        return comportamientoDeDemora.calcularDemora(visitas);
+    }
+    public abstract void setPistas(Ciudad ciudadSig);
+
+    public void setComportamientoPistas(ComportamientoPistas pista){
+        this.comportamientoPistas =  pista;
     }
 
-    public void addVecesVisitados(){
-        this.vecesVisitados += 1;
-    }
-
-    public int getVecesVisitado() {
-        return this.vecesVisitados;
-    }
-
-    public String getPistaCorrecta() {
-        return this.pistaCorrecta;
-    }
-
-    public String getPistaIncorrecta() {
-        return this.pistaIncorrecta;
-    }
-
-    protected void setPasoLadron(boolean pasoLadron){
-        this.pasoLadron = pasoLadron;
-    };
-
-    protected void setPistaCorrecta(String unaPistaCorrecta){
-        this.pistaCorrecta = unaPistaCorrecta;
-    };
-
-    protected void setPistaIncorrecta(String unaPistaIncorrecta) {
-        this.pistaIncorrecta = unaPistaIncorrecta;
-    }
-
-    public void visitar(){
-        this.addVecesVisitados();
-        this.calcularDemora();
+    public void setSinPista(){
+        ComportamientoPistas sinPista = new SinPista();
+        setComportamientoPistas(sinPista);
     }
 }

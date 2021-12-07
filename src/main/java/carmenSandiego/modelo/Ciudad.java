@@ -6,25 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 public class Ciudad {
-    protected String nombre;
-    protected String bandera;
-    protected String moneda;
-    protected String geografia;
-    protected String hitos;
-    protected String industria;
-    protected String animales;
-    protected String personalidades;
-    protected String idioma;
-    protected String arte;
-    protected String religion;
-    protected String gobierno;
-    protected String varios;
-    protected Double latitud;
-    protected Double longitud;
+    private String nombre;
+    private String bandera;
+    private String moneda;
+    private String geografia;
+    private String hitos;
+    private String industria;
+    private String animales;
+    private String personalidades;
+    private String idioma;
+    private String arte;
+    private String religion;
+    private String gobierno;
+    private String varios;
+    private Double latitud;
+    private Double longitud;
 
     private ArrayList<Edificio> edificios;
     private Ciudad ciudadSiguiente;
-    protected boolean pasoLadron;
+    private boolean pasoLadron;
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = pistasCiudad.get(0);
@@ -60,7 +60,7 @@ public class Ciudad {
     public String getVarios(){return this.varios;}
 
     public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
-        return unEdificio.getPista(ciudadSig);
+        return unEdificio.getPista();
     }
 
     public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
@@ -83,6 +83,16 @@ public class Ciudad {
         return this.longitud;
     }
 
+    public void setPistasEdificio(){
+        if (ciudadSiguiente == null){
+            for (Edificio edificio: edificios){
+                edificio.setSinPista();
+            }
+        }
+        for (Edificio edificio: edificios){
+            edificio.setPistas(ciudadSiguiente);
+        }
+    }
 
     public void viajarDesde(int velocidad, Ciudad ciudadSiguiente) {
         ciudadSiguiente.viajarHasta(velocidad, latitud, longitud);
