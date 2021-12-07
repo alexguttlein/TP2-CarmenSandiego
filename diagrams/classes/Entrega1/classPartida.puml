@@ -1,15 +1,12 @@
 @startuml
 
 class Partida {
-    -dias: ArrayList<string>
-    -dia: int
-    -hora: int
+    -jugador: Jugador
+    -objetoRobado: ObjetoRobado
+    -ciudades: ArrayList<Ciudad>
     --
-    +Partida()
-    +moverseDeCiudad(): void
-    +atacarConCuchillo(): void
-    +modificarHora(cantidadHora: int): void
-    +dormir(): void
+    +Partida(nuevoJugador: Jugador, objetoRobado: ObjetoRobado, ciudades: ArrayList<Ciudad>)
+    +buscarCiudad(nombreNuevaCiudad: String): Ciudad
 }
 
 @enduml

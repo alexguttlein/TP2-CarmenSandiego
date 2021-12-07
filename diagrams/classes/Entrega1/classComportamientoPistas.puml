@@ -1,0 +1,38 @@
+@startuml
+
+interface ComportamientoPistas{
+    mostrarPista(): void
+}
+abstract class ConPista{
+    #base: String
+    #pista: String
+    --
+    +mostrarPista(): void
+}
+class SinPista{
+    -base: String
+    --
+    +SinPista()
+    +mostrarPista(): void
+}
+class PistaAeropuerto{
+    +PistaAeropuerto()
+}
+class PistaBanco{
+    +PistaBanco()
+}
+class PistaBiblioteca{
+    +PistaBiblioteca()
+}
+class PistaPuerto{
+    +PistaPuerto()
+}
+
+ComportamientoPistas <|..ConPista
+ComportamientoPistas <|.. SinPista
+ConPista <|-- PistaAeropuerto
+ConPista <|-- PistaBanco
+ConPista <|-- PistaBiblioteca
+ConPista <|-- PistaPuerto
+
+@enduml

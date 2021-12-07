@@ -37,4 +37,6 @@ public class RangoNovato implements Rango {
             return new RangoDetective(this.getCantidadDeArrestos());
         return this;
     }
+
+    public int getVelocidad(){return 900;}
 }

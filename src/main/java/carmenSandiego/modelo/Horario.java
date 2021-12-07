@@ -6,10 +6,10 @@ import java.util.Arrays;
 public class Horario {
     private final ArrayList<String> dias = new ArrayList<>(Arrays.asList("Lunes", "Martes",
             "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"));
-    int diaActual;
-    int horaActual;
-    final int horaDeDormirInicial = 22;
-    final int horaDeDromirFinal = 7;
+    private int diaActual;
+    private int horaActual;
+    private final int horaDeDormirInicial = 22;
+    private final int horaDeDromirFinal = 7;
 
     public Horario(){
         this.diaActual = 0;    //empieza un lunes

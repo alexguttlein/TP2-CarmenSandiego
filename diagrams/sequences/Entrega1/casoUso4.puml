@@ -3,27 +3,27 @@
 autonumber
 title "Jugador visita 3 veces Aeropuerto y 55 veces Puerto"
 
-activate Partida
+activate Jugador
 loop    i >= 3
-    Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, aeropuerto)
+    Jugador -> "montreal: Ciudad": visitarEdificio(aeropuerto)
     activate "montreal: Ciudad"
-    "montreal: Ciudad" -> "aeropuerto: Edificio": getPista(ciudadSig)
+    "montreal: Ciudad" -> "aeropuerto: Edificio": getPista()
     activate "aeropuerto: Edificio"
     "aeropuerto: Edificio" -> "aeropuerto: Edificio": mostrarPista()
-    "aeropuerto: Edificio" --> "montreal: Ciudad": tiempo
-    "montreal: Ciudad" --> Partida: tiempo
+    "aeropuerto: Edificio" --> "montreal: Ciudad"
     deactivate "aeropuerto: Edificio"
+    "montreal: Ciudad" --> Jugador
 end loop
 loop    i >= 55
-    Partida -> "montreal: Ciudad": visitarEdificio(ciudadSig, puerto)
+    Jugador -> "montreal: Ciudad": visitarEdificio(puerto)
+    "montreal: Ciudad" -> "puerto: Edificio": getPista()
     activate "puerto: Edificio"
-    "montreal: Ciudad" -> "puerto: Edificio": getPista(ciudadSig)
     "puerto: Edificio" -> "puerto: Edificio": mostrarPista()
-    "puerto: Edificio" --> "montreal: Ciudad": tiempo
-    "montreal: Ciudad" --> Partida: tiempo
+    "puerto: Edificio" --> "montreal: Ciudad"
     deactivate "puerto: Edificio"
+    "montreal: Ciudad" --> Jugador
     deactivate "montreal: Ciudad"
-    deactivate Partida
+    deactivate Jugador
 end loop
 
 @enduml

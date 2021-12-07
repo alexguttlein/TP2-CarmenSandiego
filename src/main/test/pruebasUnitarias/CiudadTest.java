@@ -37,7 +37,6 @@ public class CiudadTest {
         assertEquals("Presidente", ciudad.getGobierno());
         assertEquals("Antigua Colonia Espaniola", ciudad.getVarios());
     }
-
     @Test
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
         when(ciudadMock.getNombre()).thenReturn("Londres");
@@ -46,16 +45,11 @@ public class CiudadTest {
         assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
         assertTrue(ciudad.getPasoLadron());
     }
-
     @Test
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
         assertFalse(ciudad.getPasoLadron());
         assertNull(ciudad.getCiudadSiguiente());
     }
 
-    @Test
-    public void seVisitaUnBancoPorPrimeraVezYSeDemora1Hora(){
-        when(bancoMock.visitar()).thenReturn(1);
-        assertEquals(1, ciudad.visitar(bancoMock));
-    }
+
 }

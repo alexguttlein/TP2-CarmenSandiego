@@ -1,49 +1,43 @@
 @startuml
 
 abstract class Edificio{
-    #pistaCorrecta: String
-    #pistaIncorrecta: String
-    #pasoLadron: boolean
-    #vecesVIsitados: int
-    #demora: int
+    #comportamientoPistas: ComportamientoPistas
+    #comportamientoDeDemora: ComportamientoDeDemora
+    #comportamientoVisita: ComportamientoVisita
     --
-    +getPista(ciudadSig: Ciudad): String
-    #calcularDemora(): void
-    +visitar(): void
+    +{abstract}mostrarNombreDelEdificio(): void
+    +mostrarPista(): void
+    +entrarAlEdificio(): void
 }
 
 class EdificioAeropuerto {
     --
-    +EdificioAeropuerto(unaPistaCorrecta: String, unaPistaIncorrecta: String, pasoLadron: boolean)
-    +getPista(ciudadSig: Ciudad): String
-    +visitar(): void
+    +EdificioAeropuerto()
+    +mostrarNombreDelEdificio()
 }
 
 class EdificioBanco {
     --
-    +EdificioBanco(unaPistaCorrecta: String, unaPistaIncorrecta: String, pasoLadron: boolean)
-    +getPista(ciudadSig: Ciudad): String
-    +visitar(): void
+    +EdificioBanco()
+    +mostrarNombreDelEdificio()
 }
 
 class EdificioBiblioteca {
     --
-    +EdificioBiblioteca(unaPistaCorrecta: String, unaPistaIncorrecta: String, pasoLadron: boolean)
-    +getPista(ciudadSig: Ciudad): String
-    +visitar(): void
+    +EdificioBiblioteca()
+    +mostrarNombreDelEdificio()
 }
 
 class EdificioPuerto {
     --
-    +EdificioPuerto(unaPistaCorrecta: String, unaPistaIncorrecta: String, pasoLadron: boolean)
-    +getPista(ciudadSig: Ciudad): String
-    +visitar(): void
+    +EdificioPuerto()
+    +mostrarNombreDelEdificio()
 }
 
 Edificio <|-down- EdificioAeropuerto
 Edificio <|-down- EdificioBanco
-Edificio <|-up- EdificioBiblioteca
-Edificio <|-up- EdificioPuerto
+Edificio <|-down- EdificioBiblioteca
+Edificio <|-down- EdificioPuerto
 
 
 @enduml

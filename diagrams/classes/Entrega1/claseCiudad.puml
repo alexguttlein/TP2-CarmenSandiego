@@ -14,11 +14,17 @@ class Ciudad {
     -religion: String
     -gobierno: String
     -varios: String
+    -longitud: Double
+    -latitud: Double
     -ciudadSiguiente: Ciudad
+    -edificios: ArrayList<Edificio>
     -pasoLadron: boolean
     --
     +Ciudad(pistaCiudad: ArrayList<String>)
-    +visitarEdicifio(ciudadSiguiente: Ciudad, unEdificio: Edificio): String
-    +obtenerTiempoDeViajeHasta(ciudad: Ciudad, rango: Rango): int
+    +visitarEdicifio(unEdificio: Edificio): String
+    +setCiudadSiguiente(ciudadSiguiente: Ciudad): void
+    +setPistasEdificio(): void
+    +viajarDesde(velocidad: int, ciudadSiguiente: Ciudad): void
+    +viajarHasta(velocidad: int, latitud: Double, longitud: Double): void
 }
 @enduml
