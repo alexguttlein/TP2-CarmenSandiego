@@ -7,4 +7,10 @@ public class EdificioBiblioteca extends Edificio {
     public void mostrarNombreDelEdificio(){
         System.out.println("Biblioteca");
     }
+
+    public void setPistas(Ciudad ciudadSig) {
+        ConPista pista = new PistaBiblioteca();
+        pista.setPista(ciudadSig.getIdioma());
+        super.setComportamientoPistas(pista);
+    }
 }

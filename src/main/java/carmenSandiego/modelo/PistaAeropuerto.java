@@ -1,8 +1,9 @@
 package carmenSandiego.modelo;
 
 public class PistaAeropuerto extends ConPista {
-    protected String base;
 
-    public PistaAeropuerto() {}
+    public PistaAeropuerto() {
+        this.base = "Se subio a un avion";
+    }
 
 }

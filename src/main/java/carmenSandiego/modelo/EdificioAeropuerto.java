@@ -8,5 +8,11 @@ public class EdificioAeropuerto extends Edificio {
         System.out.println("Aeropuerto");
     }
 
+    public void setPistas(Ciudad ciudadSig) {
+        ConPista pista = new PistaAeropuerto();
+        pista.setPista(ciudadSig.getBandera());
+        super.setComportamientoPistas(pista);
+    }
+
 }
 

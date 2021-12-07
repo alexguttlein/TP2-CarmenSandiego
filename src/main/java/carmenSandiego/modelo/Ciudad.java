@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Ciudad {
-    private String sinPista;
     private String nombre;
     private String bandera;
     private String moneda;
@@ -44,7 +43,6 @@ public class Ciudad {
         this.latitud = Double.parseDouble(pistasCiudad.get(13));
         this.longitud = Double.parseDouble(pistasCiudad.get(14));
         this.pasoLadron = false;
-        this.sinPista ="Disculpa no lo vimos por aca";
     }
 
     public String getNombre(){return this.nombre;}
@@ -60,7 +58,6 @@ public class Ciudad {
     public String getReligion(){return this.religion;}
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
-    public String getSinPista(){return this.sinPista;};
 
     public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
         return unEdificio.getPista();

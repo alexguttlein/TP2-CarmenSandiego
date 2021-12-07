@@ -9,8 +9,8 @@ public class EdificioBanco extends Edificio {
     }
 
     public void setPistas(Ciudad ciudadSig) {
-        ComportamientoPistas pista = new PistaBanco();
-        //ciudadSig.
+        ConPista pista = new PistaBanco();
+        pista.setPista(ciudadSig.getMoneda());
         super.setComportamientoPistas(pista);
     }
 }

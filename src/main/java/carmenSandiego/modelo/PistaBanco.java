@@ -1,8 +1,9 @@
 package carmenSandiego.modelo;
 
 public class PistaBanco extends ConPista {
-    protected String base; //
 
-    public PistaBanco() {}
+    public PistaBanco() {
+        this.base = "Vino a cambiar un poco de";
+    }
 
 }
