@@ -16,7 +16,7 @@ public class CalculadorTiempoViaje {
     }
 
 
-    private double obtenerDistancia() {
+    public double obtenerDistancia() {
         double radioTierra = 6371;//en kilómetros
         double dLat = Math.toRadians(latitudDestino - latitudSalida);
         double dLng = Math.toRadians(longitudDestino - longitudSalida);
@@ -30,9 +30,7 @@ public class CalculadorTiempoViaje {
         return distancia;
     }
 
-    public void hacerViaje() { //Esto devuelve la cantidad de horas
-        Reloj reloj = Reloj.getInstance();
-        int horasDeViaje = (int)(obtenerDistancia() / velocidad);
-        reloj.agregarHoras(horasDeViaje);
+    public int obtenerHorasDeViaje() {
+        return (int)(obtenerDistancia() / velocidad);
     }
 }

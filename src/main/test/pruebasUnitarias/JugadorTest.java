@@ -86,9 +86,8 @@ public class JugadorTest {
 
         Reloj reloj = Reloj.getInstance();
         reloj.reiniciar();
-        //pasa el tiempo
-        //se cambia la ciudad actual
-        for(int i = 0; i < 5; i++)
+
+        for(int i = 0; i < 5; i++)  //para que el jugador sea de tipo Detective
             jugador.addArresto();
         jugador.viajar(ciudadMexico);
 
