@@ -9,5 +9,5 @@ public interface Rango {
     double getTiempoDeViaje(double distancia);
     Rango verificarRango();
 
-    public int getVelocidad(){return 1100;} //Está hardcodeado, hay que cambiarlo
+    public int getVelocidad();
 }

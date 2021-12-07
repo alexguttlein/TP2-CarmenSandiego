@@ -11,7 +11,7 @@ public class Jugador {
 
     public Jugador(String nombre, Ciudad ciudadInicial){
         this.nombre = nombre;
-        this.rango = new Rango();
+        this.rango = new RangoNovato(0);  //Esto hay que cambiarlo
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
         this.ciudadActual = ciudadInicial;
@@ -60,10 +60,6 @@ public class Jugador {
     //    return this.horario;
     //}
 
-    public void serHeridoPorArmaDeFuego(){
-        estadoJugador = new EstadoHeridoPorArmaDeFuego();
-        estadoJugador.pasarTiempo();
-    }
 
     public void pasarTiempo(){
         estadoJugador.pasarTiempo();

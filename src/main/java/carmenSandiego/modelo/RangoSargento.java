@@ -33,4 +33,6 @@ public class RangoSargento implements Rango {
     public Rango verificarRango(){
         return this;
     }
+
+    public int getVelocidad(){return 1500;}
 }
