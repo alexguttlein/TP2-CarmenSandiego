@@ -38,6 +38,8 @@ public class JugadorTest {
     public void jugadorRealiza5ArrestosYSuRangoAumentaADetective(){
         for(int i = 0; i < 5; i++)
             jugador.addArresto();
+
+        assertEquals(5, jugador.getCantidadDeArrestos());
         assertEquals("Detective", jugador.getRango());
     }
 
@@ -45,6 +47,8 @@ public class JugadorTest {
     public void jugadorRealiza10ArrestosYSuRangoAumentaAInvestigador(){
         for(int i = 0; i < 10; i++)
             jugador.addArresto();
+
+        assertEquals(10, jugador.getCantidadDeArrestos());
         assertEquals("Investigador", jugador.getRango());
     }
 
@@ -52,6 +56,8 @@ public class JugadorTest {
     public void jugadorRealiza15ArrestosYSuRangoSigueSiendoInvestigador(){
         for(int i = 0; i < 15; i++)
             jugador.addArresto();
+
+        assertEquals(15, jugador.getCantidadDeArrestos());
         assertEquals("Investigador", jugador.getRango());
     }
 
@@ -59,6 +65,8 @@ public class JugadorTest {
     public void jugadorRealiza20ArrestosYSuRangoAumentaASargento(){
         for(int i = 0; i < 20; i++)
             jugador.addArresto();
+
+        assertEquals(20, jugador.getCantidadDeArrestos());
         assertEquals("Sargento", jugador.getRango());
     }
 
@@ -66,6 +74,8 @@ public class JugadorTest {
     public void jugadorRealiza25ArrestosYSuRangoSigueSiendoSargento(){
         for(int i = 0; i < 25; i++)
             jugador.addArresto();
+
+        assertEquals(25, jugador.getCantidadDeArrestos());
         assertEquals("Sargento", jugador.getRango());
     }
 
