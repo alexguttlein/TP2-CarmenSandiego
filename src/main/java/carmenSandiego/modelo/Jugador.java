@@ -56,11 +56,6 @@ public class Jugador {
         estadoJugador.pasarTiempo();
     }
 
-    //public Horario getHorario(){
-    //    return this.horario;
-    //}
-
-
     public void pasarTiempo(){
         estadoJugador.pasarTiempo();
         sanar();

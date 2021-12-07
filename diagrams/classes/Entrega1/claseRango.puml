@@ -1,13 +1,49 @@
 @startuml
 
-class Rango {
+interface Rango {
+    --
+    addArresto(): void
+    verificarRango(): Rango
+}
+
+class RangoDetective {
+    -rangoActual: String
+    -cantidadDeArrestos: int
+    -arrestosParaAscender: int
+    --
+    +RangoDetective(arrestos: int)
+    +addArresto(): void
+    -verificarRango(): Rango
+}
+class RangoNovato {
+    -rangoActual: String
+    -cantidadDeArrestos: int
+    -arrestosParaAscender: int
+    --
+    +RangoNovato(arrestos: int)
+    +addArresto(): void
+    -verificarRango(): Rango
+}
+class RangoSargento {
     -rangoActual: String
     -cantidadDeArrestos: int
     --
-    +Rango()
+    +RangoSargento(arrestos: int)
     +addArresto(): void
-    -verificarRango(): void
-    -aumentarRango(): void
+    -verificarRango(): Rango
 }
+class RangoInvestigador {
+    -rangoActual: String
+    -cantidadDeArrestos: int
+    -arrestosParaAscender: int
+    --
+    +RangoInvestigador(arrestos: int)
+    +addArresto(): void
+    -verificarRango(): Rango
+}
+Rango <|.. RangoDetective
+Rango <|.. RangoSargento
+Rango <|.. RangoNovato
+Rango <|.. RangoInvestigador
 
 @enduml

@@ -22,7 +22,7 @@ public class Ciudad {
     private Double latitud;
     private Double longitud;
 
-    private ArrayList<Edificio> edificios;
+    private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;
     private boolean pasoLadron;
 
@@ -59,7 +59,7 @@ public class Ciudad {
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
 
-    public String visitarEdificio(Ciudad ciudadSig, Edificio unEdificio){
+    public String visitarEdificio(Edificio unEdificio){
         return unEdificio.getPista();
     }
 
@@ -73,7 +73,6 @@ public class Ciudad {
     private void setPasoLadron(){this.pasoLadron = true;}
 
     public boolean getPasoLadron(){return this.pasoLadron;}
-
 
     public double getLatitud() {
         return this.latitud;
@@ -104,6 +103,11 @@ public class Ciudad {
         int horasDeViaje = calculadorTiempoViaje.obtenerHorasDeViaje();
         reloj.agregarHoras(horasDeViaje);
     }
+
+    public void setEdificios(Edificio unEdificio){
+        this.edificios.add(unEdificio);
+    }
+
 }
 
 
