@@ -30,7 +30,7 @@ public class CalculadorTiempoViaje {
         return distancia;
     }
 
-    public void hacerViaje() {
+    public void hacerViaje() { //Esto devuelve la cantidad de horas
         Reloj reloj = Reloj.getInstance();
         int horasDeViaje = (int)(obtenerDistancia() / velocidad);
         reloj.agregarHoras(horasDeViaje);

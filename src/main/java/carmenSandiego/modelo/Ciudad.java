@@ -90,6 +90,7 @@ public class Ciudad {
 
     private void viajarHasta(int velocidad, Double latitud, Double longitud) {
             CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, latitud, longitud, this.latitud, this.longitud);
+            //Aca cambia el horario.
             calculadorTiempoViaje.hacerViaje();
     }
 }
