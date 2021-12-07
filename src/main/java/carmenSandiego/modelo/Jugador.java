@@ -13,7 +13,7 @@ public class Jugador {
 
     public Jugador(String nombre){
         this.nombre = nombre;
-        this.rango = new Rango();
+        this.rango = new RangoNovato(0);
         this.horasDeSuenio = 8;
         this.vecesHeridoPorCuchillo = 0;
         //this.horario = new Horario();
@@ -25,7 +25,10 @@ public class Jugador {
 
     public int getCantidadDeArrestos(){return this.rango.getCantidadDeArrestos();}
 
-    public void addArresto(){this.rango.addArresto();}
+    public void addArresto(){
+        this.rango.addArresto();
+        this.rango = rango.verificarRango();
+    }
 
     public Ciudad getCiudadActual(){return this.ciudadActual;}
 
@@ -62,5 +65,8 @@ public class Jugador {
         estadoJugador.pasarTiempo();
     }
 
+    public int getVecesHeridoPorCuchillo(){
+        return this.vecesHeridoPorCuchillo;
+    }
 
 }
