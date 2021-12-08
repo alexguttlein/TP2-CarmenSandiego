@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Ciudad {
+    -nombre: String
+    -bandera: String
+    -moneda: String
+    -geografia: String
+    -hitos: String
+    -industria: String
+    -animales: String
+    -personalidades: String
+    -idioma: String
+    -arte: String
+    -religion: String
+    -gobierno: String
+    -varios: String
+    -longitud: Double
+    -latitud: Double
+    -ciudadSiguiente: Ciudad
+    -edificios: ArrayList<Edificio>
+    -pasoLadron: boolean
+    --
+    +Ciudad(pistaCiudad: ArrayList<String>)
+    +visitarEdicifio(unEdificio: Edificio): String
+    +setCiudadSiguiente(ciudadSiguiente: Ciudad): void
+    +setPistasEdificio(): void
+    +viajarDesde(velocidad: int, ciudadSiguiente: Ciudad): void
+    +viajarHasta(velocidad: int, latitud: Double, longitud: Double): void
+}
+
+class CalculadorTiempoViaje{
+    -velocidad: int
+    -latitudSalida: Double
+    -longitudSalidad: Double
+    -latitudDestino: Double
+    -longitudDestino: Double
+    --
+    +CalculadorTiempoViaje(velocidad: int, latitudSalida: Double, longitudSalidad: Double, latitudDestino: Double, longitudDestino: Double)
+    +obtenerDistancia(): Double
+    +obtenerHorasDeViaje(): Int
+}
+
+Ciudad ..> CalculadorTiempoViaje
+
+@enduml
