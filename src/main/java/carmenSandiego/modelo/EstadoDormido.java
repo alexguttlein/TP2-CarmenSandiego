@@ -6,6 +6,6 @@ public class EstadoDormido implements EstadoJugador {
 
     public void pasarTiempo(){
         Reloj reloj = Reloj.getInstance();
-        reloj.agregarHoras(HORAS_DE_SUENIO);
+        reloj.agregarHoras(8);
     }
 }
