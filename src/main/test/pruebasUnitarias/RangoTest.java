@@ -17,7 +17,7 @@ public class RangoTest {
 
         assertEquals(5, novato.getArrestosParaAscender());
         assertEquals(1, novato.getCantidadDeArrestos());
-        assertEquals("Novato", novato.getRango());
+        assertEquals("Novato", novato.getNombreRango());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class RangoTest {
 
         assertEquals(10, detective.getArrestosParaAscender());
         assertEquals(6, detective.getCantidadDeArrestos());
-        assertEquals("Detective", detective.getRango());
+        assertEquals("Detective", detective.getNombreRango());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RangoTest {
 
         assertEquals(20, investigador.getArrestosParaAscender());
         assertEquals(11, investigador.getCantidadDeArrestos());
-        assertEquals("Investigador", investigador.getRango());
+        assertEquals("Investigador", investigador.getNombreRango());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class RangoTest {
         sargento.addArresto();
 
         assertEquals(21, sargento.getCantidadDeArrestos());
-        assertEquals("Sargento", sargento.getRango());
+        assertEquals("Sargento", sargento.getNombreRango());
     }
 
     @Test

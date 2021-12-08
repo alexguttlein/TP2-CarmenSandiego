@@ -5,15 +5,22 @@ public class RangoNovato implements Rango {
     private String rangoActual;
     private int cantidadDeArrestos;
     private int arrestosParaAscender;
+    private int velocidad;
 
     public RangoNovato(int arrestos){
         this.cantidadDeArrestos = arrestos;
-        this.arrestosParaAscender = 5;
+        this.setArrestosParaAscender(5);
         this.rangoActual = "Novato";
+        this.setVelocidad(900);
     }
 
     @Override
     public int getCantidadDeArrestos(){return this.cantidadDeArrestos;}
+
+    @Override
+    public void setArrestosParaAscender(int arrestosParaAscender){
+        this.arrestosParaAscender = arrestosParaAscender;
+    }
 
     @Override
     public int getArrestosParaAscender(){return this.arrestosParaAscender;}
@@ -24,11 +31,11 @@ public class RangoNovato implements Rango {
     }
 
     @Override
-    public String getRango(){return this.rangoActual;}
+    public String getNombreRango(){return this.rangoActual;}
 
     @Override
     public double getTiempoDeViaje(double distancia){
-        return distancia/900;
+        return distancia/this.getVelocidad();
     }
 
     @Override
@@ -38,5 +45,9 @@ public class RangoNovato implements Rango {
         return this;
     }
 
-    public int getVelocidad(){return 900;}
+    @Override
+    public void setVelocidad(int velocidad){this.velocidad = velocidad;}
+
+    @Override
+    public int getVelocidad(){return this.velocidad;}
 }

@@ -5,9 +5,11 @@ public interface Rango {
     int getCantidadDeArrestos();
     int getArrestosParaAscender();
     void addArresto();
-    String getRango();
+    String getNombreRango();
     double getTiempoDeViaje(double distancia);
     Rango verificarRango();
+    void setVelocidad(int velocidad);
+    int getVelocidad();
+    void setArrestosParaAscender(int arrestos);
 
-    public int getVelocidad();
 }
