@@ -32,7 +32,7 @@ public class JugadorTest {
 
     @Test
     public void porDefectoUnJugadorTieneRangoNovato(){
-        assertEquals("Novato", jugador.getRango());
+        assertEquals("Novato", jugador.getNombreRango());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class JugadorTest {
             jugador.addArresto();
 
         assertEquals(5, jugador.getCantidadDeArrestos());
-        assertEquals("Detective", jugador.getRango());
+        assertEquals("Detective", jugador.getNombreRango());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class JugadorTest {
             jugador.addArresto();
 
         assertEquals(10, jugador.getCantidadDeArrestos());
-        assertEquals("Investigador", jugador.getRango());
+        assertEquals("Investigador", jugador.getNombreRango());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class JugadorTest {
             jugador.addArresto();
 
         assertEquals(15, jugador.getCantidadDeArrestos());
-        assertEquals("Investigador", jugador.getRango());
+        assertEquals("Investigador", jugador.getNombreRango());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class JugadorTest {
             jugador.addArresto();
 
         assertEquals(20, jugador.getCantidadDeArrestos());
-        assertEquals("Sargento", jugador.getRango());
+        assertEquals("Sargento", jugador.getNombreRango());
     }
 
     @Test
@@ -83,7 +83,7 @@ public class JugadorTest {
             jugador.addArresto();
 
         assertEquals(25, jugador.getCantidadDeArrestos());
-        assertEquals("Sargento", jugador.getRango());
+        assertEquals("Sargento", jugador.getNombreRango());
     }
 
     //TESTS TP

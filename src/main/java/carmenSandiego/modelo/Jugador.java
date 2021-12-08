@@ -1,7 +1,5 @@
 package carmenSandiego.modelo;
 
-import java.util.*;
-
 public class Jugador {
     private String nombre;
     private Rango rango;
@@ -20,7 +18,7 @@ public class Jugador {
 
     public String getNombre(){return this.nombre;}
 
-    public String getRango(){return this.rango.getRango();}
+    public String getNombreRango(){return this.rango.getNombreRango();}
 
     public int getCantidadDeArrestos(){return this.rango.getCantidadDeArrestos();}
 
