@@ -7,7 +7,7 @@ interface Rango {
 }
 
 class RangoDetective {
-    -rangoActual: String
+    -nombreRangoActual: String
     -cantidadDeArrestos: int
     -arrestosParaAscender: int
     --
@@ -16,7 +16,7 @@ class RangoDetective {
     -verificarRango(): Rango
 }
 class RangoNovato {
-    -rangoActual: String
+    -nombreRangoActual: String
     -cantidadDeArrestos: int
     -arrestosParaAscender: int
     --
@@ -25,7 +25,7 @@ class RangoNovato {
     -verificarRango(): Rango
 }
 class RangoSargento {
-    -rangoActual: String
+    -nombreRangoActual: String
     -cantidadDeArrestos: int
     --
     +RangoSargento(arrestos: int)
@@ -33,7 +33,7 @@ class RangoSargento {
     -verificarRango(): Rango
 }
 class RangoInvestigador {
-    -rangoActual: String
+    -nombreRangoActual: String
     -cantidadDeArrestos: int
     -arrestosParaAscender: int
     --
