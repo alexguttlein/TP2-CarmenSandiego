@@ -9,11 +9,19 @@ public class Jugador {
 
     public Jugador(String nombre, Ciudad ciudadInicial){
         this.nombre = nombre;
-        this.rango = new RangoNovato(0);  //Esto hay que cambiarlo
+        this.setRango(new RangoNovato(0));
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
         this.ciudadActual = ciudadInicial;
 
+    }
+
+    private void setRango(Rango rango){
+        this.rango = rango;
+    }
+
+    public Rango getRango(){
+        return this.rango;
     }
 
     public String getNombre(){return this.nombre;}
