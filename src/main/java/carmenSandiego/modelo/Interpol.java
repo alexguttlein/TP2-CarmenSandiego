@@ -79,11 +79,15 @@ public class Interpol {
 
     public Ladron emitirOrdenDeArresto(){
         if (getPosiblesLadrones().size() == 1)
-            return getPosiblesLadrones().get(0);
-        return null;
+            setOrdenDeArresto(getPosiblesLadrones().get(0));
+        return this.getOrdenDeArresto();
     }
 
     public List<Ladron> getPosiblesLadrones(){return this.posiblesLadrones;}
 
     private void setPosiblesLadrones(List<Ladron> posiblesLadrones){this.posiblesLadrones = posiblesLadrones;}
+
+    private void setOrdenDeArresto(Ladron ordenDeArresto){this.ordenDeArresto = ordenDeArresto;}
+
+    private Ladron getOrdenDeArresto(){return this.ordenDeArresto;}
 }
