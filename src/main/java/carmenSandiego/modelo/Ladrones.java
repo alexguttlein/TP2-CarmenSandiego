@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Ladrones {
 
-    private List<Ladron> ladrones = new ArrayList<>();
+    private ArrayList<Ladron> ladrones = new ArrayList<>();
     public static final String SEPARADOR = ";";
 
     public Ladrones(){
