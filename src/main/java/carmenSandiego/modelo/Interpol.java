@@ -49,7 +49,7 @@ public class Interpol {
     }
 
 
-    public List<Ladron> buscarLadron() {
+    public List<Ladron> buscarPosiblesLadrones() {
         List<Ladron> ladrones = this.ladrones.getLadrones();
         List<Ladron> posiblesLadrones = new ArrayList<Ladron>();
 
@@ -78,6 +78,8 @@ public class Interpol {
     }
 
     public Ladron emitirOrdenDeArresto(){
+        buscarPosiblesLadrones();
+
         if (getPosiblesLadrones().size() == 1)
             setOrdenDeArresto(getPosiblesLadrones().get(0));
         return this.getOrdenDeArresto();
