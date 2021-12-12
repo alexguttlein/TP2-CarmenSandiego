@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static java.util.Calendar.MONDAY;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasosUsoEntrega1Test<ciudadMexico> {
@@ -17,68 +19,86 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
 
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
+
     Edificio banco = new EdificioBanco();
     Edificio aeropuerto = new EdificioAeropuerto();
     Edificio biblioteca = new EdificioBiblioteca();
     Edificio puerto = new EdificioPuerto();
-    Jugador jugador = new Jugador("Max", ciudadMontreal);
-    Reloj reloj = Reloj.getInstance();
 
+    Horario reloj = new Horario();
+    Jugador jugador = new Jugador("Max", ciudadMontreal, reloj);
+//    Reloj reloj = Reloj.getInstance();
 
     @Test
-    public void jugadorVisitaBancoDeMontrear(){
-        reloj.reiniciar();
+    public void jugadorVisitaBancoDeMontreal(){
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
         ciudadMontreal.setEdificios(banco);
         ciudadMontreal.setPistasEdificio();
-        String esperado = ciudadMontreal.visitarEdificio(banco);
-        assertEquals("Vino a cambiar un poco de Peso", esperado);
+
+        jugador.visitarEdificio(banco);
+        String pistaEsperada = banco.getPista();
+
+        assertEquals("Vino a cambiar un poco de Peso", pistaEsperada);
         assertEquals(8, reloj.getHoraActual());
     }
+
     @Test
     public void jugadorVisitaBancoYBibliotecaDeMontreal(){
-        reloj.reiniciar();
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
         ciudadMontreal.setEdificios(banco);
         ciudadMontreal.setEdificios(biblioteca);
         ciudadMontreal.setPistasEdificio();
-        String esperadoBanco = ciudadMontreal.visitarEdificio(banco);
-        String esperadoBiblioteca = ciudadMontreal.visitarEdificio(biblioteca);
-        assertEquals("Vino a cambiar un poco de Peso", esperadoBanco);
-        assertEquals("Agarro un diccionario Espaniol", esperadoBiblioteca);
+
+        String pistaEsperadaBanco = banco.getPista();
+        String pistaEsperadaBiblioteca = biblioteca.getPista();
+
+        jugador.visitarEdificio(banco);
+        jugador.visitarEdificio(biblioteca);
+
         assertEquals(9, reloj.getHoraActual());
+        assertEquals("Vino a cambiar un poco de Peso", pistaEsperadaBanco);
+        assertEquals("Agarro un diccionario Espaniol", pistaEsperadaBiblioteca);
     }
+
     @Test
     public void jugadorViajaDeMontrealAMexico(){
-        reloj.reiniciar();
-        for(int i = 0; i < 5; i++)  //para que el jugador sea de tipo Detective
-            jugador.addArresto();
         jugador.viajar(ciudadMexico);
-        assertEquals(10,reloj.getHoraActual());
-        assertEquals(ciudadMexico,jugador.getCiudadActual());
+
+        assertEquals(11, reloj.getHoraActual());
+        assertEquals(ciudadMexico, jugador.getCiudadActual());
     }
+
     @Test
     public void jugadorVisita3VecesAeropuertoY55VecesPuerto(){
-        reloj.reiniciar();
-        String esperadoAeropuerto = "";
-        String esperadoPuerto = "";
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
         ciudadMontreal.setEdificios(aeropuerto);
         ciudadMontreal.setEdificios(puerto);
         ciudadMontreal.setPistasEdificio();
-        for (int i = 0; i < 3; i++) {
-            esperadoAeropuerto = ciudadMontreal.visitarEdificio(aeropuerto);
+
+        String pistaEsperadaAeropuerto = aeropuerto.getPista();
+        String pistaEsperadaPuerto = puerto.getPista();
+
+        for(int i = 0; i < 3; i++){
+            jugador.visitarEdificio(aeropuerto);
         }
-        for (int i = 0; i < 55; i++) {
-            esperadoPuerto = ciudadMontreal.visitarEdificio(puerto);
+
+        assertEquals(13, reloj.getHoraActual());
+
+        for(int i = 0; i < 55; i++){
+            jugador.visitarEdificio(puerto);
         }
-        assertEquals("Se subio a un avion Verde, blanca y roja", esperadoAeropuerto);
-        assertEquals("Al lugar que iba exportaban mucho Mineria", esperadoPuerto);
+
         assertEquals(7, reloj.getHoraActual());
+        assertEquals(MONDAY, reloj.getDiaActual());
+        assertEquals("Se subio a un avion Verde, blanca y roja", pistaEsperadaAeropuerto);
+        assertEquals("Al lugar que iba exportaban mucho Mineria", pistaEsperadaPuerto);
     }
 
+    @Test
+    public void detectiveSufreHeridaDeCuchilloYLuegoDuerme(){
+        jugador.serHeridoPorCuchillo();
+        jugador.dormir();
 
-
-
-
+        assertEquals(17, reloj.getHoraActual());
+    }
 }
