@@ -8,11 +8,17 @@ public class Interpol {
     private Ladrones ladrones;
     private Ladron ladronBuscado;
     private List<Ladron> posiblesLadrones;
-    private Ladron ordenDeArresto;
+    private Ladron ladronParaArrestar;
+    private boolean estadoOrdenDeArresto;
 
     public Interpol(Ladrones ladrones){
         setLadrones(ladrones);
         setLadronBuscado();
+        setEstadoOrdenDeArresto(false);
+    }
+
+    private void setEstadoOrdenDeArresto(boolean estado) {
+        this.estadoOrdenDeArresto = estado;
     }
 
     private void setLadronBuscado() {
@@ -77,19 +83,24 @@ public class Interpol {
         return true;
     }
 
-    public Ladron emitirOrdenDeArresto(){
+    public void emitirOrdenDeArresto(){
         buscarPosiblesLadrones();
 
-        if (getPosiblesLadrones().size() == 1)
-            setOrdenDeArresto(getPosiblesLadrones().get(0));
-        return this.getOrdenDeArresto();
+        if (getPosiblesLadrones().size() == 1) {
+            setLadronParaArrestar(getPosiblesLadrones().get(0));
+            setEstadoOrdenDeArresto(true);
+        }
     }
 
     public List<Ladron> getPosiblesLadrones(){return this.posiblesLadrones;}
 
     private void setPosiblesLadrones(List<Ladron> posiblesLadrones){this.posiblesLadrones = posiblesLadrones;}
 
-    private void setOrdenDeArresto(Ladron ordenDeArresto){this.ordenDeArresto = ordenDeArresto;}
+    private void setLadronParaArrestar(Ladron ordenDeArresto){this.ladronParaArrestar = ordenDeArresto;}
 
-    private Ladron getOrdenDeArresto(){return this.ordenDeArresto;}
+    public Ladron getLadronParaArrestar(){return this.ladronParaArrestar;}
+
+    public boolean atraparSospechoso(){
+        return this.estadoOrdenDeArresto;
+    }
 }

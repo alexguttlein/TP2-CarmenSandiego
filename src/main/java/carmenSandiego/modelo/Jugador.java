@@ -6,14 +6,15 @@ public class Jugador {
     private Ciudad ciudadActual;
     private int vecesHeridoPorCuchillo;
     private EstadoJugador estadoJugador;
+    private Horario reloj;
 
-    public Jugador(String nombre, Ciudad ciudadInicial){
+    public Jugador(String nombre, Ciudad ciudadInicial, Horario reloj){
         this.nombre = nombre;
         this.setRango(new RangoNovato(0));
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
-        this.ciudadActual = ciudadInicial;
-
+        this.setCiudadActual(ciudadInicial);
+        this.setReloj(reloj);
     }
 
     private void setRango(Rango rango){
@@ -35,40 +36,42 @@ public class Jugador {
         this.rango = rango.verificarRango();
     }
 
-    //public Ciudad getCiudadActual(){return this.ciudadActual;}
+    public Ciudad getCiudadActual(){return this.ciudadActual;}
 
-    //public void setCiudadActual(Ciudad ciudadActual){
-    //    this.ciudadActual = ciudadActual;
-    //}
+    public void setCiudadActual(Ciudad ciudadActual){
+        this.ciudadActual = ciudadActual;
+    }
 
     public void dormir(){
-        estadoJugador = new EstadoDormido();
-        estadoJugador.pasarTiempo();
+        setEstadoJugador(new EstadoDormido());
+        estadoJugador.pasarTiempo(this.getReloj());
+        this.sanar();
     }
 
     public void serHeridoPorCuchillo(){
         this.vecesHeridoPorCuchillo++;
-        if(this.vecesHeridoPorCuchillo == 1) {
-            estadoJugador = new EstadoHeridoConCuchillo();
+        if(getVecesHeridoPorCuchillo() == 1) {
+            setEstadoJugador(new EstadoHeridoConCuchillo());
         }
         else {
-            estadoJugador = new EstadoHeridoConCuchilloMultiplesVeces();
+            setEstadoJugador(new EstadoHeridoConCuchilloMultiplesVeces());
         }
-        estadoJugador.pasarTiempo();
+        estadoJugador.pasarTiempo(this.getReloj());
+        this.sanar();
     }
 
     public void serHeridoPorArmaDeFuego(){
-        estadoJugador = new EstadoHeridoPorArmaDeFuego();
-        estadoJugador.pasarTiempo();
-    }
-
-    public void pasarTiempo(){
-        estadoJugador.pasarTiempo();
-        sanar();
+        setEstadoJugador(new EstadoHeridoPorArmaDeFuego());
+        estadoJugador.pasarTiempo(this.getReloj());
+        this.sanar();
     }
 
     public void sanar(){
-        estadoJugador = new EstadoSano();
+        setEstadoJugador(new EstadoSano());
+    }
+
+    private void setEstadoJugador(EstadoJugador estado){
+        this.estadoJugador = estado;
     }
 
     public int getVecesHeridoPorCuchillo(){
@@ -76,15 +79,22 @@ public class Jugador {
     }
 
     public void viajar(Ciudad ciudadSiguiente){
-        ciudadActual.viajarDesde(rango.getVelocidad(), ciudadSiguiente); //habría que cambiarle el nombre
-        asignarNuevaCiudadActual(ciudadSiguiente);
+        //ciudadActual.viajarDesde(rango.getVelocidad(), ciudadSiguiente); //habría que cambiarle el nombre
+        int horasViaje = this.getCiudadActual().viajarHasta(rango.getVelocidad(), ciudadSiguiente);
+        this.getReloj().addHoras(horasViaje);
+        this.setCiudadActual(ciudadSiguiente);
     }
 
-    private void asignarNuevaCiudadActual(Ciudad nuevaCiudadActual){
-        this.ciudadActual = nuevaCiudadActual;
+    private void setReloj(Horario reloj){
+        this.reloj = reloj;
     }
 
-    public Ciudad getCiudadActual() {
-        return this.ciudadActual;
+    private Horario getReloj(){
+        return this.reloj;
     }
+
+    public void visitarEdificio(Edificio edificio) {
+        this.getReloj().addHoras(this.getCiudadActual().visitarEdificio(edificio));
+    }
+    
 }

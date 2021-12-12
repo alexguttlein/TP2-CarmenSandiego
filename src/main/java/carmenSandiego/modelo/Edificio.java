@@ -4,7 +4,6 @@ public abstract class Edificio{
     protected ComportamientoPistas comportamientoPistas;
     protected ComportamientoDeDemora comportamientoDeDemora;
     protected ComportamientoVisita comportamientoVisita;
-    protected int demora;
 
     protected Edificio(){
         comportamientoDeDemora = new Demora();
@@ -14,20 +13,16 @@ public abstract class Edificio{
     public abstract void mostrarNombreDelEdificio();
 
     public String getPista() {
-        entrarAlEdificio();
-        mostrarPista();
         return comportamientoPistas.getPista();
-    };
+    }
 
     public void mostrarPista(){
         this.comportamientoPistas.mostrarPistas();
     }
 
-    public void entrarAlEdificio(){
+    public int entrarAlEdificio(){
         comportamientoVisita.entrarAlEdificio();
-        demora = getDemora();
-        Reloj reloj = Reloj.getInstance();
-        reloj.agregarHoras(demora);
+        return this.getDemora();
     }
 
     public int getCantidadDeVisitas() {
