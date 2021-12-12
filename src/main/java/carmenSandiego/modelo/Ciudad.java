@@ -59,8 +59,13 @@ public class Ciudad {
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
 
-    public String visitarEdificio(Edificio unEdificio){
+    /*public int visitarEdificio(Edificio unEdificio){
         return unEdificio.getPista();
+    }
+     */
+
+    public int visitarEdificio(Edificio unEdificio){
+        return unEdificio.entrarAlEdificio();
     }
 
     public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
@@ -92,7 +97,7 @@ public class Ciudad {
             edificio.setPistas(ciudadSiguiente);
         }
     }
-
+/*
     public void viajarDesde(int velocidad, Ciudad ciudadSiguiente) {
         ciudadSiguiente.viajarHasta(velocidad, latitud, longitud);
     }
@@ -102,6 +107,13 @@ public class Ciudad {
         CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, latitud, longitud, this.latitud, this.longitud);
         int horasDeViaje = calculadorTiempoViaje.obtenerHorasDeViaje();
         reloj.agregarHoras(horasDeViaje);
+    }
+
+ */
+
+    public int viajarHasta(int velocidad, Ciudad ciudadDestino){
+        CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, ciudadDestino.latitud, ciudadDestino.longitud, this.latitud, this.longitud);
+        return calculadorTiempoViaje.obtenerHorasDeViaje();
     }
 
     public void setEdificios(Edificio unEdificio){

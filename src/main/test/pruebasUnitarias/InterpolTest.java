@@ -30,9 +30,11 @@ public class InterpolTest {
     @Test
     public void seFiltraPorGeneroFemeninoYAunNoSePuedeEmitirOrdenDeArresto(){
         interpol.setDatoGenero("Femenino");
+        interpol.emitirOrdenDeArresto();
 
         assertEquals(5, interpol.buscarPosiblesLadrones().size());
-        assertNull(interpol.emitirOrdenDeArresto());
+        assertNull(interpol.getLadronParaArrestar());
+        assertFalse(interpol.atraparSospechoso());
     }
 
     @Test
@@ -43,8 +45,12 @@ public class InterpolTest {
         interpol.setDatoSenia("Joyas");
         interpol.setDatoVehiculo("Convertible");
 
+        interpol.emitirOrdenDeArresto();
+
         assertEquals(1, interpol.buscarPosiblesLadrones().size());
-        assertNotNull(interpol.emitirOrdenDeArresto());
-        assertEquals("Carmen Sandiego", interpol.emitirOrdenDeArresto().getNombre());
+        assertNotNull(interpol.getLadronParaArrestar());
+        assertEquals("Carmen Sandiego", interpol.getLadronParaArrestar().getNombre());
+        assertTrue(interpol.atraparSospechoso());
     }
+
 }

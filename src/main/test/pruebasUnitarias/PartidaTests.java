@@ -24,7 +24,7 @@ public class PartidaTests {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     ArrayList ciudades = new ArrayList(Arrays.asList(ciudadMontreal, ciudadMexico));
 
-    Jugador jugador = new Jugador("Ivan", ciudadMontreal);
+    Jugador jugador = new Jugador("Ivan", ciudadMontreal, new Horario());
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Partida partida = new Partida(jugador, objetoRobadoMock, ciudades);
 

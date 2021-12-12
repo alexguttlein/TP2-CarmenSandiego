@@ -2,5 +2,5 @@ package carmenSandiego.modelo;
 
 public class EstadoSano implements EstadoJugador{
 
-    public void pasarTiempo(){}
+    public void pasarTiempo(Horario reloj){}
 }

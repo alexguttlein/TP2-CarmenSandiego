@@ -2,5 +2,6 @@ package carmenSandiego.modelo;
 
 public interface EstadoJugador {
 
-    public void pasarTiempo();
+    void pasarTiempo(Horario reloj);
+
 }
