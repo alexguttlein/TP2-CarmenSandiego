@@ -1,0 +1,61 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Jugador {
+    -nombre: String
+    -vecesHeridosPorCuchillo: int
+    --
+    +Jugador(nombre: String, ciudadInicial: Ciudad)
+    +addArresto(): void
+    +dormir(): int
+    +serHeridoPorCuchillo(): int
+    +serHeridoPorArmaDeFuego(): int
+    +pasarTiempo(): void
+    +sanar(): void
+    +viajar(ciudadSiguiente: Ciudad)
+}
+
+interface EstadoJugador{
+    pasarTiempo(): void
+}
+
+class Ciudad {
+    -nombre: String
+    -bandera: String
+    -moneda: String
+    -geografia: String
+    -hitos: String
+    -industria: String
+    -animales: String
+    -personalidades: String
+    -idioma: String
+    -arte: String
+    -religion: String
+    -gobierno: String
+    -varios: String
+    -longitud: Double
+    -latitud: Double
+    -ciudadSiguiente: Ciudad
+    -edificios: ArrayList<Edificio>
+    -pasoLadron: boolean
+    --
+    +Ciudad(pistaCiudad: ArrayList<String>)
+    +visitarEdicifio(unEdificio: Edificio): String
+    +setCiudadSiguiente(ciudadSiguiente: Ciudad): void
+    +setPistasEdificio(): void
+    +viajarDesde(velocidad: int, ciudadSiguiente: Ciudad): void
+    +viajarHasta(velocidad: int, latitud: Double, longitud: Double): void
+}
+
+interface Rango {
+    --
+    addArresto(): void
+    verificarRango(): Rango
+}
+
+
+Jugador"1"-down->"1"Ciudad
+Jugador"1"-down->"1"EstadoJugador
+Jugador"1"-down->"1"Rango
+
+@enduml
