@@ -1,5 +1,10 @@
 @startuml
 
+class Ubicacion{
+    - latitud: double
+    - longitud: double
+}
+
 class Ciudad {
     -nombre: String
     -bandera: String
@@ -14,17 +19,15 @@ class Ciudad {
     -religion: String
     -gobierno: String
     -varios: String
-    -longitud: Double
-    -latitud: Double
+    -ubicacion: Ubicacion
     -ciudadSiguiente: Ciudad
-    -edificios: ArrayList<Edificio>
     -pasoLadron: boolean
-    --
-    +Ciudad(pistaCiudad: ArrayList<String>)
+
     +visitarEdicifio(unEdificio: Edificio): String
-    +setCiudadSiguiente(ciudadSiguiente: Ciudad): void
     +setPistasEdificio(): void
-    +viajarDesde(velocidad: int, ciudadSiguiente: Ciudad): void
-    +viajarHasta(velocidad: int, latitud: Double, longitud: Double): void
+    +viajarHasta(velocidad: int, ciudadDestino: Ciudad): void
 }
+
+Ciudad --> Ubicacion
+Ciudad "1"-->"1...*" Edificio
 @enduml

@@ -7,9 +7,14 @@ class Ladron {
     -cabello: String
     -senia: String
     -vehiculo: String
-    --
-    +Ladron(datosLadron: ArrayList<String>)
 }
 
+class Ladrones{
+    - ladrones: ArrayList<Ladron>
+    - inicializarLadrones(): void
+    - crearLadron(): void
+    + getLadrones(): ArrayList<Ladron>
+}
 
+Ladrones "1"-->"1...*" Ladron
 @enduml
