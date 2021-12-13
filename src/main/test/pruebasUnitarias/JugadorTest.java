@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Horario;
+import carmenSandiego.modelo.Tiempo;
 import carmenSandiego.modelo.Jugador;
 import carmenSandiego.modelo.Ciudad;
 
@@ -23,8 +23,8 @@ public class JugadorTest {
             "asd", "asd", "asd", "asd", "asd", "ingles", "asd",
             "asd", "asd", "asd", "45.573279804398034", "-73.49124739806629")));
 
-    Horario reloj = new Horario();
-    Jugador jugador= new Jugador("Alex", ciudadMontreal, reloj);
+    Tiempo reloj = new Tiempo();
+    Jugador jugador = new Jugador("Alex", reloj);
     Ciudad ciudadMock = mock(Ciudad.class);
 
     @Test
@@ -95,13 +95,14 @@ public class JugadorTest {
         //velocidad Detective = 1100 km/h
         //tiempo esperado = 3 horas (se redondea para abajo)
 
+        jugador.setCiudadActual(ciudadMontreal);
+
         for(int i = 0; i < 5; i++)  //para que el jugador sea de tipo Detective
             jugador.addArresto();
         jugador.viajar(ciudadMexico);
 
         assertEquals(10, reloj.getHoraActual());
         assertEquals(ciudadMexico,jugador.getCiudadActual());
-
     }
 
 

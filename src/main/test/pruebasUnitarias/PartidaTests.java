@@ -1,7 +1,6 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.*;
-import org.junit.jupiter.api.Test;
 import carmenSandiego.modelo.Partida;
 import carmenSandiego.modelo.Jugador;
 
@@ -24,7 +23,7 @@ public class PartidaTests {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     ArrayList ciudades = new ArrayList(Arrays.asList(ciudadMontreal, ciudadMexico));
 
-    Jugador jugador = new Jugador("Ivan", ciudadMontreal, new Horario());
+    Jugador jugador = new Jugador("Ivan", new Tiempo());
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Partida partida = new Partida(jugador, objetoRobadoMock, ciudades);
 

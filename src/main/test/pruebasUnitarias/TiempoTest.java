@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Horario;
+import carmenSandiego.modelo.Tiempo;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Calendar.*;
@@ -8,9 +8,9 @@ import static java.util.Calendar.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class HorarioTest {
+public class TiempoTest {
 
-    Horario reloj = new Horario();
+    Tiempo reloj = new Tiempo();
 
     @Test
     public void elRelojSeInicializaLunesDeEneroALas7AM(){

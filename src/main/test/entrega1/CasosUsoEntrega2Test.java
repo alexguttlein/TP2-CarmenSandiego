@@ -22,8 +22,8 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
     //Setup jugador / reloj
-    Horario reloj = new Horario();
-    Jugador jugador = new Jugador("Max", ciudadMontreal, reloj);
+    Tiempo reloj = new Tiempo();
+    Jugador jugador = new Jugador("Max", reloj);
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();
@@ -45,6 +45,7 @@ public class CasosUsoEntrega2Test {
     //caso uso 2: Detective con rango Investigador toma caso de un robo viaja de Montreal a México
     @Test
     public void jugadorConRangoInvestigadorViajaDeMontrealAMexico(){
+        jugador.setCiudadActual(ciudadMontreal);
 
         for(int i = 0; i < 10; i++){
             jugador.addArresto();
