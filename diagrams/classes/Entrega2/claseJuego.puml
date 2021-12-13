@@ -1,0 +1,32 @@
+@startuml
+
+class Juego{}
+
+class Jugador{}
+
+class Partida{
+    - Jugador jugador
+    - Interpol interpol
+    - Ladron ladron
+    - Objeto objeto
+    - Tiempo tiempo
+}
+
+class Objeto{}
+
+class Interpol{}
+
+class Tiempo{}
+
+Juego "1"-->"1" Jugador
+Juego "1"-->"1" Tiempo
+Juego "1"-->"1...*" Partida
+Juego "1"-->"1" Interpol
+Juego "1"-->"1...*" Objeto
+Juego "1"-->"1" Ladrones
+
+Jugador --> Tiempo
+Interpol --> Ladrones
+Ladrones "1"-->"1...*" Ladron
+
+@enduml

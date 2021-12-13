@@ -1,22 +1,23 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class Partida{}
+class Juego{}
 
 class Interpol{
 - Ladrones ladrones
 - List<Ladron> posbilesLadrones
 - Ladron ordenDeArresto
 
-+ List<Ladron> buscarLadron()
-+ Ladron emitirOrdenDeArresto()
++ getPosiblesLadrones(): List<Ladron>
++ emitirOrdenDeArresto(): void
++ atraparSospechoso(): boolean
 }
 
 class Ladrones{
-- ArrayList<Ladron> ladrones
-- inicializarLadrones()
-- crearLadron()
-+ getLadrones()
+- ladrones: ArrayList<Ladron>
+- inicializarLadrones(): void
+- crearLadron(): void
++ getLadrones(): ArrayList<Ladron>
 }
 
 class Ladron{
@@ -31,7 +32,7 @@ class Ladron{
 Ladrones "1"*-down->"1...*" Ladron
 Interpol -right-> Ladrones
 
-Partida *-down->"1" Interpol
-Partida *-down->"1" Ladrones
+Juego *-down->"1" Interpol
+Juego *-down->"1" Ladrones
 
 @enduml

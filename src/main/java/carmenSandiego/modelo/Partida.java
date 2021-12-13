@@ -34,7 +34,7 @@ public class Partida {
     }
 
  */
-
+/*
     public Ciudad buscarCiudad(String nombreNuevaCiudad){
         Ciudad ciudadBuscada = ciudades.get(0);
         for (Ciudad ciudadActual : ciudades){
@@ -44,7 +44,7 @@ public class Partida {
         }
         return ciudadBuscada;
     }
-
+*/
     //public void jugadorDebeDormir(){
     //    horario.esHorarioDeDormir(jugador);
     //}

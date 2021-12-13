@@ -1,0 +1,9 @@
+@startuml
+
+class Tiempo{
+    - Calendar calendario
+
+    + addHoras (int horas)
+}
+
+@enduml

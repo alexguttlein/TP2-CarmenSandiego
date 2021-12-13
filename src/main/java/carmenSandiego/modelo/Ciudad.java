@@ -19,8 +19,7 @@ public class Ciudad {
     private String religion;
     private String gobierno;
     private String varios;
-    private Double latitud;
-    private Double longitud;
+    private Ubicacion ubicacion;
 
     private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;
@@ -40,9 +39,10 @@ public class Ciudad {
         this.religion = pistasCiudad.get(10);
         this.gobierno = pistasCiudad.get(11);
         this.varios = pistasCiudad.get(12);
-        this.latitud = Double.parseDouble(pistasCiudad.get(13));
-        this.longitud = Double.parseDouble(pistasCiudad.get(14));
         this.pasoLadron = false;
+        double latitud = Double.parseDouble(pistasCiudad.get(13));
+        double longitud = Double.parseDouble(pistasCiudad.get(14));
+        this.ubicacion = new Ubicacion(latitud, longitud);
     }
 
     public String getNombre(){return this.nombre;}
@@ -59,11 +59,6 @@ public class Ciudad {
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
 
-    /*public int visitarEdificio(Edificio unEdificio){
-        return unEdificio.getPista();
-    }
-     */
-
     public int visitarEdificio(Edificio unEdificio){
         return unEdificio.entrarAlEdificio();
     }
@@ -79,13 +74,7 @@ public class Ciudad {
 
     public boolean getPasoLadron(){return this.pasoLadron;}
 
-    public double getLatitud() {
-        return this.latitud;
-    }
-
-    public double getLongitud(){
-        return this.longitud;
-    }
+    public Ubicacion getUbicacion(){return this.ubicacion;}
 
     public void setPistasEdificio(){
         if (ciudadSiguiente == null){
@@ -112,11 +101,11 @@ public class Ciudad {
  */
 
     public int viajarHasta(int velocidad, Ciudad ciudadDestino){
-        CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, ciudadDestino.latitud, ciudadDestino.longitud, this.latitud, this.longitud);
+        CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, ciudadDestino.getUbicacion(), this.getUbicacion());
         return calculadorTiempoViaje.obtenerHorasDeViaje();
     }
 
-    public void setEdificios(Edificio unEdificio){
+    public void addEdificio(Edificio unEdificio){
         this.edificios.add(unEdificio);
     }
 
