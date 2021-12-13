@@ -4,27 +4,18 @@ interface EstadoJugador{
     pasarTiempo(): void
 }
 class EstadoDormido{
-    -HORAS_DE_SUENIO: int
-    --
     +pasarTiempo(): void
 }
 class EstadoHeridoConCuchillo{
-    -HORAS_HERIDO: int
-    --
     +pasarTiempo(): void
 }
 class EstadoHeridoConCuchilloMultiplesVeces{
-    -HORAS_HERIDO: int
-    --
     +pasarTiempo(): void
 }
 class EstadoHeridoPorArmaDeFuego{
-    -HORAS_HERIDO: int
-    --
     +pasarTiempo(): void
 }
 class EstadoSano{
-    --
     +pasarTiempo(): void
 }
 EstadoJugador <|.. EstadoDormido
