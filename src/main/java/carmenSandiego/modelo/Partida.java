@@ -27,6 +27,12 @@ public class Partida {
     private void setLadronActual(Ladron ladron){this.ladronActual = ladron;}
     private void setInterpol(Interpol interpol){this.interpol = interpol;}
 
+    public Tiempo getTiempo(){return this.tiempo;}
+    public Jugador getJugador(){return this.jugador;}
+    public ObjetoRobado getObjetoRobado(){return this.objetoRobado;}
+    public Ladron getLadronActual(){return this.ladronActual;}
+    public Interpol getInterpol(){return this.interpol;}
+
     private void generarCiudades(){
         this.ciudades = new Ciudades();
     }
