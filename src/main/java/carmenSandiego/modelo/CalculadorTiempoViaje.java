@@ -2,21 +2,22 @@ package carmenSandiego.modelo;
 
 public class CalculadorTiempoViaje {
     private int velocidad;
-    private double latitudSalida;
-    private double longitudSalida;
-    private double latitudDestino;
-    private double longitudDestino;
+    private Ubicacion ubicacionSalida;
+    private Ubicacion ubicacionDestino;
 
-    public CalculadorTiempoViaje(int velocidad, double latitudSalida, double longitudSalida, double latitudDestino, double longitudDestino){
+    public CalculadorTiempoViaje(int velocidad, Ubicacion ubicacionSalida, Ubicacion ubicacionDestino){
         this.velocidad = velocidad;
-        this.latitudSalida = latitudSalida;
-        this.longitudSalida = longitudSalida;
-        this.latitudDestino = latitudDestino;
-        this.longitudDestino = longitudDestino;
+        this.ubicacionSalida = ubicacionSalida;
+        this.ubicacionDestino = ubicacionDestino;
     }
 
 
     public double obtenerDistancia() {
+        double latitudSalida = this.ubicacionSalida.getLatitud();
+        double longitudSalida = this.ubicacionSalida.getLongitud();
+        double latitudDestino = this.ubicacionDestino.getLatitud();
+        double longitudDestino = this.ubicacionDestino.getLongitud();
+
         double radioTierra = 6371;//en kilómetros
         double dLat = Math.toRadians(latitudDestino - latitudSalida);
         double dLng = Math.toRadians(longitudDestino - longitudSalida);

@@ -117,6 +117,7 @@ public class JugadorTest {
     @Test
     public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
         jugador.serHeridoPorCuchillo();
+        jugador.sanar();
 
         assertEquals(1, jugador.getVecesHeridoPorCuchillo());
         assertEquals(9, reloj.getHoraActual());

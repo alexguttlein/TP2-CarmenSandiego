@@ -19,7 +19,6 @@ public class CiudadTest {
 
     Ciudad ciudad = new Ciudad(pistasCiudad);
     Ciudad ciudadMock = mock(Ciudad.class);
-    Edificio bancoMock = mock(EdificioBanco.class);
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
@@ -36,7 +35,10 @@ public class CiudadTest {
         assertEquals("Cristianismo", ciudad.getReligion());
         assertEquals("Presidente", ciudad.getGobierno());
         assertEquals("Antigua Colonia Espaniola", ciudad.getVarios());
+        assertEquals(-34.58952254327074, ciudad.getUbicacion().getLatitud());
+        assertEquals(-58.34678308238882, ciudad.getUbicacion().getLongitud());
     }
+
     @Test
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
         when(ciudadMock.getNombre()).thenReturn("Londres");
@@ -45,6 +47,7 @@ public class CiudadTest {
         assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
         assertTrue(ciudad.getPasoLadron());
     }
+
     @Test
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
         assertFalse(ciudad.getPasoLadron());

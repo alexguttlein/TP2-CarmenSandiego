@@ -25,6 +25,7 @@ public class EdificioTest {
         aeropuerto.entrarAlEdificio();
         biblioteca.entrarAlEdificio();
         puerto.entrarAlEdificio();
+
         assertEquals(1, banco.getCantidadDeVisitas());
         assertEquals(1, aeropuerto.getCantidadDeVisitas());
         assertEquals(1, biblioteca.getCantidadDeVisitas());

@@ -31,7 +31,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     @Test
     public void jugadorVisitaBancoDeMontreal(){
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
-        ciudadMontreal.setEdificios(banco);
+        ciudadMontreal.addEdificio(banco);
         ciudadMontreal.setPistasEdificio();
 
         jugador.setCiudadActual(ciudadMontreal);
@@ -46,8 +46,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     @Test
     public void jugadorVisitaBancoYBibliotecaDeMontreal(){
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
-        ciudadMontreal.setEdificios(banco);
-        ciudadMontreal.setEdificios(biblioteca);
+        ciudadMontreal.addEdificio(banco);
+        ciudadMontreal.addEdificio(biblioteca);
         ciudadMontreal.setPistasEdificio();
 
         jugador.setCiudadActual(ciudadMontreal);
@@ -75,8 +75,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     @Test
     public void jugadorVisita3VecesAeropuertoY55VecesPuerto(){
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
-        ciudadMontreal.setEdificios(aeropuerto);
-        ciudadMontreal.setEdificios(puerto);
+        ciudadMontreal.addEdificio(aeropuerto);
+        ciudadMontreal.addEdificio(puerto);
         ciudadMontreal.setPistasEdificio();
 
         jugador.setCiudadActual(ciudadMontreal);
