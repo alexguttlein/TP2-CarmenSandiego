@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CasosUsoEntrega2Test {
     //Setup Ciudades
@@ -69,6 +70,33 @@ public class CasosUsoEntrega2Test {
         assertEquals(2, posiblesLadrones.size());
         assertEquals(ladronMereyLaroc, posiblesLadrones.get(0));
         assertEquals(ladronKatherineDrib, posiblesLadrones.get(1));
+    }
+
+    //caso uso 4: Intentas atrapar al sospechoso sin la orden de arresto emitida.
+    @Test
+    public void seIntentaAtraparAlSospechosoSinUnaOrdenDearrestoEmitida(){
+        interpol.setDatoGenero("Femenino");
+        interpol.setDatoHobby("Tenis");
+        interpol.setDatoCabello("Castanio");
+        interpol.setDatoSenia("Joyas");
+        interpol.setDatoVehiculo("Convertible");
+
+        assertEquals(1, interpol.buscarPosiblesLadrones().size());
+        assertFalse(interpol.atraparSospechoso());
+    }
+
+    //caso uso 5: Un detective hace 6 Arrestos.
+    //Toma un caso de un sospechoso que robó un Incan Gold Mask.
+    //Realiza la investigación.
+    //Emite la orden.
+    //Atrapa al sospechoso.
+
+    @Test
+    public void seRealizaInvestigacionYSeAtrapaAlSospechoso(){
+        for(int i = 0; i < 6; i++){
+            jugador.addArresto();
+        }
+
     }
 
 
