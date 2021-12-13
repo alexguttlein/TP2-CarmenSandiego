@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class PartidaTests {
 /*
@@ -41,6 +42,21 @@ public class PartidaTests {
         Ciudades ciudades = partida.getCiudades();
 
         assertEquals("Buenos Aires", ciudades.getCiudades().get(0).getNombre());
+    }
+
+    @Test
+    public void partidaRecibeLosObjetosInstanciadosCorrectamente(){
+        when(tiempoMock.getHoraActual()).thenReturn(7);
+        when(jugadorMock.getCantidadDeArrestos()).thenReturn(0);
+        when(objetoRobadoMock.getNombre()).thenReturn("Tesoro");
+        when(ladronMock.getGenero()).thenReturn("Femenino");
+        when(interpolMock.atraparSospechoso()).thenReturn(false);
+
+        assertEquals(tiempoMock.getHoraActual(), partida.getTiempo().getHoraActual());
+        assertEquals(jugadorMock.getCantidadDeArrestos(), partida.getJugador().getCantidadDeArrestos());
+        assertEquals(objetoRobadoMock.getNombre(), partida.getObjetoRobado().getNombre());
+        assertEquals(ladronMock.getGenero(), partida.getLadronActual().getGenero());
+        assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
     }
 
 }

@@ -1,4 +1,4 @@
-package entrega1;
+package entregas;
 
 import carmenSandiego.modelo.*;
 import org.junit.jupiter.api.Test;
