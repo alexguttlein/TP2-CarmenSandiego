@@ -2,9 +2,7 @@ package carmenSandiego.modelo;
 
 public class EstadoDormido implements EstadoJugador {
 
-    private final int HORAS_DE_SUENIO = 8;
-
-    public void pasarTiempo(Horario reloj){
+    public void pasarTiempo(Tiempo reloj){
         reloj.addHoras(8);
     }
 }

@@ -6,14 +6,13 @@ public class Jugador {
     private Ciudad ciudadActual;
     private int vecesHeridoPorCuchillo;
     private EstadoJugador estadoJugador;
-    private Horario reloj;
+    private Tiempo reloj;
 
-    public Jugador(String nombre, Ciudad ciudadInicial, Horario reloj){
+    public Jugador(String nombre, Tiempo reloj){
         this.nombre = nombre;
         this.setRango(new RangoNovato(0));
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
-        this.setCiudadActual(ciudadInicial);
         this.setReloj(reloj);
     }
 
@@ -85,11 +84,11 @@ public class Jugador {
         this.setCiudadActual(ciudadSiguiente);
     }
 
-    private void setReloj(Horario reloj){
+    private void setReloj(Tiempo reloj){
         this.reloj = reloj;
     }
 
-    private Horario getReloj(){
+    private Tiempo getReloj(){
         return this.reloj;
     }
 

@@ -2,10 +2,10 @@ package carmenSandiego.modelo;
 
 import java.util.*;
 
-public class Horario {
+public class Tiempo {
     public Calendar calendario;
 
-    public Horario(){
+    public Tiempo(){
         Calendar calendario = new GregorianCalendar();
         calendario.set(2021, 00, 4, 7, 0, 0);
 

@@ -1,7 +1,6 @@
 package entrega1;
 
 import carmenSandiego.modelo.*;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +24,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     Edificio biblioteca = new EdificioBiblioteca();
     Edificio puerto = new EdificioPuerto();
 
-    Horario reloj = new Horario();
-    Jugador jugador = new Jugador("Max", ciudadMontreal, reloj);
+    Tiempo reloj = new Tiempo();
+    Jugador jugador = new Jugador("Max", reloj);
 //    Reloj reloj = Reloj.getInstance();
 
     @Test
@@ -34,6 +33,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         ciudadMontreal.setCiudadSiguiente(ciudadMexico);
         ciudadMontreal.setEdificios(banco);
         ciudadMontreal.setPistasEdificio();
+
+        jugador.setCiudadActual(ciudadMontreal);
 
         jugador.visitarEdificio(banco);
         String pistaEsperada = banco.getPista();
@@ -49,6 +50,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         ciudadMontreal.setEdificios(biblioteca);
         ciudadMontreal.setPistasEdificio();
 
+        jugador.setCiudadActual(ciudadMontreal);
+
         String pistaEsperadaBanco = banco.getPista();
         String pistaEsperadaBiblioteca = biblioteca.getPista();
 
@@ -62,6 +65,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
 
     @Test
     public void jugadorViajaDeMontrealAMexico(){
+        jugador.setCiudadActual(ciudadMontreal);
         jugador.viajar(ciudadMexico);
 
         assertEquals(11, reloj.getHoraActual());
@@ -74,6 +78,8 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         ciudadMontreal.setEdificios(aeropuerto);
         ciudadMontreal.setEdificios(puerto);
         ciudadMontreal.setPistasEdificio();
+
+        jugador.setCiudadActual(ciudadMontreal);
 
         String pistaEsperadaAeropuerto = aeropuerto.getPista();
         String pistaEsperadaPuerto = puerto.getPista();
