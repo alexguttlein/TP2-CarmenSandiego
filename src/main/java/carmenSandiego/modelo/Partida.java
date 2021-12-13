@@ -7,83 +7,30 @@ public class Partida {
 
     private Jugador jugador;
     private ObjetoRobado objetoRobado;
-    private final ArrayList<Ciudad> ciudades;
+    private Ladron ladronActual;
+    private Interpol interpol;
+    private Ciudades ciudades;
+    private Tiempo tiempo;
 
-    public Partida(Jugador nuevoJugador, ObjetoRobado objetoRobado, ArrayList<Ciudad> ciudades){
-        this.jugador = nuevoJugador;
-        this.objetoRobado = objetoRobado;
-        this.ciudades = ciudades;
+    public Partida(Jugador jugador, ObjetoRobado objetoRobado, Ladron ladron, Interpol interpol, Tiempo tiempo) {
+        this.setTiempo(tiempo);
+        this.setJugador(jugador);
+        this.setObjetoRobado(objetoRobado);
+        this.setLadronActual(ladron);
+        this.setInterpol(interpol);
+        this.generarCiudades();
     }
 
-    //public void dormir(){
-    //    horario.addHoras(jugador.dormir());
-    //}
+    private void setTiempo(Tiempo tiempo){this.tiempo = tiempo;}
+    private void setJugador(Jugador jugador){this.jugador = jugador;}
+    private void setObjetoRobado(ObjetoRobado objetoRobado){this.objetoRobado = objetoRobado;}
+    private void setLadronActual(Ladron ladron){this.ladronActual = ladron;}
+    private void setInterpol(Interpol interpol){this.interpol = interpol;}
 
-    //public void herirConCuchillo(){
-    //    horario.addHoras(jugador.serHeridoPorCuchillo());
-    //}
-
-
-/*
-    public void cambiarCiudad(String nombreNuevaCiudad) {
-        Ciudad ciudadActual = jugador.getCiudadActual();
-        Ciudad nuevaCiudad = buscarCiudad(nombreNuevaCiudad);
-        double distanciaEntreCiudades = ciudadActual.obtenerDistancia(nuevaCiudad);
-        //Pasar el tiempo y cambiar la hora
-        jugador.setCiudadActual(nuevaCiudad);
+    private void generarCiudades(){
+        this.ciudades = new Ciudades();
     }
 
- */
-/*
-    public Ciudad buscarCiudad(String nombreNuevaCiudad){
-        Ciudad ciudadBuscada = ciudades.get(0);
-        for (Ciudad ciudadActual : ciudades){
-            if (ciudadActual.getNombre() == nombreNuevaCiudad) {
-                ciudadBuscada = ciudadActual;
-            }
-        }
-        return ciudadBuscada;
-    }
-*/
-    //public void jugadorDebeDormir(){
-    //    horario.esHorarioDeDormir(jugador);
-    //}
+    public Ciudades getCiudades(){return this.ciudades;}
 }
-    /*
-    private final ArrayList<String> dias = new ArrayList<>(Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"));
-
-    private int dia;
-    private int hora;
-
-    public Partida(){
-        this.dia = 0;
-        this.hora = 7; //Hasta las 24
-    }
-
-    public void moverseDeCiudad() {
-        atacarConCuchillo();
-    }
-
-    public void atacarConCuchillo(){
-        modificarHora(2);
-    }
-
-    public void modificarHora(int cantidadHoras){
-        if (this.hora + cantidadHoras >= 24){
-            this.dia = ((this.dia + 1) % dias.size());
-        }
-        this.hora = ((this.hora + cantidadHoras) % 24);
-    }
-
-
-    public int getHora(){
-        return this.hora;
-    }
-
-
-    public void dormir() {
-        modificarHora(8);
-    }
-
-     */
 
