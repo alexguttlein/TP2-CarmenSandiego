@@ -10,12 +10,18 @@ public class Interpol {
     private List<Ladron> posiblesLadrones;
     private Ladron ladronParaArrestar;
     private boolean estadoOrdenDeArresto;
+    private Tiempo tiempo;
 
-    public Interpol(Ladrones ladrones){
+    public Interpol(Ladrones ladrones, Tiempo tiempo){
         setLadrones(ladrones);
         setLadronBuscado();
         setEstadoOrdenDeArresto(false);
+        setTiempo(tiempo);
     }
+
+    private void setTiempo(Tiempo tiempo) {this.tiempo = tiempo;}
+
+    public Tiempo getTiempo(){return this.tiempo;}
 
     private void setEstadoOrdenDeArresto(boolean estado) {
         this.estadoOrdenDeArresto = estado;
@@ -89,6 +95,7 @@ public class Interpol {
         if (getPosiblesLadrones().size() == 1) {
             setLadronParaArrestar(getPosiblesLadrones().get(0));
             setEstadoOrdenDeArresto(true);
+            getTiempo().addHoras(3);
         }
     }
 

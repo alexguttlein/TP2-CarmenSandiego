@@ -2,14 +2,18 @@ package pruebasUnitarias;
 
 import carmenSandiego.modelo.Interpol;
 import carmenSandiego.modelo.Ladrones;
+import carmenSandiego.modelo.Tiempo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class InterpolTest {
 
+    Tiempo tiempo = new Tiempo();
     Ladrones ladrones = new Ladrones();
-    Interpol interpol = new Interpol(ladrones);
+    Interpol interpol = new Interpol(ladrones, tiempo);
 
     @Test
     public void seIngresanDatosDeUnLadron(){
@@ -24,7 +28,6 @@ public class InterpolTest {
         assertEquals("Rojo", interpol.getLadronBuscado().getCabello());
         assertEquals("Anillo", interpol.getLadronBuscado().getSenia());
         assertEquals("Convertible", interpol.getLadronBuscado().getVehiculo());
-
     }
 
     @Test
@@ -53,4 +56,30 @@ public class InterpolTest {
         assertTrue(interpol.atraparSospechoso());
     }
 
+    @Test
+    public void seEmiteUnaOrdenDeArrestoPasan4Horas(){
+        assertEquals(7, interpol.getTiempo().getHoraActual());
+
+        interpol.setDatoGenero("Femenino");
+        interpol.setDatoHobby("Tenis");
+        interpol.setDatoCabello("Castanio");
+        interpol.setDatoSenia("Joyas");
+        interpol.setDatoVehiculo("Convertible");
+
+        interpol.emitirOrdenDeArresto();
+
+        assertEquals(10, interpol.getTiempo().getHoraActual());
+    }
+
+    @Test
+    public void seIntentaEmitirUnaOrdenDeArrestoPeroNoSeTienenLasPruebasNecesariasAsiQueElTiempoNoPasa(){
+        assertEquals(7, interpol.getTiempo().getHoraActual());
+
+        interpol.setDatoGenero("Femenino");
+        interpol.setDatoCabello("Castanio");
+
+        interpol.emitirOrdenDeArresto();
+
+        assertEquals(7, interpol.getTiempo().getHoraActual());
+    }
 }

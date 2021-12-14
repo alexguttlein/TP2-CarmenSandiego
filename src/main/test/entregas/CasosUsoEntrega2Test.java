@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasosUsoEntrega2Test {
     //Setup Ciudades
@@ -22,16 +21,22 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
-    //Setup jugador / reloj
+    Edificio banco = new EdificioBanco();
+
+    //Setup jugador / tiempo
     Tiempo reloj = new Tiempo();
     Jugador jugador = new Jugador("Max", reloj);
+    ObjetoRobado objetoRobado = new ObjetoRobado("Incan Gold Mask", ciudadMexico, "Importante");
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();
-    Interpol interpol = new Interpol(ladrones);
+    Interpol interpol = new Interpol(ladrones, reloj);
     Ladron ladronMereyLaroc = ladrones.getLadrones().get(5);
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
     List<Ladron> posiblesLadrones;
+
+    //Setup Partida
+    Partida partida = new Partida(jugador, objetoRobado, ladronMereyLaroc, interpol, reloj);
 
     //caso uso 1: Detective sufre una herida de cuchillo.
     //Detective duerme.
@@ -90,13 +95,33 @@ public class CasosUsoEntrega2Test {
     //Realiza la investigación.
     //Emite la orden.
     //Atrapa al sospechoso.
-
     @Test
     public void seRealizaInvestigacionYSeAtrapaAlSospechoso(){
+        assertEquals(7, reloj.getHoraActual()); //investigacion comienza a las 7AM
+
+        ciudadMexico.addEdificio(banco);
+
         for(int i = 0; i < 6; i++){
             jugador.addArresto();
         }
 
+        jugador.setCiudadActual(objetoRobado.getCiudadOrigen());
+        jugador.visitarEdificio(banco); //pasa 1 hora
+        jugador.visitarEdificio(banco); //pasan 2 horas
+
+        jugador.viajar(ciudadMontreal); //pasan 3 horas
+
+        interpol.setDatoGenero("Femenino");
+        interpol.setDatoHobby("Escalar");
+        interpol.setDatoCabello("Castanio");
+        interpol.setDatoSenia("Joyas");
+        interpol.setDatoVehiculo("Limusina");
+
+        interpol.emitirOrdenDeArresto(); //pasan 3 horas
+
+        assertEquals(16, reloj.getHoraActual());
+        assertTrue(interpol.atraparSospechoso());
+        assertEquals(interpol.getLadronParaArrestar().getNombre(), partida.getLadronActual().getNombre());
     }
 
 
