@@ -8,7 +8,6 @@ import java.util.List;
 public class Ladrones {
 
     private ArrayList<Ladron> ladrones = new ArrayList<>();
-    public static final String SEPARADOR = ";";
 
     public Ladrones(){
         inicializarLadrones();
