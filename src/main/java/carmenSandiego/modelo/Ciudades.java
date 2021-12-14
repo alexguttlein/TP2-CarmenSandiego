@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Ciudades {
 
     private ArrayList<Ciudad> ciudades = new ArrayList<>();
-    public static final String SEPARADOR = ";";
 
     public Ciudades(){
         inicializarCiudades();
