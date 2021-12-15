@@ -35,14 +35,8 @@ public class PartidaTests {
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Ladron ladronMock = mock(Ladron.class);
     Interpol interpolMock = mock(Interpol.class);
-    Partida partida = new Partida(jugadorMock, objetoRobadoMock, ladronMock, interpolMock, tiempoMock);
-
-    @Test
-    public void alIniciarLaPartidaSeGeneranCorrectamenteLasCiudades(){
-        Ciudades ciudades = partida.getCiudades();
-
-        assertEquals("Buenos Aires", ciudades.getCiudades().get(0).getNombre());
-    }
+    Ciudades ciudades = new Ciudades();
+    Partida partida = new Partida(jugadorMock, objetoRobadoMock, ladronMock, interpolMock, tiempoMock, ciudades);
 
     @Test
     public void partidaRecibeLosObjetosInstanciadosCorrectamente(){
@@ -57,6 +51,7 @@ public class PartidaTests {
         assertEquals(objetoRobadoMock.getNombre(), partida.getObjetoRobado().getNombre());
         assertEquals(ladronMock.getGenero(), partida.getLadronActual().getGenero());
         assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
+        assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre());
     }
 
 }

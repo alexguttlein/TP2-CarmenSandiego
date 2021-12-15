@@ -101,8 +101,9 @@ public class Ciudad {
  */
 
     public int viajarHasta(int velocidad, Ciudad ciudadDestino){
-        CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, ciudadDestino.getUbicacion(), this.getUbicacion());
-        return calculadorTiempoViaje.obtenerHorasDeViaje();
+        //CalculadorTiempoViaje calculadorTiempoViaje = new CalculadorTiempoViaje(velocidad, ciudadDestino.getUbicacion(), this.getUbicacion());
+        return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
+        //return calculadorTiempoViaje.obtenerHorasDeViaje();
     }
 
     public void addEdificio(Edificio unEdificio){

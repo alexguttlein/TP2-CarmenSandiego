@@ -12,13 +12,14 @@ public class Partida {
     private Ciudades ciudades;
     private Tiempo tiempo;
 
-    public Partida(Jugador jugador, ObjetoRobado objetoRobado, Ladron ladron, Interpol interpol, Tiempo tiempo) {
+    public Partida(Jugador jugador, ObjetoRobado objetoRobado, Ladron ladron, Interpol interpol,
+                   Tiempo tiempo, Ciudades ciudades) {
         this.setTiempo(tiempo);
         this.setJugador(jugador);
         this.setObjetoRobado(objetoRobado);
         this.setLadronActual(ladron);
         this.setInterpol(interpol);
-        this.generarCiudades();
+        this.setCiudades(ciudades);
     }
 
     private void setTiempo(Tiempo tiempo){this.tiempo = tiempo;}
@@ -26,17 +27,14 @@ public class Partida {
     private void setObjetoRobado(ObjetoRobado objetoRobado){this.objetoRobado = objetoRobado;}
     private void setLadronActual(Ladron ladron){this.ladronActual = ladron;}
     private void setInterpol(Interpol interpol){this.interpol = interpol;}
+    private void setCiudades(Ciudades ciudades){this.ciudades = ciudades;}
 
     public Tiempo getTiempo(){return this.tiempo;}
     public Jugador getJugador(){return this.jugador;}
     public ObjetoRobado getObjetoRobado(){return this.objetoRobado;}
     public Ladron getLadronActual(){return this.ladronActual;}
     public Interpol getInterpol(){return this.interpol;}
-
-    private void generarCiudades(){
-        this.ciudades = new Ciudades();
-    }
-
     public Ciudades getCiudades(){return this.ciudades;}
+
 }
 

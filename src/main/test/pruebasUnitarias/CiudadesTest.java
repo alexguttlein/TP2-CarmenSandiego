@@ -19,8 +19,8 @@ public class CiudadesTest {
         assertEquals("Pekin", listaCiudades.get(1).getNombre());
         assertEquals("Baghdad", listaCiudades.get(2).getNombre());
         assertEquals("Puerto Moresby", listaCiudades.get(3).getNombre());
-        assertEquals("El Cairo", listaCiudades.get(20).getNombre());
-        assertEquals("Kathmandu", listaCiudades.get(21).getNombre());
+        assertEquals("El Cairo", listaCiudades.get(19).getNombre());
+        assertEquals("Kathmandu", listaCiudades.get(20).getNombre());
     }
 
 }

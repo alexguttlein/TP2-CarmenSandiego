@@ -23,6 +23,8 @@ public class CasosUsoEntrega2Test {
 
     Edificio banco = new EdificioBanco();
 
+    Ciudades ciudades = new Ciudades();
+
     //Setup jugador / tiempo
     Tiempo reloj = new Tiempo();
     Jugador jugador = new Jugador("Max", reloj);
@@ -36,7 +38,7 @@ public class CasosUsoEntrega2Test {
     List<Ladron> posiblesLadrones;
 
     //Setup Partida
-    Partida partida = new Partida(jugador, objetoRobado, ladronMereyLaroc, interpol, reloj);
+    Partida partida = new Partida(jugador, objetoRobado, ladronMereyLaroc, interpol, reloj, ciudades);
 
     //caso uso 1: Detective sufre una herida de cuchillo.
     //Detective duerme.
