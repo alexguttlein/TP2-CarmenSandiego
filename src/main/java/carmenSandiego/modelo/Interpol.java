@@ -13,13 +13,11 @@ public class Interpol {
     private Tiempo tiempo;
 
     public Interpol(Ladrones ladrones, Tiempo tiempo){
-        setLadrones(ladrones);
+        this.ladrones = ladrones;
+        this.tiempo = tiempo;
+        this.estadoOrdenDeArresto = false;
         setLadronBuscado();
-        setEstadoOrdenDeArresto(false);
-        setTiempo(tiempo);
     }
-
-    private void setTiempo(Tiempo tiempo) {this.tiempo = tiempo;}
 
     public Tiempo getTiempo(){return this.tiempo;}
 
@@ -30,10 +28,6 @@ public class Interpol {
     private void setLadronBuscado() {
         ArrayList<String> datosLadron = new ArrayList<>(Arrays.asList("", "", "", "", "", ""));
         this.ladronBuscado = new Ladron(datosLadron);
-    }
-
-    private void setLadrones(Ladrones ladrones){
-        this.ladrones = ladrones;
     }
 
     public void setDatoGenero(String dato){

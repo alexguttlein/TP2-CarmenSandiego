@@ -40,9 +40,7 @@ public class Ciudad {
         this.gobierno = pistasCiudad.get(11);
         this.varios = pistasCiudad.get(12);
         this.pasoLadron = false;
-        double latitud = Double.parseDouble(pistasCiudad.get(13));
-        double longitud = Double.parseDouble(pistasCiudad.get(14));
-        this.ubicacion = new Ubicacion(latitud, longitud);
+        this.ubicacion = new Ubicacion(Double.parseDouble(pistasCiudad.get(13)), Double.parseDouble(pistasCiudad.get(14)));
     }
 
     public String getNombre(){return this.nombre;}
@@ -88,7 +86,12 @@ public class Ciudad {
     }
 
     public int viajarHasta(int velocidad, Ciudad ciudadDestino){
-        return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
+        return ciudadDestino.viajar(ubicacion, velocidad);
+        //return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
+    }
+
+    public int viajar(Ubicacion ubicacionOrigen, int velocidad ){
+        return ubicacion.obtenerHorasDeViaje(ubicacionOrigen, velocidad);
     }
 
     public void addEdificio(Edificio unEdificio){

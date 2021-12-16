@@ -40,7 +40,7 @@ public class Ubicacion {
         return Math.floor(distancia);
     }
 
-    public int obtenerHorasDeViaje(Ubicacion ubicacionDestino, int velocidad) {
-        return (int) Math.round((obtenerDistancia(ubicacionDestino) / velocidad));
+    public int obtenerHorasDeViaje(Ubicacion ubicacionOrigen, int velocidad){
+        return (int) Math.round((ubicacionOrigen.obtenerDistancia(this.latitud, this.longitud)/velocidad));
     }
 }

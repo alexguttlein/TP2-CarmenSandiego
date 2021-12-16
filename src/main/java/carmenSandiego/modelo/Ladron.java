@@ -12,12 +12,12 @@ public class Ladron {
     private String vehiculo;
 
     public Ladron(ArrayList<String> datosLadron){
-        setNombre(datosLadron.get(0));
-        setGenero(datosLadron.get(1));
-        setHobby(datosLadron.get(2));
-        setCabello(datosLadron.get(3));
-        setSenia(datosLadron.get(4));
-        setVehiculo(datosLadron.get(5));
+        this.nombre = datosLadron.get(0);  //this.nombre = datosLadron.get(0);
+        this.genero = datosLadron.get(1);
+        this.hobby = datosLadron.get(2);
+        this.cabello = datosLadron.get(3);
+        this.senia = datosLadron.get(4);
+        this.vehiculo = datosLadron.get(5);
     }
 
     public void setNombre(String nombre){this.nombre = nombre;}
