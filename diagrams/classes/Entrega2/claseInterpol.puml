@@ -1,6 +1,8 @@
 @startuml
 
-class Juego{}
+class Juego{
+    - inicializarInterpol(): Interpol
+}
 
 class Interpol{
 - ladrones: Ladrones
@@ -13,22 +15,9 @@ class Interpol{
 }
 
 class Ladrones{
-- ladrones: ArrayList<Ladron>
-- inicializarLadrones(): void
-- crearLadron(): void
-+ getLadrones(): ArrayList<Ladron>
 }
 
-class Ladron{
-- nombre: String
-- genero: String
-- hobby: String
-- cabello: String
-- senia: String
-- vehiculo: String
-}
 
-Ladrones "1"-down->"1...*" Ladron
 Interpol -right-> Ladrones
 
 Juego *-down->"1" Interpol
