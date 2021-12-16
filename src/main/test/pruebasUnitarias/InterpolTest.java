@@ -11,7 +11,7 @@ import static org.mockito.Mockito.when;
 
 public class InterpolTest {
 
-    Tiempo tiempo = new Tiempo();
+    Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
     Ladrones ladrones = new Ladrones();
     Interpol interpol = new Interpol(ladrones, tiempo);
 

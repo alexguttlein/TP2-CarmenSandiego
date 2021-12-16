@@ -1,12 +1,11 @@
 @startuml
-'https://plantuml.com/class-diagram
 
 class Juego{}
 
 class Interpol{
-- Ladrones ladrones
-- List<Ladron> posbilesLadrones
-- Ladron ordenDeArresto
+- ladrones: Ladrones
+- posbilesLadrones: List<Ladron>
+- ordenDeArresto: Ladron
 
 + getPosiblesLadrones(): List<Ladron>
 + emitirOrdenDeArresto(): void
@@ -21,15 +20,15 @@ class Ladrones{
 }
 
 class Ladron{
-- String nombre
-- String genero
-- String hobby
-- String cabello
-- String senia
-- String vehiculo
+- nombre: String
+- genero: String
+- hobby: String
+- cabello: String
+- senia: String
+- vehiculo: String
 }
 
-Ladrones "1"*-down->"1...*" Ladron
+Ladrones "1"-down->"1...*" Ladron
 Interpol -right-> Ladrones
 
 Juego *-down->"1" Interpol

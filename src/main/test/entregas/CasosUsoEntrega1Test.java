@@ -24,7 +24,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     Edificio biblioteca = new EdificioBiblioteca();
     Edificio puerto = new EdificioPuerto();
 
-    Tiempo reloj = new Tiempo();
+    Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Max", reloj);
 //    Reloj reloj = Reloj.getInstance();
 

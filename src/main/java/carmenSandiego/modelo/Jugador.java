@@ -78,7 +78,6 @@ public class Jugador {
     }
 
     public void viajar(Ciudad ciudadSiguiente){
-        //ciudadActual.viajarDesde(rango.getVelocidad(), ciudadSiguiente); //habría que cambiarle el nombre
         int horasViaje = this.getCiudadActual().viajarHasta(rango.getVelocidad(), ciudadSiguiente);
         this.getReloj().addHoras(horasViaje);
         this.setCiudadActual(ciudadSiguiente);

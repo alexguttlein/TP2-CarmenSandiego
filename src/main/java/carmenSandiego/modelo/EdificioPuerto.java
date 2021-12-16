@@ -3,9 +3,11 @@ package carmenSandiego.modelo;
 public class EdificioPuerto extends Edificio{
 
     public EdificioPuerto(){}
-    public void mostrarNombreDelEdificio(){
+/*    public void mostrarNombreDelEdificio(){
         System.out.println("Puerto");
     }
+
+ */
 
     public void setPistas(Ciudad ciudadSig) {
         ConPista pista = new PistaPuerto();

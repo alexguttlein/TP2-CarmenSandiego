@@ -1,22 +1,28 @@
 @startuml
 
+class Juego{
+    - inicializarJugador(nombre: String)
+}
+
 class Jugador {
     -nombre: String
     -rango: Rango
     -ciudadActual: Ciudad
     -vecesHeridosPorCuchillo: int
     -estadoJugador : EstadoJugador
-    --
+    -tiempo: Tiempo
+
+
     +Jugador(nombre: String, ciudadInicial: Ciudad)
     +addArresto(): void
     +dormir(): int
     +serHeridoPorCuchillo(): int
     +serHeridoPorArmaDeFuego(): int
-    +pasarTiempo(): void
     +sanar(): void
     +viajar(ciudadSiguiente: Ciudad)
+    +visitarEdificio(): void
 }
 
-'El horario no va más
+Juego "1"*-->"1" Jugador
 
 @enduml

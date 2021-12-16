@@ -4,9 +4,11 @@ public class EdificioBanco extends Edificio {
 
     public EdificioBanco(){}
 
-    public void mostrarNombreDelEdificio(){
+/*    public void mostrarNombreDelEdificio(){
         System.out.println("Banco");
     }
+
+ */
 
     public void setPistas(Ciudad ciudadSig) {
         ConPista pista = new PistaBanco();

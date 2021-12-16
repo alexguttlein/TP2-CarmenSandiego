@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TiempoTest {
 
-    Tiempo reloj = new Tiempo();
+    Tiempo reloj = new Tiempo(7, 4, 0, 2021);
 
     @Test
     public void elRelojSeInicializaLunesDeEneroALas7AM(){

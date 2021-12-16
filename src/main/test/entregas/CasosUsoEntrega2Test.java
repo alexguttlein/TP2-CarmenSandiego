@@ -26,7 +26,7 @@ public class CasosUsoEntrega2Test {
     Ciudades ciudades = new Ciudades();
 
     //Setup jugador / tiempo
-    Tiempo reloj = new Tiempo();
+    Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Max", reloj);
     ObjetoRobado objetoRobado = new ObjetoRobado("Incan Gold Mask", ciudadMexico, "Importante");
 
@@ -62,7 +62,7 @@ public class CasosUsoEntrega2Test {
         jugador.viajar(ciudadMexico);
 
         assertEquals("Investigador", jugador.getRango().getNombreRango());
-        assertEquals(9, reloj.getHoraActual());
+        assertEquals(10, reloj.getHoraActual());
     }
 
     //caso uso 3: Cargar en la computadora los datos recopilados y buscar sospechosos.
