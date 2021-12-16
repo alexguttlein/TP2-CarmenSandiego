@@ -23,7 +23,7 @@ public class JugadorTest {
             "asd", "asd", "asd", "asd", "asd", "ingles", "asd",
             "asd", "asd", "asd", "45.573279804398034", "-73.49124739806629")));
 
-    Tiempo reloj = new Tiempo();
+    Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Alex", reloj);
     Ciudad ciudadMock = mock(Ciudad.class);
 

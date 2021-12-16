@@ -4,8 +4,7 @@ abstract class Edificio{
     #comportamientoPistas: ComportamientoPistas
     #comportamientoDeDemora: ComportamientoDeDemora
     #comportamientoVisita: ComportamientoVisita
-    --
-    +{abstract}mostrarNombreDelEdificio(): void
+
     +mostrarPista(): void
     +entrarAlEdificio(): void
 }
@@ -13,25 +12,21 @@ abstract class Edificio{
 class EdificioAeropuerto {
     --
     +EdificioAeropuerto()
-    +mostrarNombreDelEdificio()
 }
 
 class EdificioBanco {
     --
     +EdificioBanco()
-    +mostrarNombreDelEdificio()
 }
 
 class EdificioBiblioteca {
     --
     +EdificioBiblioteca()
-    +mostrarNombreDelEdificio()
 }
 
 class EdificioPuerto {
     --
     +EdificioPuerto()
-    +mostrarNombreDelEdificio()
 }
 
 Edificio <|-down- EdificioAeropuerto

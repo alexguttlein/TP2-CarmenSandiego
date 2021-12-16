@@ -5,9 +5,9 @@ import java.util.*;
 public class Tiempo {
     public Calendar calendario;
 
-    public Tiempo(){
+    public Tiempo(int hora, int dia, int mes, int anio){
         Calendar calendario = new GregorianCalendar();
-        calendario.set(2021, 00, 4, 7, 0, 0);
+        calendario.set(anio, mes, dia, hora, 0, 0);
 
         setCalendario(calendario);
     }

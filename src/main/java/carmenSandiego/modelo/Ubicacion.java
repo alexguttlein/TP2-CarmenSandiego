@@ -37,10 +37,10 @@ public class Ubicacion {
         double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
         double distancia = radioTierra * va2;
 
-        return distancia;
+        return Math.floor(distancia);
     }
 
     public int obtenerHorasDeViaje(Ubicacion ubicacionDestino, int velocidad) {
-        return (int)(obtenerDistancia(ubicacionDestino) / velocidad);
+        return (int) Math.round((obtenerDistancia(ubicacionDestino) / velocidad));
     }
 }

@@ -10,8 +10,6 @@ public abstract class Edificio{
         comportamientoVisita = new Visita();
     }
 
-    //public abstract void mostrarNombreDelEdificio();
-
     public String getPista() {
         return comportamientoPistas.getPista();
     }

@@ -1,0 +1,24 @@
+@startuml
+
+class ObjetosRobados{
+    - ciudades: Ciudades
+    - objetosRobados: ArrayList<ObjetoRobado>
+
+    - crearObjetoRobado(): void
+    - addObjetoRobado(): void
+}
+
+class ObjetoRobado{
+    - ciudadOrigen: Ciudad
+    - nombre: String
+    - importancia: String
+}
+
+class Juego{
+    - inicializarObjetosRobados(): ObjetosRobados
+}
+
+Juego *-down-> ObjetosRobados
+ObjetosRobados -right-> ObjetoRobado
+
+@enduml

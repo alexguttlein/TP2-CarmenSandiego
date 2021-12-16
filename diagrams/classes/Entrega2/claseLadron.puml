@@ -1,5 +1,9 @@
 @startuml
 
+class Juego{
+    - inicializarLadrones(): Ladrones
+}
+
 class Ladron {
     -nombre: String
     -genero: String
@@ -13,8 +17,8 @@ class Ladrones{
     - ladrones: ArrayList<Ladron>
     - inicializarLadrones(): void
     - crearLadron(): void
-    + getLadrones(): ArrayList<Ladron>
 }
 
-Ladrones "1"-->"1...*" Ladron
+Juego "1"*-->"1" Ladrones
+Ladrones "1"-right->"1...*" Ladron
 @enduml

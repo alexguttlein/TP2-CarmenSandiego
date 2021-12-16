@@ -1,0 +1,16 @@
+@startuml
+
+class Juego{}
+
+class Partida {
+    -jugador: Jugador
+    -objetoRobado: ObjetoRobado
+    -ciudades: Ciudades
+    -ladron: Ladron
+    -interpol: Interpol
+    -tiempo: Tiempo
+}
+
+Juego *--> Partida
+
+@enduml

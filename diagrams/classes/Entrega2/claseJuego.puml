@@ -2,31 +2,46 @@
 
 class Juego{}
 
-class Jugador{}
-
-class Partida{
-    - Jugador jugador
-    - Interpol interpol
-    - Ladron ladron
-    - Objeto objeto
+class Jugador{
     - Tiempo tiempo
 }
 
-class Objeto{}
+class Partida{
+    - jugador: Jugador
+    - interpol: Interpol
+    - ladron: Ladron
+    - objetoRobado: ObjetoRobado
+    - tiempo: Tiempo
+    - ciudades: Ciudades
+}
+
+class ObjetosRobados{
+    - ciudades: Ciudades
+}
+
+class ObjetoRobado{
+    - ciudadOrigen: Ciudad
+}
 
 class Interpol{}
 
 class Tiempo{}
 
-Juego "1"-->"1" Jugador
-Juego "1"-->"1" Tiempo
-Juego "1"-->"1...*" Partida
-Juego "1"-->"1" Interpol
-Juego "1"-->"1...*" Objeto
-Juego "1"-->"1" Ladrones
+class Ciudades{}
 
-Jugador --> Tiempo
+class Ciudad{}
+
+Juego "1"*-->"1" Jugador
+Juego "1"*-->"1" Tiempo
+Juego "1"*-->"1...*" Partida
+Juego "1"*-->"1" Interpol
+Juego "1"*-->"1...*" ObjetosRobados
+Juego "1"*-->"1" Ladrones
+Juego *--> Ciudades
+
 Interpol --> Ladrones
 Ladrones "1"-->"1...*" Ladron
+Ciudades "1"-->"1...*" Ciudad
+ObjetosRobados --> ObjetoRobado
 
 @enduml
