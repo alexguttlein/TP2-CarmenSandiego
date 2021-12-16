@@ -62,7 +62,7 @@ public class EdificioTest {
         pistaBanco.setPista("pesos");
         banco.setComportamientoPistas(pistaBanco);
         banco.entrarAlEdificio();
-        banco.mostrarPista();
+        //banco.mostrarPista();
         assertEquals("Vino a cambiar un poco de pesos", banco.getPista());
     }
     @Test
@@ -70,7 +70,7 @@ public class EdificioTest {
         pistaAeropuerto.setPista("celeste y blanca con un sol en el centro");
         aeropuerto.setComportamientoPistas(pistaAeropuerto);
         aeropuerto.entrarAlEdificio();
-        aeropuerto.mostrarPista();
+        //aeropuerto.mostrarPista();
         assertEquals("Se subio a un avion celeste y blanca con un sol en el centro", aeropuerto.getPista());
     }
     @Test
@@ -78,7 +78,7 @@ public class EdificioTest {
         pistaBiblioteca.setPista("espaniol");
         biblioteca.setComportamientoPistas(pistaBiblioteca);
         biblioteca.entrarAlEdificio();
-        biblioteca.mostrarPista();
+        //biblioteca.mostrarPista();
         assertEquals("Agarro un diccionario espaniol", biblioteca.getPista());
     }
     @Test
@@ -86,7 +86,7 @@ public class EdificioTest {
         pistaPuerto.setPista("ganaderia");
         puerto.setComportamientoPistas(pistaPuerto);
         puerto.entrarAlEdificio();
-        puerto.mostrarPista();
+        //puerto.mostrarPista();
         assertEquals("Al lugar que iba exportaban mucho ganaderia", puerto.getPista());
     }
     @Test
