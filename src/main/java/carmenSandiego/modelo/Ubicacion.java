@@ -21,11 +21,9 @@ public class Ubicacion {
 
     public double getLongitud(){return this.longitud;}
 
-    public double obtenerDistancia(Ubicacion ubicacionDestino) {
-        double latitudSalida = this.getLatitud();
-        double longitudSalida = this.getLongitud();
-        double latitudDestino = ubicacionDestino.getLatitud();
-        double longitudDestino = ubicacionDestino.getLongitud();
+    public double obtenerDistancia(double latitudDestino, double longitudDestino) {
+        double latitudSalida = this.latitud;
+        double longitudSalida = this.longitud;
 
         double radioTierra = 6371;//en kilómetros
         double dLat = Math.toRadians(latitudDestino - latitudSalida);
@@ -43,4 +41,4 @@ public class Ubicacion {
     public int obtenerHorasDeViaje(Ubicacion ubicacionOrigen, int velocidad){
         return (int) Math.round((ubicacionOrigen.obtenerDistancia(this.latitud, this.longitud)/velocidad));
     }
-}
+};
