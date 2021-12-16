@@ -6,10 +6,8 @@ class Juego{
 
 class Jugador {
     -nombre: String
-    -rango: Rango
     -ciudadActual: Ciudad
     -vecesHeridosPorCuchillo: int
-    -estadoJugador : EstadoJugador
     -tiempo: Tiempo
 
 
@@ -23,6 +21,11 @@ class Jugador {
     +visitarEdificio(): void
 }
 
-Juego "1"*-->"1" Jugador
+interface Rango{}
 
+interface EstadoJugador
+
+Juego "1"*-right->"1" Jugador
+Jugador "1"*-down->"1" Rango
+Jugador "1"*-down->"1" EstadoJugador
 @enduml
