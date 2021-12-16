@@ -2,6 +2,6 @@ package carmenSandiego.modelo;
 
 public interface ComportamientoPistas {
 
-    void mostrarPistas();
+    //void mostrarPistas();
     String getPista();
 }

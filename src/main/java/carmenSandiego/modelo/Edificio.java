@@ -14,9 +14,11 @@ public abstract class Edificio{
         return comportamientoPistas.getPista();
     }
 
-    public void mostrarPista(){
+    /*public void mostrarPista(){
         this.comportamientoPistas.mostrarPistas();
     }
+
+     */
 
     public int entrarAlEdificio(){
         comportamientoVisita.entrarAlEdificio();
