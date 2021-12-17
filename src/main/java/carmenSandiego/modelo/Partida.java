@@ -1,7 +1,6 @@
 package carmenSandiego.modelo;
 
-import java.util.ArrayList;
-import carmenSandiego.modelo.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
 
 public class Partida {
 

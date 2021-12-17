@@ -1,5 +1,7 @@
 package carmenSandiego.modelo;
 
+import carmenSandiego.modelo.ciudad.Ciudad;
+
 public class ObjetoRobado {
     String nombre;
     Ciudad ciudadOrigen;

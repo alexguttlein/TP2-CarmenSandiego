@@ -3,10 +3,8 @@ package pruebasUnitarias;
 import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.Partida;
 import carmenSandiego.modelo.Jugador;
+import carmenSandiego.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;

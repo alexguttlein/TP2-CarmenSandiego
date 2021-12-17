@@ -1,19 +1,18 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Interpol;
-import carmenSandiego.modelo.Ladrones;
-import carmenSandiego.modelo.Tiempo;
+import carmenSandiego.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class InterpolTest {
 
+    Jugador jugadorMock = mock(Jugador.class);
     Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
     Ladrones ladrones = new Ladrones();
-    Interpol interpol = new Interpol(ladrones, tiempo);
+    Ladron ladronCarmen = ladrones.getLadrones().get(9);
+    Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
 
     @Test
     public void seIngresanDatosDeUnLadron(){
@@ -23,11 +22,11 @@ public class InterpolTest {
         interpol.setDatoSenia("Anillo");
         interpol.setDatoVehiculo("Convertible");
 
-        assertEquals("Femenino", interpol.getLadronBuscado().getGenero());
-        assertEquals("Tenis", interpol.getLadronBuscado().getHobby());
-        assertEquals("Rojo", interpol.getLadronBuscado().getCabello());
-        assertEquals("Anillo", interpol.getLadronBuscado().getSenia());
-        assertEquals("Convertible", interpol.getLadronBuscado().getVehiculo());
+        assertEquals("Femenino", interpol.getPosibleLadron().getGenero());
+        assertEquals("Tenis", interpol.getPosibleLadron().getHobby());
+        assertEquals("Rojo", interpol.getPosibleLadron().getCabello());
+        assertEquals("Anillo", interpol.getPosibleLadron().getSenia());
+        assertEquals("Convertible", interpol.getPosibleLadron().getVehiculo());
     }
 
     @Test
@@ -36,7 +35,7 @@ public class InterpolTest {
         interpol.emitirOrdenDeArresto();
 
         assertEquals(5, interpol.buscarPosiblesLadrones().size());
-        assertNull(interpol.getLadronParaArrestar());
+        //assertNull(interpol.getLadronParaArrestar());
         assertFalse(interpol.atraparSospechoso());
     }
 
@@ -51,8 +50,8 @@ public class InterpolTest {
         interpol.emitirOrdenDeArresto();
 
         assertEquals(1, interpol.buscarPosiblesLadrones().size());
-        assertNotNull(interpol.getLadronParaArrestar());
-        assertEquals("Carmen Sandiego", interpol.getLadronParaArrestar().getNombre());
+        //assertNotNull(interpol.getLadronParaArrestar());
+        assertTrue(interpol.compararLadrones(ladronCarmen, interpol.getLadron()));
         assertTrue(interpol.atraparSospechoso());
     }
 

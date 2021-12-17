@@ -1,8 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Ciudad;
-import carmenSandiego.modelo.Edificio;
-import carmenSandiego.modelo.EdificioBanco;
+import carmenSandiego.modelo.ciudad.Ciudad;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

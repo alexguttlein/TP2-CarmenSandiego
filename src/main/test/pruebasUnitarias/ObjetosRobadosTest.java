@@ -1,7 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Ciudades;
-import carmenSandiego.modelo.Ladron;
+import carmenSandiego.modelo.ciudad.Ciudades;
 import carmenSandiego.modelo.ObjetoRobado;
 import carmenSandiego.modelo.ObjetosRobados;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ObjetosRobadosTest {
 
