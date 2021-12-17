@@ -1,5 +1,11 @@
 package carmenSandiego.modelo;
 
+import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.estadoJugador.*;
+import carmenSandiego.modelo.rango.Rango;
+import carmenSandiego.modelo.rango.RangoNovato;
+
 public class Jugador {
     private String nombre;
     private Rango rango;

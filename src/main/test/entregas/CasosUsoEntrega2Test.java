@@ -1,6 +1,12 @@
 package entregas;
 
 import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
+import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.edificio.EdificioBanco;
+import carmenSandiego.modelo.rango.Rango;
+import carmenSandiego.modelo.rango.RangoInvestigador;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,9 +38,9 @@ public class CasosUsoEntrega2Test {
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();
-    Interpol interpol = new Interpol(ladrones, reloj);
     Ladron ladronMereyLaroc = ladrones.getLadrones().get(5);
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
+    Interpol interpol = new Interpol(ladrones, reloj, jugador, ladronMereyLaroc);
     List<Ladron> posiblesLadrones;
 
     //Setup Partida
@@ -44,15 +50,18 @@ public class CasosUsoEntrega2Test {
     //Detective duerme.
     @Test
     public void detectiveSufreHeridaDeCuchilloYLuegoDuerme(){
+        Tiempo tiempoEsperado = new Tiempo(17,4,0,2021);
         jugador.serHeridoPorCuchillo();
         jugador.dormir();
 
-        assertEquals(17, reloj.getHoraActual());
+        assertTrue(reloj.compararTiempos(tiempoEsperado));
     }
 
     //caso uso 2: Detective con rango Investigador toma caso de un robo viaja de Montreal a México
     @Test
     public void jugadorConRangoInvestigadorViajaDeMontrealAMexico(){
+        Tiempo tiempoEsperado = new Tiempo(10,4,0,2021);
+        Rango rangoEsperado = new RangoInvestigador(10);
         jugador.setCiudadActual(ciudadMontreal);
 
         for(int i = 0; i < 10; i++){
@@ -61,8 +70,8 @@ public class CasosUsoEntrega2Test {
 
         jugador.viajar(ciudadMexico);
 
-        assertEquals("Investigador", jugador.getRango().getNombreRango());
-        assertEquals(10, reloj.getHoraActual());
+        assertTrue(jugador.getRango().compararRangos(rangoEsperado));
+        assertTrue(reloj.compararTiempos(tiempoEsperado));
     }
 
     //caso uso 3: Cargar en la computadora los datos recopilados y buscar sospechosos.
@@ -99,7 +108,7 @@ public class CasosUsoEntrega2Test {
     //Atrapa al sospechoso.
     @Test
     public void seRealizaInvestigacionYSeAtrapaAlSospechoso(){
-        assertEquals(7, reloj.getHoraActual()); //investigacion comienza a las 7AM
+        Tiempo tiempoEsperado = new Tiempo(16,4,0,2021);
 
         ciudadMexico.addEdificio(banco);
 
@@ -121,9 +130,11 @@ public class CasosUsoEntrega2Test {
 
         interpol.emitirOrdenDeArresto(); //pasan 3 horas
 
-        assertEquals(16, reloj.getHoraActual());
+        assertTrue(reloj.compararTiempos(tiempoEsperado));
         assertTrue(interpol.atraparSospechoso());
-        assertEquals(interpol.getLadronParaArrestar().getNombre(), partida.getLadronActual().getNombre());
+        assertEquals(7, jugador.getCantidadDeArrestos()); //se agrerga un nuevo arresto
+        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
+        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
 
 

@@ -4,9 +4,7 @@ import carmenSandiego.modelo.Tiempo;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Calendar.*;
-
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TiempoTest {
 
@@ -31,6 +29,21 @@ public class TiempoTest {
 
         assertEquals(TUESDAY, reloj.getDiaActual());
         assertEquals(7, reloj.getHoraActual());
+    }
+
+    @Test
+    public void seComparanDosTiemposYResultanSerIguales(){
+        Tiempo tiempoAux = new Tiempo(9, 4, 0, 2021);
+        reloj.addHoras(2);
+
+        assertTrue(reloj.compararTiempos(tiempoAux));
+    }
+
+    @Test
+    public void seComparanDosTiemposYResultanSerDiferentes(){
+        Tiempo tiempoAux = new Tiempo(9, 4, 0, 2021);
+
+        assertFalse(reloj.compararTiempos(tiempoAux));
     }
 
 }
