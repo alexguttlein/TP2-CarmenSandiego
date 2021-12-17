@@ -23,6 +23,13 @@ public class RangoDetective implements Rango {
     }
 
     @Override
+    public boolean compararRangos(Rango rango) {
+        boolean velocidad = this.getVelocidad() == rango.getVelocidad();
+        boolean nombre = this.getNombreRango() == rango.getNombreRango();
+        return velocidad && nombre;
+    }
+
+    @Override
     public int getArrestosParaAscender(){return this.arrestosParaAscender;}
 
     @Override

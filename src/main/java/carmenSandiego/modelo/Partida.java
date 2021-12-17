@@ -16,8 +16,8 @@ public class Partida {
         this.setTiempo(tiempo);
         this.setJugador(jugador);
         this.setObjetoRobado(objetoRobado);
-        this.setLadronActual(ladron);
         this.setInterpol(interpol);
+        this.setLadronActual(ladron);
         this.setCiudades(ciudades);
     }
 
