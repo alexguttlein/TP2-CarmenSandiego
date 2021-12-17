@@ -1,6 +1,10 @@
 package entregas;
 
 import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
+import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.edificio.EdificioBanco;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,9 +36,9 @@ public class CasosUsoEntrega2Test {
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();
-    Interpol interpol = new Interpol(ladrones, reloj);
     Ladron ladronMereyLaroc = ladrones.getLadrones().get(5);
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
+    Interpol interpol = new Interpol(ladrones, reloj, jugador, ladronMereyLaroc);
     List<Ladron> posiblesLadrones;
 
     //Setup Partida
@@ -44,6 +48,7 @@ public class CasosUsoEntrega2Test {
     //Detective duerme.
     @Test
     public void detectiveSufreHeridaDeCuchilloYLuegoDuerme(){
+        Tiempo relojAux = new Tiempo(17,4,0,2021);
         jugador.serHeridoPorCuchillo();
         jugador.dormir();
 
@@ -123,7 +128,8 @@ public class CasosUsoEntrega2Test {
 
         assertEquals(16, reloj.getHoraActual());
         assertTrue(interpol.atraparSospechoso());
-        assertEquals(interpol.getLadronParaArrestar().getNombre(), partida.getLadronActual().getNombre());
+        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
+        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
 
 

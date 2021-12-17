@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.rango.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,8 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ObjetoRobado;
-import carmenSandiego.modelo.Rango;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;

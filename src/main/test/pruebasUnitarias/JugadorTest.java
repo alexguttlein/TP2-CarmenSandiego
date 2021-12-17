@@ -2,7 +2,7 @@ package pruebasUnitarias;
 
 import carmenSandiego.modelo.Tiempo;
 import carmenSandiego.modelo.Jugador;
-import carmenSandiego.modelo.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudad;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,11 +1,14 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.edificio.*;
+import carmenSandiego.modelo.pistas.PistaAeropuerto;
+import carmenSandiego.modelo.pistas.PistaBanco;
+import carmenSandiego.modelo.pistas.PistaBiblioteca;
+import carmenSandiego.modelo.pistas.PistaPuerto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class EdificioTest {
 

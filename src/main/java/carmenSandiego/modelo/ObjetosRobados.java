@@ -1,9 +1,10 @@
 package carmenSandiego.modelo;
 
+import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
 import datosDelJuego.LectorCsv;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ObjetosRobados {
 
