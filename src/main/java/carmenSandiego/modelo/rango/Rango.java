@@ -11,5 +11,6 @@ public interface Rango {
     void setVelocidad(int velocidad);
     int getVelocidad();
     void setArrestosParaAscender(int arrestos);
+    boolean compararRangos(Rango rango);
 
 }

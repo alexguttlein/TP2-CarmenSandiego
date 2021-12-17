@@ -27,12 +27,20 @@ public class Tiempo {
     public int getHoraActual(){
         return this.getCalendario().get(calendario.HOUR_OF_DAY);
     }
-
     public int getDiaActual(){
         return this.getCalendario().get(calendario.DAY_OF_WEEK);
     }
-
     public int getMesActual() {
         return this.getCalendario().get(calendario.MONTH);
+    }
+    public int getAnioActual(){return this.getCalendario().get(calendario.YEAR);}
+
+    public boolean compararTiempos(Tiempo tiempo){
+        boolean hora = this.getHoraActual() == tiempo.getHoraActual();
+        boolean dia = this.getDiaActual() == tiempo.getDiaActual();
+        boolean mes = this.getMesActual() == tiempo.getMesActual();
+        boolean anio = this.getAnioActual() == tiempo.getAnioActual();
+
+        return hora && dia && mes && anio;
     }
 }
