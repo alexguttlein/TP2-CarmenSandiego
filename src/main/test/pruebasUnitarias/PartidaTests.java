@@ -11,23 +11,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class PartidaTests {
-/*
-    ArrayList pistasCiudadMexico = new ArrayList(Arrays.asList("Mexico","Celeste y blanca con un sol", "Peso",
-            "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
-            "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "19.801771980077525", "-98.97085615538418"));
-    ArrayList pistasCiudadMontreal = new ArrayList(Arrays.asList("Montreal","Celeste y blanca con un sol", "Peso",
-            "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
-            "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "46.27068001656241", "-72.94882925379466"));
 
-    Ciudad ciudadMontreal = new Ciudad(pistasCiudadMontreal);
-    Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
-    ArrayList ciudades = new ArrayList(Arrays.asList(ciudadMontreal, ciudadMexico));
-
-    Jugador jugador = new Jugador("Ivan", new Tiempo());
-    ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
-
-
- */
     Tiempo tiempoMock = mock(Tiempo.class);
     Jugador jugadorMock = mock(Jugador.class);
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
@@ -38,10 +22,11 @@ public class PartidaTests {
 
     @Test
     public void partidaRecibeLosObjetosInstanciadosCorrectamente(){
+
         when(tiempoMock.getHoraActual()).thenReturn(7);
         when(jugadorMock.getCantidadDeArrestos()).thenReturn(0);
-        when(objetoRobadoMock.getNombre()).thenReturn("Tesoro");
-        when(ladronMock.getGenero()).thenReturn("Femenino");
+        when(objetoRobadoMock.getNombre()).thenReturn(new Caracteristica("Tesoro"));
+        when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(interpolMock.atraparSospechoso()).thenReturn(false);
 
         assertEquals(tiempoMock.getHoraActual(), partida.getTiempo().getHoraActual());

@@ -16,6 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasosUsoEntrega2Test {
+
     //Setup Ciudades
     ArrayList pistasCiudadMexico = new ArrayList(Arrays.asList("Ciudad de Mexico", "Verde, blanca y roja", "Peso",
             "Golfo", "Chichen Itza", "Mineria", "Aguila Real", "Frida Khalo", "Espaniol", "Mayas", "Catolicismo",
@@ -28,13 +29,16 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
     Edificio banco = new EdificioBanco();
-
     Ciudades ciudades = new Ciudades();
 
     //Setup jugador / tiempo
     Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Max", reloj);
-    ObjetoRobado objetoRobado = new ObjetoRobado("Incan Gold Mask", ciudadMexico, "Importante");
+
+    //Setup objetoRobado
+    Caracteristica nombreObjeto = new Caracteristica("Incan Gold Mask");
+    Caracteristica importanciaObjeto = new Caracteristica("Importante");
+    ObjetoRobado objetoRobado = new ObjetoRobado(nombreObjeto, ciudadMexico, importanciaObjeto);
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();
@@ -42,6 +46,13 @@ public class CasosUsoEntrega2Test {
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
     Interpol interpol = new Interpol(ladrones, reloj, jugador, ladronMereyLaroc);
     List<Ladron> posiblesLadrones;
+
+    //Setup Ladron
+    Caracteristica genero = new Caracteristica("Femenino");
+    Caracteristica hobby = new Caracteristica("Escalar");
+    Caracteristica cabello = new Caracteristica("Castanio");
+    Caracteristica senia = new Caracteristica("Joyas");
+    Caracteristica vehiculo = new Caracteristica("Convertible");
 
     //Setup Partida
     Partida partida = new Partida(jugador, objetoRobado, ladronMereyLaroc, interpol, reloj, ciudades);
@@ -77,25 +88,27 @@ public class CasosUsoEntrega2Test {
     //caso uso 3: Cargar en la computadora los datos recopilados y buscar sospechosos.
     @Test
     public void seIngresanAlgunosDatosEnLaComputadoraDeInterpolYSeEncuentranDosPosiblesLadrones(){
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoHobby("Escalar");
+        interpol.setDatoGenero(genero);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoHobby(hobby);
 
         posiblesLadrones = interpol.buscarPosiblesLadrones();
 
         assertEquals(2, posiblesLadrones.size());
-        assertEquals(ladronMereyLaroc, posiblesLadrones.get(0));
-        assertEquals(ladronKatherineDrib, posiblesLadrones.get(1));
+        assertTrue(ladronMereyLaroc.compararConLadron(posiblesLadrones.get(0)));
+        assertTrue(ladronKatherineDrib.compararConLadron(posiblesLadrones.get(1)));
     }
 
     //caso uso 4: Intentas atrapar al sospechoso sin la orden de arresto emitida.
     @Test
     public void seIntentaAtraparAlSospechosoSinUnaOrdenDearrestoEmitida(){
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
+        Caracteristica hobbyTenis = new Caracteristica("Tenis");
+
+        interpol.setDatoGenero(genero);
+        interpol.setDatoHobby(hobbyTenis);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoSenia(senia);
+        interpol.setDatoVehiculo(vehiculo);
 
         assertEquals(1, interpol.buscarPosiblesLadrones().size());
         assertFalse(interpol.atraparSospechoso());
@@ -109,6 +122,7 @@ public class CasosUsoEntrega2Test {
     @Test
     public void seRealizaInvestigacionYSeAtrapaAlSospechoso(){
         Tiempo tiempoEsperado = new Tiempo(16,4,0,2021);
+        Caracteristica vehiculoLimusina = new Caracteristica("Limusina");
 
         ciudadMexico.addEdificio(banco);
 
@@ -122,11 +136,11 @@ public class CasosUsoEntrega2Test {
 
         jugador.viajar(ciudadMontreal); //pasan 3 horas
 
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Escalar");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Limusina");
+        interpol.setDatoGenero(genero);
+        interpol.setDatoHobby(hobby);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoSenia(senia);
+        interpol.setDatoVehiculo(vehiculoLimusina);
 
         interpol.emitirOrdenDeArresto(); //pasan 3 horas
 
@@ -136,7 +150,5 @@ public class CasosUsoEntrega2Test {
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
-
-
 
 }

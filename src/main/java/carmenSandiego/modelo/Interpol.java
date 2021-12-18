@@ -47,23 +47,23 @@ public class Interpol {
         this.ladrones = ladrones;
     }
 
-    public void setDatoGenero(String dato){
+    public void setDatoGenero(Caracteristica dato){
         posibleLadron.setGenero(dato);
     }
 
-    public void setDatoHobby(String dato){
+    public void setDatoHobby(Caracteristica dato){
         posibleLadron.setHobby(dato);
     }
 
-    public void setDatoCabello(String dato){
+    public void setDatoCabello(Caracteristica dato){
         posibleLadron.setCabello(dato);
     }
 
-    public void setDatoSenia(String dato){
+    public void setDatoSenia(Caracteristica dato){
         posibleLadron.setSenia(dato);
     }
 
-    public void setDatoVehiculo(String dato){
+    public void setDatoVehiculo(Caracteristica dato){
         posibleLadron.setVehiculo(dato);
     }
 
@@ -84,10 +84,20 @@ public class Interpol {
         return posiblesLadrones;
     }
 
-    private boolean compararCaracteristica(String datoA, String datoB){
-        if(datoA != "")
-            return datoA.equals(datoB);
+    private boolean compararDatoLadron(Caracteristica datoA, Caracteristica datoB){
+        if(datoA.getCaracteristica() != "")
+            return datoA.compararCaracteristica(datoB);
         return true;
+    }
+
+    public boolean compararLadrones(Ladron ladronA, Ladron ladronB){
+        boolean datoGenero = compararDatoLadron(ladronA.getGenero(), ladronB.getGenero());
+        boolean datoHobby = compararDatoLadron(ladronA.getHobby(), ladronB.getHobby());
+        boolean datoCabello = compararDatoLadron(ladronA.getCabello(), ladronB.getCabello());
+        boolean datoSenia = compararDatoLadron(ladronA.getSenia(), ladronB.getSenia());
+        boolean datoVehiculo = compararDatoLadron(ladronA.getVehiculo(), ladronB.getVehiculo());
+
+        return datoGenero && datoHobby && datoCabello && datoSenia && datoVehiculo;
     }
 
     public void emitirOrdenDeArresto(){
@@ -95,6 +105,7 @@ public class Interpol {
 
         if (getPosiblesLadrones().size() == 1) {
             setEstadoOrdenDeArresto(true);
+            this.posibleLadron = getPosiblesLadrones().get(0);
             getTiempo().addHoras(3);
         }
     }
@@ -104,20 +115,10 @@ public class Interpol {
     private void setPosiblesLadrones(List<Ladron> posiblesLadrones){this.posiblesLadrones = posiblesLadrones;}
 
     public boolean atraparSospechoso(){
-        boolean comparacionLadrones = compararLadrones(this.ladron, this.posibleLadron);
+        boolean comparacionLadrones = this.ladron.compararConLadron(this.posibleLadron);
         if(comparacionLadrones && this.estadoOrdenDeArresto) //se debe tener orden de arresto emitida sobre el ladron correcto
             jugador.addArresto();
         return this.estadoOrdenDeArresto && comparacionLadrones;
-    }
-
-    public boolean compararLadrones(Ladron ladronA, Ladron ladronB){
-        boolean datoGenero = compararCaracteristica(ladronA.getGenero(), ladronB.getGenero());
-        boolean datoHobby = compararCaracteristica(ladronA.getHobby(), ladronB.getHobby());
-        boolean datoCabello = compararCaracteristica(ladronA.getCabello(), ladronB.getCabello());
-        boolean datoSenia = compararCaracteristica(ladronA.getSenia(), ladronB.getSenia());
-        boolean datoVehiculo = compararCaracteristica(ladronA.getVehiculo(), ladronB.getVehiculo());
-
-        return datoGenero && datoHobby && datoCabello && datoSenia && datoVehiculo;
     }
 
     public Ladron getLadron(){return this.ladron;}
