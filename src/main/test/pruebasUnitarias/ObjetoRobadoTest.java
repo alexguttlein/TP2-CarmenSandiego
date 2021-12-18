@@ -5,6 +5,7 @@ import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ObjetoRobado;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,4 +27,13 @@ public class ObjetoRobadoTest {
         assertEquals(importancia, objetoRobado.getImportancia());
     }
 
+    @Test
+    public void seComparanDosObjetosRobadosIguales(){
+        Caracteristica nombreEsperado = new Caracteristica("Espada de San Martin");
+        Caracteristica importanciaEsperada = new Caracteristica("Comun");
+
+        ObjetoRobado otroObjetoRobado = new ObjetoRobado(nombreEsperado, ciudadMock, importanciaEsperada);
+
+        assertTrue(objetoRobado.compararObjetoRobado(otroObjetoRobado));
+    }
 }
