@@ -3,20 +3,28 @@ package carmenSandiego.modelo;
 import carmenSandiego.modelo.ciudad.Ciudad;
 
 public class ObjetoRobado {
-    String nombre;
+    Caracteristica nombre;
     Ciudad ciudadOrigen;
-    String importancia;
+    Caracteristica importancia;
 
-    public ObjetoRobado(String nombre, Ciudad ciudadOrigen, String importancia){
+    public ObjetoRobado(Caracteristica nombre, Ciudad ciudadOrigen, Caracteristica importancia){
         this.nombre = nombre;
         this.ciudadOrigen = ciudadOrigen;
         this.importancia = importancia;
     }
 
-    public String getNombre(){return this.nombre;}
+    public Caracteristica getNombre(){return this.nombre;}
 
     public Ciudad getCiudadOrigen(){return this.ciudadOrigen;}
 
-    public String getImportancia(){return this.importancia;}
+    public Caracteristica getImportancia(){return this.importancia;}
+
+    public boolean compararObjetoRobado(ObjetoRobado objetoRobado){
+        boolean nombre = this.nombre.getCaracteristica() == objetoRobado.getNombre().getCaracteristica();
+        boolean importancia = this.importancia.getCaracteristica() == objetoRobado.getImportancia().getCaracteristica();
+        boolean ciudad = this.ciudadOrigen.getNombre() == objetoRobado.getCiudadOrigen().getNombre(); //falta comparador de ciudades
+
+        return nombre && importancia && ciudad;
+    }
 
 }

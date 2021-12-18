@@ -1,5 +1,6 @@
 package pruebasUnitarias;
 
+import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ObjetoRobado;
 import org.junit.jupiter.api.Test;
@@ -11,19 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ObjetoRobadoTest {
     Ciudad ciudadMock = mock(Ciudad.class);
-    ObjetoRobado objetoRobado = new ObjetoRobado("Espada de San Martin", ciudadMock, "Comun");
+    Caracteristica objetoEspada = new Caracteristica("Espada de San Martin");
+    Caracteristica importancia = new Caracteristica("Comun");
+
+    ObjetoRobado objetoRobado = new ObjetoRobado(objetoEspada, ciudadMock, importancia);
 
     @Test
-    public void seRobaUnObjetoDeLaCiudadDeBuenosAires(){
-        when(ciudadMock.getNombre()).thenReturn("Buenos Aires");
+    public void seRobaUnObjetoComunDeLaCiudadDeBuenosAires(){
+        //when(ciudadMock.getNombre()).thenReturn(new Caracteristica("Buenos Aires"));
 
-        assertEquals("Espada de San Martin", objetoRobado.getNombre());
-        assertEquals("Buenos Aires", objetoRobado.getCiudadOrigen().getNombre());
+        assertEquals(objetoEspada, objetoRobado.getNombre());
+        //assertEquals(ciudadMock.getNombre(), objetoRobado.getCiudadOrigen().getNombre());
+        assertEquals(importancia, objetoRobado.getImportancia());
     }
 
-    @Test
-    public void elObjetoRobadoEsDeImportanciaComun(){
-
-        assertEquals("Comun", objetoRobado.getImportancia());
-    }
 }
