@@ -66,7 +66,13 @@ public class InterpolTest {
 
         //interpol.mostrarPosiblesLadrones();
         interpol.filtrarPosiblesLadrones();
-        //interpol.mostrarPosiblesLadrones();
+        interpol.mostrarPosiblesLadrones();
+        interpol.mostrarLadrones();
+
+        interpol.elegirLadronAArrestar(4); //elijo a Carmen Sandiego
+        assertEquals(true, interpol.compararPrueba()); //Compara directamente los ladrones (las direcs de memoria creo)
+
+        //assertEquals(interpol.getLadrones().get(9), interpol.getPosiblesLadrones().get(4));  para no comparar por las caracteristicas, sino por los objetos funciona
 
         assertEquals(5, interpol.getPosiblesLadrones().size());
         assertEquals(10, interpol.getLadrones().size());

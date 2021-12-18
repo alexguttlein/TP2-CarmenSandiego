@@ -75,32 +75,36 @@ public class CasosUsoEntrega2Test {
     }
 
     //caso uso 3: Cargar en la computadora los datos recopilados y buscar sospechosos.
-    /*
+
     @Test
     public void seIngresanAlgunosDatosEnLaComputadoraDeInterpolYSeEncuentranDosPosiblesLadrones(){
         interpol.setDatoGenero("Femenino");
         interpol.setDatoCabello("Castanio");
         interpol.setDatoHobby("Escalar");
 
-        posiblesLadrones = interpol.buscarPosiblesLadrones();
+        interpol.filtrarPosiblesLadrones();
 
-        assertEquals(2, posiblesLadrones.size());
-        assertEquals(ladronMereyLaroc, posiblesLadrones.get(0));
-        assertEquals(ladronKatherineDrib, posiblesLadrones.get(1));
+        assertEquals(2, interpol.getPosiblesLadrones().size());
+        assertEquals(ladronMereyLaroc, interpol.getPosiblesLadrones().get(0));
+        assertEquals(ladronKatherineDrib, interpol.getPosiblesLadrones().get(1));
     }
 
     //caso uso 4: Intentas atrapar al sospechoso sin la orden de arresto emitida.
     @Test
     public void seIntentaAtraparAlSospechosoSinUnaOrdenDearrestoEmitida(){
         interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
+        interpol.setDatoHobby("Escalar");
         interpol.setDatoCabello("Castanio");
         interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
+        interpol.setDatoVehiculo("Limusina");
 
-        assertEquals(1, interpol.buscarPosiblesLadrones().size());
+        interpol.filtrarPosiblesLadrones();
+        //interpol.emitirOrdenDeArresto();  //ver que si emito la orden de arresto, la prueba es true
+        interpol.elegirLadronAArrestar(0);
+
         assertFalse(interpol.atraparSospechoso());
     }
+
 
     //caso uso 5: Un detective hace 6 Arrestos.
     //Toma un caso de un sospechoso que robó un Incan Gold Mask.
@@ -129,16 +133,17 @@ public class CasosUsoEntrega2Test {
         interpol.setDatoSenia("Joyas");
         interpol.setDatoVehiculo("Limusina");
 
+        interpol.filtrarPosiblesLadrones();
+        interpol.elegirLadronAArrestar(0);
+
         interpol.emitirOrdenDeArresto(); //pasan 3 horas
 
         assertTrue(reloj.compararTiempos(tiempoEsperado));
         assertTrue(interpol.atraparSospechoso());
         assertEquals(7, jugador.getCantidadDeArrestos()); //se agrerga un nuevo arresto
-        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
-        assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
+        //assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
+        //assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
-
-     */
 
 
 

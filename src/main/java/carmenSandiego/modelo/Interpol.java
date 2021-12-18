@@ -58,7 +58,7 @@ public class Interpol {
 
     //sirve para comparar el sospechoso con el ladron verdadero
     public boolean compararLadrones(){
-        return this.ladron.comparar(sospechosoArrestado);
+        return this.sospechosoArrestado.comparar(this.ladron);
     }  //Es true si todas las caracteristicas son iguales (todas las características están completas)
 
 
@@ -77,7 +77,7 @@ public class Interpol {
         }
     }
 
-    public void elegirLadron(int posicion){
+    public void elegirLadronAArrestar(int posicion){
         sospechosoArrestado = posiblesLadrones.get(posicion);
     }
 
@@ -94,17 +94,25 @@ public class Interpol {
         return ladrones.getLadrones();
     }
 
-
-    /*
-    public void emitirOrdenDeArresto(){
-        buscarPosiblesLadrones();
-
-        if (getPosiblesLadrones().size() == 1) {
-            this.estadoOrdenDeArresto = true;
-            tiempo.addHoras(3);
-        }
+    //Este compara directamente los ladrones (creo que las direcciones de memoria de los mismos, pero funciona)
+    public boolean compararPrueba(){
+        return this.sospechosoArrestado.equals(this.ladron);
     }
 
+
+    public void emitirOrdenDeArresto(){
+        this.estadoOrdenDeArresto = true;
+        tiempo.addHoras(3);
+    }
+
+    public boolean atraparSospechoso(){
+        boolean comparacionLadrones = compararLadrones();
+        if(comparacionLadrones && this.estadoOrdenDeArresto) //se debe tener orden de arresto emitida sobre el ladron correcto
+            jugador.addArresto();
+        return this.estadoOrdenDeArresto && comparacionLadrones;
+    }
+
+    /*
     public List<Ladron> buscarPosiblesLadrones() {
         List<Ladron> ladrones = this.ladrones.getLadrones();
         List<Ladron> posiblesLadrones = new ArrayList<Ladron>();
@@ -117,12 +125,7 @@ public class Interpol {
         return posiblesLadrones;
     }
 
-    public boolean atraparSospechoso(){
-        boolean comparacionLadrones = compararLadrones(ladron, posibleLadron);
-        if(comparacionLadrones && this.estadoOrdenDeArresto) //se debe tener orden de arresto emitida sobre el ladron correcto
-            jugador.addArresto();
-        return this.estadoOrdenDeArresto && comparacionLadrones;
-    }
+
 
      */
 
