@@ -4,6 +4,7 @@ import carmenSandiego.modelo.Tiempo;
 import carmenSandiego.modelo.Jugador;
 import carmenSandiego.modelo.ciudad.Ciudad;
 
+import carmenSandiego.modelo.rango.RangoDetective;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -144,5 +145,13 @@ public class JugadorTest {
     public void jugadorDuermePor8Horas(){
         jugador.dormir();
         assertEquals(15, reloj.getHoraActual());
+    }
+
+    @Test
+    public void jugadorSeCreaConRangoDetective(){
+        Tiempo tiempoMock = mock(Tiempo.class);
+        Jugador jugador = new Jugador("Carlos,", tiempoMock, new RangoDetective(13));
+
+        assertEquals("Detective", jugador.getNombreRango());
     }
 }
