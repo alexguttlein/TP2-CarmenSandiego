@@ -5,8 +5,10 @@ import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ciudad.Ciudades;
 import carmenSandiego.modelo.edificio.Edificio;
 import carmenSandiego.modelo.edificio.EdificioBanco;
-import carmenSandiego.modelo.rango.Rango;
-import carmenSandiego.modelo.rango.RangoInvestigador;
+import carmenSandiego.modelo.Interpol;
+import carmenSandiego.modelo.jugador.Jugador;
+import carmenSandiego.modelo.jugador.rango.Rango;
+import carmenSandiego.modelo.jugador.rango.RangoInvestigador;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -34,7 +36,11 @@ public class CasosUsoEntrega2Test {
     //Setup jugador / tiempo
     Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Max", reloj);
-    ObjetoRobado objetoRobado = new ObjetoRobado("Incan Gold Mask", ciudadMexico, "Importante");
+
+    //Setup objetoRobado
+    Caracteristica nombreObjeto = new Caracteristica("Incan Gold Mask");
+    Caracteristica importanciaObjeto = new Caracteristica("Importante");
+    ObjetoRobado objetoRobado = new ObjetoRobado(nombreObjeto, ciudadMexico, importanciaObjeto);
 
     //Setup Ladrones / Interpol
     Ladrones ladrones = new Ladrones();

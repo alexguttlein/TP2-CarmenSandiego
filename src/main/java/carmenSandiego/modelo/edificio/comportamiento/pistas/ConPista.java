@@ -1,6 +1,4 @@
-package carmenSandiego.modelo.pistas;
-
-import carmenSandiego.modelo.comportamiento.ComportamientoPistas;
+package carmenSandiego.modelo.edificio.comportamiento.pistas;
 
 public abstract class ConPista implements ComportamientoPistas {
     protected String base;

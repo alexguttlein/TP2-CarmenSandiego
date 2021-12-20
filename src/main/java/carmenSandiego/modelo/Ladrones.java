@@ -3,10 +3,10 @@ package carmenSandiego.modelo;
 import datosDelJuego.LectorCsv;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Ladrones {
-
     private ArrayList<Ladron> ladrones = new ArrayList<>();
 
     public Ladrones(){
@@ -18,12 +18,16 @@ public class Ladrones {
         LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/ladrones.csv");
         datosLadrones = leerArchivo.getLectura();
 
-        for(ArrayList<String> ladron: datosLadrones)
+        for(ArrayList<String> ladron: datosLadrones) {
             crearLadron(ladron);
+        }
     }
 
     private void crearLadron(ArrayList<String> datosLadron){
-        Ladron ladron = new Ladron(datosLadron);
+        ArrayList datos = new ArrayList<>(Arrays.asList());
+        for(String d: datosLadron)
+            datos.add(d);
+        Ladron ladron = new Ladron(datos);
         addLadron(ladron);
     }
 
@@ -31,7 +35,7 @@ public class Ladrones {
         this.ladrones.add(ladron);
     }
 
-    public List<Ladron> getLadrones(){
+    public ArrayList<Ladron> getLadrones(){
         return this.ladrones;
     }
 

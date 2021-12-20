@@ -12,7 +12,8 @@ public class ObjetosRobados {
     private Ciudades ciudades;
 
     public ObjetosRobados(Ciudades ciudades){
-        this.setCiudades(ciudades);
+        this.ciudades = ciudades;
+        //this.setCiudades(ciudades);
         inicializarObjetosRobados();
     }
 
@@ -30,9 +31,9 @@ public class ObjetosRobados {
     }
 
     private void crearObjetoRobado(ArrayList<String> datosObjetoRobado) {
-        String nombre = datosObjetoRobado.get(0);
+        Caracteristica nombre = new Caracteristica(datosObjetoRobado.get(0));
         Ciudad ciudadOrigen = determinarCiudadDeOrigen(datosObjetoRobado.get(1));
-        String importancia = datosObjetoRobado.get(2);
+        Caracteristica importancia = new Caracteristica(datosObjetoRobado.get(2));
 
         ObjetoRobado objetoRobado = new ObjetoRobado(nombre, ciudadOrigen, importancia);
         addObjetoRobado(objetoRobado);

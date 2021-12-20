@@ -1,13 +1,15 @@
-package carmenSandiego.modelo;
+package carmenSandiego.modelo.jugador;
 
+import carmenSandiego.modelo.Caracteristica;
+import carmenSandiego.modelo.Tiempo;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.edificio.Edificio;
-import carmenSandiego.modelo.estadoJugador.*;
-import carmenSandiego.modelo.rango.Rango;
-import carmenSandiego.modelo.rango.RangoNovato;
+import carmenSandiego.modelo.jugador.estado.*;
+import carmenSandiego.modelo.jugador.rango.Rango;
+import carmenSandiego.modelo.jugador.rango.RangoNovato;
 
 public class Jugador {
-    private String nombre;
+    private Caracteristica nombre;
     private Rango rango;
     private Ciudad ciudadActual;
     private int vecesHeridoPorCuchillo;
@@ -15,7 +17,7 @@ public class Jugador {
     private Tiempo reloj;
 
     public Jugador(String nombre, Tiempo reloj){
-        this.nombre = nombre;
+        this.nombre = new Caracteristica(nombre);
         this.setRango(new RangoNovato(0));
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
@@ -38,7 +40,7 @@ public class Jugador {
         return this.rango;
     }
 
-    public String getNombre(){return this.nombre;}
+    public Caracteristica getNombre(){return this.nombre;}
 
     public String getNombreRango(){return this.rango.getNombreRango();}
 

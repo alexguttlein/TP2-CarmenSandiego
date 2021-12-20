@@ -1,26 +1,22 @@
-package carmenSandiego.modelo.rango;
+package carmenSandiego.modelo.jugador.rango;
 
-public class RangoDetective implements Rango {
+public class RangoSargento implements Rango {
 
-    private String nombreRangoActual;
+    private String rangoActual;
     private int cantidadDeArrestos;
-    private int arrestosParaAscender;
     private int velocidad;
 
-    public RangoDetective(int arrestos){
+    public RangoSargento(int arrestos){
         this.cantidadDeArrestos = arrestos;
-        this.setArrestosParaAscender(10);
-        this.nombreRangoActual = "Detective";
-        this.setVelocidad(1100);
+        this.rangoActual = "Sargento";
+        this.setVelocidad(1500);
     }
 
     @Override
     public int getCantidadDeArrestos(){return this.cantidadDeArrestos;}
 
     @Override
-    public void setArrestosParaAscender(int arrestosParaAscender){
-        this.arrestosParaAscender = arrestosParaAscender;
-    }
+    public void setArrestosParaAscender(int arrestosParaAscender){}
 
     @Override
     public boolean compararRangos(Rango rango) {
@@ -30,7 +26,7 @@ public class RangoDetective implements Rango {
     }
 
     @Override
-    public int getArrestosParaAscender(){return this.arrestosParaAscender;}
+    public int getArrestosParaAscender(){return 0;}
 
     @Override
     public void addArresto(){
@@ -38,7 +34,7 @@ public class RangoDetective implements Rango {
     }
 
     @Override
-    public String getNombreRango(){return this.nombreRangoActual;}
+    public String getNombreRango(){return this.rangoActual;}
 
     @Override
     public double getTiempoDeViaje(double distancia){
@@ -47,8 +43,6 @@ public class RangoDetective implements Rango {
 
     @Override
     public Rango verificarRango(){
-        if(this.getCantidadDeArrestos() == this.arrestosParaAscender)
-            return new RangoInvestigador(this.getCantidadDeArrestos());
         return this;
     }
 

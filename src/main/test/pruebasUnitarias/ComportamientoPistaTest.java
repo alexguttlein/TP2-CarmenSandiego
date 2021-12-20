@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.pistas.*;
+import carmenSandiego.modelo.edificio.comportamiento.pistas.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

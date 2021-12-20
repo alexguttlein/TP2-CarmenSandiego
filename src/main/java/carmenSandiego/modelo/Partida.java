@@ -1,6 +1,7 @@
 package carmenSandiego.modelo;
 
 import carmenSandiego.modelo.ciudad.Ciudades;
+import carmenSandiego.modelo.jugador.Jugador;
 
 public class Partida {
 

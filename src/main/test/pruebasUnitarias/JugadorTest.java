@@ -1,7 +1,8 @@
 package pruebasUnitarias;
 
+import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.Tiempo;
-import carmenSandiego.modelo.Jugador;
+import carmenSandiego.modelo.jugador.Jugador;
 import carmenSandiego.modelo.ciudad.Ciudad;
 
 import carmenSandiego.modelo.rango.RangoDetective;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -30,7 +32,10 @@ public class JugadorTest {
 
     @Test
     public void porDefectoUnJugadorTieneCeroArrestos(){
-        assertEquals("Alex", jugador.getNombre());
+        Caracteristica esperado = new Caracteristica("Alex");
+
+        //assertEquals("Alex", jugador.getNombre());
+        assertTrue(esperado.compararCaracteristica(jugador.getNombre()));
         assertEquals(0, jugador.getCantidadDeArrestos());
     }
 

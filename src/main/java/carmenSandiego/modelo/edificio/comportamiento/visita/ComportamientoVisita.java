@@ -1,4 +1,4 @@
-package carmenSandiego.modelo.comportamiento;
+package carmenSandiego.modelo.edificio.comportamiento.visita;
 
 public interface ComportamientoVisita {
 

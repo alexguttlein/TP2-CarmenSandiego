@@ -5,6 +5,8 @@ import carmenSandiego.modelo.edificio.Edificio;
 import java.util.ArrayList;
 
 public class Ciudad {
+    //Creo q deberiamos desacernos de los strings y encapsularlo.
+    //Nose si utilizar la clase Caracteristica como los demas o crear una clase x cada atributo
     private String nombre;
     private String bandera;
     private String moneda;

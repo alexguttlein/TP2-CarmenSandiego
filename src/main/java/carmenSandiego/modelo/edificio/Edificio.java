@@ -1,12 +1,12 @@
 package carmenSandiego.modelo.edificio;
 
 import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.comportamiento.Demora;
-import carmenSandiego.modelo.pistas.SinPista;
-import carmenSandiego.modelo.comportamiento.Visita;
-import carmenSandiego.modelo.comportamiento.ComportamientoDeDemora;
-import carmenSandiego.modelo.comportamiento.ComportamientoPistas;
-import carmenSandiego.modelo.comportamiento.ComportamientoVisita;
+import carmenSandiego.modelo.edificio.comportamiento.demora.Demora;
+import carmenSandiego.modelo.edificio.comportamiento.pistas.SinPista;
+import carmenSandiego.modelo.edificio.comportamiento.visita.Visita;
+import carmenSandiego.modelo.edificio.comportamiento.demora.ComportamientoDeDemora;
+import carmenSandiego.modelo.edificio.comportamiento.pistas.ComportamientoPistas;
+import carmenSandiego.modelo.edificio.comportamiento.visita.ComportamientoVisita;
 
 public abstract class Edificio{
     protected ComportamientoPistas comportamientoPistas;
@@ -25,7 +25,6 @@ public abstract class Edificio{
     /*public void mostrarPista(){
         this.comportamientoPistas.mostrarPistas();
     }
-
      */
 
     public int entrarAlEdificio(){

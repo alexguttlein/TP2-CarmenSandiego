@@ -1,10 +1,9 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.Interpol;
+import carmenSandiego.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -14,136 +13,82 @@ public class InterpolTest {
     Jugador jugadorMock = mock(Jugador.class);
     Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
     Ladrones ladrones = new Ladrones();
+    Ladron ladronCarmen = ladrones.getLadrones().get(9);
+    Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
 
-    ArrayList datosSospechoso = new ArrayList<>(Arrays.asList("", "Femenino", "Tenis", "Castanio", "", "Convertible"));
-    ArrayList datosSospechosoIncorrecto = new ArrayList<>(Arrays.asList("", "Masculino", "Futbol", "Rojo", "", ""));
-    Ladron ladronSospechoso = new Ladron(datosSospechoso);
-    Ladron ladronSospechosoIncorrecto = new Ladron(datosSospechosoIncorrecto);
-
-    @Test
-    public void seComparaPosibleLadronConCarmen(){
-        Ladron ladronCarmen = ladrones.getLadrones().get(9);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
-        interpol.setSospechosoArrestado(ladronCarmen);
-        interpol.mostrarLadrones();
-
-        assertEquals(true, interpol.compararLadrones());
-    }
+    Caracteristica genero = new Caracteristica("Femenino");
+    Caracteristica hobby = new Caracteristica("Tenis");
+    Caracteristica cabello = new Caracteristica("Castanio");
+    Caracteristica senia = new Caracteristica("Joyas");
+    Caracteristica vehiculo = new Caracteristica("Convertible");
 
     @Test
-    public void seFijaSiCarmenEsSospechosa(){
-        Ladron ladronCarmen = ladrones.getLadrones().get(9);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
-        //Femenino;Tenis;Castanio;Joyas;Convertible
+    public void seIngresanDatosDeUnLadron(){
 
-        assertEquals(true, interpol.compararLadrones(ladronCarmen));
+        Ladron posibleLadron = interpol.getPosibleLadron();
+
+        interpol.setDatoGenero(genero);
+        interpol.setDatoHobby(hobby);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoSenia(senia);
+        interpol.setDatoVehiculo(vehiculo);
+
+        assertTrue(genero.compararCaracteristica(posibleLadron.getGenero()));
+        assertTrue(hobby.compararCaracteristica(posibleLadron.getHobby()));
+        assertTrue(cabello.compararCaracteristica(posibleLadron.getCabello()));
+        assertTrue(senia.compararCaracteristica(posibleLadron.getSenia()));
+        assertTrue(vehiculo.compararCaracteristica(posibleLadron.getVehiculo()));
     }
 
-    @Test
-    public void seFijaSiLenEsSospechoso(){
-        Ladron ladronLen = ladrones.getLadrones().get(1);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronLen);
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
-        //Femenino;Tenis;Castanio;Joyas;Convertible
-
-        assertEquals(false, interpol.compararLadrones(ladronLen));
-    }
-
-    @Test
-    public void laListaDePosiblesLadronesSeReduceAlObtenerUnDatoNuevo(){
-        Ladron ladronCarmen = ladrones.getLadrones().get(9);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
-        interpol.setDatoGenero("Femenino");
-
-        //interpol.mostrarPosiblesLadrones();
-        interpol.filtrarPosiblesLadrones();
-        interpol.mostrarPosiblesLadrones();
-        interpol.mostrarLadrones();
-
-        interpol.elegirLadronAArrestar(4); //elijo a Carmen Sandiego
-        assertEquals(true, interpol.compararPrueba()); //Compara directamente los ladrones (las direcs de memoria creo)
-
-        //assertEquals(interpol.getLadrones().get(9), interpol.getPosiblesLadrones().get(4));  para no comparar por las caracteristicas, sino por los objetos funciona
-
-        assertEquals(5, interpol.getPosiblesLadrones().size());
-        assertEquals(10, interpol.getLadrones().size());
-    }
-
-    @Test
-    public void laListaDePosiblesLadronesSeReduceA2(){
-        Ladron ladronLen = ladrones.getLadrones().get(1);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronLen);
-
-        interpol.setDatoGenero("Masculino");
-        interpol.setDatoCabello("Rojo");
-        interpol.filtrarPosiblesLadrones();
-
-        assertEquals(2, interpol.getPosiblesLadrones().size());
-    }
-
-
-    /*
     @Test
     public void seFiltraPorGeneroFemeninoYAunNoSePuedeEmitirOrdenDeArresto(){
-        interpol.setDatoGenero("Femenino");
+        interpol.setDatoGenero(genero);
         interpol.emitirOrdenDeArresto();
 
         assertEquals(5, interpol.buscarPosiblesLadrones().size());
-        //assertNull(interpol.getLadronParaArrestar());
         assertFalse(interpol.atraparSospechoso());
     }
 
     @Test
     public void seFiltraPorTodasLasCaracteristicasYSeEmiteOrdenDeArresto(){
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
+        interpol.setDatoGenero(genero);
+        interpol.setDatoHobby(hobby);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoSenia(senia);
+        interpol.setDatoVehiculo(vehiculo);
 
         interpol.emitirOrdenDeArresto();
 
         assertEquals(1, interpol.buscarPosiblesLadrones().size());
-        //assertNotNull(interpol.getLadronParaArrestar());
         assertTrue(interpol.compararLadrones(ladronCarmen, interpol.getLadron()));
         assertTrue(interpol.atraparSospechoso());
     }
 
     @Test
     public void seEmiteUnaOrdenDeArrestoPasan4Horas(){
-        assertEquals(7, interpol.getTiempo().getHoraActual());
+        Tiempo tiempoEsperado = new Tiempo(10, 04, 00, 2021);
 
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoHobby("Tenis");
-        interpol.setDatoCabello("Castanio");
-        interpol.setDatoSenia("Joyas");
-        interpol.setDatoVehiculo("Convertible");
+        interpol.setDatoGenero(genero);
+        interpol.setDatoHobby(hobby);
+        interpol.setDatoCabello(cabello);
+        interpol.setDatoSenia(senia);
+        interpol.setDatoVehiculo(vehiculo);
 
         interpol.emitirOrdenDeArresto();
 
-        assertEquals(10, interpol.getTiempo().getHoraActual());
+        assertTrue(tiempo.compararTiempos(tiempoEsperado));
     }
 
     @Test
     public void seIntentaEmitirUnaOrdenDeArrestoPeroNoSeTienenLasPruebasNecesariasAsiQueElTiempoNoPasa(){
-        assertEquals(7, interpol.getTiempo().getHoraActual());
+        Tiempo tiempoEsperado = new Tiempo(7, 04, 00, 2021);
 
-        interpol.setDatoGenero("Femenino");
-        interpol.setDatoCabello("Castanio");
+        interpol.setDatoGenero(genero);
+        interpol.setDatoCabello(cabello);
 
         interpol.emitirOrdenDeArresto();
 
-        assertEquals(7, interpol.getTiempo().getHoraActual());
+        assertTrue(tiempo.compararTiempos(tiempoEsperado));
     }
 
-     */
 }

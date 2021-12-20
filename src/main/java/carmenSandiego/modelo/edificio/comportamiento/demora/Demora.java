@@ -1,6 +1,4 @@
-package carmenSandiego.modelo.comportamiento;
-
-import carmenSandiego.modelo.comportamiento.ComportamientoDeDemora;
+package carmenSandiego.modelo.edificio.comportamiento.demora;
 
 public class Demora implements ComportamientoDeDemora {
 
