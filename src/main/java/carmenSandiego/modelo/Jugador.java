@@ -25,7 +25,6 @@ public class Jugador {
     public Jugador(String nombre, Tiempo reloj, Rango rango){
         this.nombre = nombre;
         this.rango = rango;
-        this.rango = rango;
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
         this.reloj = reloj;
