@@ -3,6 +3,7 @@ package entregas;
 import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.edificio.*;
+import carmenSandiego.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;

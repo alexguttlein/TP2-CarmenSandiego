@@ -1,11 +1,12 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.Interpol;
+import carmenSandiego.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class InterpolTest {
 

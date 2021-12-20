@@ -1,7 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.comportamiento.ComportamientoDeDemora;
-import carmenSandiego.modelo.comportamiento.Demora;
+import carmenSandiego.modelo.edificio.comportamiento.demora.ComportamientoDeDemora;
+import carmenSandiego.modelo.edificio.comportamiento.demora.Demora;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

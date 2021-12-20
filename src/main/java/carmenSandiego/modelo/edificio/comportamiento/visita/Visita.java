@@ -1,6 +1,4 @@
-package carmenSandiego.modelo.comportamiento;
-
-import carmenSandiego.modelo.comportamiento.ComportamientoVisita;
+package carmenSandiego.modelo.edificio.comportamiento.visita;
 
 public class Visita implements ComportamientoVisita {
     private int cantVisita = 0;

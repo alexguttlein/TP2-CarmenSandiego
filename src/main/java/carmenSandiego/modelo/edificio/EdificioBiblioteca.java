@@ -1,8 +1,8 @@
 package carmenSandiego.modelo.edificio;
 
 import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.pistas.ConPista;
-import carmenSandiego.modelo.pistas.PistaBiblioteca;
+import carmenSandiego.modelo.edificio.comportamiento.pistas.ConPista;
+import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
 
 public class EdificioBiblioteca extends Edificio {
 

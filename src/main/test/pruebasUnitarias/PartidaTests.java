@@ -2,8 +2,9 @@ package pruebasUnitarias;
 
 import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.Partida;
-import carmenSandiego.modelo.Jugador;
+import carmenSandiego.modelo.jugador.Jugador;
 import carmenSandiego.modelo.ciudad.Ciudades;
+import carmenSandiego.modelo.Interpol;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

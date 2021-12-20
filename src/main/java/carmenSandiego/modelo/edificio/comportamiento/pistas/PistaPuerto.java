@@ -1,4 +1,4 @@
-package carmenSandiego.modelo.pistas;
+package carmenSandiego.modelo.edificio.comportamiento.pistas;
 
 public class PistaPuerto extends ConPista {
 

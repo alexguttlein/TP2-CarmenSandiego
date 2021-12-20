@@ -1,4 +1,4 @@
-package carmenSandiego.modelo.rango;
+package carmenSandiego.modelo.jugador.rango;
 
 public interface Rango {
 

@@ -1,6 +1,5 @@
 package carmenSandiego.modelo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Ladron {
@@ -34,14 +33,14 @@ public class Ladron {
     public Caracteristica getSenia(){return this.senia;}
     public Caracteristica getVehiculo(){return this.vehiculo;}
 
-    public boolean compararConLadron(Ladron ladron){
-        boolean nombre = this.getNombre().compararCaracteristica(ladron.getNombre());
-        boolean genero = this.getGenero().compararCaracteristica(ladron.getGenero());
-        boolean hobby = this.getHobby().compararCaracteristica(ladron.getHobby());
-        boolean cabello = this.getCabello().compararCaracteristica(ladron.getCabello());
-        boolean senia = this.getSenia().compararCaracteristica(ladron.getSenia());
-        boolean vehiculo = this.getVehiculo().compararCaracteristica(ladron.getVehiculo());
+    public boolean compararConLadron(Ladron otroLadron){
+        boolean equalNombre = nombre.compararCaracteristica(otroLadron.getNombre());
+        boolean equalGenero = genero.compararCaracteristica(otroLadron.getGenero());
+        boolean equalHobby = hobby.compararCaracteristica(otroLadron.getHobby());
+        boolean equalCabello = cabello.compararCaracteristica(otroLadron.getCabello());
+        boolean equalSenia = senia.compararCaracteristica(otroLadron.getSenia());
+        boolean equalVehiculo = vehiculo.compararCaracteristica(otroLadron.getVehiculo());
 
-        return nombre && genero && hobby && cabello && senia && vehiculo;
+        return equalNombre && equalGenero && equalHobby && equalCabello && equalSenia && equalVehiculo;
     }
 }

@@ -3,7 +3,7 @@ package pruebasUnitarias;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ciudad.Ciudades;
 import carmenSandiego.modelo.ciudad.Ubicacion;
-import carmenSandiego.modelo.rango.*;
+import carmenSandiego.modelo.jugador.rango.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

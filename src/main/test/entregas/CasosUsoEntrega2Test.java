@@ -5,8 +5,10 @@ import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ciudad.Ciudades;
 import carmenSandiego.modelo.edificio.Edificio;
 import carmenSandiego.modelo.edificio.EdificioBanco;
-import carmenSandiego.modelo.rango.Rango;
-import carmenSandiego.modelo.rango.RangoInvestigador;
+import carmenSandiego.modelo.Interpol;
+import carmenSandiego.modelo.jugador.Jugador;
+import carmenSandiego.modelo.jugador.rango.Rango;
+import carmenSandiego.modelo.jugador.rango.RangoInvestigador;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

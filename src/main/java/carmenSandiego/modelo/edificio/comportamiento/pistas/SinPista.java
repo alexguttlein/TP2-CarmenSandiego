@@ -1,6 +1,4 @@
-package carmenSandiego.modelo.pistas;
-
-import carmenSandiego.modelo.comportamiento.ComportamientoPistas;
+package carmenSandiego.modelo.edificio.comportamiento.pistas;
 
 public class SinPista implements ComportamientoPistas {//ver que no sea una clase anemica
     private String base = "Disculpa no lo vimos por aca";

@@ -1,10 +1,13 @@
 package carmenSandiego.modelo.ciudad;
 
+import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.edificio.Edificio;
 
 import java.util.ArrayList;
 
 public class Ciudad {
+    //Creo q deberiamos desacernos de los strings y encapsularlo.
+    //Nose si utilizar la clase Caracteristica como los demas o crear una clase x cada atributo
     private String nombre;
     private String bandera;
     private String moneda;
@@ -57,23 +60,15 @@ public class Ciudad {
     public String getReligion(){return this.religion;}
     public String getGobierno(){return this.gobierno;}
     public String getVarios(){return this.varios;}
-
-    public int visitarEdificio(Edificio unEdificio){
-        return unEdificio.entrarAlEdificio();
-    }
+    public Ubicacion getUbicacion(){return this.ubicacion;}
+    public boolean getPasoLadron(){return this.pasoLadron;}
+    public Ciudad getCiudadSiguiente(){return this.ciudadSiguiente;}
+    private void setPasoLadron(){this.pasoLadron = true;}
 
     public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
         this.ciudadSiguiente = ciudadSiguiente;
         this.setPasoLadron();
     }
-
-    public Ciudad getCiudadSiguiente(){return this.ciudadSiguiente;}
-
-    private void setPasoLadron(){this.pasoLadron = true;}
-
-    public boolean getPasoLadron(){return this.pasoLadron;}
-
-    public Ubicacion getUbicacion(){return this.ubicacion;}
 
     public void setPistasEdificio(){
         if (ciudadSiguiente == null){
@@ -86,12 +81,16 @@ public class Ciudad {
         }
     }
 
-    public int viajarHasta(int velocidad, Ciudad ciudadDestino){
-        return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
+    public int visitarEdificio(Edificio unEdificio){
+        return unEdificio.entrarAlEdificio();
     }
 
     public void addEdificio(Edificio unEdificio){
         this.edificios.add(unEdificio);
+    }
+
+    public int viajarHasta(int velocidad, Ciudad ciudadDestino){
+        return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
     }
 
 }

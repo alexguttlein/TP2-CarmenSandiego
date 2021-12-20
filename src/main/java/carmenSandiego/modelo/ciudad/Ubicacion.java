@@ -12,13 +12,10 @@ public class Ubicacion {
     private void setLongitud(double longitud) {
         this.longitud = longitud;
     }
-
     private void setLatitud(double latitud) {
         this.latitud = latitud;
     }
-
     public double getLatitud(){return this.latitud;}
-
     public double getLongitud(){return this.longitud;}
 
     public double obtenerDistancia(Ubicacion ubicacionDestino) {

@@ -1,17 +1,17 @@
-package carmenSandiego.modelo.rango;
+package carmenSandiego.modelo.jugador.rango;
 
-public class RangoInvestigador implements Rango {
+public class RangoNovato implements Rango {
 
     private String rangoActual;
     private int cantidadDeArrestos;
     private int arrestosParaAscender;
     private int velocidad;
 
-    public RangoInvestigador(int arrestos){
+    public RangoNovato(int arrestos){
         this.cantidadDeArrestos = arrestos;
-        this.setArrestosParaAscender(20);
-        this.rangoActual = "Investigador";
-        this.setVelocidad(1300);
+        this.setArrestosParaAscender(5);
+        this.rangoActual = "Novato";
+        this.setVelocidad(900);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class RangoInvestigador implements Rango {
     @Override
     public Rango verificarRango(){
         if(this.getCantidadDeArrestos() == this.arrestosParaAscender)
-            return new RangoSargento(this.getCantidadDeArrestos());
+            return new RangoDetective(this.getCantidadDeArrestos());
         return this;
     }
 

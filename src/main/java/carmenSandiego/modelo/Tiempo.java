@@ -6,16 +6,16 @@ public class Tiempo {
     public Calendar calendario;
 
     public Tiempo(int hora, int dia, int mes, int anio){
-        Calendar calendario = new GregorianCalendar();
-        calendario.set(anio, mes, dia, hora, 0, 0);
-
-        setCalendario(calendario);
+        this.calendario = new GregorianCalendar(anio, mes, dia, hora,0);
+        //Calendar calendario = new GregorianCalendar();
+        //calendario.set(anio, mes, dia, hora, 0, 0);
+        //setCalendario(calendario);
+        //this.calendario = calendario;
     }
 
     private void setCalendario(Calendar calendario){
         this.calendario = calendario;
     }
-
     public Calendar getCalendario(){
         return this.calendario;
     }
@@ -25,15 +25,22 @@ public class Tiempo {
     }
 
     public int getHoraActual(){
-        return this.getCalendario().get(calendario.HOUR_OF_DAY);
+        return calendario.get(calendario.HOUR_OF_DAY);
+        //return calendario.HOUR_OF_DAY;
+        /*
+        Hay q ver si podemos/ esta bien acceder a los atributos de calendario directamente con el .
+        porque tenemos parte de codigo con ambas cosas.
+        ejemplo ya estamos accediendo a la hora del dia de calendario con el .HOUR_OF_DAY, porque
+        llamamos al metodo get() de calendario que devuelve el mismo numero.
+         */
     }
     public int getDiaActual(){
-        return this.getCalendario().get(calendario.DAY_OF_WEEK);
+        return calendario.get(calendario.DAY_OF_WEEK);
     }
     public int getMesActual() {
-        return this.getCalendario().get(calendario.MONTH);
+        return calendario.get(calendario.MONTH);
     }
-    public int getAnioActual(){return this.getCalendario().get(calendario.YEAR);}
+    public int getAnioActual(){return calendario.get(calendario.YEAR);}
 
     public boolean compararTiempos(Tiempo tiempo){
         boolean hora = this.getHoraActual() == tiempo.getHoraActual();

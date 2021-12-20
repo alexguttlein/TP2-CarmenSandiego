@@ -1,4 +1,4 @@
-package carmenSandiego.modelo.estadoJugador;
+package carmenSandiego.modelo.jugador.estado;
 
 import carmenSandiego.modelo.Tiempo;
 

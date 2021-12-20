@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Ladrones {
-
     private ArrayList<Ladron> ladrones = new ArrayList<>();
 
     public Ladrones(){
