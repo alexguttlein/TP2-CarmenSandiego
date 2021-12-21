@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ObjetoRobadoTest {
     Ciudad ciudadMock = mock(Ciudad.class);
-    Caracteristica objetoEspada = new Caracteristica("Espada de San Martin");
+    Caracteristica nombre = new Caracteristica("Espada de San Martin");
     Caracteristica importancia = new Caracteristica("Comun");
 
-    ObjetoRobado objetoRobado = new ObjetoRobado(objetoEspada, ciudadMock, importancia);
+    ObjetoRobado objetoRobado = new ObjetoRobado(nombre, ciudadMock, importancia);
 
     @Test
     public void seRobaUnObjetoComunDeLaCiudadDeBuenosAires(){

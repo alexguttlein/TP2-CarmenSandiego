@@ -13,7 +13,6 @@ public class ObjetosRobados {
 
     public ObjetosRobados(Ciudades ciudades){
         this.ciudades = ciudades;
-        //this.setCiudades(ciudades);
         inicializarObjetosRobados();
     }
 
@@ -41,7 +40,7 @@ public class ObjetosRobados {
 
     private Ciudad determinarCiudadDeOrigen(String nombreCiudadOrigen) {
         for(Ciudad c: this.ciudades.getCiudades())
-            if(nombreCiudadOrigen == c.getNombre())
+            if(nombreCiudadOrigen == c.getNombre().getCaracteristica())
                 return c;
         return null;
     }

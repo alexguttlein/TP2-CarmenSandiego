@@ -1,6 +1,9 @@
 package pruebasUnitarias;
 
 import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ubicacion;
+import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.edificio.EdificioBanco;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,7 +14,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CiudadTest {
-    ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
+
+    ArrayList pistasCiudadBuenosAires = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
@@ -46,14 +50,14 @@ public class CiudadTest {
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
         ciudadBuenosAires.setCiudadSiguiente(ciudadMontreal);
 
-        assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
-        assertTrue(ciudad.getPasoLadron());
+        assertEquals("Montreal", ciudadBuenosAires.getCiudadSiguiente().getNombre().getCaracteristica());
+        assertTrue(ciudadBuenosAires.getPasoLadron());
     }
 
     @Test
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
-        assertFalse(ciudad.getPasoLadron());
-        assertNull(ciudad.getCiudadSiguiente());
+        assertFalse(ciudadBuenosAires.getPasoLadron());
+        assertNull(ciudadBuenosAires.getCiudadSiguiente());
     }
 
     @Test

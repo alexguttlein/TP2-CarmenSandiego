@@ -35,19 +35,14 @@ public class Jugador {
     public Rango getRango(){
         return this.rango;
     }
-
     public Caracteristica getNombre(){return this.nombre;}
-
     public String getNombreRango(){return this.rango.getNombreRango();}
-
     public int getCantidadDeArrestos(){return this.rango.getCantidadDeArrestos();}
-
-    public void addArresto(){
-        this.rango.addArresto();
-        this.rango = rango.verificarRango();
-    }
-
     public Ciudad getCiudadActual(){return this.ciudadActual;}
+    private Tiempo getReloj(){
+        return this.reloj;
+    }
+    public int getVecesHeridoPorCuchillo(){return this.vecesHeridoPorCuchillo;}
 
     public void setCiudadActual(Ciudad ciudadActual){this.ciudadActual = ciudadActual;}
 
@@ -84,8 +79,10 @@ public class Jugador {
         this.estadoJugador = new EstadoSano();
     }
 
-    private Tiempo getReloj(){
-        return this.reloj;
+    public void viajar(Ciudad ciudadSiguiente){
+        int horasViaje = this.ciudadActual.viajarHasta(rango.getVelocidad(), ciudadSiguiente);
+        this.getReloj().addHoras(horasViaje);
+        this.setCiudadActual(ciudadSiguiente);
     }
 
     public void visitarEdificio(Edificio edificio) {

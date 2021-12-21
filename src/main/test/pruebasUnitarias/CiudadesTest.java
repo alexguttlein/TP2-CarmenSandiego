@@ -16,12 +16,12 @@ public class CiudadesTest {
     public void seInstancianCorrectamenteLasCiudades(){
         ArrayList<Ciudad> listaCiudades = ciudades.getCiudades();
 
-        assertEquals("Buenos Aires", listaCiudades.get(0).getNombre());
-        assertEquals("Pekin", listaCiudades.get(1).getNombre());
-        assertEquals("Baghdad", listaCiudades.get(2).getNombre());
-        assertEquals("Puerto Moresby", listaCiudades.get(3).getNombre());
-        assertEquals("El Cairo", listaCiudades.get(19).getNombre());
-        assertEquals("Kathmandu", listaCiudades.get(20).getNombre());
+        assertEquals("Buenos Aires", listaCiudades.get(0).getNombre().getCaracteristica());
+        assertEquals("Pekin", listaCiudades.get(1).getNombre().getCaracteristica());
+        assertEquals("Baghdad", listaCiudades.get(2).getNombre().getCaracteristica());
+        assertEquals("Puerto Moresby", listaCiudades.get(3).getNombre().getCaracteristica());
+        assertEquals("El Cairo", listaCiudades.get(19).getNombre().getCaracteristica());
+        assertEquals("Kathmandu", listaCiudades.get(20).getNombre().getCaracteristica());
     }
 
 }

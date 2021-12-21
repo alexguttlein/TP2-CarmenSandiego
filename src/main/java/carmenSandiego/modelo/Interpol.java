@@ -22,12 +22,6 @@ public class Interpol {
         this.ladron = ladron;
         this.estadoOrdenDeArresto = false;
         setPosibleLadron();
-
-        //setLadrones(ladrones);
-        //setEstadoOrdenDeArresto(false);
-        //setTiempo(tiempo);
-        //setJugador(jugador);
-        //setLadron(ladron);
     }
 
     private void setLadrones(Ladrones ladrones){

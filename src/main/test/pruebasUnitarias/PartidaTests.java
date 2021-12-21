@@ -35,7 +35,7 @@ public class PartidaTests {
         assertEquals(objetoRobadoMock.getNombre(), partida.getObjetoRobado().getNombre());
         assertEquals(ladronMock.getGenero(), partida.getLadronActual().getGenero());
         assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
-        assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre());
+        assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre().getCaracteristica());
     }
 
 }

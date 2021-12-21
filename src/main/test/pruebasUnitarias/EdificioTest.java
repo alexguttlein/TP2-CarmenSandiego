@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 public class EdificioTest {
-
     Edificio banco = new EdificioBanco();
     Edificio aeropuerto = new EdificioAeropuerto();
     Edificio biblioteca = new EdificioBiblioteca();

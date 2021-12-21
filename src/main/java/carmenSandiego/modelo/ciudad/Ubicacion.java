@@ -5,8 +5,8 @@ public class Ubicacion {
     double longitud;
 
     public Ubicacion(double latitud, double longitud) {
-        this.setLatitud(latitud);
-        this.setLongitud(longitud);
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public double getLatitud(){return this.latitud;}

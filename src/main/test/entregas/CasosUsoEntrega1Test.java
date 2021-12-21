@@ -12,6 +12,7 @@ import static java.util.Calendar.MONDAY;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasosUsoEntrega1Test<ciudadMexico> {
+
     ArrayList pistasCiudadMexico = new ArrayList(Arrays.asList("Ciudad de Mexico", "Verde, blanca y roja", "Peso",
             "Golfo", "Chichen Itza", "Mineria", "Aguila Real", "Frida Khalo", "Espaniol", "Mayas", "Catolicismo",
             "Presidente", "Tacos y picantes", "19.548689551677576", "-99.20369094783788"));
@@ -110,5 +111,6 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
 
         assertEquals(17, reloj.getHoraActual());
     }
+
 }
 
