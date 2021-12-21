@@ -1,6 +1,10 @@
 package pruebasUnitarias;
 
+import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ubicacion;
+import carmenSandiego.modelo.jugador.rango.Rango;
+import carmenSandiego.modelo.jugador.rango.RangoNovato;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,29 +24,27 @@ public class CiudadTest {
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
-        assertEquals("Buenos Aires", ciudad.getNombre());
-        assertEquals("Celeste y blanca con un sol", ciudad.getBandera());
-        assertEquals("Peso", ciudad.getMoneda());
-        assertEquals("Campos", ciudad.getGeografia());
-        assertEquals("Cataratas del Iguazu", ciudad.getHitos());
-        assertEquals("Ganaderia", ciudad.getIndustria());
-        assertEquals("Yaguarete", ciudad.getAnimales());
-        assertEquals("Messi", ciudad.getPersonalidades());
-        assertEquals("Espaniol", ciudad.getIdioma());
-        assertEquals("Arte Mapuche", ciudad.getArte());
-        assertEquals("Cristianismo", ciudad.getReligion());
-        assertEquals("Presidente", ciudad.getGobierno());
-        assertEquals("Antigua Colonia Espaniola", ciudad.getVarios());
-        assertEquals(-34.58952254327074, ciudad.getUbicacion().getLatitud());
-        assertEquals(-58.34678308238882, ciudad.getUbicacion().getLongitud());
+        assertTrue(new Caracteristica(("Buenos Aires")).compararCaracteristica(ciudad.getNombre()));
+        assertTrue(new Caracteristica(("Peso")).compararCaracteristica(ciudad.getMoneda()));
+        assertTrue(new Caracteristica(("Campos")).compararCaracteristica(ciudad.getGeografia()));
+        assertTrue(new Caracteristica(("Cataratas del Iguazu")).compararCaracteristica(ciudad.getHitos()));
+        assertTrue(new Caracteristica(("Ganaderia")).compararCaracteristica(ciudad.getIndustria()));
+        assertTrue(new Caracteristica(("Yaguarete")).compararCaracteristica(ciudad.getAnimales()));
+        assertTrue(new Caracteristica(("Messi")).compararCaracteristica(ciudad.getPersonalidades()));
+        assertTrue(new Caracteristica(("Espaniol")).compararCaracteristica(ciudad.getIdioma()));
+        assertTrue(new Caracteristica(("Arte Mapuche")).compararCaracteristica(ciudad.getArte()));
+        assertTrue(new Caracteristica(("Cristianismo")).compararCaracteristica(ciudad.getReligion()));
+        assertTrue(new Caracteristica(("Presidente")).compararCaracteristica(ciudad.getGobierno()));
+        assertTrue(new Caracteristica(("Antigua Colonia Espaniola")).compararCaracteristica(ciudad.getVarios()));
+        assertTrue(new Ubicacion(-34.58952254327074,-58.34678308238882).compararUbicacion(ciudad.getUbicacion()));
     }
 
     @Test
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
-        when(ciudadMock.getNombre()).thenReturn("Londres");
+        when(ciudadMock.getNombre()).thenReturn(new Caracteristica("Londres"));
         ciudad.setCiudadSiguiente(ciudadMock);
 
-        assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
+        assertTrue(ciudad.getCiudadSiguiente().getNombre().compararCaracteristica(ciudadMock.getNombre()));
         assertTrue(ciudad.getPasoLadron());
     }
 
@@ -50,6 +52,15 @@ public class CiudadTest {
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
         assertFalse(ciudad.getPasoLadron());
         assertNull(ciudad.getCiudadSiguiente());
+    }
+
+    @Test
+    public void seDefineElRangoDeUnJugadorAUnaCiudad(){
+        Rango rango = new RangoNovato(0);
+        Rango rangoNovato = new RangoNovato(0);
+        ciudad.setRangoPersonaje(rango);
+
+        assertTrue(ciudad.getRango().compararRangos(rangoNovato));
     }
 
 

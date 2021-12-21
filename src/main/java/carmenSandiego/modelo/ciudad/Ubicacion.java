@@ -40,4 +40,11 @@ public class Ubicacion {
     public int obtenerHorasDeViaje(Ubicacion ubicacionDestino, int velocidad) {
         return (int) Math.round((obtenerDistancia(ubicacionDestino) / velocidad));
     }
+
+    public boolean compararUbicacion(Ubicacion ubicacion){
+        boolean latitud = this.latitud == ubicacion.getLatitud();
+        boolean longitud = this.longitud == ubicacion.getLongitud();
+
+        return latitud && longitud;
+    }
 }

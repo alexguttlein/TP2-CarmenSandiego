@@ -4,10 +4,12 @@ public class RangoSargento implements Rango {
 
     private String rangoActual;
     private int cantidadDeArrestos;
+    private int arrestosParaAscender;
     private int velocidad;
 
     public RangoSargento(int arrestos){
         this.cantidadDeArrestos = arrestos;
+        this.setArrestosParaAscender(30);
         this.rangoActual = "Sargento";
         this.setVelocidad(1500);
     }
@@ -16,7 +18,10 @@ public class RangoSargento implements Rango {
     public int getCantidadDeArrestos(){return this.cantidadDeArrestos;}
 
     @Override
-    public void setArrestosParaAscender(int arrestosParaAscender){}
+    public void setArrestosParaAscender(int arrestosParaAscender){
+        this.arrestosParaAscender = arrestosParaAscender;
+    }
+
 
     @Override
     public boolean compararRangos(Rango rango) {
@@ -26,7 +31,7 @@ public class RangoSargento implements Rango {
     }
 
     @Override
-    public int getArrestosParaAscender(){return 0;}
+    public int getArrestosParaAscender(){return this.arrestosParaAscender;}
 
     @Override
     public void addArresto(){

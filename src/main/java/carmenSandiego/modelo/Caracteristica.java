@@ -1,6 +1,7 @@
 package carmenSandiego.modelo;
 
 public class Caracteristica {
+
     String caracteristica;
 
     public Caracteristica(String caracteristica){

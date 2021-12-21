@@ -12,14 +12,14 @@ public class Tiempo {
         //setCalendario(calendario);
         //this.calendario = calendario;
     }
-
+/*
     private void setCalendario(Calendar calendario){
         this.calendario = calendario;
     }
     public Calendar getCalendario(){
         return this.calendario;
     }
-
+*/
     public void addHoras(int horas){
         calendario.add(calendario.HOUR_OF_DAY, horas);
     }
