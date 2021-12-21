@@ -41,5 +41,4 @@ public class ComportamientoPistaTest {
         //pistaPuerto.mostrarPistas();
         assertEquals("Al lugar que iba exportaban mucho ganaderia", pistaPuerto.getPista());
     }
-
 }

@@ -5,7 +5,6 @@ import carmenSandiego.modelo.Tiempo;
 import carmenSandiego.modelo.jugador.Jugador;
 import carmenSandiego.modelo.ciudad.Ciudad;
 
-import carmenSandiego.modelo.rango.RangoDetective;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class JugadorTest {
-
     Ciudad ciudadMexico = new Ciudad(new ArrayList(Arrays.asList("Mexico","verde, blanca y roja", "Peso",
             "asd", "asd", "asd", "ads", "ads", "español", "asd",
             "asd", "asd", "asd", "23.564780856080713", "-101.16072897108585")));
@@ -113,14 +111,6 @@ public class JugadorTest {
 
 
     @Test
-    public void seAsignaUnaCiudadAJugador(){
-        when(ciudadMock.getNombre()).thenReturn("Buenos Aires");
-        jugador.setCiudadActual(ciudadMock);
-
-        assertEquals("Buenos Aires", jugador.getCiudadActual().getNombre());
-    }
-
-    @Test
     public void jugadorEsHeridoPorCuchilloUnaVezYPasan2Horas(){
         jugador.serHeridoPorCuchillo();
         jugador.sanar();
@@ -152,11 +142,4 @@ public class JugadorTest {
         assertEquals(15, reloj.getHoraActual());
     }
 
-    @Test
-    public void jugadorSeCreaConRangoDetective(){
-        Tiempo tiempoMock = mock(Tiempo.class);
-        Jugador jugador = new Jugador("Carlos,", tiempoMock, new RangoDetective(13));
-
-        assertEquals("Detective", jugador.getNombreRango());
-    }
 }

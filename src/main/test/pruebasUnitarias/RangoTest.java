@@ -55,13 +55,5 @@ public class RangoTest {
         assertTrue(sargento.compararRangos(rangoEsperado));
     }
 
-    @Test
-    public void cadaRangoRealizaUnViajeDeIgualDistanciaEnDiferenteTiempo(){
-        double viaje = 10000;
-
-        assertEquals(11,(int)novato.getTiempoDeViaje(viaje));
-        assertEquals(9,(int)detective.getTiempoDeViaje(viaje));
-        assertEquals(7,(int)investigador.getTiempoDeViaje(viaje));
-        assertEquals(6,(int)sargento.getTiempoDeViaje(viaje));
-    }
 }
+

@@ -111,3 +111,4 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         assertEquals(17, reloj.getHoraActual());
     }
 }
+

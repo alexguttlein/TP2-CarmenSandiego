@@ -130,6 +130,7 @@ public class EdificioTest {
         }
         assertEquals(12, demoraTotal);
     }
+
 }
 
 

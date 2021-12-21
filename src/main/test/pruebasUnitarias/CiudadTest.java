@@ -15,32 +15,36 @@ public class CiudadTest {
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
-    Ciudad ciudad = new Ciudad(pistasCiudad);
-    Ciudad ciudadMock = mock(Ciudad.class);
+    ArrayList pistasCiudadMontreal = new ArrayList(Arrays.asList("Montreal","Roja y blanca", "dolar canadiense",
+            "asd", "asd", "asd", "asd", "asd", "ingles", "asd", "asd", "asd", "asd",
+            "45.573279804398034", "-73.49124739806629"));
+
+    Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
+    Ciudad ciudadMontreal = new Ciudad(pistasCiudadMontreal);
+    Edificio bancoMock = mock(EdificioBanco.class);
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
-        assertEquals("Buenos Aires", ciudad.getNombre());
-        assertEquals("Celeste y blanca con un sol", ciudad.getBandera());
-        assertEquals("Peso", ciudad.getMoneda());
-        assertEquals("Campos", ciudad.getGeografia());
-        assertEquals("Cataratas del Iguazu", ciudad.getHitos());
-        assertEquals("Ganaderia", ciudad.getIndustria());
-        assertEquals("Yaguarete", ciudad.getAnimales());
-        assertEquals("Messi", ciudad.getPersonalidades());
-        assertEquals("Espaniol", ciudad.getIdioma());
-        assertEquals("Arte Mapuche", ciudad.getArte());
-        assertEquals("Cristianismo", ciudad.getReligion());
-        assertEquals("Presidente", ciudad.getGobierno());
-        assertEquals("Antigua Colonia Espaniola", ciudad.getVarios());
-        assertEquals(-34.58952254327074, ciudad.getUbicacion().getLatitud());
-        assertEquals(-58.34678308238882, ciudad.getUbicacion().getLongitud());
+        assertEquals("Buenos Aires", ciudadBuenosAires.getNombre().getCaracteristica());
+        assertEquals("Celeste y blanca con un sol", ciudadBuenosAires.getBandera().getCaracteristica());
+        assertEquals("Peso", ciudadBuenosAires.getMoneda().getCaracteristica());
+        assertEquals("Campos", ciudadBuenosAires.getGeografia().getCaracteristica());
+        assertEquals("Cataratas del Iguazu", ciudadBuenosAires.getHitos().getCaracteristica());
+        assertEquals("Ganaderia", ciudadBuenosAires.getIndustria().getCaracteristica());
+        assertEquals("Yaguarete", ciudadBuenosAires.getAnimales().getCaracteristica());
+        assertEquals("Messi", ciudadBuenosAires.getPersonalidades().getCaracteristica());
+        assertEquals("Espaniol", ciudadBuenosAires.getIdioma().getCaracteristica());
+        assertEquals("Arte Mapuche", ciudadBuenosAires.getArte().getCaracteristica());
+        assertEquals("Cristianismo", ciudadBuenosAires.getReligion().getCaracteristica());
+        assertEquals("Presidente", ciudadBuenosAires.getGobierno().getCaracteristica());
+        assertEquals("Antigua Colonia Espaniola", ciudadBuenosAires.getVarios().getCaracteristica());
+        assertEquals(-34.58952254327074, ciudadBuenosAires.getUbicacion().getLatitud());
+        assertEquals(-58.34678308238882, ciudadBuenosAires.getUbicacion().getLongitud());
     }
 
     @Test
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
-        when(ciudadMock.getNombre()).thenReturn("Londres");
-        ciudad.setCiudadSiguiente(ciudadMock);
+        ciudadBuenosAires.setCiudadSiguiente(ciudadMontreal);
 
         assertEquals("Londres", ciudad.getCiudadSiguiente().getNombre());
         assertTrue(ciudad.getPasoLadron());
@@ -52,5 +56,18 @@ public class CiudadTest {
         assertNull(ciudad.getCiudadSiguiente());
     }
 
+    @Test
+    public void jugadorVisitaBanco1Vez(){
+        when(bancoMock.entrarAlEdificio()).thenReturn(1);
+        int resultadoEsperado = ciudadBuenosAires.visitarEdificio(bancoMock);
 
+        assertEquals(1, resultadoEsperado);
+    }
+
+    @Test
+    public void jugadorViajaDeBuenosAiresAMontreal(){
+        int resultadoEsperado = ciudadBuenosAires.viajarHasta(1000, ciudadMontreal);
+
+        assertEquals(9, resultadoEsperado);
+    }
 }

@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -31,9 +32,10 @@ public class App extends Application {
 
 
         HBox contenedorImagenCarmenSandiego = new HBox();
-        Image imagenFondo = new Image("https://styleworkscreative.com/wp-content/uploads/2018/09/Carmen-Sandiego-Logo-A.png",898,645,false, false);
+        Image imagenFondo2 = new Image("file:src/main/java/datosDelJuego/ImagenFondo.png");
+        //Image imagenFondo = new Image("https://styleworkscreative.com/wp-content/uploads/2018/09/Carmen-Sandiego-Logo-A.png",898,645,false, false);
         BackgroundSize backgroundSize = new BackgroundSize(1280, 720, false, false, false, false);
-        BackgroundImage image = new BackgroundImage(imagenFondo,
+        BackgroundImage image = new BackgroundImage(imagenFondo2,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT, //CENTER para que se mueva, DEFAULT estática.

@@ -5,7 +5,6 @@ public class RangoInvestigador implements Rango {
     private String rangoActual;
     private int cantidadDeArrestos;
     private int arrestosParaAscender;
-    private int velocidad;
 
     public RangoInvestigador(int arrestos){
         this.cantidadDeArrestos = arrestos;
@@ -47,8 +46,8 @@ public class RangoInvestigador implements Rango {
 
     @Override
     public Rango verificarRango(){
-        if(this.getCantidadDeArrestos() == this.arrestosParaAscender)
-            return new RangoSargento(this.getCantidadDeArrestos());
+        if(this.cantidadDeArrestos == this.arrestosParaAscender)
+            return new RangoSargento(this.cantidadDeArrestos);
         return this;
     }
 

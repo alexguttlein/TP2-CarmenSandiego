@@ -21,7 +21,6 @@ public class PartidaTests {
     Ciudades ciudades = new Ciudades();
     Partida partida = new Partida(jugadorMock, objetoRobadoMock, ladronMock, interpolMock, tiempoMock, ciudades);
 
-    /*
     @Test
     public void partidaRecibeLosObjetosInstanciadosCorrectamente(){
 
@@ -39,6 +38,5 @@ public class PartidaTests {
         assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre());
     }
 
-     */
-
 }
+

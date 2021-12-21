@@ -9,12 +9,6 @@ public class Ubicacion {
         this.setLongitud(longitud);
     }
 
-    private void setLongitud(double longitud) {
-        this.longitud = longitud;
-    }
-    private void setLatitud(double latitud) {
-        this.latitud = latitud;
-    }
     public double getLatitud(){return this.latitud;}
     public double getLongitud(){return this.longitud;}
 

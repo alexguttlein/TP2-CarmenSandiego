@@ -47,8 +47,8 @@ public class RangoDetective implements Rango {
 
     @Override
     public Rango verificarRango(){
-        if(this.getCantidadDeArrestos() == this.arrestosParaAscender)
-            return new RangoInvestigador(this.getCantidadDeArrestos());
+        if(this.cantidadDeArrestos == this.arrestosParaAscender)
+            return new RangoInvestigador(this.cantidadDeArrestos);
         return this;
     }
 

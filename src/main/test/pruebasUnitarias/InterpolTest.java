@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 public class InterpolTest {
-
     Jugador jugadorMock = mock(Jugador.class);
     Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
     Ladrones ladrones = new Ladrones();

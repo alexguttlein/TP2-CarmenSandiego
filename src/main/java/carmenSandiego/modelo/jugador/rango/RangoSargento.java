@@ -1,10 +1,6 @@
 package carmenSandiego.modelo.jugador.rango;
 
-public class RangoSargento implements Rango {
-
-    private String rangoActual;
-    private int cantidadDeArrestos;
-    private int velocidad;
+public class RangoSargento extends Rango {
 
     public RangoSargento(int arrestos){
         this.cantidadDeArrestos = arrestos;

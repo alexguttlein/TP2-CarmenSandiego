@@ -30,15 +30,6 @@ public class UbicacionTest {
     }
 
     @Test
-    public void obtengoHorasDeViaje(){
-        int velocidad = 1100;
-        int horasDeViaje = ubicacionDestino.obtenerHorasDeViaje(ubicacionSalida, velocidad);
-
-        assertEquals(3, horasDeViaje);
-    }
-
-    /*
-    @Test
     public void obtengoLaCantidadDeHorasQueLlevaViajarDesdeMontrealAMexicoParaLosDistintosRangos(){
         Rango novatoMock = mock(RangoNovato.class);
         Rango detectiveMock = mock(RangoDetective.class);
@@ -56,18 +47,6 @@ public class UbicacionTest {
         assertEquals(2, ubicacionSalida.obtenerHorasDeViaje(ubicacionDestino, sargentoMock.getVelocidad()));
     }
 
-    @Test
-    public void seObtieneDistanciaEntreDistintasCiudades(){
-        ArrayList<Ciudad> listaCiudades = ciudades.getCiudades();
-        Ciudad ciudadBuenosAires = listaCiudades.get(0);
-        Ciudad ciudadRoma = listaCiudades.get(12);
-        Ciudad ciudadOslo = listaCiudades.get(5);
-
-        assertEquals(12244, ubicacionSalida.obtenerDistancia(ubicacionDestino.getLatitud(), ubicacionDestino.getLongitud());
-        assertEquals(11147, ciudadBuenosAires.getUbicacion().obtenerDistancia(ciudadRoma.getUbicacion()));
-        assertEquals(2007, ciudadOslo.getUbicacion().obtenerDistancia(ciudadRoma.getUbicacion()));
-        assertEquals(0, ciudadOslo.getUbicacion().obtenerDistancia(ciudadOslo.getUbicacion()));
-    }
 
     @Test
     public void seObtienenTiemposDeViajeEntreDistintasCiudadesParaJugadorNovato(){
@@ -81,6 +60,4 @@ public class UbicacionTest {
         assertEquals(2, ciudadRoma.getUbicacion().obtenerHorasDeViaje(ciudadOslo.getUbicacion(), 900));
         assertEquals(0, ciudadRoma.getUbicacion().obtenerHorasDeViaje(ciudadRoma.getUbicacion(), 900));
     }
-
-     */
 }

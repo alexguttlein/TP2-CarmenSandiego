@@ -11,12 +11,12 @@ public class Ladron {
     private Caracteristica vehiculo;
 
     public Ladron(ArrayList<String> datosLadron){
-        setNombre(new Caracteristica(datosLadron.get(0)));
-        setGenero(new Caracteristica(datosLadron.get(1)));
-        setHobby(new Caracteristica(datosLadron.get(2)));
-        setCabello(new Caracteristica(datosLadron.get(3)));
-        setSenia(new Caracteristica(datosLadron.get(4)));
-        setVehiculo(new Caracteristica(datosLadron.get(5)));
+        this.nombre = new Caracteristica(datosLadron.get(0));
+        this.genero = new Caracteristica(datosLadron.get(1));
+        this.hobby = new Caracteristica(datosLadron.get(2));
+        this.cabello = new Caracteristica(datosLadron.get(3));
+        this.senia = new Caracteristica(datosLadron.get(4));
+        this.vehiculo = new Caracteristica(datosLadron.get(5));
     }
 
     public void setNombre(Caracteristica nombre){this.nombre = nombre;}
@@ -34,13 +34,18 @@ public class Ladron {
     public Caracteristica getVehiculo(){return this.vehiculo;}
 
     public boolean compararConLadron(Ladron otroLadron){
-        boolean equalNombre = nombre.compararCaracteristica(otroLadron.getNombre());
-        boolean equalGenero = genero.compararCaracteristica(otroLadron.getGenero());
-        boolean equalHobby = hobby.compararCaracteristica(otroLadron.getHobby());
-        boolean equalCabello = cabello.compararCaracteristica(otroLadron.getCabello());
-        boolean equalSenia = senia.compararCaracteristica(otroLadron.getSenia());
-        boolean equalVehiculo = vehiculo.compararCaracteristica(otroLadron.getVehiculo());
+        return otroLadron.compararCaracteristicas(nombre, genero, hobby, cabello, senia, vehiculo);
+    }
 
-        return equalNombre && equalGenero && equalHobby && equalCabello && equalSenia && equalVehiculo;
+    private boolean compararCaracteristicas(Caracteristica unNombre, Caracteristica unGenero, Caracteristica unHobby,
+                                            Caracteristica unCabello, Caracteristica unaSenia, Caracteristica unVehiculo){
+        boolean mismoNombre = this.nombre.compararCaracteristica(unNombre);
+        boolean mismoGenero = this.genero.compararCaracteristica(unGenero);
+        boolean mismoHobby = this.hobby.compararCaracteristica(unHobby);
+        boolean mismoCabello = this.cabello.compararCaracteristica(unCabello);
+        boolean mismaSenia = this.senia.compararCaracteristica(unaSenia);
+        boolean mismoVehiculo = this.vehiculo.compararCaracteristica(unVehiculo);
+
+        return mismoNombre && mismoGenero && mismoHobby && mismoCabello && mismaSenia && mismoVehiculo;
     }
 }

@@ -39,11 +39,4 @@ public class Ladrones {
         return this.ladrones;
     }
 
-    public void mostrar(){
-        for (Ladron ladronActual : ladrones){
-            ladronActual.mostrarDetallesLadron();
-            //System.out.println("\n");
-        }
-    }
-
 }
