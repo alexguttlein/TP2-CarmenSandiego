@@ -4,6 +4,8 @@ import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.edificio.Edificio;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Ciudad {
     private Caracteristica nombre;
@@ -23,6 +25,7 @@ public class Ciudad {
 
     private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;
+    private ArrayList<Ciudad> ciudadesSecundarias = new ArrayList<>();
     private boolean pasoLadron;
 
     public Ciudad(ArrayList<String> pistasCiudad){
@@ -81,6 +84,12 @@ public class Ciudad {
         }
     }
 
+    public void agregarCiudadSecundaria(Ciudad nuevaCiudadSecundaria){
+        ciudadesSecundarias.add(nuevaCiudadSecundaria);
+    }
+
+    public ArrayList<Ciudad> getCiudadesSecundarias(){return this.ciudadesSecundarias;}
+
     public int visitarEdificio(Edificio unEdificio){
         return unEdificio.entrarAlEdificio();
     }
@@ -97,6 +106,15 @@ public class Ciudad {
         return ubicacion.obtenerHorasDeViaje(ubicacionOrigen, velocidad);
     }
 
+    public ArrayList<Ciudad> getCiudadesDisponiblesParaViajar(){       //Arma un arreglo con la ciudadSiguiente y las secundarias
+        ArrayList<Ciudad> ciudadesDisponibles = new ArrayList<>();     //y las mezcla para luego elegir a cual viajar.
+        for(Ciudad actual : this.ciudadesSecundarias){
+            ciudadesDisponibles.add(actual);
+        }
+        ciudadesDisponibles.add(ciudadSiguiente);
+        Collections.shuffle(ciudadesDisponibles);
+        return ciudadesDisponibles;
+    }
 }
 
 
