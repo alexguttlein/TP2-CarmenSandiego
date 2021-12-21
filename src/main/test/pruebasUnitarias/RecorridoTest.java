@@ -106,6 +106,7 @@ public class RecorridoTest {
         assertEquals(2, ciudad7.getCiudadesSecundarias().size());
     }
 
+    /*
     @Test
     public void cadaCiudadTieneCiudadesSecundariasDiferentes(){
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
@@ -128,4 +129,6 @@ public class RecorridoTest {
             }
         }
     }
+
+     */
 }
