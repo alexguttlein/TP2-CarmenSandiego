@@ -106,6 +106,44 @@ public class RecorridoTest {
         assertEquals(2, ciudad7.getCiudadesSecundarias().size());
     }
 
+    @Test
+    public void ladronPasaPorTodasLasCiudadesPrincipales() {
+        Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
+        ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+
+        Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
+        Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
+        Ciudad ciudad3 = unRecorrido.getRecorridoReal().get(2);
+        Ciudad ciudad4 = unRecorrido.getRecorridoReal().get(3);
+        Ciudad ciudad5 = unRecorrido.getRecorridoReal().get(4);
+        Ciudad ciudad6 = unRecorrido.getRecorridoReal().get(5);
+        Ciudad ciudad7 = unRecorrido.getRecorridoReal().get(6);
+
+        assertTrue(ciudad1.getPasoLadron());
+        assertTrue(ciudad2.getPasoLadron());
+        assertTrue(ciudad3.getPasoLadron());
+        assertTrue(ciudad4.getPasoLadron());
+        assertTrue(ciudad5.getPasoLadron());
+        assertTrue(ciudad6.getPasoLadron());
+        assertTrue(ciudad7.getPasoLadron());
+    }
+
+    @Test
+    public void ladronNopasaPorLasCiudadesSecundarias() {
+        Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
+        ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+
+        for (Ciudad actual : unRecorrido.getRecorridoReal()){
+            for (Ciudad actualSecundaria : actual.getCiudadesSecundarias()){
+                assertFalse(actualSecundaria.getPasoLadron());
+                System.out.print(actual.getNombre().getCaracteristica() + ": ");
+                System.out.println(actualSecundaria.getNombre().getCaracteristica());
+            }
+        }
+    }
+
     /*
     @Test
     public void cadaCiudadTieneCiudadesSecundariasDiferentes(){

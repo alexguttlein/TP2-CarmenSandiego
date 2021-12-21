@@ -37,6 +37,7 @@ public class Recorrido {
             recorridoReal.get(i).setCiudadSiguiente(ciudadSiguiente);
         }
         agregarCiudadesSecundarias(cantidadDePaises);
+        recorridoReal.get(cantidadDePaises-1).setLadronUltimaCiudad();
     }
 
     private void removerCiudadOrigen(Ciudad ciudadOrigen) {
