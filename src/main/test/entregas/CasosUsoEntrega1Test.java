@@ -12,7 +12,7 @@ import static java.util.Calendar.MONDAY;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasosUsoEntrega1Test<ciudadMexico> {
-    ArrayList pistasCiudadMexico = new ArrayList(Arrays.asList("Ciudad de Mexico", "Verde, blanca y roja", "Peso",
+/*    ArrayList pistasCiudadMexico = new ArrayList(Arrays.asList("Ciudad de Mexico", "Verde, blanca y roja", "Peso",
             "Golfo", "Chichen Itza", "Mineria", "Aguila Real", "Frida Khalo", "Espaniol", "Mayas", "Catolicismo",
             "Presidente", "Tacos y picantes", "19.548689551677576", "-99.20369094783788"));
     ArrayList pistasMontreal = new ArrayList(Arrays.asList("Montreal", "Bandera con la hoja de arce", "Dolar",
@@ -22,14 +22,13 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
-    Edificio banco = new EdificioBanco();
-    Edificio aeropuerto = new EdificioAeropuerto();
-    Edificio biblioteca = new EdificioBiblioteca();
-    Edificio puerto = new EdificioPuerto();
+    Edificio banco = new EdificioBanco(new Caracteristica("Banco"));
+    Edificio aeropuerto = new EdificioAeropuerto(new Caracteristica("Aeropuerto"));
+    Edificio biblioteca = new EdificioBiblioteca(new Caracteristica("Biblioteca"));
+    Edificio puerto = new EdificioPuerto(new Caracteristica("Puerto"));
 
     Tiempo reloj = new Tiempo(7, 4, 0, 2021);
     Jugador jugador = new Jugador("Max", reloj);
-//    Reloj reloj = Reloj.getInstance();
 
     @Test
     public void jugadorVisitaBancoDeMontreal(){
@@ -40,7 +39,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         jugador.setCiudadActual(ciudadMontreal);
 
         jugador.visitarEdificio(banco);
-        String pistaEsperada = banco.getPista();
+        Pista pistaEsperada = banco.getPista();
 
         assertEquals("Vino a cambiar un poco de Peso", pistaEsperada);
         assertEquals(8, reloj.getHoraActual());
@@ -109,5 +108,5 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
         jugador.dormir();
 
         assertEquals(17, reloj.getHoraActual());
-    }
+    }*/
 }

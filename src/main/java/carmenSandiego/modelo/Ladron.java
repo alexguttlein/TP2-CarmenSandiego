@@ -1,6 +1,7 @@
 package carmenSandiego.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ladron {
     private Caracteristica nombre;
@@ -9,6 +10,7 @@ public class Ladron {
     private Caracteristica cabello;
     private Caracteristica senia;
     private Caracteristica vehiculo;
+    private List<Caracteristica> listaCaracteristicas = new ArrayList<>();
 
     public Ladron(ArrayList<String> datosLadron){
         setNombre(new Caracteristica(datosLadron.get(0)));
@@ -20,11 +22,11 @@ public class Ladron {
     }
 
     public void setNombre(Caracteristica nombre){this.nombre = nombre;}
-    public void setGenero(Caracteristica genero){this.genero = genero;}
-    public void setHobby(Caracteristica hobby){this.hobby = hobby;}
-    public void setCabello(Caracteristica cabello){this.cabello = cabello;}
-    public void setSenia(Caracteristica senia){this.senia = senia;}
-    public void setVehiculo(Caracteristica vehiculo){this.vehiculo = vehiculo;}
+    public void setGenero(Caracteristica genero){this.genero = genero; listaCaracteristicas.add(genero);}
+    public void setHobby(Caracteristica hobby){this.hobby = hobby; listaCaracteristicas.add(hobby);}
+    public void setCabello(Caracteristica cabello){this.cabello = cabello; listaCaracteristicas.add(cabello);}
+    public void setSenia(Caracteristica senia){this.senia = senia; listaCaracteristicas.add(senia);}
+    public void setVehiculo(Caracteristica vehiculo){this.vehiculo = vehiculo; listaCaracteristicas.add(vehiculo);}
 
     public Caracteristica getNombre(){return this.nombre;}
     public Caracteristica getGenero(){return this.genero;}
@@ -32,6 +34,7 @@ public class Ladron {
     public Caracteristica getCabello(){return this.cabello;}
     public Caracteristica getSenia(){return this.senia;}
     public Caracteristica getVehiculo(){return this.vehiculo;}
+    public List<Caracteristica> getListaCaracteristicas(){return this.listaCaracteristicas;}
 
     public boolean compararConLadron(Ladron otroLadron){
         boolean equalNombre = nombre.compararCaracteristica(otroLadron.getNombre());

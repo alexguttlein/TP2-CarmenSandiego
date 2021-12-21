@@ -17,6 +17,7 @@ import static org.mockito.Mockito.when;
 
 public class JugadorTest {
 
+
     Ciudad ciudadMexico = new Ciudad(new ArrayList(Arrays.asList("Mexico","verde, blanca y roja", "Peso",
             "asd", "asd", "asd", "ads", "ads", "español", "asd",
             "asd", "asd", "asd", "23.564780856080713", "-101.16072897108585")));
@@ -33,7 +34,6 @@ public class JugadorTest {
     public void porDefectoUnJugadorTieneCeroArrestos(){
         Caracteristica esperado = new Caracteristica("Alex");
 
-        //assertEquals("Alex", jugador.getNombre());
         assertTrue(esperado.compararCaracteristica(jugador.getNombre()));
         assertEquals(0, jugador.getCantidadDeArrestos());
     }
@@ -113,10 +113,10 @@ public class JugadorTest {
 
     @Test
     public void seAsignaUnaCiudadAJugador(){
-        when(ciudadMock.getNombre()).thenReturn("Buenos Aires");
+        when(ciudadMock.getNombre()).thenReturn(new Caracteristica("Buenos Aires"));
         jugador.setCiudadActual(ciudadMock);
 
-        assertEquals("Buenos Aires", jugador.getCiudadActual().getNombre());
+        assertTrue(jugador.getCiudadActual().getNombre().compararCaracteristica(ciudadMock.getNombre()));
     }
 
     @Test

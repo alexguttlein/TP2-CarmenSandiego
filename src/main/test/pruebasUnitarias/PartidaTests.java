@@ -8,6 +8,7 @@ import carmenSandiego.modelo.Interpol;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -35,7 +36,7 @@ public class PartidaTests {
         assertEquals(objetoRobadoMock.getNombre(), partida.getObjetoRobado().getNombre());
         assertEquals(ladronMock.getGenero(), partida.getLadronActual().getGenero());
         assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
-        assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre());
+        assertTrue(new Caracteristica("Buenos Aires").compararCaracteristica(partida.getCiudades().getCiudades().get(0).getNombre()));
     }
 
 }
