@@ -7,16 +7,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Ladrones {
-    private ArrayList<Ladron> ladrones = new ArrayList<>();
+    private final ArrayList<Ladron> ladrones = new ArrayList<>();
 
     public Ladrones(){
         inicializarLadrones();
     }
 
     private void inicializarLadrones() {
-        ArrayList<ArrayList<String>> datosLadrones;
         LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/ladrones.csv");
-        datosLadrones = leerArchivo.getLectura();
+        ArrayList<ArrayList<String>> datosLadrones = leerArchivo.getLectura();
 
         for(ArrayList<String> ladron: datosLadrones) {
             crearLadron(ladron);
@@ -24,7 +23,7 @@ public class Ladrones {
     }
 
     private void crearLadron(ArrayList<String> datosLadron){
-        ArrayList datos = new ArrayList<>(Arrays.asList());
+        ArrayList<String> datos = new ArrayList<>(Arrays.asList());
         for(String d: datosLadron)
             datos.add(d);
         Ladron ladron = new Ladron(datos);

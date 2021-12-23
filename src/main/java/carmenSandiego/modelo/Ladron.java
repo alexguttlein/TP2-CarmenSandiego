@@ -1,6 +1,7 @@
 package carmenSandiego.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ladron {
     private Caracteristica nombre;

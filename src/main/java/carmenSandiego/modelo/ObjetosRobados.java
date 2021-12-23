@@ -31,16 +31,16 @@ public class ObjetosRobados {
 
     private void crearObjetoRobado(ArrayList<String> datosObjetoRobado) {
         Caracteristica nombre = new Caracteristica(datosObjetoRobado.get(0));
-        Ciudad ciudadOrigen = determinarCiudadDeOrigen(datosObjetoRobado.get(1));
+        Ciudad ciudadOrigen = determinarCiudadDeOrigen(new Caracteristica(datosObjetoRobado.get(1)));
         Caracteristica importancia = new Caracteristica(datosObjetoRobado.get(2));
 
         ObjetoRobado objetoRobado = new ObjetoRobado(nombre, ciudadOrigen, importancia);
         addObjetoRobado(objetoRobado);
     }
 
-    private Ciudad determinarCiudadDeOrigen(String nombreCiudadOrigen) {
+    private Ciudad determinarCiudadDeOrigen(Caracteristica nombreCiudadOrigen) {
         for(Ciudad c: this.ciudades.getCiudades())
-            if(nombreCiudadOrigen == c.getNombre().getCaracteristica())
+            if(nombreCiudadOrigen.compararCaracteristica(c.getNombre()))
                 return c;
         return null;
     }

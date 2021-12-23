@@ -115,6 +115,8 @@ public class Ciudad {
         Collections.shuffle(ciudadesDisponibles);
         return ciudadesDisponibles;
     }
+
+    public ArrayList<Edificio> getEdificios(){return this.edificios;}
 }
 
 
