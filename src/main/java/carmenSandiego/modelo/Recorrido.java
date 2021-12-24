@@ -9,8 +9,8 @@ public class Recorrido {
     private Ciudades ciudades;
     private int cantidadDeCiudadesSecundarias;
 
-    public Recorrido(ObjetoRobado unObjetoRobado){
-        this.ciudades = new Ciudades();
+    public Recorrido(ObjetoRobado unObjetoRobado, Ciudades ciudades){
+        this.ciudades = ciudades;
         this.recorridoReal = new ArrayList<Ciudad>();
         this.cantidadDeCiudadesSecundarias = 2; //Fijarse si alcanza para 3 por ciudad principal (cantCiudadPpal*cantCiudadesSec+cantCiudadPpal)
         crearRecorrido(unObjetoRobado);

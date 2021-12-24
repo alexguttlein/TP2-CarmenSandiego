@@ -17,15 +17,20 @@ import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
 
 public class Ciudades {
 
-    private ArrayList<Ciudad> ciudades = new ArrayList<>();
+    private ArrayList<Ciudad> ciudades;
 
-    public Ciudades(){
-        inicializarCiudades();
+    public Ciudades(String rutaArchivoCSV){
+        this.ciudades = new ArrayList<>();
+        inicializarCiudades(rutaArchivoCSV);
     }
 
-    private void inicializarCiudades() {
+    public Ciudades(){
+        this.ciudades = new ArrayList<>();
+    }
+
+    private void inicializarCiudades(String rutaArchivoCSV) {
         ArrayList<ArrayList<String>> datosCiudades;
-        LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/ciudades.csv");
+        LectorCsv leerArchivo = new LectorCsv(rutaArchivoCSV);
 
         datosCiudades = leerArchivo.getLectura();
 
@@ -69,7 +74,7 @@ public class Ciudades {
         Caracteristica pistaInicial;
         if(nombreEdificio.equals("Aeropuerto"));{
             edificio = new EdificioAeropuerto();
-            pistaInicial = generarPistaInicial();
+            //pistaInicial = generarPistaInicial();
             //pista = new PistaAeropuerto(pistaInicial, null);
         }
         if(nombreEdificio.equals("Puerto"));{
@@ -79,12 +84,12 @@ public class Ciudades {
         }
         if(nombreEdificio.equals("Biblioteca"));{
             edificio = new EdificioBiblioteca();
-            pistaInicial = generarPistaInicial();
+            //pistaInicial = generarPistaInicial();
             //pista = new PistaBiblioteca(pistaInicial, null);
         }
         if(nombreEdificio.equals("Banco"));{
             edificio = new EdificioBanco();
-            pistaInicial = generarPistaInicial();
+            //pistaInicial = generarPistaInicial();
             //pista = new PistaBanco();
         }
         //edificio.setPista(pista);

@@ -4,7 +4,6 @@ import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.edificio.Edificio;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Ciudad {
@@ -102,7 +101,7 @@ public class Ciudad {
         return ciudadDestino.viajar(ubicacion, velocidad);
     }
 
-    public int viajar(Ubicacion ubicacionOrigen, int velocidad ){
+    private int viajar(Ubicacion ubicacionOrigen, int velocidad ){
         return ubicacion.obtenerHorasDeViaje(ubicacionOrigen, velocidad);
     }
 

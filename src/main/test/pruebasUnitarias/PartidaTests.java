@@ -18,7 +18,7 @@ public class PartidaTests {
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Ladron ladronMock = mock(Ladron.class);
     Interpol interpolMock = mock(Interpol.class);
-    Ciudades ciudades = new Ciudades();
+    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
     Partida partida = new Partida(jugadorMock, objetoRobadoMock, ladronMock, interpolMock, tiempoMock, ciudades);
 
     @Test

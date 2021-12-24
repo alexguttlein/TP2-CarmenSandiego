@@ -4,6 +4,7 @@ import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.ObjetoRobado;
 import carmenSandiego.modelo.Recorrido;
 import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,11 +21,13 @@ public class RecorridoTest {
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
+    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
+
     @Test
     public void seCreaUnRecorridoCon4CiudadesPrincipales(){  //Objeto robado comun
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Comun"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         assertEquals(4, unRecorrido.getRecorridoReal().size());
     }
@@ -33,7 +36,7 @@ public class RecorridoTest {
     public void seCreaUnRecorridoCon5CiudadesPrincipales(){  //Objeto robado importante
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         assertEquals(5, unRecorrido.getRecorridoReal().size());
     }
@@ -42,7 +45,7 @@ public class RecorridoTest {
     public void seCreaUnRecorridoCon7CiudadesPrincipales(){  //Objeto robado muy importante
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         assertEquals(7, unRecorrido.getRecorridoReal().size());
     }
@@ -51,7 +54,7 @@ public class RecorridoTest {
     public void cadaCiudadTieneLaCantidadDeCiudadesSecundariasCorrectasCon4Principales(){
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Comun"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
         Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
@@ -68,7 +71,7 @@ public class RecorridoTest {
     public void cadaCiudadTieneLaCantidadDeCiudadesSecundariasCorrectasCon5Principales(){
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
         Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
@@ -87,7 +90,7 @@ public class RecorridoTest {
     public void cadaCiudadTieneLaCantidadDeCiudadesSecundariasCorrectasCon7Principales(){
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
         Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
@@ -110,7 +113,7 @@ public class RecorridoTest {
     public void ladronPasaPorTodasLasCiudadesPrincipales() {
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
         Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
@@ -133,7 +136,7 @@ public class RecorridoTest {
     public void ladronNopasaPorLasCiudadesSecundarias() {
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         for (Ciudad actual : unRecorrido.getRecorridoReal()){
             for (Ciudad actualSecundaria : actual.getCiudadesSecundarias()){
@@ -149,7 +152,7 @@ public class RecorridoTest {
     public void cadaCiudadTieneCiudadesSecundariasDiferentes(){
         Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
         ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
-        Recorrido unRecorrido = new Recorrido(unObjetoRobado);
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
 
         Ciudad ciudad1 = unRecorrido.getRecorridoReal().get(0);
         Ciudad ciudad2 = unRecorrido.getRecorridoReal().get(1);
