@@ -50,6 +50,7 @@ public class RangoTest {
         Rango rangoEsperado = new RangoSargento(20);
         sargento.addArresto();
 
+        assertEquals(30, sargento.getArrestosParaAscender());
         assertEquals(21, sargento.getCantidadDeArrestos());
         assertEquals("Sargento", sargento.getNombreRango());
         assertTrue(sargento.compararRangos(rangoEsperado));
