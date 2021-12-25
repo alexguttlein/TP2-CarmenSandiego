@@ -37,6 +37,5 @@ public class PartidaTests {
         assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
         assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre().getCaracteristica());
     }
-
 }
 

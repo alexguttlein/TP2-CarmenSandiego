@@ -3,8 +3,7 @@ package entregas;
 import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ciudad.Ciudades;
-import carmenSandiego.modelo.edificio.Edificio;
-import carmenSandiego.modelo.edificio.EdificioBanco;
+import carmenSandiego.modelo.edificio.*;
 import carmenSandiego.modelo.Interpol;
 import carmenSandiego.modelo.jugador.Jugador;
 import carmenSandiego.modelo.jugador.rango.Rango;
@@ -30,7 +29,7 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
-    Edificio banco = new EdificioBanco();
+    Edificio banco = new EdificioBanco(new Caracteristica("Banco"));
     Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
 
     //Setup jugador / tiempo
@@ -152,4 +151,5 @@ public class CasosUsoEntrega2Test {
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
+
 }

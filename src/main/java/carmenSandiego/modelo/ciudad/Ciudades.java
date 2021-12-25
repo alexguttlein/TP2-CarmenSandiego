@@ -1,31 +1,25 @@
 package carmenSandiego.modelo.ciudad;
 
 import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.*;
 import carmenSandiego.modelo.edificio.*;
 import datosDelJuego.GeneradorRandom;
 import datosDelJuego.LectorCsv;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.Pista;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaPuerto;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBanco;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
+import carmenSandiego.modelo.pistas.Pista;
+import carmenSandiego.modelo.pistas.PistaAeropuerto;
+import carmenSandiego.modelo.pistas.PistaPuerto;
+import carmenSandiego.modelo.pistas.PistaBanco;
+import carmenSandiego.modelo.pistas.PistaBiblioteca;
+
 
 public class Ciudades {
 
-    private ArrayList<Ciudad> ciudades;
+    private ArrayList<Ciudad> ciudades = new ArrayList<>();
 
     public Ciudades(String rutaArchivoCSV){
-        this.ciudades = new ArrayList<>();
         inicializarCiudades(rutaArchivoCSV);
-    }
-
-    public Ciudades(){
-        this.ciudades = new ArrayList<>();
     }
 
     private void inicializarCiudades(String rutaArchivoCSV) {
@@ -44,13 +38,6 @@ public class Ciudades {
         addCiudad(ciudad);
     }
 
-    private void addCiudad(Ciudad ciudad) {this.ciudades.add(ciudad);}
-
-    public ArrayList<Ciudad> getCiudades(){return this.ciudades;}
-
-
-    //AGREGADO
-
     private void agregarEdificios(Ciudad ciudad) {
         ArrayList<ArrayList<String>> nombreEdificios;
         LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/edificios.csv");
@@ -67,32 +54,31 @@ public class Ciudades {
             }
     }
 
-
     private Edificio crearEdificio(String nombreEdificio) {
         Edificio edificio;
         Pista pista;
         Caracteristica pistaInicial;
         if(nombreEdificio.equals("Aeropuerto"));{
-            edificio = new EdificioAeropuerto();
-            //pistaInicial = generarPistaInicial();
-            //pista = new PistaAeropuerto(pistaInicial, null);
+            edificio = new EdificioAeropuerto(new Caracteristica(nombreEdificio));
+            pistaInicial = generarPistaInicial();
+            pista = new PistaAeropuerto(pistaInicial, null);
         }
         if(nombreEdificio.equals("Puerto"));{
-            edificio = new EdificioPuerto();
+            edificio = new EdificioPuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            //pista = new PistaPuerto(pistaInicial, null);
+            pista = new PistaPuerto(pistaInicial, null);
         }
         if(nombreEdificio.equals("Biblioteca"));{
-            edificio = new EdificioBiblioteca();
-            //pistaInicial = generarPistaInicial();
-            //pista = new PistaBiblioteca(pistaInicial, null);
+            edificio = new EdificioBiblioteca(new Caracteristica(nombreEdificio));
+            pistaInicial = generarPistaInicial();
+            pista = new PistaBiblioteca(pistaInicial, null);
         }
         if(nombreEdificio.equals("Banco"));{
-            edificio = new EdificioBanco();
-            //pistaInicial = generarPistaInicial();
-            //pista = new PistaBanco();
+            edificio = new EdificioBanco(new Caracteristica(nombreEdificio));
+            pistaInicial = generarPistaInicial();
+            pista = new PistaBanco(pistaInicial, null);
         }
-        //edificio.setPista(pista);
+        edificio.setPista(pista);
         return edificio;
     }
 
@@ -104,8 +90,10 @@ public class Ciudades {
         return listaGenerada;
     }
 
+    private void addCiudad(Ciudad ciudad) {this.ciudades.add(ciudad);}
 
-    //AGREGADO
+    public ArrayList<Ciudad> getCiudades(){return this.ciudades;}
+
     private Caracteristica generarPistaInicial(){
         ArrayList<ArrayList<String>> pistasIniciales;
         LectorCsv lectura = new LectorCsv("src/main/java/datosDelJuego/pistasIniciales.csv");

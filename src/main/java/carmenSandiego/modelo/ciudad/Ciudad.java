@@ -2,11 +2,13 @@ package carmenSandiego.modelo.ciudad;
 
 import carmenSandiego.modelo.*;
 import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.jugador.rango.Rango;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Ciudad {
+    private Ladron ladron;
     private Caracteristica nombre;
     private Caracteristica bandera;
     private Caracteristica moneda;
@@ -24,8 +26,9 @@ public class Ciudad {
 
     private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;
-    private ArrayList<Ciudad> ciudadesSecundarias = new ArrayList<>();
     private boolean pasoLadron;
+    private Rango rangoPersonaje;
+    private ArrayList<Ciudad> ciudadesSecundarias = new ArrayList<>();
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = new Caracteristica(pistasCiudad.get(0));
@@ -69,17 +72,16 @@ public class Ciudad {
         this.ciudadSiguiente = ciudadSiguiente;
         this.setPasoLadron();
     }
+
     public void setLadronUltimaCiudad(){
         this.pasoLadron = true;
     }
+
     public void setPistasEdificio(){
-        if (ciudadSiguiente == null){
+        if ((ciudadSiguiente != null) && getPasoLadron()){
             for (Edificio edificio: edificios){
-                edificio.setSinPista();
+                edificio.modificarPista(this.ciudadSiguiente, this.ladron, this.rangoPersonaje);
             }
-        }
-        for (Edificio edificio: edificios){
-            edificio.setPistas(ciudadSiguiente);
         }
     }
 
@@ -116,6 +118,10 @@ public class Ciudad {
     }
 
     public ArrayList<Edificio> getEdificios(){return this.edificios;}
+
+    public void setRangoPersonaje(Rango rango){this.rangoPersonaje = rango;}
+
+    public Rango getRango(){return this.rangoPersonaje;}
 }
 
 
