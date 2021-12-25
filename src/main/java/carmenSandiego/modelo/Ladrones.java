@@ -4,22 +4,26 @@ import datosDelJuego.LectorCsv;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Ladrones {
+    private ArrayList<Ladron> ladrones;
 
-    private final ArrayList<Ladron> ladrones = new ArrayList<>();
-
-    public Ladrones(){
-        inicializarLadrones();
+    public Ladrones(String rutaArchivoCSV){
+        this.ladrones = new ArrayList<>();
+        inicializarLadrones(rutaArchivoCSV);
     }
 
-    private void inicializarLadrones() {
-        LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/ladrones.csv");
+    public Ladrones(){
+        this.ladrones = new ArrayList<>();
+    }
+
+    private void inicializarLadrones(String rutaArchivoCSV) {
+        LectorCsv leerArchivo = new LectorCsv(rutaArchivoCSV);
         ArrayList<ArrayList<String>> datosLadrones = leerArchivo.getLectura();
 
-        for(ArrayList<String> ladron: datosLadrones)
+        for(ArrayList<String> ladron: datosLadrones) {
             crearLadron(ladron);
+        }
     }
 
     private void crearLadron(ArrayList<String> datosLadron){

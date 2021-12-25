@@ -1,10 +1,9 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.ciudad.Ubicacion;
-import carmenSandiego.modelo.jugador.rango.Rango;
-import carmenSandiego.modelo.jugador.rango.RangoNovato;
+import carmenSandiego.modelo.edificio.Edificio;
+import carmenSandiego.modelo.edificio.EdificioBanco;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,53 +14,64 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CiudadTest {
-    ArrayList pistasCiudad = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
+
+    ArrayList pistasCiudadBuenosAires = new ArrayList(Arrays.asList("Buenos Aires","Celeste y blanca con un sol", "Peso",
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
-    Ciudad ciudad = new Ciudad(pistasCiudad);
-    Ciudad ciudadMock = mock(Ciudad.class);
+    ArrayList pistasCiudadMontreal = new ArrayList(Arrays.asList("Montreal","Roja y blanca", "dolar canadiense",
+            "asd", "asd", "asd", "asd", "asd", "ingles", "asd", "asd", "asd", "asd",
+            "45.573279804398034", "-73.49124739806629"));
+
+    Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
+    Ciudad ciudadMontreal = new Ciudad(pistasCiudadMontreal);
+    Edificio bancoMock = mock(EdificioBanco.class);
 
     @Test
     public void losDatosDeLaCiudadSonLosEsperados(){
-        assertTrue(new Caracteristica(("Buenos Aires")).compararCaracteristica(ciudad.getNombre()));
-        assertTrue(new Caracteristica(("Peso")).compararCaracteristica(ciudad.getMoneda()));
-        assertTrue(new Caracteristica(("Campos")).compararCaracteristica(ciudad.getGeografia()));
-        assertTrue(new Caracteristica(("Cataratas del Iguazu")).compararCaracteristica(ciudad.getHitos()));
-        assertTrue(new Caracteristica(("Ganaderia")).compararCaracteristica(ciudad.getIndustria()));
-        assertTrue(new Caracteristica(("Yaguarete")).compararCaracteristica(ciudad.getAnimales()));
-        assertTrue(new Caracteristica(("Messi")).compararCaracteristica(ciudad.getPersonalidades()));
-        assertTrue(new Caracteristica(("Espaniol")).compararCaracteristica(ciudad.getIdioma()));
-        assertTrue(new Caracteristica(("Arte Mapuche")).compararCaracteristica(ciudad.getArte()));
-        assertTrue(new Caracteristica(("Cristianismo")).compararCaracteristica(ciudad.getReligion()));
-        assertTrue(new Caracteristica(("Presidente")).compararCaracteristica(ciudad.getGobierno()));
-        assertTrue(new Caracteristica(("Antigua Colonia Espaniola")).compararCaracteristica(ciudad.getVarios()));
-        assertTrue(new Ubicacion(-34.58952254327074,-58.34678308238882).compararUbicacion(ciudad.getUbicacion()));
+        assertEquals("Buenos Aires", ciudadBuenosAires.getNombre().getCaracteristica());
+        assertEquals("Celeste y blanca con un sol", ciudadBuenosAires.getBandera().getCaracteristica());
+        assertEquals("Peso", ciudadBuenosAires.getMoneda().getCaracteristica());
+        assertEquals("Campos", ciudadBuenosAires.getGeografia().getCaracteristica());
+        assertEquals("Cataratas del Iguazu", ciudadBuenosAires.getHitos().getCaracteristica());
+        assertEquals("Ganaderia", ciudadBuenosAires.getIndustria().getCaracteristica());
+        assertEquals("Yaguarete", ciudadBuenosAires.getAnimales().getCaracteristica());
+        assertEquals("Messi", ciudadBuenosAires.getPersonalidades().getCaracteristica());
+        assertEquals("Espaniol", ciudadBuenosAires.getIdioma().getCaracteristica());
+        assertEquals("Arte Mapuche", ciudadBuenosAires.getArte().getCaracteristica());
+        assertEquals("Cristianismo", ciudadBuenosAires.getReligion().getCaracteristica());
+        assertEquals("Presidente", ciudadBuenosAires.getGobierno().getCaracteristica());
+        assertEquals("Antigua Colonia Espaniola", ciudadBuenosAires.getVarios().getCaracteristica());
+        assertEquals(-34.58952254327074, ciudadBuenosAires.getUbicacion().getLatitud());
+        assertEquals(-58.34678308238882, ciudadBuenosAires.getUbicacion().getLongitud());
     }
 
     @Test
     public void seAsignaLaCiudadSiguientePorLaQuePasoElLadron(){
-        when(ciudadMock.getNombre()).thenReturn(new Caracteristica("Londres"));
-        ciudad.setCiudadSiguiente(ciudadMock);
+        ciudadBuenosAires.setCiudadSiguiente(ciudadMontreal);
 
-        assertTrue(ciudad.getCiudadSiguiente().getNombre().compararCaracteristica(ciudadMock.getNombre()));
-        assertTrue(ciudad.getPasoLadron());
+        assertEquals("Montreal", ciudadBuenosAires.getCiudadSiguiente().getNombre().getCaracteristica());
+        assertTrue(ciudadBuenosAires.getPasoLadron());
     }
 
     @Test
     public void siUnLadronNoPasoPorUnaCiudadEstaNoTendraAsignadaUnaCiudadSiguiente(){
-        assertFalse(ciudad.getPasoLadron());
-        assertNull(ciudad.getCiudadSiguiente());
+        assertFalse(ciudadBuenosAires.getPasoLadron());
+        assertNull(ciudadBuenosAires.getCiudadSiguiente());
     }
 
     @Test
-    public void seDefineElRangoDeUnJugadorAUnaCiudad(){
-        Rango rango = new RangoNovato(0);
-        Rango rangoNovato = new RangoNovato(0);
-        ciudad.setRangoPersonaje(rango);
+    public void jugadorVisitaBanco1Vez(){
+        when(bancoMock.entrarAlEdificio()).thenReturn(1);
+        int resultadoEsperado = ciudadBuenosAires.visitarEdificio(bancoMock);
 
-        assertTrue(ciudad.getRango().compararRangos(rangoNovato));
+        assertEquals(1, resultadoEsperado);
     }
 
+    @Test
+    public void jugadorViajaDeBuenosAiresAMontreal(){
+        int resultadoEsperado = ciudadBuenosAires.viajarHasta(1000, ciudadMontreal);
 
+        assertEquals(9, resultadoEsperado);
+    }
 }

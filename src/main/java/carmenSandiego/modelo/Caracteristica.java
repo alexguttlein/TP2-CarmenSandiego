@@ -10,7 +10,11 @@ public class Caracteristica {
 
     public String getCaracteristica(){return this.caracteristica;}
 
-    public boolean compararCaracteristica(Caracteristica caracteristica){
-        return this.caracteristica.equals(caracteristica.getCaracteristica());
+    public boolean compararCaracteristica(Caracteristica otraCaracteristica){
+        return otraCaracteristica.serComparada(caracteristica);
+    }
+
+    private boolean serComparada(String otraCaracteristica){
+        return caracteristica.equals(otraCaracteristica);
     }
 }

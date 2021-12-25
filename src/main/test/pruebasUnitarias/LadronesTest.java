@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LadronesTest {
 
-    Ladrones ladrones = new Ladrones();
+    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
     ArrayList<Ladron> listaLadrones = ladrones.getLadrones();
 
     @Test

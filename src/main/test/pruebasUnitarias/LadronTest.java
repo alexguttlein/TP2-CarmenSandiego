@@ -39,4 +39,5 @@ public class LadronTest {
 
         assertTrue(ladron2.compararConLadron(ladron));
     }
+
 }

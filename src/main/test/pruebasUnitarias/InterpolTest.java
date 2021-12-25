@@ -9,10 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 public class InterpolTest {
-
     Jugador jugadorMock = mock(Jugador.class);
     Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
-    Ladrones ladrones = new Ladrones();
+    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
     Ladron ladronCarmen = ladrones.getLadrones().get(9);
     Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
 
@@ -90,5 +89,6 @@ public class InterpolTest {
 
         assertTrue(tiempo.compararTiempos(tiempoEsperado));
     }
+
 
 }

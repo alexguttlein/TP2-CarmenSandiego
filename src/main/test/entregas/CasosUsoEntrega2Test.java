@@ -30,7 +30,7 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
     Edificio banco = new EdificioBanco(new Caracteristica("Banco"));
-    Ciudades ciudades = new Ciudades();
+    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
 
     //Setup jugador / tiempo
     Tiempo reloj = new Tiempo(7, 4, 0, 2021);
@@ -42,7 +42,7 @@ public class CasosUsoEntrega2Test {
     ObjetoRobado objetoRobado = new ObjetoRobado(nombreObjeto, ciudadMexico, importanciaObjeto);
 
     //Setup Ladrones / Interpol
-    Ladrones ladrones = new Ladrones();
+    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
     Ladron ladronMereyLaroc = ladrones.getLadrones().get(5);
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
     Interpol interpol = new Interpol(ladrones, reloj, jugador, ladronMereyLaroc);

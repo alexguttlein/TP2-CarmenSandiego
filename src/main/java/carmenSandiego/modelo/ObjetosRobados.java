@@ -12,7 +12,7 @@ public class ObjetosRobados {
     private Ciudades ciudades;
 
     public ObjetosRobados(Ciudades ciudades){
-        this.setCiudades(ciudades);
+        this.ciudades = ciudades;
         inicializarObjetosRobados();
     }
 
