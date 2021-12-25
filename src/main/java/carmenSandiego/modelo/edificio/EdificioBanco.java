@@ -3,8 +3,6 @@ package carmenSandiego.modelo.edificio;
 import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.Ladron;
 import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.ConPista;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.*;
 import carmenSandiego.modelo.jugador.rango.Rango;
 import datosDelJuego.GeneradorRandom;
 

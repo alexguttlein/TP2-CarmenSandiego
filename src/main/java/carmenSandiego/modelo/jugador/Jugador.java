@@ -15,42 +15,46 @@ public class Jugador {
     private int vecesHeridoPorCuchillo;
     private EstadoJugador estadoJugador;
     private Tiempo reloj;
+    //private boolean durmioHoy;
 
     public Jugador(String nombre, Tiempo reloj){
         this.nombre = new Caracteristica(nombre);
-        this.setRango(new RangoNovato(0));
+        this.rango = new RangoNovato(0);
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
-        this.setReloj(reloj);
+        this.reloj = reloj;
+        //this.durmioHoy = true;
     }
 
-    private void setRango(Rango rango){
+    public Jugador(String nombre, Tiempo reloj, Rango rango){
+        this.nombre = new Caracteristica(nombre);
         this.rango = rango;
+        this.vecesHeridoPorCuchillo = 0;
+        this.estadoJugador = new EstadoSano();
+        this.reloj = reloj;
     }
 
     public Rango getRango(){
         return this.rango;
     }
-
     public Caracteristica getNombre(){return this.nombre;}
-
     public String getNombreRango(){return this.rango.getNombreRango();}
-
     public int getCantidadDeArrestos(){return this.rango.getCantidadDeArrestos();}
+    public Ciudad getCiudadActual(){return this.ciudadActual;}
+    private Tiempo getReloj(){
+        return this.reloj;
+    }
+    public int getVecesHeridoPorCuchillo(){return this.vecesHeridoPorCuchillo;}
+
+    public void setCiudadActual(Ciudad ciudadActual){this.ciudadActual = ciudadActual;}
 
     public void addArresto(){
         this.rango.addArresto();
         this.rango = rango.verificarRango();
     }
 
-    public Ciudad getCiudadActual(){return this.ciudadActual;}
-
-    public void setCiudadActual(Ciudad ciudadActual){
-        this.ciudadActual = ciudadActual;
-    }
-
     public void dormir(){
-        setEstadoJugador(new EstadoDormido());
+        this.estadoJugador = new EstadoDormido();
         estadoJugador.pasarTiempo(this.getReloj());
         this.sanar();
     }
@@ -58,49 +62,35 @@ public class Jugador {
     public void serHeridoPorCuchillo(){
         this.vecesHeridoPorCuchillo++;
         if(getVecesHeridoPorCuchillo() == 1) {
-            setEstadoJugador(new EstadoHeridoConCuchillo());
+            this.estadoJugador = new EstadoHeridoConCuchillo();
         }
         else {
-            setEstadoJugador(new EstadoHeridoConCuchilloMultiplesVeces());
+            this.estadoJugador = new EstadoHeridoConCuchilloMultiplesVeces();
         }
-        estadoJugador.pasarTiempo(this.getReloj());
+        estadoJugador.pasarTiempo(this.reloj);
         this.sanar();
     }
 
     public void serHeridoPorArmaDeFuego(){
-        setEstadoJugador(new EstadoHeridoPorArmaDeFuego());
-        estadoJugador.pasarTiempo(this.getReloj());
+        this.estadoJugador = new EstadoHeridoPorArmaDeFuego();
+        estadoJugador.pasarTiempo(this.reloj);
         this.sanar();
     }
 
     public void sanar(){
-        setEstadoJugador(new EstadoSano());
-    }
-
-    private void setEstadoJugador(EstadoJugador estado){
-        this.estadoJugador = estado;
-    }
-
-    public int getVecesHeridoPorCuchillo(){
-        return this.vecesHeridoPorCuchillo;
+        this.estadoJugador = new EstadoSano();
     }
 
     public void viajar(Ciudad ciudadSiguiente){
-        int horasViaje = this.getCiudadActual().viajarHasta(rango.getVelocidad(), ciudadSiguiente);
+        int horasViaje = this.ciudadActual.viajarHasta(rango.getVelocidad(), ciudadSiguiente);
         this.getReloj().addHoras(horasViaje);
         this.setCiudadActual(ciudadSiguiente);
     }
 
-    private void setReloj(Tiempo reloj){
-        this.reloj = reloj;
-    }
-
-    private Tiempo getReloj(){
-        return this.reloj;
-    }
-
     public void visitarEdificio(Edificio edificio) {
-        this.getReloj().addHoras(this.getCiudadActual().visitarEdificio(edificio));
+        reloj.addHoras(this.getCiudadActual().visitarEdificio(edificio));
     }
+
+    //Si cambia de dia el reloj estadoJugador = new EstadoDormido();
     
 }

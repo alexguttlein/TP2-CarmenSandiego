@@ -4,16 +4,13 @@ import carmenSandiego.modelo.Caracteristica;
 import carmenSandiego.modelo.Ladron;
 import carmenSandiego.modelo.ciudad.Ciudad;
 import carmenSandiego.modelo.edificio.comportamiento.demora.Demora;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.SinPista;
 import carmenSandiego.modelo.edificio.comportamiento.visita.Visita;
 import carmenSandiego.modelo.edificio.comportamiento.demora.ComportamientoDeDemora;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.ComportamientoPistas;
 import carmenSandiego.modelo.edificio.comportamiento.visita.ComportamientoVisita;
 import carmenSandiego.modelo.jugador.rango.Rango;
 import carmenSandiego.modelo.pistas.Pista;
 
 public abstract class Edificio{
-    //protected ComportamientoPistas comportamientoPistas;
     protected ComportamientoDeDemora comportamientoDeDemora;
     protected ComportamientoVisita comportamientoVisita;
     private Caracteristica nombre;

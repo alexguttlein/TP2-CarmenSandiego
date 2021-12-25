@@ -13,27 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ObjetoRobadoTest {
     Ciudad ciudadMock = mock(Ciudad.class);
-    Caracteristica objetoEspada = new Caracteristica("Espada de San Martin");
+    Caracteristica nombre = new Caracteristica("Espada de San Martin");
     Caracteristica importancia = new Caracteristica("Comun");
 
-    ObjetoRobado objetoRobado = new ObjetoRobado(objetoEspada, ciudadMock, importancia);
+    ObjetoRobado objetoRobado = new ObjetoRobado(nombre, ciudadMock, importancia);
 
     @Test
     public void seRobaUnObjetoComunDeLaCiudadDeBuenosAires(){
-        //when(ciudadMock.getNombre()).thenReturn(new Caracteristica("Buenos Aires"));
-
-        assertEquals(objetoEspada, objetoRobado.getNombre());
-        //assertEquals(ciudadMock.getNombre(), objetoRobado.getCiudadOrigen().getNombre());
+        assertEquals(nombre, objetoRobado.getNombre());
         assertEquals(importancia, objetoRobado.getImportancia());
     }
 
-    @Test
-    public void seComparanDosObjetosRobadosIguales(){
-        Caracteristica nombreEsperado = new Caracteristica("Espada de San Martin");
-        Caracteristica importanciaEsperada = new Caracteristica("Comun");
-
-        ObjetoRobado otroObjetoRobado = new ObjetoRobado(nombreEsperado, ciudadMock, importanciaEsperada);
-
-        assertTrue(objetoRobado.compararObjetoRobado(otroObjetoRobado));
-    }
 }

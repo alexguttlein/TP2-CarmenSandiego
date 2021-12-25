@@ -20,4 +20,5 @@ public class ComportamientoVisitaTest {
         }
         assertEquals(55, contadorVisita.getTotalVisitas());
     }
+
 }

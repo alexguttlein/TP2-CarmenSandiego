@@ -5,6 +5,7 @@ import carmenSandiego.modelo.edificio.Edificio;
 import carmenSandiego.modelo.jugador.rango.Rango;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Ciudad {
     private Ladron ladron;
@@ -27,6 +28,7 @@ public class Ciudad {
     private Ciudad ciudadSiguiente;
     private boolean pasoLadron;
     private Rango rangoPersonaje;
+    private ArrayList<Ciudad> ciudadesSecundarias = new ArrayList<>();
 
     public Ciudad(ArrayList<String> pistasCiudad){
         this.nombre = new Caracteristica(pistasCiudad.get(0));
@@ -42,7 +44,7 @@ public class Ciudad {
         this.religion = new Caracteristica(pistasCiudad.get(10));
         this.gobierno = new Caracteristica(pistasCiudad.get(11));
         this.varios = new Caracteristica(pistasCiudad.get(12));
-        setPasoLadron(false);
+        this.pasoLadron = false;
         double latitud = Double.parseDouble(pistasCiudad.get(13));
         double longitud = Double.parseDouble(pistasCiudad.get(14));
         this.ubicacion = new Ubicacion(latitud, longitud);
@@ -61,25 +63,19 @@ public class Ciudad {
     public Caracteristica getReligion(){return this.religion;}
     public Caracteristica getGobierno(){return this.gobierno;}
     public Caracteristica getVarios(){return this.varios;}
-
-    public int visitarEdificio(Edificio unEdificio){
-        return unEdificio.entrarAlEdificio();
-    }
-
-    public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
-        this.ciudadSiguiente = ciudadSiguiente;
-        this.setPasoLadron(true);
-    }
-
+    public Ubicacion getUbicacion(){return this.ubicacion;}
+    public boolean getPasoLadron(){return this.pasoLadron;}
     public Ciudad getCiudadSiguiente(){return this.ciudadSiguiente;}
 
-    private void setPasoLadron(boolean pasoLadron){this.pasoLadron = pasoLadron;}
+    private void setPasoLadron(){this.pasoLadron = true;}
+    public void setCiudadSiguiente(Ciudad ciudadSiguiente) {
+        this.ciudadSiguiente = ciudadSiguiente;
+        this.setPasoLadron();
+    }
 
-    public boolean getPasoLadron(){return this.pasoLadron;}
-
-    public void setLadron(Ladron ladron){this.ladron = ladron;}
-
-    public Ubicacion getUbicacion(){return this.ubicacion;}
+    public void setLadronUltimaCiudad(){
+        this.pasoLadron = true;
+    }
 
     public void setPistasEdificio(){
         if ((ciudadSiguiente != null) && getPasoLadron()){
@@ -89,12 +85,36 @@ public class Ciudad {
         }
     }
 
-    public int viajarHasta(int velocidad, Ciudad ciudadDestino){
-        return this.getUbicacion().obtenerHorasDeViaje(ciudadDestino.getUbicacion(), velocidad);
+    public void agregarCiudadSecundaria(Ciudad nuevaCiudadSecundaria){
+        ciudadesSecundarias.add(nuevaCiudadSecundaria);
+    }
+
+    public ArrayList<Ciudad> getCiudadesSecundarias(){return this.ciudadesSecundarias;}
+
+    public int visitarEdificio(Edificio unEdificio){
+        return unEdificio.entrarAlEdificio();
     }
 
     public void addEdificio(Edificio unEdificio){
         this.edificios.add(unEdificio);
+    }
+
+    public int viajarHasta(int velocidad, Ciudad ciudadDestino){
+        return ciudadDestino.viajar(ubicacion, velocidad);
+    }
+
+    private int viajar(Ubicacion ubicacionOrigen, int velocidad ){
+        return ubicacion.obtenerHorasDeViaje(ubicacionOrigen, velocidad);
+    }
+
+    public ArrayList<Ciudad> getCiudadesDisponiblesParaViajar(){       //Arma un arreglo con la ciudadSiguiente y las secundarias
+        ArrayList<Ciudad> ciudadesDisponibles = new ArrayList<>();     //y las mezcla para luego elegir a cual viajar.
+        for(Ciudad actual : this.ciudadesSecundarias){
+            ciudadesDisponibles.add(actual);
+        }
+        ciudadesDisponibles.add(ciudadSiguiente);
+        Collections.shuffle(ciudadesDisponibles);
+        return ciudadesDisponibles;
     }
 
     public ArrayList<Edificio> getEdificios(){return this.edificios;}
@@ -102,7 +122,6 @@ public class Ciudad {
     public void setRangoPersonaje(Rango rango){this.rangoPersonaje = rango;}
 
     public Rango getRango(){return this.rangoPersonaje;}
-
 }
 
 

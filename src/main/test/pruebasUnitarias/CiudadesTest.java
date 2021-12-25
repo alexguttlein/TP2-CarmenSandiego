@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CiudadesTest {
 
-    Ciudades ciudades = new Ciudades();
+    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
 
     @Test
     public void seInstancianCorrectamenteLasCiudades(){

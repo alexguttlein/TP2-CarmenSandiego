@@ -1,7 +1,6 @@
 package carmenSandiego.modelo.ciudad;
 
 import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.*;
 import carmenSandiego.modelo.edificio.*;
 import datosDelJuego.GeneradorRandom;
 import datosDelJuego.LectorCsv;
@@ -19,13 +18,13 @@ public class Ciudades {
 
     private ArrayList<Ciudad> ciudades = new ArrayList<>();
 
-    public Ciudades(){
-        inicializarCiudades();
+    public Ciudades(String rutaArchivoCSV){
+        inicializarCiudades(rutaArchivoCSV);
     }
 
-    private void inicializarCiudades() {
+    private void inicializarCiudades(String rutaArchivoCSV) {
         ArrayList<ArrayList<String>> datosCiudades;
-        LectorCsv leerArchivo = new LectorCsv("src/main/java/datosDelJuego/ciudades.csv");
+        LectorCsv leerArchivo = new LectorCsv(rutaArchivoCSV);
 
         datosCiudades = leerArchivo.getLectura();
 

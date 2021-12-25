@@ -16,12 +16,12 @@ public class Interpol {
     private Ladron ladron; //ladron de la partida actual
 
     public Interpol(Ladrones ladrones, Tiempo tiempo, Jugador jugador, Ladron ladron){
-        setLadrones(ladrones);
+        this.ladrones = ladrones;
+        this.tiempo = tiempo;
+        this.jugador = jugador;
+        this.ladron = ladron;
+        this.estadoOrdenDeArresto = false;
         setPosibleLadron();
-        setEstadoOrdenDeArresto(false);
-        setTiempo(tiempo);
-        setJugador(jugador);
-        setLadron(ladron);
     }
 
     private void setLadrones(Ladrones ladrones){
@@ -109,5 +109,4 @@ public class Interpol {
             jugador.addArresto();
         return this.estadoOrdenDeArresto && comparacionLadrones;
     }
-
 }
