@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.jugador.rango.*;
+import edu.fiuba.algo3.modelo.jugador.rango.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,10 +1,10 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.edificio.*;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBanco;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
-import carmenSandiego.modelo.edificio.comportamiento.pistas.PistaPuerto;
+import edu.fiuba.algo3.modelo.edificio.*;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBanco;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaPuerto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,7 +73,7 @@ public class EdificioTest {
         aeropuerto.setComportamientoPistas(pistaAeropuerto);
         aeropuerto.entrarAlEdificio();
         //aeropuerto.mostrarPista();
-        assertEquals("Se subio a un avion celeste y blanca con un sol en el centro", aeropuerto.getPista());
+        assertEquals("Se subió a un avion celeste y blanca con un sol en el centro", aeropuerto.getPista());
     }
     @Test
     public void seIngresa1SolaVezAlBibliotecaYSeObtieneUnaPista(){
@@ -81,7 +81,7 @@ public class EdificioTest {
         biblioteca.setComportamientoPistas(pistaBiblioteca);
         biblioteca.entrarAlEdificio();
         //biblioteca.mostrarPista();
-        assertEquals("Agarro un diccionario espaniol", biblioteca.getPista());
+        assertEquals("Agarró un diccionario espaniol", biblioteca.getPista());
     }
     @Test
     public void seIngresa1SolaVezAlPuertoYSeObtieneUnaPista(){

@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Tiempo;
+import edu.fiuba.algo3.modelo.Tiempo;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Calendar.*;

@@ -1,6 +1,6 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.edificio.comportamiento.pistas.*;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,12 +25,12 @@ public class ComportamientoPistaTest {
     @Test
     public void seMuestraCorrectamentePistaAeropuerto() {
         pistaAeropuerto.setPista("celeste y blanca con un sol en el centro");
-        assertEquals("Se subio a un avion celeste y blanca con un sol en el centro", pistaAeropuerto.getPista());
+        assertEquals("Se subió a un avion celeste y blanca con un sol en el centro", pistaAeropuerto.getPista());
     }
     @Test
     public void seMuestraCorrectamentePistaBiblioteca() {
         pistaBiblioteca.setPista("espaniol");
-        assertEquals("Agarro un diccionario espaniol", pistaBiblioteca.getPista());
+        assertEquals("Agarró un diccionario espaniol", pistaBiblioteca.getPista());
     }
     @Test
     public void seMuestraCorrectamentePistaPuerto() {

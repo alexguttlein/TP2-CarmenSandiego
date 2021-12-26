@@ -32,7 +32,7 @@ public class App extends Application {
 
 
         HBox contenedorImagenCarmenSandiego = new HBox();
-        Image imagenFondo2 = new Image("file:src/main/java/datosDelJuego/ImagenFondo.png");
+        Image imagenFondo2 = new Image("file:src/main/java/edu.fiuba.algo3.modelo.datosDelJuego/ImagenFondo.png");
         //Image imagenFondo = new Image("https://styleworkscreative.com/wp-content/uploads/2018/09/Carmen-Sandiego-Logo-A.png",898,645,false, false);
         BackgroundSize backgroundSize = new BackgroundSize(1280, 720, false, false, false, false);
         BackgroundImage image = new BackgroundImage(imagenFondo2,
@@ -44,7 +44,7 @@ public class App extends Application {
 
 
         Button button = new Button();
-        BotonJugar botonJugar = new BotonJugar(button);
+        BotonJugar botonJugar = new BotonJugar(button, stage);
         button.setOnAction(botonJugar);
 
 

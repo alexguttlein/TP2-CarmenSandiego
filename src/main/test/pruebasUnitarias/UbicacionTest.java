@@ -1,9 +1,9 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.ciudad.Ciudades;
-import carmenSandiego.modelo.ciudad.Ubicacion;
-import carmenSandiego.modelo.jugador.rango.*;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
+import edu.fiuba.algo3.modelo.ciudad.Ubicacion;
+import edu.fiuba.algo3.modelo.jugador.rango.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class UbicacionTest {
     Ubicacion ubicacionSalida = new Ubicacion(45.573279804398034, -73.49124739806629);
     Ubicacion ubicacionDestino = new Ubicacion(23.564780856080713, -101.16072897108585);
 
-    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
+    Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ciudades.csv");
 
     //las primera latitud y longitud son de Montreal y las otras son de Mexico.
     //las horas de viaje se redondean para abajo/arriba dependiendo si el decimal es mayor/menor a la mitad

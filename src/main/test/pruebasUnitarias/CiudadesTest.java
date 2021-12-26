@@ -1,7 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.ciudad.Ciudades;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CiudadesTest {
 
-    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
+    Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ciudades.csv");
 
     @Test
     public void seInstancianCorrectamenteLasCiudades(){

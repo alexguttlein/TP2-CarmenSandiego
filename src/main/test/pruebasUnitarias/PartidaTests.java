@@ -1,10 +1,8 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.*;
-import carmenSandiego.modelo.Partida;
-import carmenSandiego.modelo.jugador.Jugador;
-import carmenSandiego.modelo.ciudad.Ciudades;
-import carmenSandiego.modelo.Interpol;
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +16,7 @@ public class PartidaTests {
     ObjetoRobado objetoRobadoMock = mock(ObjetoRobado.class);
     Ladron ladronMock = mock(Ladron.class);
     Interpol interpolMock = mock(Interpol.class);
-    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
+    Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ciudades.csv");
     Partida partida = new Partida(jugadorMock, objetoRobadoMock, ladronMock, interpolMock, tiempoMock, ciudades);
 
     @Test

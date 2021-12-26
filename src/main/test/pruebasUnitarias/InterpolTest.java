@@ -1,8 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.*;
-import carmenSandiego.modelo.Interpol;
-import carmenSandiego.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +10,7 @@ import static org.mockito.Mockito.mock;
 public class InterpolTest {
     Jugador jugadorMock = mock(Jugador.class);
     Tiempo tiempo = new Tiempo(7, 4, 0, 2021);
-    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
+    Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ladrones.csv");
     Ladron ladronCarmen = ladrones.getLadrones().get(9);
     Interpol interpol = new Interpol(ladrones, tiempo, jugadorMock, ladronCarmen);
 

@@ -1,20 +1,18 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.Ladrones;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.Ladrones;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LadronesTest {
 
-    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
+    Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ladrones.csv");
     ArrayList<Ladron> listaLadrones = ladrones.getLadrones();
 
     @Test
