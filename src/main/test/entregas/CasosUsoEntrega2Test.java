@@ -1,13 +1,13 @@
 package entregas;
 
-import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.ciudad.Ciudades;
-import edu.fiuba.algo3.modelo.edificio.Edificio;
-import edu.fiuba.algo3.modelo.edificio.EdificioBanco;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.jugador.rango.Rango;
-import edu.fiuba.algo3.modelo.jugador.rango.RangoInvestigador;
+import carmenSandiego.modelo.*;
+import carmenSandiego.modelo.ciudad.Ciudad;
+import carmenSandiego.modelo.ciudad.Ciudades;
+import carmenSandiego.modelo.edificio.*;
+import carmenSandiego.modelo.Interpol;
+import carmenSandiego.modelo.jugador.Jugador;
+import carmenSandiego.modelo.jugador.rango.Rango;
+import carmenSandiego.modelo.jugador.rango.RangoInvestigador;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class CasosUsoEntrega2Test {
     Ciudad ciudadMexico = new Ciudad(pistasCiudadMexico);
     Ciudad ciudadMontreal = new Ciudad(pistasMontreal);
 
-    Edificio banco = new EdificioBanco();
-    Ciudades ciudades = new Ciudades("src/main/java/edu.fiuba.algo3.modelo.datosDelJuego/ciudades.csv");
+    Edificio banco = new EdificioBanco(new Caracteristica("Banco"));
+    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
 
     //Setup jugador / tiempo
     Tiempo reloj = new Tiempo(7, 4, 0, 2021);
@@ -42,7 +42,7 @@ public class CasosUsoEntrega2Test {
     ObjetoRobado objetoRobado = new ObjetoRobado(nombreObjeto, ciudadMexico, importanciaObjeto);
 
     //Setup Ladrones / Interpol
-    Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ladrones.csv");
+    Ladrones ladrones = new Ladrones("src/main/java/datosDelJuego/ladrones.csv");
     Ladron ladronMereyLaroc = ladrones.getLadrones().get(5);
     Ladron ladronKatherineDrib = ladrones.getLadrones().get(7);
     Interpol interpol = new Interpol(ladrones, reloj, jugador, ladronMereyLaroc);
@@ -151,4 +151,5 @@ public class CasosUsoEntrega2Test {
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), interpol.getLadron()));
         assertTrue(interpol.compararLadrones(interpol.getPosibleLadron(), partida.getLadronActual()));
     }
+
 }

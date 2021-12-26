@@ -24,7 +24,7 @@ public class UbicacionTest {
 
     @Test
     public void obtengoLaDistanciaEntreLasCoordenadas(){
-        double distanciaObtenida = ubicacionSalida.obtenerDistancia(ubicacionDestino.getLatitud(), ubicacionDestino.getLongitud());
+        double distanciaObtenida = ubicacionSalida.obtenerDistancia(ubicacionDestino);
 
         assertEquals(3489,distanciaObtenida);
     }
@@ -47,6 +47,18 @@ public class UbicacionTest {
         assertEquals(2, ubicacionSalida.obtenerHorasDeViaje(ubicacionDestino, sargentoMock.getVelocidad()));
     }
 
+    @Test
+    public void seObtieneDistanciaEntreDistintasCiudades(){
+        ArrayList<Ciudad> listaCiudades = ciudades.getCiudades();
+        Ciudad ciudadBuenosAires = listaCiudades.get(0);
+        Ciudad ciudadRoma = listaCiudades.get(12);
+        Ciudad ciudadOslo = listaCiudades.get(5);
+
+        assertEquals(12244, ciudadBuenosAires.getUbicacion().obtenerDistancia(ciudadOslo.getUbicacion()));
+        assertEquals(11147, ciudadBuenosAires.getUbicacion().obtenerDistancia(ciudadRoma.getUbicacion()));
+        assertEquals(2007, ciudadOslo.getUbicacion().obtenerDistancia(ciudadRoma.getUbicacion()));
+        assertEquals(0, ciudadOslo.getUbicacion().obtenerDistancia(ciudadOslo.getUbicacion()));
+    }
 
     @Test
     public void seObtienenTiemposDeViajeEntreDistintasCiudadesParaJugadorNovato(){

@@ -5,16 +5,24 @@ public class Ubicacion {
     double longitud;
 
     public Ubicacion(double latitud, double longitud) {
-        this.latitud = latitud;
-        this.longitud = longitud;
+        this.setLatitud(latitud);
+        this.setLongitud(longitud);
     }
 
+    private void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+    private void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
     public double getLatitud(){return this.latitud;}
     public double getLongitud(){return this.longitud;}
 
-    public double obtenerDistancia(double latitudDestino, double longitudDestino) {
-        double latitudSalida = this.latitud;
-        double longitudSalida = this.longitud;
+    public double obtenerDistancia(Ubicacion ubicacionDestino) {
+        double latitudSalida = this.getLatitud();
+        double longitudSalida = this.getLongitud();
+        double latitudDestino = ubicacionDestino.getLatitud();
+        double longitudDestino = ubicacionDestino.getLongitud();
 
         double radioTierra = 6371;//en kilómetros
         double dLat = Math.toRadians(latitudDestino - latitudSalida);
@@ -29,7 +37,14 @@ public class Ubicacion {
         return Math.floor(distancia);
     }
 
-    public int obtenerHorasDeViaje(Ubicacion ubicacionOrigen, int velocidad){
-        return (int) Math.round((ubicacionOrigen.obtenerDistancia(this.latitud, this.longitud)/velocidad));
+    public int obtenerHorasDeViaje(Ubicacion ubicacionDestino, int velocidad) {
+        return (int) Math.round((obtenerDistancia(ubicacionDestino) / velocidad));
     }
-};
+
+    public boolean compararUbicacion(Ubicacion ubicacion){
+        boolean latitud = this.latitud == ubicacion.getLatitud();
+        boolean longitud = this.longitud == ubicacion.getLongitud();
+
+        return latitud && longitud;
+    }
+}
