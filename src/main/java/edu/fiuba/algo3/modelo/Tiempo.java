@@ -30,10 +30,7 @@ public class Tiempo {
     public int getAnioActual(){return calendario.get(calendario.YEAR);}
 
     public void addHoras(int horas){
-        int diaAntesDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
         calendario.add(calendario.HOUR_OF_DAY, horas);
-        int diaLuegoDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
-        jugadorDebeDormir(diaAntesDeAgregarHoras, diaLuegoDeAgregarHoras);
         seAlcanzoElLimiteDeTiempo(horas);
     }
 

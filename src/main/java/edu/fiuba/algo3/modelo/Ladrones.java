@@ -40,4 +40,9 @@ public class Ladrones {
         return this.ladrones;
     }
 
+    public Ladron getLadronAlAzar(){
+        int numeroRandom = (int) (Math.random() * (ladrones.size()));
+        return ladrones.get(numeroRandom);
+    }
+
 }

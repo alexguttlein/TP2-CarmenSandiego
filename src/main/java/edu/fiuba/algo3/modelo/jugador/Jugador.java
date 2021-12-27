@@ -68,12 +68,14 @@ public class Jugador {
         }
         estadoJugador.pasarTiempo(this.reloj);
         this.sanar();
+        this.debeDormir();
     }
 
     public void serHeridoPorArmaDeFuego(){
         this.estadoJugador = new EstadoHeridoPorArmaDeFuego();
         estadoJugador.pasarTiempo(this.reloj);
         this.sanar();
+        this.debeDormir();
     }
 
     public void sanar(){
@@ -84,10 +86,18 @@ public class Jugador {
         int horasViaje = this.ciudadActual.viajarHasta(rango.getVelocidad(), ciudadSiguiente);
         this.getReloj().addHoras(horasViaje);
         this.setCiudadActual(ciudadSiguiente);
+        this.debeDormir();
     }
 
     public void visitarEdificio(Edificio edificio) {
         reloj.addHoras(this.getCiudadActual().visitarEdificio(edificio));
+        this.debeDormir();
     }
-    
+
+
+    private void debeDormir(){
+        if (reloj.getHoraActual() >= 23 || reloj.getHoraActual() <= 7){
+            this.dormir();
+        }
+    }
 }

@@ -18,10 +18,12 @@ import javafx.scene.Node;
 public class BotonJugar implements EventHandler<ActionEvent> {
     private Button botonJugar;
     private Stage stage;
+    private Scene proximaEscena;
 
-    public BotonJugar(Button botonJugar, Stage stage) {
+    public BotonJugar(Button botonJugar, Stage stage, Scene proximaEscena) {
         this.botonJugar = botonJugar;
         this.stage = stage;
+        this.proximaEscena = proximaEscena;
         botonJugar.setText("JUGAR");
         botonJugar.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, 40));
         botonJugar.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -32,15 +34,8 @@ public class BotonJugar implements EventHandler<ActionEvent> {
     public void handle(ActionEvent eventoNuevo) {
         String textoClickeado = "Me han clickeado";
         System.out.println(textoClickeado);
-        this.botonJugar.setText(textoClickeado);
-        StackPane layout = new StackPane();
-        var escenaNueva = crearNuevaEscena(layout, 1280, 720);
-        this.stage.setScene(escenaNueva);
+        this.stage.setScene(proximaEscena);
     }
 
-    public Scene crearNuevaEscena(StackPane layout, int ancho, int largo){
-        layout.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-        var nuevaEscena = new Scene(layout, ancho, largo);
-        return nuevaEscena;
-    }
+
 }
