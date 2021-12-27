@@ -4,12 +4,15 @@ import java.util.*;
 
 public class Tiempo {
     public Calendar calendario;
+    private int cantidadHorasDisponibles;
 
     public Tiempo(int hora, int dia, int mes, int anio){
         this.calendario = new GregorianCalendar(anio, mes, dia, hora,0);
+        this.cantidadHorasDisponibles = 154;
     }
     public Tiempo(){
-        this.calendario = new GregorianCalendar(2021,5,1,7,0);
+        this.calendario = new GregorianCalendar(2021,0,4,7,0);  //Lunes 4 de enero a las 07:00 hs
+        this.cantidadHorasDisponibles = 154;
     }
 
     public Calendar getCalendario(){
@@ -27,8 +30,19 @@ public class Tiempo {
     public int getAnioActual(){return calendario.get(calendario.YEAR);}
 
     public void addHoras(int horas){
+        int diaAntesDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
         calendario.add(calendario.HOUR_OF_DAY, horas);
+        int diaLuegoDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
+        jugadorDebeDormir(diaAntesDeAgregarHoras, diaLuegoDeAgregarHoras);
+        seAlcanzoElLimiteDeTiempo(horas);
     }
+
+
+    private void jugadorDebeDormir(int diaAntesDeAgregarHoras, int diaLuegoDeAgregarHoras){
+        if (diaAntesDeAgregarHoras != diaLuegoDeAgregarHoras){
+            this.addHoras(8);
+        }
+    };
 
     public boolean compararTiempos(Tiempo tiempo){
         boolean mismaHora = this.getHoraActual() == tiempo.getHoraActual();
@@ -38,4 +52,14 @@ public class Tiempo {
 
         return mismaHora && mismoDia && mismoMes && mismoAnio;
     }
+
+
+    public boolean seAlcanzoElLimiteDeTiempo(int horas){
+        this.cantidadHorasDisponibles -= horas;
+        if (this.cantidadHorasDisponibles <= 0)
+            return true;
+        return false;
+    }
+
+
 }
