@@ -1,0 +1,17 @@
+@startuml
+
+class Juego{
+    -inicializarTiempo(hora:int, dia:int, mes:int, anio:int): Tiempo
+}
+
+class Tiempo{
+    -calendario: Calendar
+    -cantidadHorasDisponibles: int
+
+    +addHoras(horas: int): void
+    +seAlcanzoElLimiteDeTiempo(horas: int): boolean
+}
+
+Juego -down-> Tiempo
+
+@enduml

@@ -15,7 +15,6 @@ public class Jugador {
     private int vecesHeridoPorCuchillo;
     private EstadoJugador estadoJugador;
     private Tiempo reloj;
-    //private boolean durmioHoy;
 
     public Jugador(String nombre, Tiempo reloj){
         this.nombre = new Caracteristica(nombre);
@@ -93,7 +92,6 @@ public class Jugador {
         reloj.addHoras(this.getCiudadActual().visitarEdificio(edificio));
         this.debeDormir();
     }
-
 
     private void debeDormir(){
         if (reloj.getHoraActual() >= 23 || reloj.getHoraActual() <= 7){

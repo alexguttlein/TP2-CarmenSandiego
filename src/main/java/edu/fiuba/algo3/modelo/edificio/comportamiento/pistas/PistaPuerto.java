@@ -2,13 +2,11 @@ package edu.fiuba.algo3.modelo.edificio.comportamiento.pistas;
 
 
 import edu.fiuba.algo3.modelo.Caracteristica;
-import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 public class PistaPuerto implements Pista {
 
     private Caracteristica dialogo;
     private Caracteristica descripcion;
-    private Rango dificultad;
 
     public PistaPuerto(Caracteristica dialogo, Caracteristica descripcion) {
         setDialogo(dialogo);
