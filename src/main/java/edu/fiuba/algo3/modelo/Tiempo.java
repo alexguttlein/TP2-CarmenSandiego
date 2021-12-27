@@ -34,13 +34,6 @@ public class Tiempo {
         seAlcanzoElLimiteDeTiempo(horas);
     }
 
-
-    private void jugadorDebeDormir(int diaAntesDeAgregarHoras, int diaLuegoDeAgregarHoras){
-        if (diaAntesDeAgregarHoras != diaLuegoDeAgregarHoras){
-            this.addHoras(8);
-        }
-    };
-
     public boolean compararTiempos(Tiempo tiempo){
         boolean mismaHora = this.getHoraActual() == tiempo.getHoraActual();
         boolean mismoDia = this.getDiaActual() == tiempo.getDiaActual();
