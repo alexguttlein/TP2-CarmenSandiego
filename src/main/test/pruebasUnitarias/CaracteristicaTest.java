@@ -1,6 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
+
+import edu.fiuba.algo3.modelo.Caracteristica;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

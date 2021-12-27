@@ -1,12 +1,12 @@
-package carmenSandiego.modelo.edificio;
+package edu.fiuba.algo3.modelo.edificio;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.pistas.Pista;
-import carmenSandiego.modelo.pistas.PistaAeropuerto;
-import carmenSandiego.modelo.jugador.rango.Rango;
-import datosDelJuego.GeneradorRandom;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.GeneradorRandom;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 import java.util.List;
 

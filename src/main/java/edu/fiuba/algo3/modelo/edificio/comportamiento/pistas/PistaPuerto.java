@@ -1,10 +1,8 @@
-package carmenSandiego.modelo.pistas;
+package edu.fiuba.algo3.modelo.edificio.comportamiento.pistas;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.jugador.rango.Rango;
-import carmenSandiego.modelo.pistas.Pista;
+
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 public class PistaPuerto implements Pista {
 

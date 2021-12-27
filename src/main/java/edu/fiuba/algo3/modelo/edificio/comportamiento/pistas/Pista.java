@@ -1,6 +1,7 @@
-package carmenSandiego.modelo.pistas;
+package edu.fiuba.algo3.modelo.edificio.comportamiento.pistas;
 
-import carmenSandiego.modelo.Caracteristica;
+
+import edu.fiuba.algo3.modelo.Caracteristica;
 
 public interface Pista {
 

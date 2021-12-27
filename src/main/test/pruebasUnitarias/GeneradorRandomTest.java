@@ -1,6 +1,7 @@
 package pruebasUnitarias;
 
-import datosDelJuego.GeneradorRandom;
+
+import edu.fiuba.algo3.modelo.GeneradorRandom;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

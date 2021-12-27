@@ -1,8 +1,9 @@
-package carmenSandiego.modelo.ciudad;
+package edu.fiuba.algo3.modelo.ciudad;
 
-import carmenSandiego.modelo.*;
-import carmenSandiego.modelo.edificio.Edificio;
-import carmenSandiego.modelo.jugador.rango.Rango;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.edificio.Edificio;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 import java.util.ArrayList;
 import java.util.Collections;

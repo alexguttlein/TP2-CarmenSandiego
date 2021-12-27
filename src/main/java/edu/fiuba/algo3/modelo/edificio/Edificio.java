@@ -1,14 +1,15 @@
-package carmenSandiego.modelo.edificio;
+package edu.fiuba.algo3.modelo.edificio;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.edificio.comportamiento.demora.Demora;
-import carmenSandiego.modelo.edificio.comportamiento.visita.Visita;
-import carmenSandiego.modelo.edificio.comportamiento.demora.ComportamientoDeDemora;
-import carmenSandiego.modelo.edificio.comportamiento.visita.ComportamientoVisita;
-import carmenSandiego.modelo.jugador.rango.Rango;
-import carmenSandiego.modelo.pistas.Pista;
+
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.demora.ComportamientoDeDemora;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.demora.Demora;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.visita.ComportamientoVisita;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.visita.Visita;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 public abstract class Edificio{
     protected ComportamientoDeDemora comportamientoDeDemora;

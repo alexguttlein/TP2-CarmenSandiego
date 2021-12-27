@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LadronesTest {
 
-    Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/ladrones.csv");
+    Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/datosDelJuego/ladrones.csv");
     ArrayList<Ladron> listaLadrones = ladrones.getLadrones();
 
     @Test

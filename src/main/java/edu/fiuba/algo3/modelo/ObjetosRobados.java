@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
-import edu.fiuba.algo3.modelo.datosDelJuego.LectorCsv;
 
 import java.util.ArrayList;
 
@@ -22,7 +21,7 @@ public class ObjetosRobados {
 
     private void inicializarObjetosRobados() {
         ArrayList<ArrayList<String>> datosObjetos;
-        LectorCsv leerArchivo = new LectorCsv("src/main/java/edu/fiuba/algo3/modelo/datosDelJuego/objetosRobados.csv");
+        LectorCsv leerArchivo = new LectorCsv("src/main/java/edu/fiuba/algo3/datosDelJuego/objetosRobados.csv");
         datosObjetos = leerArchivo.getLectura();
 
         for(ArrayList<String> objetoRobado: datosObjetos)

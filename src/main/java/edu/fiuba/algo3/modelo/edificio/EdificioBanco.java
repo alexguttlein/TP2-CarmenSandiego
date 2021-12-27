@@ -1,10 +1,15 @@
-package carmenSandiego.modelo.edificio;
+package edu.fiuba.algo3.modelo.edificio;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.jugador.rango.Rango;
-import datosDelJuego.GeneradorRandom;
+
+
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.GeneradorRandom;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBanco;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 import java.util.List;
 
@@ -15,32 +20,32 @@ public class EdificioBanco extends Edificio {
     }
 
     public void setPista(Caracteristica dialogo, Caracteristica descripcion){
-        carmenSandiego.modelo.pistas.Pista pista = new carmenSandiego.modelo.pistas.PistaBanco(dialogo, descripcion);
+        Pista pista = new PistaBanco(dialogo, descripcion);
         super.setPista(pista);
     }
 
     @Override
     public void modificarPista(Ciudad ciudadSiguiente, Ladron ladron, Rango rangoPersonaje) {
-        carmenSandiego.modelo.pistas.Pista pista = determinarTipoDePista(ciudadSiguiente, ladron, rangoPersonaje);
+        Pista pista = determinarTipoDePista(ciudadSiguiente, ladron, rangoPersonaje);
         super.setPista(pista);
     }
 
-    private carmenSandiego.modelo.pistas.Pista determinarTipoDePista(Ciudad ciudad, Ladron ladron, Rango rangoDificultad){
+    private Pista determinarTipoDePista(Ciudad ciudad, Ladron ladron, Rango rangoDificultad){
         int dificultad = rangoDificultad.getArrestosParaAscender();
         GeneradorRandom generadorRandom = new GeneradorRandom(dificultad,1);
         List<Integer> listaGenerada = generadorRandom.getListaGenerada();
         int valorGenerado = listaGenerada.get(0);
 
-        carmenSandiego.modelo.pistas.Pista pista;
+        Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a " + ciudad.getMoneda().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new carmenSandiego.modelo.pistas.PistaAeropuerto(pistaDestino, pistaLadron);
+            pista = new PistaAeropuerto(pistaDestino, pistaLadron);
 
         }
         else {
             Caracteristica dialogoMoneda = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a ");
-            pista = new carmenSandiego.modelo.pistas.PistaAeropuerto(dialogoMoneda, ciudad.getMoneda());
+            pista = new PistaAeropuerto(dialogoMoneda, ciudad.getMoneda());
         }
         return pista;
     }
