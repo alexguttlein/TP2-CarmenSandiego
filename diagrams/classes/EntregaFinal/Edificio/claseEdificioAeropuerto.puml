@@ -1,0 +1,11 @@
+@startuml
+
+class EdificioAeropuerto {
+    --
+    +EdificioAeropuerto()
+    +modificarPista(ciudadSiguiente: Ciudad, ladron: Ladron, rangoPersonaje: Rango): void
+    -determinarTipoDePista(ciudad: Ciudad, ladron: Ladron, rangoDificultad: Rango): Pista
+    -determinarPistaLadron(ladron: Ladron): Caracteristica
+}
+
+@enduml

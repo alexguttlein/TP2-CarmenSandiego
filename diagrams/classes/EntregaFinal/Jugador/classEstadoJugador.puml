@@ -1,0 +1,27 @@
+@startuml
+
+interface EstadoJugador{
+    +pasarTiempo(): void
+}
+class EstadoDormido{
+    +pasarTiempo(): void
+}
+class EstadoHeridoConCuchillo{
+    +pasarTiempo(): void
+}
+class EstadoHeridoConCuchilloMultiplesVeces{
+    +pasarTiempo(): void
+}
+class EstadoHeridoPorArmaDeFuego{
+    +pasarTiempo(): void
+}
+class EstadoSano{
+    +pasarTiempo(): void
+}
+EstadoJugador <|.. EstadoDormido
+EstadoJugador <|.up. EstadoHeridoConCuchillo
+EstadoJugador <|.up. EstadoHeridoConCuchilloMultiplesVeces
+EstadoJugador <|.. EstadoHeridoPorArmaDeFuego
+EstadoJugador <|.. EstadoSano
+
+@enduml

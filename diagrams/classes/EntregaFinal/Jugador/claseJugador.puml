@@ -1,0 +1,34 @@
+@startuml
+
+class Juego{
+    - inicializarJugador(nombre: String)
+}
+
+class Jugador {
+    -nombre: Caracteristica
+    -rango: Rango
+    -ciudadActual: Ciudad
+    -vecesHeridosPorCuchillo: int
+    -estadoJugador: EstadoJugador
+    -reloj: Tiempo
+
+    +Jugador(nombre: String, reloj: Tiempo)
+    +Jugador(nombre: String, reloj: Tiempo, rango: Rango)
+    +addArresto(): void
+    +dormir(): void
+    +serHeridoPorCuchillo(): void
+    +serHeridoPorArmaDeFuego(): void
+    +sanar(): void
+    +viajar(ciudadSiguiente: Ciudad)
+    +visitarEdificio(unEdificio: Edificio): void
+    -debeDormir(): void
+}
+
+interface Rango{}
+
+interface EstadoJugador{}
+
+Juego "1"*-right->"1" Jugador
+Jugador "1"*-down->"1" Rango
+Jugador "1"*-down->"1" EstadoJugador
+@enduml

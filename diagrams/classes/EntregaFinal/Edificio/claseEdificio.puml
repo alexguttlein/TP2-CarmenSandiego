@@ -1,0 +1,27 @@
+@startuml
+
+abstract class Edificio{
+    #comportamientoDeDemora: ComportamientoDeDemora
+    #comportamientoVisita: ComportamientoVisita
+    -nombre: Carracteristica
+    #pista: Pista
+
+    +entrarAlEdificio(): int
+    +{abstract}modificarPista(ciudadSiguiente: Ciudad, ladron: Ladron, rangoPersonaje: Rango): void
+}
+
+class EdificioAeropuerto {}
+
+class EdificioBanco {}
+
+class EdificioBiblioteca {}
+
+class EdificioPuerto {}
+
+Edificio <|-down- EdificioAeropuerto
+Edificio <|-down- EdificioBanco
+Edificio <|-down- EdificioBiblioteca
+Edificio <|-down- EdificioPuerto
+
+
+@enduml

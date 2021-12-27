@@ -1,0 +1,35 @@
+@startuml
+
+interface Pista {}
+
+class PistaAeropuerto{
+    -dialogo: Caracteristica
+    -descripcion: Caracteristica
+
+    +PistaAeropuerto()
+}
+class PistaBanco{
+    -dialogo: Caracteristica
+    -descripcion: Caracteristica
+
+    +PistaBanco()
+}
+class PistaBiblioteca{
+    -dialogo: Caracteristica
+    -descripcion: Caracteristica
+
+    +PistaBiblioteca()
+}
+class PistaPuerto{
+    -dialogo: Caracteristica
+    -descripcion: Caracteristica
+
+    +PistaPuerto()
+}
+
+Pista <|.. PistaAeropuerto
+Pista <|.. PistaBanco
+Pista <|.. PistaBiblioteca
+Pista <|.. PistaPuerto
+
+@enduml
