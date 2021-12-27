@@ -1,21 +1,15 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.controlador.BotonJugar;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.vista.ContenedorBotonJugar;
 import edu.fiuba.algo3.vista.ContenedorBienvenida;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
+
 
 /**
  * JavaFX App
@@ -34,8 +28,6 @@ public class App extends Application {
 
         ContenedorBienvenida contenedorImagenCarmenSandiego = new ContenedorBienvenida(stage, escenaJuego);
         Scene escenaBienvenida = new Scene(contenedorImagenCarmenSandiego, 1280, 720);
-
-
 
         stage.setScene(escenaBienvenida);
         stage.show();
@@ -73,11 +65,3 @@ public class App extends Application {
 //layout.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
 
-    //StackPane layout = new StackPane();
-    //ImageView iview = new ImageView("file:src/main/java/edu/fiuba/algo3/datosDelJuego/ImagenFondo.png");
-    //Button boton = new Button();
-
-    //layout.getChildren().add(iview);
-    // layout.getChildren().add(boton);
-    //layout.setAlignment(boton, Pos.BOTTOM_CENTER);
-    //Scene escena = new Scene(layout);
