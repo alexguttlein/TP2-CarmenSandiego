@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.datosDelJuego.LectorCsv;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

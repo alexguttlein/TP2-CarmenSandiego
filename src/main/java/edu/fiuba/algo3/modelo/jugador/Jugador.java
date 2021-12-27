@@ -23,7 +23,6 @@ public class Jugador {
         this.vecesHeridoPorCuchillo = 0;
         this.estadoJugador = new EstadoSano();
         this.reloj = reloj;
-        //this.durmioHoy = true;
     }
 
     public Jugador(String nombre, Tiempo reloj, Rango rango){
@@ -90,7 +89,5 @@ public class Jugador {
     public void visitarEdificio(Edificio edificio) {
         reloj.addHoras(this.getCiudadActual().visitarEdificio(edificio));
     }
-
-    //Si cambia de dia el reloj estadoJugador = new EstadoDormido();
     
 }
