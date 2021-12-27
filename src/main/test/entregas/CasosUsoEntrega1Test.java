@@ -1,9 +1,9 @@
 package entregas;
 
-import carmenSandiego.modelo.*;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.edificio.*;
-import carmenSandiego.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.Tiempo;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.edificio.*;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,7 +64,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
 
         assertEquals(9, reloj.getHoraActual());
         assertEquals("Vino a cambiar un poco de Peso", pistaEsperadaBanco);
-        assertEquals("Agarro un diccionario Espaniol", pistaEsperadaBiblioteca);
+        assertEquals("Agarró un diccionario Espaniol", pistaEsperadaBiblioteca);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class CasosUsoEntrega1Test<ciudadMexico> {
 
         assertEquals(7, reloj.getHoraActual());
         assertEquals(MONDAY, reloj.getDiaActual());
-        assertEquals("Se subio a un avion Verde, blanca y roja", pistaEsperadaAeropuerto);
+        assertEquals("Se subió a un avion Verde, blanca y roja", pistaEsperadaAeropuerto);
         assertEquals("Al lugar que iba exportaban mucho Mineria", pistaEsperadaPuerto);
     }
 

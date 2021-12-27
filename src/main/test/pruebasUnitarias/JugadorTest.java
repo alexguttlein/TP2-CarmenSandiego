@@ -1,9 +1,9 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Tiempo;
-import carmenSandiego.modelo.jugador.Jugador;
-import carmenSandiego.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Tiempo;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,6 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class JugadorTest {
     Ciudad ciudadMexico = new Ciudad(new ArrayList(Arrays.asList("Mexico","verde, blanca y roja", "Peso",

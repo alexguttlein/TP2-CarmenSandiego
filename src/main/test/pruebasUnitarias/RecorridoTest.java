@@ -1,10 +1,10 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.ObjetoRobado;
-import carmenSandiego.modelo.Recorrido;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.ciudad.Ciudades;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.ObjetoRobado;
+import edu.fiuba.algo3.modelo.Recorrido;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 
 public class RecorridoTest {
@@ -21,7 +20,7 @@ public class RecorridoTest {
             "Campos", "Cataratas del Iguazu", "Ganaderia", "Yaguarete", "Messi", "Espaniol", "Arte Mapuche",
             "Cristianismo", "Presidente", "Antigua Colonia Espaniola", "-34.58952254327074", "-58.34678308238882"));
 
-    Ciudades ciudades = new Ciudades("src/main/java/datosDelJuego/ciudades.csv");
+    Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/datosDelJuego/ciudades.csv");
 
     @Test
     public void seCreaUnRecorridoCon4CiudadesPrincipales(){  //Objeto robado comun

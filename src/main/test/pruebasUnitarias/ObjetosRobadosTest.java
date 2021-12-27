@@ -1,9 +1,9 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.ciudad.Ciudades;
-import carmenSandiego.modelo.ObjetoRobado;
-import carmenSandiego.modelo.ObjetosRobados;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
+import edu.fiuba.algo3.modelo.ObjetoRobado;
+import edu.fiuba.algo3.modelo.ObjetosRobados;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

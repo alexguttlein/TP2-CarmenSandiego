@@ -1,15 +1,17 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
-import carmenSandiego.modelo.ciudad.Ciudad;
-import carmenSandiego.modelo.edificio.*;
-import carmenSandiego.modelo.jugador.rango.Rango;
+
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.edificio.*;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaPuerto;
+import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 import org.junit.jupiter.api.Test;
-import carmenSandiego.modelo.pistas.Pista;
-import carmenSandiego.modelo.pistas.PistaAeropuerto;
-import carmenSandiego.modelo.pistas.PistaPuerto;
-import carmenSandiego.modelo.pistas.PistaBiblioteca;
+
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;

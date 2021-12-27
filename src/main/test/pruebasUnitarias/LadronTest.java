@@ -1,7 +1,7 @@
 package pruebasUnitarias;
 
-import carmenSandiego.modelo.Caracteristica;
-import carmenSandiego.modelo.Ladron;
+import edu.fiuba.algo3.modelo.Caracteristica;
+import edu.fiuba.algo3.modelo.Ladron;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
