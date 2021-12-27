@@ -1,6 +1,7 @@
 package pruebasUnitarias;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class PartidaTests {
         when(tiempoMock.getHoraActual()).thenReturn(7);
         when(jugadorMock.getCantidadDeArrestos()).thenReturn(0);
         when(objetoRobadoMock.getImportancia()).thenReturn(new Caracteristica("Comun"));
-        when(objetoRobadoMock.getCiudadOrigen()).thenReturn(ciudades.getCiudades().get(4));
+        when(objetoRobadoMock.getCiudadOrigen()).thenReturn(ciudades.getCiudades().get(0));
         when(objetoRobadoMock.getNombre()).thenReturn(new Caracteristica("Tesoro"));
         when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(interpolMock.atraparSospechoso()).thenReturn(false);
@@ -37,7 +38,7 @@ public class PartidaTests {
         assertEquals(objetoRobadoMock.getNombre(), partida.getObjetoRobado().getNombre());
         assertEquals(ladronMock.getGenero(), partida.getLadronActual().getGenero());
         assertEquals(interpolMock.atraparSospechoso(), partida.getInterpol().atraparSospechoso());
-        assertEquals("Buenos Aires", partida.getCiudades().getCiudades().get(0).getNombre().getCaracteristica());
+        assertEquals(ciudades, partida.getCiudades());
     }
 }
 
