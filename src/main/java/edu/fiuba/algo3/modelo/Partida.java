@@ -24,14 +24,16 @@ public class Partida {
         this.ciudades = ciudades;
         this.recorrido = new Recorrido(this.objetoRobado, this.ciudades);
         this.ladronActual.setRecorrido(this.recorrido);
-        //this.modificarPistasPorDondePasoElLadron();
     }
 
-    private void modificarPistasPorDondePasoElLadron() {
-        for(Ciudad c: this.recorrido.getRecorridoReal()) {
-            if ((c.getPasoLadron()) && (c.getCiudadSiguiente() != null))
-                c.modificarPistasPorDondePasoElLadron(this.ladronActual, c.getCiudadSiguiente());
+    public boolean modificarPistasPorDondePasoElLadron() {
+        for(Ciudad c: this.ciudades.getCiudades()) {
+            if (c.getCiudadSiguiente() != null && c.getPasoLadron()) {
+                c.modificarPistasEdificio(this.ladronActual, this.jugador.getRango());
+                return true;
+            }
         }
+        return false;
     }
 
     //private void setTiempo(Tiempo tiempo){this.tiempo = tiempo;}

@@ -16,6 +16,7 @@ public class Juego {
     private Interpol interpol;
     private ObjetoRobado objetoRobado;
     private Ladron ladronActual;
+    private Partida partida;
 
     public Juego(){
         Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/datosDelJuego/ladrones.csv");
@@ -28,13 +29,24 @@ public class Juego {
         this.prepararPartida();
     }
 
+    public void iniciarPartida() {
+        this.partida = new Partida(this.jugador, this.objetoRobado, this.ladronActual,
+                this.interpol, this.tiempo, this.ciudades);
+    }
+
     private void prepararPartida(){
         this.ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/datosDelJuego/ciudades.csv");
+        agregarCiudadesSecundarias();
         ObjetosRobados objetosRobados = new ObjetosRobados(this.ciudades);
         this.asignarRangoDeJugadorALasCiudades();
         this.ladronActual = this.seleccionarLadron(); //se selecciona ladron para la partida
         this.interpol = new Interpol(this.ladrones, this.tiempo, this.jugador, ladronActual);
         this.objetoRobado = this.seleccionarObjetoRobadoAleatorio(objetosRobados); //se selecciona objeto para la partida
+    }
+
+    private void agregarCiudadesSecundarias() {
+        int cantidadDeCiudadesSecundarias = 2;
+        this.ciudades.agregarCiudadesSecundarias(cantidadDeCiudadesSecundarias);
     }
 
     private void asignarRangoDeJugadorALasCiudades() {
@@ -58,5 +70,6 @@ public class Juego {
     public Tiempo getTiempo(){return this.tiempo;}
     public Jugador getJugador(){return this.jugador;}
     public Ciudades getCiudades(){return this.ciudades;}
+    public Partida getPartida(){return this.partida;}
 
 }
