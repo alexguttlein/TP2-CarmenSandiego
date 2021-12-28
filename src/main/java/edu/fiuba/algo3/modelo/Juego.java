@@ -26,12 +26,6 @@ public class Juego {
         this.tiempo = tiempo;
         this.ladrones = ladrones;
         this.prepararPartida();
-        this.iniciarPartida();
-    }
-
-    private void iniciarPartida() {
-        Partida partida = new Partida(this.jugador, this.objetoRobado, this.ladronActual,
-                this.interpol, this.tiempo, this.ciudades);
     }
 
     private void prepararPartida(){
