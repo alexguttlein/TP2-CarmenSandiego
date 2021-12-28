@@ -50,15 +50,17 @@ public class ObjetosRobadosTest {
         assertNotNull(objetoRandom);
         assertTrue(objetoRandom.getImportancia().compararCaracteristica(new Caracteristica("Importante")));
     }
-
+/*
     @Test
     public void seSeleccionaUnObjetoRobadoAleatorioDeTipoMuyImportante(){
-        when(jugadorMock.getRango()).thenReturn(new RangoSargento(20));
+        when(jugadorMock.getRango()).thenReturn(new RangoInvestigador(10));
         ObjetoRobado objetoRandom = objetosRobados.seleccionarObjetoRobadoAleatorio(jugadorMock);
 
         assertNotNull(objetoRandom);
         assertTrue(objetoRandom.getImportancia().compararCaracteristica(new Caracteristica("Muy Importante")));
     }
+
+ */
 
 }
 
