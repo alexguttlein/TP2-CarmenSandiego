@@ -80,7 +80,7 @@ public class Ciudad {
 
     public void setPistasEdificio(){
         if ((ciudadSiguiente != null) && getPasoLadron()){
-            for (Edificio edificio: edificios){
+            for (Edificio edificio: this.edificios){
                 edificio.modificarPista(this.ciudadSiguiente, this.ladron, this.rangoPersonaje);
             }
         }
@@ -121,8 +121,12 @@ public class Ciudad {
     public ArrayList<Edificio> getEdificios(){return this.edificios;}
 
     public void setRangoPersonaje(Rango rango){this.rangoPersonaje = rango;}
-
     public Rango getRango(){return this.rangoPersonaje;}
+
+    public void modificarPistasPorDondePasoElLadron(Ladron ladron, Ciudad ciudadSiguiente) {
+        for(Edificio e: this.getEdificios())
+            e.modificarPista(ciudadSiguiente, ladron, getRango());
+    }
 }
 
 

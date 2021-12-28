@@ -40,12 +40,12 @@ public class EdificioBanco extends Edificio {
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a " + ciudad.getMoneda().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new PistaAeropuerto(pistaDestino, pistaLadron);
+            pista = new PistaBanco(pistaDestino, pistaLadron);
 
         }
         else {
             Caracteristica dialogoMoneda = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a ");
-            pista = new PistaAeropuerto(dialogoMoneda, ciudad.getMoneda());
+            pista = new PistaBanco(dialogoMoneda, ciudad.getMoneda());
         }
         return pista;
     }
