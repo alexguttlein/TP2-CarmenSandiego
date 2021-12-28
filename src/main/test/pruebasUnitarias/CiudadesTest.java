@@ -61,6 +61,7 @@ public class CiudadesTest {
         assertNotNull(edificios.get(0).getPista());
         assertNotNull(edificios.get(1).getPista());
         assertNotNull(edificios.get(2).getPista());
+
     }
 
 }

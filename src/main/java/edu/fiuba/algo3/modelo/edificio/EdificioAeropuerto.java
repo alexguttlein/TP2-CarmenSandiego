@@ -16,6 +16,7 @@ public class EdificioAeropuerto extends Edificio {
         super.setNombre(nombreEdificio);
     }
 
+    @Override
     public void setPista(Caracteristica dialogo, Caracteristica descripcion){
         Pista pista = new PistaAeropuerto(dialogo, descripcion);
         super.setPista(pista);
@@ -33,16 +34,16 @@ public class EdificioAeropuerto extends Edificio {
         List<Integer> listaGenerada = generadorRandom.getListaGenerada();
         int valorGenerado = listaGenerada.get(0);
 
-        Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Subio a un avion que tenia bandera " + ciudad.getBandera().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new PistaAeropuerto(pistaDestino, pistaLadron);
-
+            this.getPista().setDialogo(pistaDestino);
+            this.getPista().setDescripcion(pistaLadron);
         }
         else {
             Caracteristica dialogoBandera = new Caracteristica("Subio a un avion que tenia bandera ");
-            pista = new PistaAeropuerto(dialogoBandera, ciudad.getBandera());
+            this.getPista().setDialogo(dialogoBandera);
+            this.getPista().setDescripcion(ciudad.getBandera());
         }
         return pista;
     }

@@ -34,16 +34,17 @@ public class EdificioBiblioteca extends Edificio {
         List<Integer> listaGenerada = generadorRandom.getListaGenerada();
         int valorGenerado = listaGenerada.get(0);
 
-        Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Busco informacion sobre destinos que tengan " + ciudad.getGeografia().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new PistaBiblioteca(pistaDestino, pistaLadron);
+            this.getPista().setDialogo(pistaDestino);
+            this.getPista().setDescripcion(pistaLadron);
 
         }
         else {
             Caracteristica dialogoGeografia = new Caracteristica("Busco informacion sobre destinos que tengan ");
-            pista = new PistaBiblioteca(dialogoGeografia, ciudad.getGeografia());
+            this.getPista().setDialogo(dialogoGeografia);
+            this.getPista().setDescripcion(ciudad.getGeografia());
         }
         return pista;
     }

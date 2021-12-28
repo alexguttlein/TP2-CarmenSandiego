@@ -5,10 +5,7 @@ import edu.fiuba.algo3.modelo.Caracteristica;
 import edu.fiuba.algo3.modelo.Ladron;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.edificio.*;
-import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
-import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
-import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
-import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaPuerto;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.*;
 import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 import org.junit.jupiter.api.Test;
 
@@ -79,13 +76,17 @@ public class PistaTest {
 
     @Test
     public void seModificaLaPistaDelAeropuerto(){
-        when(ciudadMock.getBandera()).thenReturn(new Caracteristica("celeste y blanca."));
+        when(ciudadMock.getBandera()).thenReturn(new Caracteristica("celeste y blanca"));
         when(rangoMock.getArrestosParaAscender()).thenReturn(10);
         when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(ladronMock.getCabello()).thenReturn(new Caracteristica("Rojo"));
         when(ladronMock.getHobby()).thenReturn(new Caracteristica("Tenis"));
         when(ladronMock.getSenia()).thenReturn(new Caracteristica("Anillo"));
         when(ladronMock.getVehiculo()).thenReturn(new Caracteristica("Auto"));
+
+        Pista pista = new PistaAeropuerto(new Caracteristica("No lo hemos visto por aqui"), new Caracteristica(""));
+        aeropuerto.setPista(pista);
+        assertTrue(aeropuerto.getPista().compararPista(pista));
 
         aeropuerto.modificarPista(ciudadMock, ladronMock, rangoMock);
 
@@ -94,13 +95,17 @@ public class PistaTest {
 
     @Test
     public void seModificaLaPistaDelPuerto(){
-        when(ciudadMock.getBandera()).thenReturn(new Caracteristica("celeste y blanca."));
+        when(ciudadMock.getBandera()).thenReturn(new Caracteristica("celeste y blanca"));
         when(rangoMock.getArrestosParaAscender()).thenReturn(10);
         when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(ladronMock.getCabello()).thenReturn(new Caracteristica("Rojo"));
         when(ladronMock.getHobby()).thenReturn(new Caracteristica("Tenis"));
         when(ladronMock.getSenia()).thenReturn(new Caracteristica("Anillo"));
         when(ladronMock.getVehiculo()).thenReturn(new Caracteristica("Auto"));
+
+        Pista pista = new PistaPuerto(new Caracteristica("No lo hemos visto por aqui"), new Caracteristica(""));
+        puerto.setPista(pista);
+        assertTrue(puerto.getPista().compararPista(pista));
 
         puerto.modificarPista(ciudadMock, ladronMock, rangoMock);
 
@@ -109,13 +114,17 @@ public class PistaTest {
 
     @Test
     public void seModificaLaPistaDelBanco(){
-        when(ciudadMock.getMoneda()).thenReturn(new Caracteristica("peso."));
+        when(ciudadMock.getMoneda()).thenReturn(new Caracteristica("peso"));
         when(rangoMock.getArrestosParaAscender()).thenReturn(10);
         when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(ladronMock.getCabello()).thenReturn(new Caracteristica("Rojo"));
         when(ladronMock.getHobby()).thenReturn(new Caracteristica("Tenis"));
         when(ladronMock.getSenia()).thenReturn(new Caracteristica("Anillo"));
         when(ladronMock.getVehiculo()).thenReturn(new Caracteristica("Auto"));
+
+        Pista pista = new PistaBanco(new Caracteristica("No lo hemos visto por aqui"), new Caracteristica(""));
+        banco.setPista(pista);
+        assertTrue(banco.getPista().compararPista(pista));
 
         banco.modificarPista(ciudadMock, ladronMock, rangoMock);
 
@@ -124,13 +133,17 @@ public class PistaTest {
 
     @Test
     public void seModificaLaPistaDeLaBiblioteca(){
-        when(ciudadMock.getGeografia()).thenReturn(new Caracteristica("montanias."));
+        when(ciudadMock.getGeografia()).thenReturn(new Caracteristica("montanias"));
         when(rangoMock.getArrestosParaAscender()).thenReturn(10);
         when(ladronMock.getGenero()).thenReturn(new Caracteristica("Femenino"));
         when(ladronMock.getCabello()).thenReturn(new Caracteristica("Rojo"));
         when(ladronMock.getHobby()).thenReturn(new Caracteristica("Tenis"));
         when(ladronMock.getSenia()).thenReturn(new Caracteristica("Anillo"));
         when(ladronMock.getVehiculo()).thenReturn(new Caracteristica("Auto"));
+
+        Pista pista = new PistaBiblioteca(new Caracteristica("No lo hemos visto por aqui"), new Caracteristica(""));
+        biblioteca.setPista(pista);
+        assertTrue(biblioteca.getPista().compararPista(pista));
 
         biblioteca.modificarPista(ciudadMock, ladronMock, rangoMock);
 
