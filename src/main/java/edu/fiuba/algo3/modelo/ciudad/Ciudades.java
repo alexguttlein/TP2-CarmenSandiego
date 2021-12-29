@@ -57,28 +57,29 @@ public class Ciudades {
     }
 
     private Edificio crearEdificio(String nombreEdificio) {
-        Edificio edificio;
-        Pista pista;
+        Edificio edificio = null;
+        Pista pista = null;
         Caracteristica pistaInicial;
-        if(nombreEdificio.equals("Aeropuerto"));{
+        Caracteristica pistaVacia = new Caracteristica("");
+        if(nombreEdificio.equals("Aeropuerto")){
             edificio = new EdificioAeropuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaAeropuerto(pistaInicial, null);
+            pista = new PistaAeropuerto(pistaInicial, pistaVacia);
         }
-        if(nombreEdificio.equals("Puerto"));{
+        if(nombreEdificio.equals("Puerto")){
             edificio = new EdificioPuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaPuerto(pistaInicial, null);
+            pista = new PistaPuerto(pistaInicial, pistaVacia);
         }
-        if(nombreEdificio.equals("Biblioteca"));{
+        if(nombreEdificio.equals("Biblioteca")){
             edificio = new EdificioBiblioteca(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaBiblioteca(pistaInicial, null);
+            pista = new PistaBiblioteca(pistaInicial, pistaVacia);
         }
-        if(nombreEdificio.equals("Banco"));{
+        if(nombreEdificio.equals("Banco")){
             edificio = new EdificioBanco(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaBanco(pistaInicial, null);
+            pista = new PistaBanco(pistaInicial, pistaVacia);
         }
         edificio.setPista(pista);
         return edificio;
@@ -110,4 +111,22 @@ public class Ciudades {
         return new Caracteristica(pistasIniciales.get(0).get(valor));
     }
 
+    public void agregarCiudadesSecundarias(int cantidadAAgregar) {
+        for(Ciudad c: this.ciudades) {
+            int indexAIgnorar = obtenerIndiceDeCiudad(c);
+            GeneradorRandom generadorRandom = new GeneradorRandom(this.ciudades.size(), cantidadAAgregar, indexAIgnorar);
+            List<Integer> listaGenerada = generadorRandom.getListaGenerada();
+            for(int i = 0; i < cantidadAAgregar; i++)
+                c.agregarCiudadSecundaria(this.getCiudades().get( listaGenerada.get(i) ));
+        }
+    }
+
+    public int obtenerIndiceDeCiudad(Ciudad ciudad) {
+        int i = -1;
+        for(i = 0; i < this.getCiudades().size(); i++){
+            if(this.getCiudades().get(i).getNombre().compararCaracteristica(ciudad.getNombre()))
+                return i;
+        }
+        return -1;
+    }
 }

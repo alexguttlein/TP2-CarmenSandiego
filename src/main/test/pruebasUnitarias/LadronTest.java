@@ -2,13 +2,14 @@ package pruebasUnitarias;
 
 import edu.fiuba.algo3.modelo.Caracteristica;
 import edu.fiuba.algo3.modelo.Ladron;
+import edu.fiuba.algo3.modelo.Recorrido;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class LadronTest {
     ArrayList datosLadron = new ArrayList<>(Arrays.asList("Carmen Sandiego", "Femenino", "Tennis",
@@ -38,6 +39,23 @@ public class LadronTest {
         Ladron ladron2 = new Ladron(datosLadron);
 
         assertTrue(ladron2.compararConLadron(ladron));
+    }
+
+    @Test
+    public void seComparanDosLadronesDistintos(){
+        ArrayList datos = new ArrayList<>(Arrays.asList("Carmen Sandiego", "Femenino", "Tennis",
+                "Negro", "Joyas", "Convertible"));
+        Ladron ladron2 = new Ladron(datos);
+
+        assertFalse(ladron2.compararConLadron(ladron));
+    }
+
+    @Test
+    public void seAsignaUnRecorridoAlLadron(){
+        Recorrido recorridoMock = mock(Recorrido.class);
+        ladron.setRecorrido(recorridoMock);
+
+        assertNotNull(ladron.getRecorrido());
     }
 
 }

@@ -11,6 +11,7 @@ public class Ladron {
     private Caracteristica senia;
     private Caracteristica vehiculo;
     private List<Caracteristica> listaCaracteristicas = new ArrayList<>();
+    private Recorrido recorrido;
 
     public Ladron(ArrayList<String> datosLadron){
         this.nombre = new Caracteristica(datosLadron.get(0));
@@ -27,6 +28,7 @@ public class Ladron {
     public void setCabello(Caracteristica cabello){this.cabello = cabello; listaCaracteristicas.add(cabello);}
     public void setSenia(Caracteristica senia){this.senia = senia; listaCaracteristicas.add(senia);}
     public void setVehiculo(Caracteristica vehiculo){this.vehiculo = vehiculo; listaCaracteristicas.add(vehiculo);}
+    public void setRecorrido(Recorrido recorrido){this.recorrido = recorrido;}
 
     public Caracteristica getNombre(){return this.nombre;}
     public Caracteristica getGenero(){return this.genero;}
@@ -35,6 +37,7 @@ public class Ladron {
     public Caracteristica getSenia(){return this.senia;}
     public Caracteristica getVehiculo(){return this.vehiculo;}
     public List<Caracteristica> getListaCaracteristicas(){return this.listaCaracteristicas;}
+    public Recorrido getRecorrido(){return this.recorrido;}
 
     public boolean compararConLadron(Ladron otroLadron){
         return otroLadron.compararCaracteristicas(nombre, genero, hobby, cabello, senia, vehiculo);

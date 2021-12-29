@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.vista;
 
+
 import edu.fiuba.algo3.controlador.ControladorPrincipal;
+
 import edu.fiuba.algo3.modelo.Partida;
 import javafx.geometry.Insets;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -165,7 +168,7 @@ public class ContenedorPrincipal extends AnchorPane {
 
         this.getChildren().add(paneSupDer);
         controladorPrincipal.setPaneSupDer(paneSupDer);
-    }
 
+    }
 
 }

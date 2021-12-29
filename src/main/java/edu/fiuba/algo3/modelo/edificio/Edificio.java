@@ -27,15 +27,10 @@ public abstract class Edificio{
         this.nombre = nombre;
     }
 
+
     public String getPistaCompleta() {
         return pista.getPista();
     }
-
-    /*
-    public void mostrarPista(){
-        this.comportamientoPistas.mostrarPistas();
-    }
-     */
 
     public int entrarAlEdificio(){
         comportamientoVisita.entrarAlEdificio();
@@ -51,24 +46,15 @@ public abstract class Edificio{
         return comportamientoDeDemora.calcularDemora(visitas);
     }
 
-    public void setPista(Pista pista){
-        this.pista = pista;
-    }
+    public void setPista(Pista pista){this.pista = pista;}
     public Pista getPista(){return this.pista;}
 
     public boolean compararEdificios(Edificio edificio){
         return this.getNombre() == edificio.getNombre();
     }
+
+    public abstract void setPista(Caracteristica dialogo, Caracteristica descripcion);
+
     public abstract void modificarPista(Ciudad ciudadSiguiente, Ladron ladron, Rango rangoPersonaje);
 
-/*
-    public void setComportamientoPistas(ComportamientoPistas pista){
-        this.comportamientoPistas =  pista;
-    }
-
-    public void setSinPista(){
-        ComportamientoPistas sinPista = new SinPista();
-        setComportamientoPistas(sinPista);
-    }
- */
 }

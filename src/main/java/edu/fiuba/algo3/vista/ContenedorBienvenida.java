@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.vista;
 
 
+
 import edu.fiuba.algo3.controlador.ControladorBienvenida;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;

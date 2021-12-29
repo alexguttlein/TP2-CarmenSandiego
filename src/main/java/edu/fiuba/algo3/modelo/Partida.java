@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
@@ -23,6 +24,18 @@ public class Partida {
         this.ciudades = ciudades;
         this.recorrido = new Recorrido(this.objetoRobado, this.ciudades);
         jugador.setCiudadActual(recorrido.getRecorridoReal().get(0));
+
+        this.ladronActual.setRecorrido(this.recorrido);
+    }
+
+    public boolean modificarPistasPorDondePasoElLadron() {
+        for(Ciudad c: this.ciudades.getCiudades()) {
+            if (c.getCiudadSiguiente() != null && c.getPasoLadron()) {
+                c.modificarPistasEdificio(this.ladronActual, this.jugador.getRango());
+                return true;
+            }
+        }
+        return false;
     }
 
     //private void setTiempo(Tiempo tiempo){this.tiempo = tiempo;}
@@ -38,6 +51,7 @@ public class Partida {
     public Ladron getLadronActual(){return this.ladronActual;}
     public Interpol getInterpol(){return this.interpol;}
     public Ciudades getCiudades(){return this.ciudades;}
+    public Recorrido getRecorrido(){return this.recorrido;}
 
 }
 

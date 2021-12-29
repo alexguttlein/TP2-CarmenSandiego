@@ -3,7 +3,9 @@ package edu.fiuba.algo3.controlador;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -40,9 +42,13 @@ public class BotonViajeACiudad implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent eventoNuevo) {
         jugador.viajar(nuevaCiudad);
+
         ContenedorPrincipal nuevoContenedor = new ContenedorPrincipal(stage, partida);
+
         Scene nuevaEscena = new Scene(nuevoContenedor, 1280, 720);
         stage.setScene(nuevaEscena);
         stage.show();
     }
+
 }
+

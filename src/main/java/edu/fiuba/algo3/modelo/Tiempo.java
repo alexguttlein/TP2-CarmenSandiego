@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Tiempo {

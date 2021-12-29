@@ -13,20 +13,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+public class BotonSiguiente implements EventHandler<ActionEvent> {
 
-public class BotonJugar implements EventHandler<ActionEvent> {
     private Button botonJugar;
     private Stage stage;
     private Scene proximaEscena;
 
-    public BotonJugar(Button botonJugar, Stage stage, Scene proximaEscena) {
+    public BotonSiguiente(Button botonJugar, Stage stage, Scene proximaEscena) {
         this.botonJugar = botonJugar;
         this.stage = stage;
         this.proximaEscena = proximaEscena;
-        botonJugar.setText("JUGAR");
+        botonJugar.setText("Siguiente");
         botonJugar.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, 40));
         botonJugar.setTextFill(Color.rgb(255, 150, 69));
-        botonJugar.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonJugar.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @Override
@@ -35,6 +35,5 @@ public class BotonJugar implements EventHandler<ActionEvent> {
         System.out.println(textoClickeado);
         this.stage.setScene(proximaEscena);
     }
-
 
 }
