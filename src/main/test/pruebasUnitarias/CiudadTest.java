@@ -1,6 +1,10 @@
 package pruebasUnitarias;
 
+import edu.fiuba.algo3.modelo.ObjetoRobado;
+import edu.fiuba.algo3.modelo.ObjetosRobados;
+import edu.fiuba.algo3.modelo.Recorrido;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 import edu.fiuba.algo3.modelo.edificio.Edificio;
 import edu.fiuba.algo3.modelo.edificio.EdificioBanco;
 import org.junit.jupiter.api.Test;
@@ -73,4 +77,20 @@ public class CiudadTest {
 
         assertEquals(9, resultadoEsperado);
     }
+
+    /*
+    @Test
+    public void seVenLasCiudadesSecundariasDeUnaCiudad(){
+        Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/datosDelJuego/ciudades.csv");
+        ObjetosRobados objetosRobados = new ObjetosRobados(ciudades);
+        ObjetoRobado objetoRobado = objetosRobados.getObjetoRobadoAlAzar();
+        Recorrido recorrido = new Recorrido(objetoRobado, ciudades);
+        for (Ciudad actual : recorrido.getRecorridoReal()){
+            for (Ciudad actual2 : actual.getCiudadesDisponiblesParaViajar()){
+                System.out.println(actual.getNombre().getCaracteristica() + ": " + actual2.getNombre().getCaracteristica());
+            }
+        }
+    }
+
+     */
 }

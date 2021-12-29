@@ -41,6 +41,13 @@ public class Ladrones {
         return this.ladrones;
     }
 
+
+    public Ladron getLadronAlAzar(){
+        int numeroRandom = (int) (Math.random() * (ladrones.size()));
+        return ladrones.get(numeroRandom);
+    }
+
+
     public Ladron seleccionarLadronAleatorio() {
         ArrayList<Ladron> ladrones = this.getLadrones();
         GeneradorRandom generadorRandom = new GeneradorRandom(ladrones.size(), 1);
@@ -49,4 +56,5 @@ public class Ladrones {
         Ladron ladron = this.getLadrones().get(listaGenerada.get(0));
         return ladron;
     }
+
 }

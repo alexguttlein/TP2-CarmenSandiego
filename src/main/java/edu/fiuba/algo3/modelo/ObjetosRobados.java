@@ -92,4 +92,9 @@ public class ObjetosRobados {
         return objeto;
     }
 
+    public ObjetoRobado getObjetoRobadoAlAzar(){
+        int numeroRandom = (int) (Math.random() * (objetosRobados.size()));
+        return objetosRobados.get(numeroRandom);
+    }
+
 }

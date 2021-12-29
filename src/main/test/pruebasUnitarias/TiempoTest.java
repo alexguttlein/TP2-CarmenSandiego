@@ -29,7 +29,7 @@ public class TiempoTest {
         reloj.addHoras(24);
 
         assertEquals(TUESDAY, reloj.getDiaActual());
-        assertEquals(15, reloj.getHoraActual());
+        assertEquals(7, reloj.getHoraActual());
     }
 
     @Test
@@ -59,13 +59,5 @@ public class TiempoTest {
         assertTrue(tiempo.seAlcanzoElLimiteDeTiempo(200));
     }
 
-    @Test
-    public void elJugadorDuermeAutomaticamenteAlcambiarseElDia(){
-        Tiempo tiempo = new Tiempo();
-        tiempo.addHoras(17);
-
-        assertEquals(TUESDAY, tiempo.getDiaActual());
-        assertEquals(8, tiempo.getHoraActual());
-    }
 
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Tiempo {
@@ -30,19 +31,9 @@ public class Tiempo {
     public int getAnioActual(){return calendario.get(calendario.YEAR);}
 
     public void addHoras(int horas){
-        int diaAntesDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
         calendario.add(calendario.HOUR_OF_DAY, horas);
-        int diaLuegoDeAgregarHoras = calendario.get(calendario.DAY_OF_WEEK);
-        jugadorDebeDormir(diaAntesDeAgregarHoras, diaLuegoDeAgregarHoras);
         seAlcanzoElLimiteDeTiempo(horas);
     }
-
-
-    private void jugadorDebeDormir(int diaAntesDeAgregarHoras, int diaLuegoDeAgregarHoras){
-        if (diaAntesDeAgregarHoras != diaLuegoDeAgregarHoras){
-            this.addHoras(8);
-        }
-    };
 
     public boolean compararTiempos(Tiempo tiempo){
         boolean mismaHora = this.getHoraActual() == tiempo.getHoraActual();
@@ -59,6 +50,21 @@ public class Tiempo {
         if (this.cantidadHorasDisponibles <= 0)
             return true;
         return false;
+    }
+
+    public String obtenerDiaDeLaSemana(){
+        String nombreDia;
+        switch(this.getDiaActual()){
+            case 1: nombreDia = "Domingo"; break;
+            case 2: nombreDia = "Lunes"; break;
+            case 3: nombreDia = "Martes"; break;
+            case 4: nombreDia = "Miercoles"; break;
+            case 5: nombreDia = "Jueves"; break;
+            case 6: nombreDia = "Viernes"; break;
+            case 7: nombreDia = "Sabado"; break;
+            default: nombreDia = "Error"; break;
+        }
+        return nombreDia;
     }
 
 
