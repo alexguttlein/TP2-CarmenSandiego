@@ -26,7 +26,7 @@ public class ContenedorJuego extends StackPane {
         this.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
 
         //ContenedorDescripcionCiudad descripcionCiudad = new ContenedorDescripcionCiudad();
-        ContenedorReloj contenedorReloj = new ContenedorReloj(partida.getTiempo());
+        ContenedorReloj contenedorReloj = new ContenedorReloj(partida.getTiempo(), jugador.getCiudadActual());
 
         Button boton1 = new Button();
         BotonViajar botonViajar = new BotonViajar(boton1, stage, jugador, this, partida);
