@@ -22,6 +22,7 @@ public class Partida {
         this.ladronActual = ladron;
         this.ciudades = ciudades;
         this.recorrido = new Recorrido(this.objetoRobado, this.ciudades);
+        jugador.setCiudadActual(recorrido.getRecorridoReal().get(0));
     }
 
     //private void setTiempo(Tiempo tiempo){this.tiempo = tiempo;}

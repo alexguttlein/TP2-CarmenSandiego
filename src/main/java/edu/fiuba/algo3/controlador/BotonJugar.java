@@ -25,8 +25,8 @@ public class BotonJugar implements EventHandler<ActionEvent> {
         this.proximaEscena = proximaEscena;
         botonJugar.setText("JUGAR");
         botonJugar.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, 40));
-        botonJugar.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         botonJugar.setTextFill(Color.rgb(255, 150, 69));
+        botonJugar.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @Override

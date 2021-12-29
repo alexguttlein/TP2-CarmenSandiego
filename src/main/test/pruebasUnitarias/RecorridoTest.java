@@ -140,8 +140,8 @@ public class RecorridoTest {
         for (Ciudad actual : unRecorrido.getRecorridoReal()){
             for (Ciudad actualSecundaria : actual.getCiudadesSecundarias()){
                 assertFalse(actualSecundaria.getPasoLadron());
-                //System.out.print(actual.getNombre().getCaracteristica() + ": ");
-                //System.out.println(actualSecundaria.getNombre().getCaracteristica());
+                System.out.print(actual.getNombre().getCaracteristica() + ": ");
+                System.out.println(actualSecundaria.getNombre().getCaracteristica());
             }
         }
     }
