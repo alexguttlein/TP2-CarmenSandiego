@@ -36,16 +36,16 @@ public class EdificioBanco extends Edificio {
         List<Integer> listaGenerada = generadorRandom.getListaGenerada();
         int valorGenerado = listaGenerada.get(0);
 
-        Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a " + ciudad.getMoneda().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new PistaAeropuerto(pistaDestino, pistaLadron);
-
+            this.getPista().setDialogo(pistaDestino);
+            this.getPista().setDescripcion(pistaLadron);
         }
         else {
             Caracteristica dialogoMoneda = new Caracteristica("Estuvo consultando la tasa de cambio para cambiar su moneda a ");
-            pista = new PistaAeropuerto(dialogoMoneda, ciudad.getMoneda());
+            this.getPista().setDialogo(dialogoMoneda);
+            this.getPista().setDescripcion(ciudad.getMoneda());
         }
         return pista;
     }

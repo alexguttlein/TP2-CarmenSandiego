@@ -5,9 +5,16 @@ import java.util.List;
 
 public class GeneradorRandom {
 
+    private int valorAIgnorar;
     private List<Integer> listaGenerada = new ArrayList<Integer>();
 
     public GeneradorRandom(int size, int cantidad){
+        this.valorAIgnorar = -1;
+        this.seleccionadorAlAzar(size, cantidad);
+    }
+
+    public GeneradorRandom(int size, int cantidad, int valorAIgnorar){
+        this.valorAIgnorar = valorAIgnorar;
         this.seleccionadorAlAzar(size, cantidad);
     }
 
@@ -16,7 +23,7 @@ public class GeneradorRandom {
 
         while (listaGenerada.size() < cantidad){
             numeroRandom = (int) (Math.random() * (size));
-            if(!this.listaGenerada.contains(numeroRandom))
+            if(!this.listaGenerada.contains(numeroRandom) && numeroRandom != this.valorAIgnorar)
                 this.listaGenerada.add(numeroRandom);
         }
     }

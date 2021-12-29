@@ -78,16 +78,16 @@ public class Ciudad {
         this.pasoLadron = true;
     }
 
-    public void setPistasEdificio(){
+    public void modificarPistasEdificio(Ladron ladron, Rango rango){
         if ((ciudadSiguiente != null) && getPasoLadron()){
-            for (Edificio edificio: edificios){
-                edificio.modificarPista(this.ciudadSiguiente, this.ladron, this.rangoPersonaje);
+            for (Edificio edificio: this.edificios){
+                edificio.modificarPista(this.ciudadSiguiente, ladron, rango);
             }
         }
     }
 
     public void agregarCiudadSecundaria(Ciudad nuevaCiudadSecundaria){
-        ciudadesSecundarias.add(nuevaCiudadSecundaria);
+        this.ciudadesSecundarias.add(nuevaCiudadSecundaria);
     }
 
     public ArrayList<Ciudad> getCiudadesSecundarias(){return this.ciudadesSecundarias;}
@@ -121,8 +121,8 @@ public class Ciudad {
     public ArrayList<Edificio> getEdificios(){return this.edificios;}
 
     public void setRangoPersonaje(Rango rango){this.rangoPersonaje = rango;}
-
     public Rango getRango(){return this.rangoPersonaje;}
+
 }
 
 

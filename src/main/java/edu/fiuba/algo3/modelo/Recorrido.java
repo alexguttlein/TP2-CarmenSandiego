@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
 
@@ -29,17 +31,34 @@ public class Recorrido {
     }
 
     public void inicializarRecorrido(int cantidadDePaises, ObjetoRobado unObjetoRobado){
-        removerCiudadOrigen(unObjetoRobado.getCiudadOrigen());       //Para que no se repita la ciudad de origen
-        recorridoReal.add(unObjetoRobado.getCiudadOrigen());
+        int index = this.ciudades.obtenerIndiceDeCiudad(unObjetoRobado.getCiudadOrigen());
+        GeneradorRandom random = new GeneradorRandom(this.ciudades.getCiudades().size(), cantidadDePaises-1, index);
+        List<Integer> listaGenerada = random.getListaGenerada(); //se genera lista de ciudades aleatorias sin la de origen
+
+        //removerCiudadOrigen(unObjetoRobado.getCiudadOrigen());       //Para que no se repita la ciudad de origen
+        //recorridoReal.add(unObjetoRobado.getCiudadOrigen());
+
+        agregarCiudadAlRecorrido(unObjetoRobado.getCiudadOrigen());
+
+        for(int i = 0; i < cantidadDePaises-1; i++){
+            Ciudad ciudadSiguiente = this.ciudades.getCiudades().get( listaGenerada.get(i) );
+            agregarCiudadAlRecorrido(ciudadSiguiente);
+            recorridoReal.get(i).setCiudadSiguiente(ciudadSiguiente);
+        }
+
+/*
         for (int i = 0; i < cantidadDePaises-1; i++){               //cantidadDePaises-1 pq ya agregué la primera manualmente
             Ciudad ciudadSiguiente = obtenerCiudadAleatoria();
             agregarCiudadAlRecorrido(ciudadSiguiente);
             recorridoReal.get(i).setCiudadSiguiente(ciudadSiguiente);
         }
-        agregarCiudadesSecundarias(cantidadDePaises);
+ */
+        //agregarCiudadesSecundarias(cantidadDePaises);
         recorridoReal.get(cantidadDePaises-1).setLadronUltimaCiudad();
     }
 
+
+/*
     private void removerCiudadOrigen(Ciudad ciudadOrigen) {
         for (int i = 0; i < ciudades.getCiudades().size(); i++){
             if (ciudadOrigen.getNombre().getCaracteristica().equals(ciudades.getCiudades().get(i).getNombre().getCaracteristica())){
@@ -47,29 +66,39 @@ public class Recorrido {
             }
         }
     }
-
+*/
     public void agregarCiudadAlRecorrido(Ciudad nuevaCiudad){
-        recorridoReal.add(nuevaCiudad);
+        this.recorridoReal.add(nuevaCiudad);
     }
-
+/*
     private Ciudad obtenerCiudadAleatoria(){
         int valorAleatorio = (int)(Math.random()*ciudades.getCiudades().size());
         return ciudades.getCiudades().remove(valorAleatorio);
     }
+*/
 
-
-    private void agregarCiudadesSecundarias(int cantidadDePaises) {
-        for (int i = 0; i < cantidadDePaises; i++){   //Si quiero que la ultima no tenga ciudades secundarias, le resto 1 a cantidadDePaises
-            agregarCiudadSecundaria(recorridoReal.get(i));
+    private void agregarCiudadesSecundarias() {
+        for (int i = 0; i < this.ciudades.getCiudades().size(); i++){
+            agregarCiudadSecundaria(this.ciudades.getCiudades().get(i), i);
         }
     }
 
-    private void agregarCiudadSecundaria(Ciudad ciudad){
-        for (int i = 0; i < this.cantidadDeCiudadesSecundarias; i++) {
+    private void agregarCiudadSecundaria(Ciudad ciudad, int indiceCiudad){
+        //int index = obtenerIndiceDeCiudad(ciudad);
+        GeneradorRandom generadorRandom = new GeneradorRandom(this.ciudades.getCiudades().size(), this.cantidadDeCiudadesSecundarias, indiceCiudad);
+        List<Integer> listaGenerada = generadorRandom.getListaGenerada();
+
+        for (int i = 0; i < this.cantidadDeCiudadesSecundarias; i++){
+            Ciudad ciudadAleatoria = this.ciudades.getCiudades().get( listaGenerada.get(i) );
+            ciudad.agregarCiudadSecundaria(ciudadAleatoria);
+        }
+
+        /*for (int i = 0; i < this.cantidadDeCiudadesSecundarias; i++) {
             Ciudad ciudadAleatoria = obtenerCiudadAleatoria();
             ciudad.agregarCiudadSecundaria(ciudadAleatoria);
             ciudadAleatoria.agregarCiudadSecundaria(ciudad);
         }
+         */
     }
 
     public ArrayList<Ciudad> getRecorridoReal(){

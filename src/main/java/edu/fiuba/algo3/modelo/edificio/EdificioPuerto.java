@@ -34,16 +34,17 @@ public class EdificioPuerto extends Edificio{
         List<Integer> listaGenerada = generadorRandom.getListaGenerada();
         int valorGenerado = listaGenerada.get(0);
 
-        Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
             Caracteristica pistaDestino = new Caracteristica("Estuvo conversando con el capitan de un barco que tenia bandera " + ciudad.getBandera().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
-            pista = new PistaPuerto(pistaDestino, pistaLadron);
+            this.getPista().setDialogo(pistaDestino);
+            this.getPista().setDescripcion(pistaLadron);
 
         }
         else {
             Caracteristica dialogoBandera = new Caracteristica("Estuvo conversando con el capitan de un barco que tenia bandera ");
-            pista = new PistaPuerto(dialogoBandera, ciudad.getBandera());
+            this.getPista().setDialogo(dialogoBandera);
+            this.getPista().setDescripcion(ciudad.getBandera());
         }
         return pista;
     }
