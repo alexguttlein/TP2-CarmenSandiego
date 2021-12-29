@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.ciudad.Ciudades;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.controlador.ControladorPrincipal;
+import edu.fiuba.algo3.modelo.Partida;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,27 +15,18 @@ import javafx.stage.Stage;
 public class ContenedorPrincipal extends AnchorPane {
     Stage stage;
     Partida partida;
-    Jugador jugador;
+    ControladorPrincipal controladorPrincipal;
 
-    public ContenedorPrincipal(Stage stage){
+    public ContenedorPrincipal(Stage stage, Partida partida){
         this.stage = stage;
-        partida = crearModeloJuego();
-        jugador = partida.getJugador();
+        this.partida = partida;
         this.setStyle("-fx-background-color: #5D6D7E");
+        this.controladorPrincipal = new ControladorPrincipal(stage, partida);
         this.modelar();
     }
 
-    public Partida crearModeloJuego(){
-        Ciudades ciudades = new Ciudades("src/main/java/edu/fiuba/algo3/datosDelJuego/ciudades.csv");
-        ObjetosRobados objetosRobados = new ObjetosRobados(ciudades);
-        ObjetoRobado objetoRobado = objetosRobados.getObjetoRobadoAlAzar();
-        Ladrones ladrones = new Ladrones("src/main/java/edu/fiuba/algo3/datosDelJuego/ladrones.csv");
-        Ladron ladron = ladrones.getLadronAlAzar();
-        Tiempo tiempo = new Tiempo();
-        Jugador jugador = new Jugador("Jugador", tiempo);
-        Interpol interpol = new Interpol(ladrones, tiempo, jugador, ladron);
-        Partida partida = new Partida(jugador, objetoRobado, ladron, interpol, tiempo, ciudades);
-        return partida;
+    public ControladorPrincipal getControladorPrincipal(){
+        return controladorPrincipal;
     }
 
     public void modelar(){
@@ -82,6 +72,7 @@ public class ContenedorPrincipal extends AnchorPane {
         AnchorPane.setRightAnchor(hBox, 10.0);
         hBox.getChildren().addAll(buttonLupa, buttonAvion, buttonComputadora);
         this.getChildren().add(hBox);
+        controladorPrincipal.setHBox(hBox);
     }
 
     private void setReloj(){
@@ -131,13 +122,15 @@ public class ContenedorPrincipal extends AnchorPane {
         paneSupIzq.getChildren().addAll(labelUbicacion, labelTiempo);
         paneInfDer.getChildren().addAll(labelTiempoRestante, laberlDiahoraRestante);
         this.getChildren().addAll(paneSupIzq, paneInfDer);
+        controladorPrincipal.setPaneSupIzq(paneSupIzq);
+        controladorPrincipal.setPaneInfDer(paneInfDer);
     }
 
     private void setPantallaTexto(){
-        AnchorPane paneSupDer = new AnchorPane();
-        paneSupDer.setStyle("-fx-background-color: #34495E; -fx-background-radius: 15; -fx-pref-height: 600; -fx-pref-width: 450");
-        paneSupDer.setLayoutX(25);
-        paneSupDer.setLayoutY(112);
+        AnchorPane paneInfIqz = new AnchorPane();
+        paneInfIqz.setStyle("-fx-background-color: #34495E; -fx-background-radius: 15; -fx-pref-height: 600; -fx-pref-width: 450");
+        paneInfIqz.setLayoutX(25);
+        paneInfIqz.setLayoutY(112);
 
         Label labelTextoJuego = new Label("Texto Juego");
         TextField textField = new TextField();
@@ -157,17 +150,22 @@ public class ContenedorPrincipal extends AnchorPane {
         AnchorPane.setTopAnchor(labelTextoJuego, 20.0);
         AnchorPane.setBottomAnchor(labelTextoJuego, 20.0);
 
-        AnchorPane.setLeftAnchor(paneSupDer, 10.0);
-        AnchorPane.setBottomAnchor(paneSupDer, 10.0);
-        paneSupDer.getChildren().addAll(textField, labelTextoJuego);
-        this.getChildren().add(paneSupDer);
+        AnchorPane.setLeftAnchor(paneInfIqz, 10.0);
+        AnchorPane.setBottomAnchor(paneInfIqz, 10.0);
+        paneInfIqz.getChildren().addAll(textField, labelTextoJuego);
+        this.getChildren().add(paneInfIqz);
+        controladorPrincipal.setPaneInfIzq(paneInfIqz);
     }
-    private void setPantalla(){
-        AnchorPane paneInfIzq = new AnchorPane();
-        paneInfIzq.setStyle("-fx-background-color: #34495E; -fx-background-radius: 15; -fx-pref-height: 600; -fx-pref-width: 800");
-        AnchorPane.setRightAnchor(paneInfIzq, 10.0);
-        AnchorPane.setTopAnchor(paneInfIzq, 10.0);
 
-        this.getChildren().add(paneInfIzq);
+    private void setPantalla(){
+        AnchorPane paneSupDer = new AnchorPane();
+        paneSupDer.setStyle("-fx-background-color: #34495E; -fx-background-radius: 15; -fx-pref-height: 600; -fx-pref-width: 800");
+        AnchorPane.setRightAnchor(paneSupDer, 10.0);
+        AnchorPane.setTopAnchor(paneSupDer, 10.0);
+
+        this.getChildren().add(paneSupDer);
+        controladorPrincipal.setPaneSupDer(paneSupDer);
     }
+
+
 }

@@ -18,6 +18,7 @@ public class ContenedorBienvenida extends AnchorPane {
         this.stage = stage;
         this.setStyle("-fx-background-color: #3CB371");
         this.modelar();
+        stage.setResizable(false);
     }
 
     public void modelar() {

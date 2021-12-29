@@ -27,10 +27,11 @@ public abstract class Edificio{
         this.nombre = nombre;
     }
 
-    /*public String getPista() {
-        return comportamientoPistas.getPista();
+    public String getPistaCompleta() {
+        return pista.getPista();
     }
 
+    /*
     public void mostrarPista(){
         this.comportamientoPistas.mostrarPistas();
     }
