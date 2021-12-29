@@ -24,6 +24,7 @@ public class Partida {
         this.ciudades = ciudades;
         this.recorrido = new Recorrido(this.objetoRobado, this.ciudades);
         jugador.setCiudadActual(recorrido.getRecorridoReal().get(0));
+
         this.ladronActual.setRecorrido(this.recorrido);
     }
 

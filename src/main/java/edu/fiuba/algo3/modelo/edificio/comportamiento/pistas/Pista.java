@@ -10,5 +10,6 @@ public interface Pista {
     Caracteristica getDialogo();
     Caracteristica getDescripcion();
     boolean compararPista(Pista pista);
+    String getPista();
 
 }

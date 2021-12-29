@@ -1,0 +1,18 @@
+@startuml
+
+class Recorrido {
+    -recorridoReal: ArrayList<Ciudad>
+    -ciudades: Ciudades
+    -cantidadCiudadesSecundarias: int
+
+    +crearRecorrido(unObjetoRobado: ObjetoRobado): void
+    +inicializarRecorrido(cantidadDePaises: int, unObjetoRobado: ObjetoRobado): void
+    -removerCiudadOrigen(ciudadOrigen: Ciudad): void
+    +agregarCiudadRecorrido(nuevaCiudad: Ciudad): void
+    -obtenerCiudadAleatoria(): Ciudad
+    -agregarCiudadesSecundarias(cantidadDePaises: int): void
+    -agregarCiudadSecundaria(cantidadDePaises: int): void
+}
+
+
+@enduml

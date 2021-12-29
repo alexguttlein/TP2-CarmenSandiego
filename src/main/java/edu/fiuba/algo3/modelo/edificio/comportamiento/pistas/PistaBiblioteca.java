@@ -41,4 +41,9 @@ public class PistaBiblioteca implements Pista {
         return descripcion && dialogo;
     }
 
+    @Override
+    public String getPista(){
+        return (dialogo.getCaracteristica() + descripcion.getCaracteristica());
+    }
+
 }

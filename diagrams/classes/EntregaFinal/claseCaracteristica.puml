@@ -1,0 +1,11 @@
+@startuml
+
+class Caracteristica {
+    -caracteristica: String
+
+    +Caracteristica(caracteristica: String)
+    +compararCaracteristica(otraCaracteristica: Caracteristica): boolean
+    +serComparada((otraCaracteristica: Caracteristica): boolean
+}
+
+@enduml

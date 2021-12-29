@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Ciudad {
-    private Ladron ladron;
     private Caracteristica nombre;
     private Caracteristica bandera;
     private Caracteristica moneda;
@@ -24,6 +23,7 @@ public class Ciudad {
     private Caracteristica gobierno;
     private Caracteristica varios;
     private Ubicacion ubicacion;
+    private Ladron ladron;
 
     private ArrayList<Edificio> edificios = new ArrayList<>();
     private Ciudad ciudadSiguiente;

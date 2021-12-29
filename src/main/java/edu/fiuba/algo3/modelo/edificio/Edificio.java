@@ -27,6 +27,11 @@ public abstract class Edificio{
         this.nombre = nombre;
     }
 
+
+    public String getPistaCompleta() {
+        return pista.getPista();
+    }
+
     public int entrarAlEdificio(){
         comportamientoVisita.entrarAlEdificio();
         return this.getDemora();

@@ -1,0 +1,42 @@
+@startuml
+
+abstract class Rango {
+    #rangoActual: String
+    #cantidadDeArrestos: int
+    #velocidad: int
+    --
+    +{abstract}getArrestosParaAscender(): int
+    +{abstract}verificarRango: Rango
+    addArresto(): void
+}
+
+class RangoDetective {
+    -arrestosParaAscender: int
+    --
+    +getArrestosParaAscender(): int
+    -verificarRango(): Rango
+}
+class RangoNovato {
+    -arrestosParaAscender: int
+    --
+    +getArrestosParaAscender(): int
+    -verificarRango(): Rango
+}
+class RangoSargento {
+    -arrestosParaAscender: int
+    --
+    +getArrestosParaAscender(): int
+    -verificarRango(): Rango
+}
+class RangoInvestigador {
+    -arrestosParaAscender: int
+    --
+    +getArrestosParaAscender(): int
+    -verificarRango(): Rango
+}
+Rango <|.. RangoDetective
+Rango <|.. RangoSargento
+Rango <|.. RangoNovato
+Rango <|.. RangoInvestigador
+
+@enduml

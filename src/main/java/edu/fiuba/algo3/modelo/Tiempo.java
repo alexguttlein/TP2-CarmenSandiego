@@ -44,6 +44,11 @@ public class Tiempo {
         return mismaHora && mismoDia && mismoMes && mismoAnio;
     }
 
+    public String getTiempoRestante() {
+        int dias = cantidadHorasDisponibles / 24;
+        int horasRestantes = cantidadHorasDisponibles % 24;
+        return (dias + " dias, " + horasRestantes + " horas");
+    }
 
     public boolean seAlcanzoElLimiteDeTiempo(int horas){
         this.cantidadHorasDisponibles -= horas;
@@ -66,6 +71,5 @@ public class Tiempo {
         }
         return nombreDia;
     }
-
 
 }

@@ -1,0 +1,45 @@
+@startuml
+
+class Ciudad {
+    -nombre: Caracteristica
+    -bandera: Caracteristica
+    -moneda: Caracteristica
+    -geografia: Caracteristica
+    -hitos: Caracteristica
+    -industria: Caracteristica
+    -animales: Caracteristica
+    -personalidades: Caracteristica
+    -idioma: Caracteristica
+    -arte: Caracteristica
+    -religion: Caracteristica
+    -gobierno: Caracteristica
+    -varios: Caracteristica
+    -ubicacion: Ubicacion
+    -ladron: Ladron
+    -edificios: Array<Edificio>
+    -ciudadSiguiente: Ciudad
+    -pasoLadron: boolean
+    -rangoPersonaje: Rango
+    -ciudadesSecundarias: Array<Ciudad>
+
+    +agregarCiudadSecundaria(nuevaCiudadSecundaria: Ciudad): void
+    +visitarEdicifio(unEdificio: Edificio): int
+    +addEdificio((unEdificio: Edificio): void
+    +viajarHasta(velocidad: int, ciudadDestino: Ciudad): void
+    -viajar(ubicacionOrigen: Ubicacion, velocidad: int): int
+}
+
+class Ubicacion {
+    -latitud: double
+    -longitud: double
+
+    +obtenerDistancia(ubicacionDestino: Ubicacion): double
+    +obtenerHorasDeViaje((ubicacionDestino: Ubicacion, velocidad: int): int
+}
+
+class Edificio {}
+
+Ciudad "1" *-down- "1" Ubicacion
+Ciudad "1" -down-> "1..*" Edificio
+
+@enduml

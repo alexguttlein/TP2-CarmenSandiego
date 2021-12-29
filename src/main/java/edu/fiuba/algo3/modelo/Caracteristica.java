@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class Caracteristica {
 
-    String caracteristica;
+    private String caracteristica;
 
     public Caracteristica(String caracteristica){
         this.caracteristica = caracteristica;

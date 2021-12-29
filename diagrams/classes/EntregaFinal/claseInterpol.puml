@@ -1,0 +1,30 @@
+@startuml
+
+class Juego{
+    - inicializarInterpol(): Interpol
+}
+
+class Interpol{
+    -ladrones: Ladrones
+    -posibleLadron: Ladron
+    -posbilesLadrones: List<Ladron>
+    -estadoOrdenDeArresto: boolean
+    -tiempo: Tiempo
+    -jugador: Jugador
+    -ladron: Ladron
+
+    +buscarPosiblesLadrones(): List<Ladron>
+    +compararLadrones(ladronA: Ladron, ladronB: Ladron): boolean
+    -comparaDatoLadron(datoA: Caracteristica, datoB: Caracteristica): boolean
+    +emitirOrdenDeArresto(): void
+    +atraparSospechoso(): boolean
+}
+
+class Ladrones{}
+
+
+Interpol -right-> Ladrones
+Juego *-down->"1" Interpol
+Juego *-down->"1" Ladrones
+
+@enduml

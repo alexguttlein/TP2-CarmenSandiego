@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            style="-fx-background-color: #3CB371"
+            prefHeight="720.0" prefWidth="1280.0">
+    <children>
+        <Button fx:id="botonSalir" layoutX="702.0" layoutY="601.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #FF0000;" text="SALIR" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="230.0">
+            <font>
+                <Font name="Bauhaus 93" size="40.0" />
+            </font>
+        </Button>
+        <Button fx:id="botonJugar" layoutX="278.0" layoutY="601.0" mnemonicParsing="false"  prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #ADFF2F;" text="JUGAR" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="230.0">
+            <font>
+                <Font name="Bauhaus 93" size="40.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="520.0" fitWidth="728.0" layoutX="278.0" layoutY="50.0" preserveRatio="true" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="50.0">
+            <image>
+                <Image url="@imagenes/ImagenFondo.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

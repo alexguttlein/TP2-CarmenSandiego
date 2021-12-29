@@ -1,0 +1,27 @@
+@startuml
+
+class ObjetosRobados{
+    -ciudades: Ciudades
+    -objetosRobados: ArrayList<ObjetoRobado>
+
+    -inicializarObjetosRobados(): void
+    -crearObjetoRobado(datosObjetosRobado: ArrayList<String>): void
+    -determinarCiudadDeOrigen(nombreCiudadOrigen: Caracteristica): Ciudad
+    -addObjetoRobado(objetoRobado: ObjetoRobado): void
+    +getObjetorobadoAlAzar(): ObjetoRobado
+}
+
+class ObjetoRobado{
+    -nombre: Caracteristica
+    -importancia: Caracteristica
+    -ciudadOrigen: Ciudad
+}
+
+class Juego{
+    -inicializarObjetosRobados(): ObjetosRobados
+}
+
+Juego *-down-> ObjetosRobados
+ObjetosRobados -right-> ObjetoRobado
+
+@enduml

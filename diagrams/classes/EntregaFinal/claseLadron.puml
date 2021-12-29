@@ -1,0 +1,28 @@
+@startuml
+
+class Juego{
+    - inicializarLadrones(): Ladrones
+}
+
+class Ladron {
+    -nombre: Caracteristica
+    -genero: Caracteristica
+    -hobby: Caracteristica
+    -cabello: Caracteristica
+    -senia: Caracteristica
+    -vehiculo: Caracteristica
+    +compararConLadron(otroLadron: Ladron): boolean
+}
+
+class Ladrones{
+    -ladrones: ArrayList<Ladron>
+
+    -inicializarLadrones(rutaArchivoCSV: String): void
+    -crearLadron(datosLadron: ArrayList<String>): void
+    -addLadron(ladron: Ladron): void
+    +getLadronAlAzar(): Ladron
+}
+
+Juego "1"*-->"1" Ladrones
+Ladrones "1"-right->"1...*" Ladron
+@enduml

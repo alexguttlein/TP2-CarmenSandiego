@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Jugador {}
+
+interface EstadoJugador{}
+
+class Ciudad {}
+
+interface Rango {}
+
+Jugador"1"-down->"1"Ciudad
+Jugador"1"-down->"1"EstadoJugador
+Jugador"1"-down->"1"Rango
+
+@enduml

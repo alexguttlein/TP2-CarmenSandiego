@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.ciudad;
 
 public class Ubicacion {
-    double latitud;
-    double longitud;
+    private double latitud;
+    private double longitud;
 
     public Ubicacion(double latitud, double longitud) {
         this.setLatitud(latitud);
