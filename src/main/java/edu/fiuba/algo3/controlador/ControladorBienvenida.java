@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -25,9 +27,10 @@ public class ControladorBienvenida {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         String value = (((Button)event.getSource()).getText());
         if (value == "JUGAR") {
-            //Aca tenemos q instanciar el otro contenedor y cambiar la escena
-            //Ya tenes el stage solo es setearle el scene
             System.out.println("Clicked");
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
+            Scene escenaJuego = new Scene(contenedorPrincipal, 1280, 720);
+            stage.setScene(escenaJuego);
         } else if (value == "SALIR"){
             stage.close();
         }
