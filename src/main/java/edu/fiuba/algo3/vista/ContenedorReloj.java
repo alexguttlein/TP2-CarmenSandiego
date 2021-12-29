@@ -13,7 +13,7 @@ public class ContenedorReloj extends VBox {
     public ContenedorReloj(Tiempo reloj, Ciudad ciudadActual){
         Label ciudad = new Label(ciudadActual.getNombre().getCaracteristica());
         ciudad.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, tamanioLetra));
-        Label hora = new Label(reloj.getDiaActual() + ", " + Integer.toString(reloj.getHoraActual()) + "hs");
+        Label hora = new Label(reloj.obtenerDiaDeLaSemana() + ", " + Integer.toString(reloj.getHoraActual()) + "hs");
         hora.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, tamanioLetra));
         this.getChildren().add(ciudad);
         this.getChildren().add(hora);
