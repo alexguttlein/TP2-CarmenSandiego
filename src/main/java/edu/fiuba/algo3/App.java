@@ -7,9 +7,7 @@ import edu.fiuba.algo3.vista.ContenedorBienvenida;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
-
 import javafx.stage.Stage;
-
 
 /**
  * JavaFX App
@@ -18,17 +16,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Juego Carmen Sandiego");
-
+        //Podriamos crearla dsp de darle click al jugar
+        //Que quede como el evend handle del boton jugar
         Partida partida = crearModelo();
         Jugador jugador = partida.getJugador();
 
+        //Directametne Podemos tener aca solo el contenedor bienvenida y dsp con el jugar se crea este
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, partida, jugador);
         Scene escenaJuego = new Scene(contenedorPrincipal, 1280, 720);
 
-        ContenedorBienvenida contenedorImagenCarmenSandiego = new ContenedorBienvenida(stage, escenaJuego);
+        ContenedorBienvenida contenedorImagenCarmenSandiego = new ContenedorBienvenida(stage);
         Scene escenaBienvenida = new Scene(contenedorImagenCarmenSandiego, 1280, 720);
 
+        stage.setTitle("Juego Carmen Sandiego");
         stage.setScene(escenaBienvenida);
         stage.show();
     }
