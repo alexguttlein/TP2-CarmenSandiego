@@ -5,8 +5,8 @@ import edu.fiuba.algo3.modelo.Caracteristica;
 
 public class PistaBanco implements Pista {
 
-    private Caracteristica dialogo;
-    private Caracteristica descripcion;
+    private Caracteristica dialogo = new Caracteristica("...");
+    private Caracteristica descripcion = new Caracteristica("...");
 
     public PistaBanco(Caracteristica dialogo, Caracteristica descripcion) {
         setDialogo(dialogo);
