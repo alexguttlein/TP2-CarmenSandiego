@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.ControladorComputadora;
+import edu.fiuba.algo3.controlador.LabelEleccion;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import javafx.geometry.HPos;
@@ -12,6 +14,9 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static javafx.geometry.VPos.CENTER;
 
 public class ContenedorComputadora extends AnchorPane {
@@ -19,12 +24,13 @@ public class ContenedorComputadora extends AnchorPane {
     Stage stage;
     Jugador jugador;
     Partida partida;
+    ControladorComputadora controladorComputadora;
 
     public ContenedorComputadora(AnchorPane anchorPane, Stage stage, Partida partida) {
         this.anchorPane = anchorPane;
         this.stage = stage;
         this.partida = partida;
-        this.jugador = partida.getJugador();
+        this.controladorComputadora = new ControladorComputadora(stage, partida);
         modelar();
     }
 
@@ -50,6 +56,8 @@ public class ContenedorComputadora extends AnchorPane {
         AnchorPane.setBottomAnchor(buttonCancelar, 20.0);
         AnchorPane.setRightAnchor(buttonCancelar, 20.0);
         anchorPane.getChildren().addAll(buttonAceptar, buttonCancelar);
+        controladorComputadora.setButtonAceptar(buttonAceptar);
+        controladorComputadora.setButtonCancelar(buttonCancelar);
     }
 
     private void modelarGrid() {
@@ -84,30 +92,17 @@ public class ContenedorComputadora extends AnchorPane {
         labelVehiculo.setFont(font);
         labelVehiculo.setPadding(new Insets(0,0,0,20));
 
-        Label labelEleccionGenero = new Label("Genero");
-        labelEleccionGenero.setStyle("-fx-pref-width: 330; -fx-pref-height: 45; -fx-background-color: #2980B9; -fx-background-radius: 15; -fx-text-fill: WHITE");
-        labelEleccionGenero.setFont(font);
-        labelEleccionGenero.setPadding(new Insets(0,20,0,20));
+        ArrayList<String> opcionesGenero = new ArrayList<>(Arrays.asList("Masculino", "Femenimo", "---"));
+        ArrayList<String> opcionesHobby = new ArrayList<>(Arrays.asList("Escalar", "Croquet", "Tenis", "---"));
+        ArrayList<String> opcionesSenia = new ArrayList<>(Arrays.asList("Anillo", "Tatuaje", "Joyas", "---"));
+        ArrayList<String> opcionesCabello = new ArrayList<>(Arrays.asList("Negro", "Rojo", "Rubio", "Castanio", "---"));
+        ArrayList<String> opcionesVehiculo = new ArrayList<>(Arrays.asList("Moto", "Convertible", "Limusina", "---"));
 
-        Label labelEleccionHobby = new Label("Hobby");
-        labelEleccionHobby.setStyle("-fx-pref-width: 330; -fx-pref-height: 45; -fx-background-color: #2980B9; -fx-background-radius: 15;-fx-text-fill: WHITE");
-        labelEleccionHobby.setFont(font);
-        labelEleccionHobby.setPadding(new Insets(0,20,0,20));
-
-        Label labelEleccionSenia = new Label("Senia");
-        labelEleccionSenia.setStyle("-fx-pref-width: 330; -fx-pref-height: 45; -fx-background-color: #2980B9; -fx-background-radius: 15; ; -fx-text-fill: WHITE");
-        labelEleccionSenia.setFont(font);
-        labelEleccionSenia.setPadding(new Insets(0,20,0,20));
-
-        Label labelEleccionCabello = new Label("Cabello");
-        labelEleccionCabello.setStyle("-fx-pref-width: 330; -fx-pref-height: 45; -fx-background-color: #2980B9; -fx-background-radius: 15; -fx-text-fill: WHITE");
-        labelEleccionCabello.setFont(font);
-        labelEleccionCabello.setPadding(new Insets(0,20,0,20));
-
-        Label labelEleccionVehiculo = new Label("Vehiculo");
-        labelEleccionVehiculo.setStyle("-fx-pref-width: 330; -fx-pref-height: 45; -fx-background-color: #2980B9; -fx-background-radius: 15; -fx-text-fill: WHITE");
-        labelEleccionVehiculo.setFont(font);
-        labelEleccionVehiculo.setPadding(new Insets(0,20,0,20));
+        LabelEleccion labelEleccionGenero = new LabelEleccion("Genero", opcionesGenero, partida, anchorPane);
+        LabelEleccion labelEleccionHobby = new LabelEleccion("Hobby", opcionesHobby, partida, anchorPane);
+        LabelEleccion labelEleccionSenia = new LabelEleccion("Senia", opcionesSenia, partida, anchorPane);
+        LabelEleccion labelEleccionCabello = new LabelEleccion("Cabello", opcionesCabello, partida, anchorPane);
+        LabelEleccion labelEleccionVehiculo = new LabelEleccion("Vehiculo", opcionesVehiculo, partida, anchorPane);
 
         GridPane gridPane = new GridPane();
         gridPane.setStyle("-fx-pref-height: 400; -fx-pref-width: 600; -fx-background-color: #616A6B; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: BLACK; -fx-border-width: 5");
