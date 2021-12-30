@@ -6,15 +6,8 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class BotonViajeAEdificio implements EventHandler<ActionEvent> {
@@ -32,9 +25,6 @@ public class BotonViajeAEdificio implements EventHandler<ActionEvent> {
         this.jugador = jugador;
         this.partida = partida;
         boton.setText(nuevoEdificio.getNombre().getCaracteristica());
-        boton.setFont(Font.font("FreeSerif", FontWeight.EXTRA_BOLD, 40));
-        boton.setTextFill(Color.rgb(255, 150, 69));
-        boton.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @Override

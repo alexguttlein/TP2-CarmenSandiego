@@ -14,7 +14,6 @@ public class ContenedorBienvenida extends AnchorPane {
 
     public ContenedorBienvenida(Stage stage){
         super();
-        // Puede no estar directamente
         this.stage = stage;
         this.setStyle("-fx-background-color: #3CB371");
         this.modelar();

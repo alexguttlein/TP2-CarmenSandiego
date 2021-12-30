@@ -166,6 +166,4 @@ public class ContenedorPrincipal extends AnchorPane {
         this.getChildren().add(paneSupDer);
         controladorPrincipal.setPaneSupDer(paneSupDer);
     }
-
-
 }
