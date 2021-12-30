@@ -13,6 +13,7 @@ class Partida{
     - objetoRobado: ObjetoRobado
     - tiempo: Tiempo
     - ciudades: Ciudades
+    - recorrido : Recorrido
 }
 
 class ObjetosRobados{

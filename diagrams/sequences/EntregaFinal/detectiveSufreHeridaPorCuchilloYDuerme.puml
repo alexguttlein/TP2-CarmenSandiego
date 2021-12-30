@@ -1,0 +1,45 @@
+@startuml
+
+autonumber
+title "Detective sufre herida de cuchillo y duerme"
+actor nuevoActor
+participant Jugador
+participant "HeridoPorCuchillo: EstadoJugador"
+participant EstadoDormido
+participant EstadoSano
+participant Reloj
+
+nuevoActor -> Jugador : serHeridoPorCuhillo();
+activate Jugador
+create "HeridoPorCuchillo: EstadoJugador"
+Jugador --> "HeridoPorCuchillo: EstadoJugador": <<create>>
+Jugador -> "HeridoPorCuchillo: EstadoJugador": pasarTiempo()
+activate "HeridoPorCuchillo: EstadoJugador"
+"HeridoPorCuchillo: EstadoJugador" -> Reloj:addHoras(HorasHerido)
+activate Reloj
+Reloj --> "HeridoPorCuchillo: EstadoJugador"
+deactivate Reloj
+"HeridoPorCuchillo: EstadoJugador" --> Jugador
+deactivate "HeridoPorCuchillo: EstadoJugador"
+
+group if [debeDormir() = true]
+    create EstadoDormido
+    Jugador -->EstadoDormido : <<create>>
+    Jugador -> EstadoDormido : pasarTiempo()
+    activate EstadoDormido
+    EstadoDormido -> Reloj : addHoras(horasDormido)
+    activate Reloj
+    Reloj --> EstadoDormido
+    EstadoDormido--> Jugador
+    deactivate EstadoDormido
+    deactivate Reloj
+    end
+    create EstadoSano
+    Jugador --> EstadoSano : <<create>>
+    Jugador -> EstadoSano : pasarTiempo(0)
+    activate EstadoSano
+    EstadoSano --> Jugador
+    deactivate EstadoSano
+
+
+@enduml
