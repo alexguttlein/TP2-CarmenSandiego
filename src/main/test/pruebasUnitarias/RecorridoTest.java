@@ -146,6 +146,17 @@ public class RecorridoTest {
         }
     }
 
+    @Test
+    public void todasLasCiudadesPrincipalesTienenSiguiente(){
+        Ciudad ciudadBuenosAires = new Ciudad(pistasCiudadBuenosAires);
+        ObjetoRobado unObjetoRobado = new ObjetoRobado(new Caracteristica("Copa Stanley"), ciudadBuenosAires, new Caracteristica("Muy importante"));
+        Recorrido unRecorrido = new Recorrido(unObjetoRobado, ciudades);
+
+        for (int i = 0; i < unRecorrido.getRecorridoReal().size()-1 ; i++){
+            assertTrue(unRecorrido.getRecorridoReal().get(i).getCiudadSiguiente() != null);
+        }
+    }
+
     /*
     @Test
     public void cadaCiudadTieneCiudadesSecundariasDiferentes(){

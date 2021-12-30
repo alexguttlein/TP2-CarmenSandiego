@@ -48,8 +48,7 @@ public class Ciudades {
         int cantidadALeer = 3;
         List<Integer> randomIndex = seleccionadorAlAzar(nombreEdificios.get(0).size(), cantidadALeer);
 
-        int i = 0;
-        for(i = 0; i < cantidadALeer; i++)
+        for(int i = 0; i < cantidadALeer; i++)
             for (ArrayList<String> e: nombreEdificios){
                 String nombre = e.get(randomIndex.get(i));
                 ciudad.addEdificio(crearEdificio(nombre));
@@ -60,22 +59,22 @@ public class Ciudades {
         Edificio edificio;
         Pista pista;
         Caracteristica pistaInicial;
-        if(nombreEdificio.equals("Aeropuerto"));{
+        if(nombreEdificio.equals("Aeropuerto")){
             edificio = new EdificioAeropuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
             pista = new PistaAeropuerto(pistaInicial, null);
         }
-        if(nombreEdificio.equals("Puerto"));{
+        else if(nombreEdificio.equals("Puerto")){
             edificio = new EdificioPuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
             pista = new PistaPuerto(pistaInicial, null);
         }
-        if(nombreEdificio.equals("Biblioteca"));{
+        else if(nombreEdificio.equals("Biblioteca")){
             edificio = new EdificioBiblioteca(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
             pista = new PistaBiblioteca(pistaInicial, null);
         }
-        if(nombreEdificio.equals("Banco"));{
+        else {  //if(nombreEdificio.equals("Banco"))
             edificio = new EdificioBanco(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
             pista = new PistaBanco(pistaInicial, null);

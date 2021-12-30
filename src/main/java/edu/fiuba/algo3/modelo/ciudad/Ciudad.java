@@ -123,6 +123,14 @@ public class Ciudad {
     public void setRangoPersonaje(Rango rango){this.rangoPersonaje = rango;}
 
     public Rango getRango(){return this.rangoPersonaje;}
+
+    public void modificarPistasEdificio(Ladron ladron, Rango rango){
+        if ((ciudadSiguiente != null) && getPasoLadron()){
+            for (Edificio edificio: this.edificios){
+                edificio.modificarPista(this.ciudadSiguiente, ladron, rango);
+            }
+        }
+    }
 }
 
 

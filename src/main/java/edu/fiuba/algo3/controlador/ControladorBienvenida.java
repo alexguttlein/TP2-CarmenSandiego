@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
+import edu.fiuba.algo3.modelo.edificio.Edificio;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
@@ -51,6 +53,14 @@ public class ControladorBienvenida {
         Jugador jugador = new Jugador("Jugador", tiempo);
         Interpol interpol = new Interpol(ladrones, tiempo, jugador, ladron);
         Partida partida = new Partida(jugador, objetoRobado, ladron, interpol, tiempo, ciudades);
+
+        for (Ciudad c : partida.getRecorrido().getRecorridoReal()){
+            System.out.println(c.getNombre().getCaracteristica());
+            for (Edificio e : c.getEdificios()){
+                System.out.println(e.getPista().getPista());
+            }
+        }
+
         return partida;
     }
 }

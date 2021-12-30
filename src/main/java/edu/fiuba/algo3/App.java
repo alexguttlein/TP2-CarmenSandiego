@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.vista.ContenedorBienvenida;
 import javafx.application.Application;
 import javafx.scene.Scene;
