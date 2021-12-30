@@ -61,6 +61,9 @@ public abstract class Edificio{
     }
     public abstract void modificarPista(Ciudad ciudadSiguiente, Ladron ladron, Rango rangoPersonaje);
 
+    public abstract void modificarPista(Ladron ladron, Rango rangoPersonaje);
+
+
 /*
     public void setComportamientoPistas(ComportamientoPistas pista){
         this.comportamientoPistas =  pista;

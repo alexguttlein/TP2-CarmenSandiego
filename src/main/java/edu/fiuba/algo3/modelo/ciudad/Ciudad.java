@@ -130,6 +130,11 @@ public class Ciudad {
                 edificio.modificarPista(this.ciudadSiguiente, ladron, rango);
             }
         }
+        else if (ciudadSiguiente == null && getPasoLadron()){  //Paso el ladron y es la ultima ciudad
+            for (Edificio edificio: this.edificios) {
+                edificio.modificarPista(ladron, rango);
+            }
+        }
     }
 }
 

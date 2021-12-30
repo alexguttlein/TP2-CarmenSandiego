@@ -75,5 +75,9 @@ public class EdificioAeropuerto extends Edificio {
         return pistaLadron;
     }
 
+    public void modificarPista(Ladron ladron, Rango rangoPersonaje){
+        super.setPista(new PistaAeropuerto(new Caracteristica("Si, hemos visto a esa persona"), new Caracteristica("Estaba por aqui")));
+    }
+
 }
 

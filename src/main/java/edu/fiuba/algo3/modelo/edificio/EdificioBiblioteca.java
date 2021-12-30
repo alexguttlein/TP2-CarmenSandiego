@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Ladron;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.GeneradorRandom;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
 import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
@@ -37,14 +38,15 @@ public class EdificioBiblioteca extends Edificio {
 
         Pista pista;
         if(valorGenerado < (int)(dificultad/2)){ //modificar
-            Caracteristica pistaDestino = new Caracteristica("Busco informacion sobre destinos que tengan " + ciudad.getGeografia().getCaracteristica() + ". ");
+            Caracteristica pistaDestino = new Caracteristica("Estuvo leyendo un diccionario con traducción al  " + ciudad.getIdioma().getCaracteristica() + ". ");
             Caracteristica pistaLadron = determinarPistaLadron(ladron);
             pista = new PistaBiblioteca(pistaDestino, pistaLadron);
 
         }
         else {
-            Caracteristica dialogoGeografia = new Caracteristica("Busco informacion sobre destinos que tengan ");
-            pista = new PistaBiblioteca(dialogoGeografia, ciudad.getGeografia());
+            Caracteristica pistaDestino= new Caracteristica("Estuvo leyendo un diccionario con traducción al  " + ciudad.getIdioma().getCaracteristica() + ".");
+            Caracteristica pistaLadron = determinarPistaLadron(ladron);
+            pista = new PistaBiblioteca(pistaDestino, pistaLadron);
         }
         return pista;
     }
@@ -75,4 +77,8 @@ public class EdificioBiblioteca extends Edificio {
         }
         return pistaLadron;
     }
+
+    public void modificarPista(Ladron ladron, Rango rangoPersonaje){
+            super.setPista(new PistaBiblioteca(new Caracteristica("Si, hemos visto a esa persona"), new Caracteristica("Estaba por aqui")));
+        }
 }

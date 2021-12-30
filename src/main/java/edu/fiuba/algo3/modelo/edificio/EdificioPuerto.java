@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Ladron;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.GeneradorRandom;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaPuerto;
 import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
@@ -74,6 +75,10 @@ public class EdificioPuerto extends Edificio{
                 break;
         }
         return pistaLadron;
+    }
+
+    public void modificarPista(Ladron ladron, Rango rangoPersonaje){
+        super.setPista(new PistaAeropuerto(new Caracteristica("Si, hemos visto a esa persona"), new Caracteristica("Estaba por aqui")));
     }
 
 }
