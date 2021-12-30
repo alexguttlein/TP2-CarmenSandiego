@@ -1,0 +1,29 @@
+@startuml
+
+autonumber
+title "JugadorViajaDeMontrealAMexico"
+actor nuevoActor
+activate Jugador
+nuevoActor -> Jugador: viajar(ciudadMexico)
+Jugador -> "Montreal : Ciudad": viajarHasta(velocidad, ciudadMexico)
+activate "Montreal : Ciudad"
+"Montreal : Ciudad" -> "Mexico : Ciudad": viajar(ubicacion, velocidad)
+activate "Mexico : Ciudad"
+"Mexico : Ciudad" -> Ubicacion: obtenerHorasDeViaje(ubicacionDestino, velocidad)
+activate Ubicacion
+Ubicacion --> "Mexico : Ciudad" : horasDeViaje
+deactivate Ubicacion
+"Mexico : Ciudad" --> "Montreal : Ciudad" : horasDeViaje
+deactivate "Mexico : Ciudad"
+"Montreal : Ciudad" --> Jugador : horasDeViaje
+deactivate "Montreal : Ciudad"
+Jugador -> Tiempo : addHoras(horasDeViaje)
+activate Tiempo
+Tiempo --> Jugador
+deactivate Tiempo
+Jugador -> Jugador : setCiudadActual(ciudadMexico)
+Jugador -> Jugador : debeDormir()
+deactivate "Montreal : Ciudad"
+
+
+@enduml
