@@ -85,7 +85,6 @@ public class Interpol {
 
     public void emitirOrdenDeArresto(){
         buscarPosiblesLadrones();
-
         if (getPosiblesLadrones().size() == 1) {
             setEstadoOrdenDeArresto(true);
             this.posibleLadron = getPosiblesLadrones().get(0);

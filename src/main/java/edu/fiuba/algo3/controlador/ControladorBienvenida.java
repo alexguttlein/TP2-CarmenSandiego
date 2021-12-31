@@ -50,6 +50,13 @@ public class ControladorBienvenida {
         Jugador jugador = new Jugador("Jugador", tiempo);
         Interpol interpol = new Interpol(ladrones, tiempo, jugador, ladron);
         Partida partida = new Partida(jugador, objetoRobado, ladron, interpol, tiempo, ciudades);
+
+        System.out.println("Genero: " + ladron.getGenero().getCaracteristica());
+        System.out.println("Hobby: " + ladron.getHobby().getCaracteristica());
+        System.out.println("Senia: " + ladron.getSenia().getCaracteristica());
+        System.out.println("Cabello: " + ladron.getCabello().getCaracteristica());
+        System.out.println("Vehiculo: " + ladron.getVehiculo().getCaracteristica());
+
         return partida;
     }
 }

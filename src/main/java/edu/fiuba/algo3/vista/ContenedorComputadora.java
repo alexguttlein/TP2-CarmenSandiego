@@ -92,11 +92,11 @@ public class ContenedorComputadora extends AnchorPane {
         labelVehiculo.setFont(font);
         labelVehiculo.setPadding(new Insets(0,0,0,20));
 
-        ArrayList<String> opcionesGenero = new ArrayList<>(Arrays.asList("Masculino", "Femenimo", "---"));
-        ArrayList<String> opcionesHobby = new ArrayList<>(Arrays.asList("Escalar", "Croquet", "Tenis", "---"));
-        ArrayList<String> opcionesSenia = new ArrayList<>(Arrays.asList("Anillo", "Tatuaje", "Joyas", "---"));
-        ArrayList<String> opcionesCabello = new ArrayList<>(Arrays.asList("Negro", "Rojo", "Rubio", "Castanio", "---"));
-        ArrayList<String> opcionesVehiculo = new ArrayList<>(Arrays.asList("Moto", "Convertible", "Limusina", "---"));
+        ArrayList<String> opcionesGenero = new ArrayList<>(Arrays.asList("Masculino", "Femenino", ""));
+        ArrayList<String> opcionesHobby = new ArrayList<>(Arrays.asList("Escalar", "Croquet", "Tenis", ""));
+        ArrayList<String> opcionesSenia = new ArrayList<>(Arrays.asList("Anillo", "Tatuaje", "Joyas", ""));
+        ArrayList<String> opcionesCabello = new ArrayList<>(Arrays.asList("Negro", "Rojo", "Rubio", "Castanio", ""));
+        ArrayList<String> opcionesVehiculo = new ArrayList<>(Arrays.asList("Moto", "Convertible", "Limusina", ""));
 
         LabelEleccion labelEleccionGenero = new LabelEleccion("Genero", opcionesGenero, partida, anchorPane);
         LabelEleccion labelEleccionHobby = new LabelEleccion("Hobby", opcionesHobby, partida, anchorPane);

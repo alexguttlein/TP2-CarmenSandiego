@@ -61,7 +61,7 @@ public class LabelEleccion extends Button {
                 opcion = posibleLadron.getVehiculo().getCaracteristica();
                 break;
             default:
-                opcion = "Seleccione";
+                opcion = "";
                 break;
         }
         return opcion;
