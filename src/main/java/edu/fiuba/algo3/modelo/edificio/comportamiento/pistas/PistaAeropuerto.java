@@ -43,6 +43,6 @@ public class PistaAeropuerto implements Pista {
 
     @Override
     public String getPista(){
-        return (dialogo.getCaracteristica());
+        return (dialogo.getCaracteristica());    //+ descripcion.getCaracteristica()
     }
 }

@@ -29,11 +29,12 @@ public class BotonViajeACiudad implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent eventoNuevo) {
+        String texto2 = jugador.serAtacado();
         jugador.viajar(nuevaCiudad);
-        String texto = "Piloto: \nMision Completa! \nHemos descendido con exito a " + jugador.getCiudadActual().getNombre().getCaracteristica();
+        String texto = "Piloto: \nMision Completa! \nHemos descendido con exito a " + jugador.getCiudadActual().getNombre().getCaracteristica() + ". ";
         ContenedorPrincipal nuevoContenedor = new ContenedorPrincipal(stage, partida);
         ControladorPrincipal controladorPrincipal = nuevoContenedor.getControladorPrincipal();
-        controladorPrincipal.modificarText(texto);
+        controladorPrincipal.modificarText(texto + texto2);
         Scene nuevaEscena = new Scene(nuevoContenedor, 1280, 720);
         stage.setScene(nuevaEscena);
         stage.show();

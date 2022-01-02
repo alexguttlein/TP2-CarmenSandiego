@@ -5,12 +5,31 @@ title "Jugador visita banco de Montreal"
 activate Jugador
 Jugador -> "montreal: Ciudad": visitarEdificio(banco)
 activate "montreal: Ciudad"
-"montreal: Ciudad" -> "banco: Edificio": getPista()
+"montreal: Ciudad" -> "banco: Edificio": entrarAlEdificio()
 activate "banco: Edificio"
-"banco: Edificio" -> "banco: Edificio": mostrarPista()
-"banco: Edificio" --> "montreal: Ciudad"
+"banco: Edificio" -> ComportamientoVisita : entrarAlEdificio()
+activate ComportamientoVisita
+ComportamientoVisita --> "banco: Edificio"
+deactivate ComportamientoVisita
+"banco: Edificio" -> "banco: Edificio": getDemora()
+activate "banco: Edificio"
+"banco: Edificio" -> ComportamientoVisita : getTotalVisitas()
+activate ComportamientoVisita
+ComportamientoVisita --> "banco: Edificio" : cantidadVisitas
+deactivate ComportamientoVisita
 deactivate "banco: Edificio"
-"montreal: Ciudad" --> Jugador
+"banco: Edificio" -> ComportamientoDeDemora : calcularDemora(cantidadVisitas)
+activate ComportamientoDeDemora
+ComportamientoDeDemora --> "banco: Edificio" : horasDeDemora
+deactivate ComportamientoDeDemora
+"banco: Edificio" --> "montreal: Ciudad" : horasDeDemora
+deactivate "banco: Edificio"
+"montreal: Ciudad" --> Jugador : horasDeDemora
 deactivate "montreal: Ciudad"
+Jugador -> Tiempo : addHoras(horasDeDemora)
+activate Tiempo
+Tiempo --> Jugador
+deactivate Tiempo
+Jugador -> Jugador : debeDormir()
 
 @enduml

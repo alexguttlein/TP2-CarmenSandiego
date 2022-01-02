@@ -44,6 +44,6 @@ public class PistaBanco implements Pista {
     @Override
     public String getPista(){
         return (dialogo.getCaracteristica());
-    }
+    }  //+ descripcion.getCaracteristica()
 
 }

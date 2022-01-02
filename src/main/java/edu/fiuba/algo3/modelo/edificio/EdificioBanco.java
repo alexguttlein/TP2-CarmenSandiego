@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.GeneradorRandom;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.Pista;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaAeropuerto;
 import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBanco;
+import edu.fiuba.algo3.modelo.edificio.comportamiento.pistas.PistaBiblioteca;
 import edu.fiuba.algo3.modelo.jugador.rango.Rango;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class EdificioBanco extends Edificio {
 
     public EdificioBanco(Caracteristica nombreEdificio){
         super.setNombre(nombreEdificio);
-        this.pista = new PistaBanco(new Caracteristica("..."), new Caracteristica("..."));
+        super.setPista(new PistaBiblioteca(new Caracteristica("..."), new Caracteristica("...")));
     }
 
     public void setPista(Caracteristica dialogo, Caracteristica descripcion){

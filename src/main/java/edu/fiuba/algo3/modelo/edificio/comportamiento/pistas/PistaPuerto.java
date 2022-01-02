@@ -44,7 +44,7 @@ public class PistaPuerto implements Pista {
     @Override
     public String getPista(){
         return (dialogo.getCaracteristica());
-    }
+    }  //+ descripcion.getCaracteristica()
 
 
 

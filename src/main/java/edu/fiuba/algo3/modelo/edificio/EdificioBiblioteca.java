@@ -16,7 +16,7 @@ public class EdificioBiblioteca extends Edificio {
 
     public EdificioBiblioteca(Caracteristica nombreEdificio){
         super.setNombre(nombreEdificio);
-        this.pista = new PistaBiblioteca(new Caracteristica("..."), new Caracteristica("..."));
+        super.setPista(new PistaBiblioteca(new Caracteristica("..."), new Caracteristica("...")));
     }
 
     public void setPista(Caracteristica dialogo, Caracteristica descripcion){

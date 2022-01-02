@@ -22,6 +22,6 @@ class Juego{
 }
 
 Juego *-down-> ObjetosRobados
-ObjetosRobados -right-> ObjetoRobado
+ObjetosRobados -right-> "1..*" ObjetoRobado
 
 @enduml

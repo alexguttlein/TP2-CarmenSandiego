@@ -14,9 +14,7 @@ class Ciudad {
     -religion: Caracteristica
     -gobierno: Caracteristica
     -varios: Caracteristica
-    -ubicacion: Ubicacion
     -ladron: Ladron
-    -edificios: Array<Edificio>
     -ciudadSiguiente: Ciudad
     -pasoLadron: boolean
     -rangoPersonaje: Rango

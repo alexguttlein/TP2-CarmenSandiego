@@ -98,4 +98,21 @@ public class Jugador {
             this.dormir();
         }
     }
+    public String serAtacado(){
+        int valorRandom = (int) (Math.random()*10);
+        String respuesta;
+        if (valorRandom < 5){
+            sanar();
+            respuesta = "No te han atacado.";
+        }
+        else if(valorRandom >= 5 && valorRandom < 8){
+            serHeridoPorCuchillo();
+            respuesta = "Has sido atacado con un cuchillo y demorarás en sanar.";
+        }
+        else{
+            serHeridoPorArmaDeFuego();
+            respuesta = "Has sido atacado con un arma de fuego y has demorado 4 horas en sanar.";
+        }
+        return respuesta;
+    }
 }
