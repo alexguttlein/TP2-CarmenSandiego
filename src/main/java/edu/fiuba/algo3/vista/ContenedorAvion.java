@@ -34,7 +34,7 @@ public class ContenedorAvion extends AnchorPane {
 
         VBox contenedorCiudades = new VBox();
         contenedorCiudades.setStyle("-fx-pref-width: 800; -fx-pref-height: 600; -fx-background-color: #34495E; -fx-background-radius: 15");
-        if (jugador.getCiudadActual().getCiudadesDisponiblesParaViajar().size() == 3){
+        if (ciudadesDisponibles.size() == 3){
             Button boton1 = new Button();
             boton1.setStyle("-fx-pref-width: 300; -fx-pref-height: 70;-fx-background-color: #E74C3C; -fx-background-radius: 15");
             BotonViajeACiudad botonCiudad1 = new BotonViajeACiudad(boton1, stage, ciudadesDisponibles.get(0), jugador, partida);
@@ -61,7 +61,8 @@ public class ContenedorAvion extends AnchorPane {
         else {
             Button boton1 = new Button();
             boton1.setStyle("-fx-pref-width: 300; -fx-pref-height: 70;-fx-background-color: #E74C3C; -fx-background-radius: 15");
-            BotonViajeACiudad botonCiudad1 = new BotonViajeACiudad(boton1, stage, ciudadesDisponibles.get(0), jugador, partida);
+            Ciudad nuevaCiudad = jugador.getCiudadActual().getCiudadesSecundarias().get(0);
+            BotonViajeACiudad botonCiudad1 = new BotonViajeACiudad(boton1, stage, nuevaCiudad, jugador, partida);
             boton1.setOnAction(botonCiudad1);
             boton1.setFont(font);
 

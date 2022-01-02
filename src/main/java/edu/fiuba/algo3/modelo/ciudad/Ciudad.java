@@ -110,7 +110,7 @@ public class Ciudad {
 
     public ArrayList<Ciudad> getCiudadesDisponiblesParaViajar(){       //Arma un arreglo con la ciudadSiguiente y las secundarias
         ArrayList<Ciudad> ciudadesDisponibles = new ArrayList<>();     //y las mezcla para luego elegir a cual viajar.
-        for(Ciudad actual : this.ciudadesSecundarias){
+        for (Ciudad actual : this.ciudadesSecundarias) {
             ciudadesDisponibles.add(actual);
         }
         ciudadesDisponibles.add(ciudadSiguiente);
