@@ -34,7 +34,7 @@ public class ControladorComputadora {
 
     private void onClickAceptar(ActionEvent event) {
         partida.getInterpol().emitirOrdenDeArresto();
-        if (partida.getInterpol().atraparSospechoso() == true){
+        if (partida.getInterpol().atraparSospechoso() == true && jugador.getCiudadActual().getCiudadSiguiente() == null && jugador.getCiudadActual().getPasoLadron()){
             ContenedorVictoria contenedorVictoria = new ContenedorVictoria(stage, partida);
             Scene nuevaEscena = new Scene(contenedorVictoria, 1280, 720);
             stage.setScene(nuevaEscena);
