@@ -132,7 +132,7 @@ public class ContenedorPrincipal extends AnchorPane {
         paneInfIqz.setLayoutX(25);
         paneInfIqz.setLayoutY(112);
 
-        Label labelTextoJuego = new Label("Texto Juego");
+        Label labelTextoJuego = new Label("");
         TextField textField = new TextField();
         Font font = Font.font("Copperplate Gothic Bold", 30);
 

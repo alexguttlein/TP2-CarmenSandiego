@@ -43,7 +43,7 @@ public class ContenedorVictoria extends AnchorPane {
         label1.setLayoutY(220);
         label1.setFont(font);
 
-        Label label2 = new Label("Nombre Jugador");
+        Label label2 = new Label(jugador.getNombre().getCaracteristica());
         label2.setStyle("-fx-pref-height: 55; -fx-pref-width: 451; -fx-text-alignment: CENTER; -fx-alignment: CENTER");
         label2.setLayoutX(110);
         label2.setLayoutY(336);
@@ -59,6 +59,6 @@ public class ContenedorVictoria extends AnchorPane {
         AnchorPane.setTopAnchor(label1,220.0);
         AnchorPane.setLeftAnchor(label1, 97.0);
         AnchorPane.setBottomAnchor(label3,220.0);
-        this.getChildren().addAll(imagenPrision, imagenLadron, label1, label2, label3);
+        this.getChildren().addAll(imagenLadron, imagenPrision, label1, label2, label3);
     }
 }

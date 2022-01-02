@@ -13,7 +13,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         ContenedorBienvenida contenedorBienvenida = new ContenedorBienvenida(stage);
-        //ContenedorPrincipal contenedorBienvenida = new ContenedorPrincipal(stage);
         Scene escenaBienvenida = new Scene(contenedorBienvenida, 1280, 720);
 
         stage.setTitle("Juego Carmen Sandiego");
