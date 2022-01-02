@@ -24,8 +24,8 @@ public class ControladorComienzo {
 
     private void onClick(ActionEvent event){
         this.nombreJugador = textField.getText();
-        String texto = "Texto del comienzo de Juego";
         Partida partida = crearModeloJuego();
+        String texto = "Buenos días agente " + nombreJugador + ". Nos hemos comunicado con usted para que nos ayude a resolver el siguiente caso: Se ha robado " + partida.getObjetoRobado().getNombre().getCaracteristica() + " de la ciudad " + partida.getObjetoRobado().getCiudadOrigen().getNombre().getCaracteristica() + ". Por favor, ayúdenos a atrapar al ladrón y recuperarlo. Contamos con usted.";
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, partida);
         ControladorPrincipal controladorPrincipal = contenedorPrincipal.getControladorPrincipal();
