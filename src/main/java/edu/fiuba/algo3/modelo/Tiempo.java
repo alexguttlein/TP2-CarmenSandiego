@@ -31,7 +31,7 @@ public class Tiempo {
 
     public void addHoras(int horas){
         calendario.add(calendario.HOUR_OF_DAY, horas);
-        seAlcanzoElLimiteDeTiempo(horas);
+        cantidadHorasDisponibles -= horas;
     }
 
     public boolean compararTiempos(Tiempo tiempo){
@@ -49,8 +49,7 @@ public class Tiempo {
         return (dias + " dias, " + horasRestantes + " horas");
     }
 
-    public boolean seAlcanzoElLimiteDeTiempo(int horas){
-        this.cantidadHorasDisponibles -= horas;
+    public boolean seAlcanzoElLimiteDeTiempo(){
         if (this.cantidadHorasDisponibles <= 0)
             return true;
         return false;

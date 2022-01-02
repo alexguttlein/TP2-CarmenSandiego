@@ -61,7 +61,7 @@ public class ContenedorAvion extends AnchorPane {
         else {
             Button boton1 = new Button();
             boton1.setStyle("-fx-pref-width: 300; -fx-pref-height: 70;-fx-background-color: #E74C3C; -fx-background-radius: 15");
-            Ciudad nuevaCiudad = jugador.getCiudadActual().getCiudadesSecundarias().get(0);
+            Ciudad nuevaCiudad = jugador.getCiudadActual().getCiudadesDisponiblesParaViajar().get(0);
             BotonViajeACiudad botonCiudad1 = new BotonViajeACiudad(boton1, stage, nuevaCiudad, jugador, partida);
             boton1.setOnAction(botonCiudad1);
             boton1.setFont(font);

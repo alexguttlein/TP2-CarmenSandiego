@@ -52,11 +52,13 @@ public class TiempoTest {
     @Test
     public void seCompruebaSiSealcanzoElLimiteDeTiempo(){
         Tiempo tiempo = new Tiempo();
+        Tiempo tiempo2 = new Tiempo();
 
-        assertFalse(tiempo.seAlcanzoElLimiteDeTiempo(153));
-        assertTrue(tiempo.seAlcanzoElLimiteDeTiempo(154));
-        assertTrue(tiempo.seAlcanzoElLimiteDeTiempo(155));
-        assertTrue(tiempo.seAlcanzoElLimiteDeTiempo(200));
+        tiempo.addHoras(153);
+        tiempo2.addHoras(154);
+
+        assertFalse(tiempo.seAlcanzoElLimiteDeTiempo());
+        assertTrue(tiempo2.seAlcanzoElLimiteDeTiempo());
     }
 
 

@@ -113,7 +113,9 @@ public class Ciudad {
         for (Ciudad actual : this.ciudadesSecundarias) {
             ciudadesDisponibles.add(actual);
         }
-        ciudadesDisponibles.add(ciudadSiguiente);
+        if(ciudadSiguiente != null) {
+            ciudadesDisponibles.add(ciudadSiguiente);
+        }
         Collections.shuffle(ciudadesDisponibles);
         return ciudadesDisponibles;
     }
