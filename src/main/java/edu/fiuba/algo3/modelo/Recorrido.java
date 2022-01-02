@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Ciudades;
+
+import java.util.ArrayList;
 
 public class Recorrido {
     private ArrayList<Ciudad> recorridoReal;

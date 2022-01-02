@@ -51,6 +51,12 @@ public class ControladorComienzo {
         System.out.println("Cabello: " + ladron.getCabello().getCaracteristica());
         System.out.println("Vehiculo: " + ladron.getVehiculo().getCaracteristica());
 
+        Recorrido recorrido = partida.getRecorrido();
+        System.out.println("\nRecorrido Real:");
+        for (int i = 0; i < recorrido.getRecorridoReal().size(); i++){
+            System.out.println(recorrido.getRecorridoReal().get(i).getNombre().getCaracteristica());
+        }
+
         return partida;
     }
 }
