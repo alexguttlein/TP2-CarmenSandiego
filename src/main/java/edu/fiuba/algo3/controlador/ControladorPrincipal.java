@@ -66,7 +66,7 @@ public class ControladorPrincipal {
     private void actualizarTiempoRestanta(){
         Tiempo reloj = partida.getTiempo();
         Label labelHorario = (Label)(paneInfDer.getChildren().get(1));
-        ControladorReloj controladorReloj = new ControladorReloj(reloj, labelHorario);
+        ControladorReloj controladorReloj = new ControladorReloj(stage, reloj, labelHorario);
     }
 
     public void setPaneSupDer(AnchorPane pane){

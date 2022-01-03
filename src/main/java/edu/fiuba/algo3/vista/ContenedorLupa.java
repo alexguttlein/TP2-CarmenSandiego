@@ -57,7 +57,7 @@ public class ContenedorLupa extends AnchorPane {
         VBox.setMargin(boton2, new Insets(15,0,15,0));
         VBox.setMargin(boton3, new Insets(15,0,30,0));
         contenedorEdificios.getChildren().addAll(boton1, boton2, boton3);
-        AnchorPane.setTopAnchor(contenedorEdificios, 100.0);
+        AnchorPane.setTopAnchor(contenedorEdificios, 150.0);
         AnchorPane.setBottomAnchor(contenedorEdificios, 100.0);
         AnchorPane.setRightAnchor(contenedorEdificios, 250.0);
         AnchorPane.setLeftAnchor(contenedorEdificios, 250.0);

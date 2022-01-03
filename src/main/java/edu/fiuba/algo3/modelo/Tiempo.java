@@ -28,6 +28,7 @@ public class Tiempo {
         return calendario.get(calendario.MONTH);
     }
     public int getAnioActual(){return calendario.get(calendario.YEAR);}
+    public int getCantidadHorasDisponibles(){return cantidadHorasDisponibles;}
 
     public void addHoras(int horas){
         calendario.add(calendario.HOUR_OF_DAY, horas);

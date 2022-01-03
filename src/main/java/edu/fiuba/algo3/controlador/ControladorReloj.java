@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Tiempo;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ControladorReloj extends VBox {
 
@@ -12,7 +13,7 @@ public class ControladorReloj extends VBox {
         labelHorario.setText(reloj.obtenerDiaDeLaSemana() + ", " + Integer.toString(reloj.getHoraActual()) + "hs");
     }
 
-    public ControladorReloj(Tiempo reloj, Label labelHorario) {
+    public ControladorReloj(Stage stage, Tiempo reloj, Label labelHorario) {
         labelHorario.setText(reloj.getTiempoRestante());
     }
 
