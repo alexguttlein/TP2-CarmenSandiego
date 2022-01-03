@@ -2,8 +2,11 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.Tiempo;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ControladorReloj extends VBox {
 

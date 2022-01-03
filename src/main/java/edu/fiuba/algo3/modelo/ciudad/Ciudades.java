@@ -62,22 +62,22 @@ public class Ciudades {
         if(nombreEdificio.equals("Aeropuerto")){
             edificio = new EdificioAeropuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaAeropuerto(pistaInicial, null);
+            pista = new PistaAeropuerto(pistaInicial);
         }
         else if(nombreEdificio.equals("Puerto")){
             edificio = new EdificioPuerto(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaPuerto(pistaInicial, null);
+            pista = new PistaPuerto(pistaInicial);
         }
         else if(nombreEdificio.equals("Biblioteca")){
             edificio = new EdificioBiblioteca(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaBiblioteca(pistaInicial, null);
+            pista = new PistaBiblioteca(pistaInicial);
         }
         else {  //if(nombreEdificio.equals("Banco"))
             edificio = new EdificioBanco(new Caracteristica(nombreEdificio));
             pistaInicial = generarPistaInicial();
-            pista = new PistaBanco(pistaInicial, null);
+            pista = new PistaBanco(pistaInicial);
         }
         edificio.setPista(pista);
         return edificio;

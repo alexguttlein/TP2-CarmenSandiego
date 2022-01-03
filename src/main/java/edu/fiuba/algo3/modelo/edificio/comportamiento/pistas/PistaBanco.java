@@ -13,6 +13,11 @@ public class PistaBanco implements Pista {
         setDescripcion(descripcion);
     }
 
+    public PistaBanco(Caracteristica dialogo){
+        this.dialogo = dialogo;
+        this.descripcion = new Caracteristica(" ");
+    }
+
     @Override
     public void setDialogo(Caracteristica dialogo){
         this.dialogo = dialogo;
@@ -43,7 +48,7 @@ public class PistaBanco implements Pista {
 
     @Override
     public String getPista(){
-        return (dialogo.getCaracteristica());
-    }  //+ descripcion.getCaracteristica()
+        return (dialogo.getCaracteristica() + descripcion.getCaracteristica());
+    }  //
 
 }

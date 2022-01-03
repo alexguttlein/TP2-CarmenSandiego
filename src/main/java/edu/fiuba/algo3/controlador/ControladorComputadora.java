@@ -7,6 +7,8 @@ import edu.fiuba.algo3.vista.ContenedorVictoria;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class ControladorComputadora {

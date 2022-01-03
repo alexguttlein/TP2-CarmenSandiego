@@ -5,12 +5,17 @@ import edu.fiuba.algo3.modelo.Caracteristica;
 
 public class PistaAeropuerto implements Pista {
 
-    private Caracteristica dialogo = new Caracteristica("...");
-    private Caracteristica descripcion = new Caracteristica("...");
+    private Caracteristica dialogo;
+    private Caracteristica descripcion;
 
     public PistaAeropuerto(Caracteristica dialogo, Caracteristica descripcion) {
         setDialogo(dialogo);
         setDescripcion(descripcion);
+    }
+
+    public PistaAeropuerto(Caracteristica dialogo){
+        this.dialogo = dialogo;
+        this.descripcion = new Caracteristica(" ");
     }
 
     @Override
@@ -43,6 +48,6 @@ public class PistaAeropuerto implements Pista {
 
     @Override
     public String getPista(){
-        return (dialogo.getCaracteristica());    //+ descripcion.getCaracteristica()
+        return (dialogo.getCaracteristica() + descripcion.getCaracteristica());    //
     }
 }
